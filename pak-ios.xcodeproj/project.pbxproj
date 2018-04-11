@@ -12,6 +12,7 @@
 		701D287D207EAD01007AD7AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701D287B207EAD01007AD7AC /* Main.storyboard */; };
 		701D287F207EAD06007AD7AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701D287E207EAD06007AD7AC /* Assets.xcassets */; };
 		701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701D2880207EAD06007AD7AC /* LaunchScreen.storyboard */; };
+		D1E5D6AEBC3FD1CB1719C7BD /* Pods_pak_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88304DAD4411D9662A2FB6BA /* Pods_pak_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,10 @@
 		701D287E207EAD06007AD7AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		701D2881207EAD06007AD7AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		701D2883207EAD06007AD7AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		701D2889207EAD1F007AD7AC /* pak-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pak-ios.entitlements"; sourceTree = "<group>"; };
+		88304DAD4411D9662A2FB6BA /* Pods_pak_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pak_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD2BD39AD4E1893A86FD9E3 /* Pods-pak-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pak-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		E2970712E726CC2B47C49753 /* Pods-pak-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pak-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +34,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E5D6AEBC3FD1CB1719C7BD /* Pods_pak_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69F60DEB280FAAD142EFE835 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ACD2BD39AD4E1893A86FD9E3 /* Pods-pak-ios.debug.xcconfig */,
+				E2970712E726CC2B47C49753 /* Pods-pak-ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		701D286B207EAD01007AD7AC = {
 			isa = PBXGroup;
 			children = (
 				701D2876207EAD01007AD7AC /* pak-ios */,
 				701D2875207EAD01007AD7AC /* Products */,
+				69F60DEB280FAAD142EFE835 /* Pods */,
+				F7B00583B7C9CFB537D8D142 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +71,79 @@
 		701D2876207EAD01007AD7AC /* pak-ios */ = {
 			isa = PBXGroup;
 			children = (
+				701D2889207EAD1F007AD7AC /* pak-ios.entitlements */,
+				701D2883207EAD06007AD7AC /* Info.plist */,
 				701D2877207EAD01007AD7AC /* AppDelegate.swift */,
 				701D2879207EAD01007AD7AC /* ViewController.swift */,
-				701D287B207EAD01007AD7AC /* Main.storyboard */,
 				701D287E207EAD06007AD7AC /* Assets.xcassets */,
+				701D288A207EB3F1007AD7AC /* adapters */,
+				701D288F207EB478007AD7AC /* constants */,
+				701D288E207EB463007AD7AC /* delegates */,
+				701D2890207EB482007AD7AC /* helpers */,
 				701D2880207EAD06007AD7AC /* LaunchScreen.storyboard */,
-				701D2883207EAD06007AD7AC /* Info.plist */,
+				701D288B207EB409007AD7AC /* models */,
+				701D2891207EB48D007AD7AC /* storyboards */,
+				701D2892207EB51C007AD7AC /* Views */,
 			);
 			path = "pak-ios";
+			sourceTree = "<group>";
+		};
+		701D288A207EB3F1007AD7AC /* adapters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = adapters;
+			sourceTree = "<group>";
+		};
+		701D288B207EB409007AD7AC /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		701D288E207EB463007AD7AC /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = delegates;
+			sourceTree = "<group>";
+		};
+		701D288F207EB478007AD7AC /* constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = constants;
+			sourceTree = "<group>";
+		};
+		701D2890207EB482007AD7AC /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		701D2891207EB48D007AD7AC /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				701D287B207EAD01007AD7AC /* Main.storyboard */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
+		701D2892207EB51C007AD7AC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F7B00583B7C9CFB537D8D142 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88304DAD4411D9662A2FB6BA /* Pods_pak_ios.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 701D2886207EAD06007AD7AC /* Build configuration list for PBXNativeTarget "pak-ios" */;
 			buildPhases = (
+				BB8D71DDECA82A1CC5CD377E /* [CP] Check Pods Manifest.lock */,
 				701D2870207EAD01007AD7AC /* Sources */,
 				701D2871207EAD01007AD7AC /* Frameworks */,
 				701D2872207EAD01007AD7AC /* Resources */,
+				04C37DE3DF543EC4FB07A320 /* [CP] Embed Pods Frameworks */,
+				A81E62809665060682C3A54F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +181,14 @@
 				TargetAttributes = {
 					701D2873207EAD01007AD7AC = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -129,6 +222,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04C37DE3DF543EC4FB07A320 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A81E62809665060682C3A54F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB8D71DDECA82A1CC5CD377E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pak-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		701D2870207EAD01007AD7AC /* Sources */ = {
@@ -278,8 +462,10 @@
 		};
 		701D2887207EAD06007AD7AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACD2BD39AD4E1893A86FD9E3 /* Pods-pak-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
@@ -296,8 +482,10 @@
 		};
 		701D2888207EAD06007AD7AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2970712E726CC2B47C49753 /* Pods-pak-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
