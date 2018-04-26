@@ -14,6 +14,21 @@
 		701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701D2880207EAD06007AD7AC /* LaunchScreen.storyboard */; };
 		701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2896207EC5D6007AD7AC /* UIViewExtension.swift */; };
 		701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */; };
+		70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE2D208F7BA1008C972C /* LoginController.swift */; };
+		70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE31208F7C08008C972C /* SignUpController.swift */; };
+		70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE33208F7C1B008C972C /* SplashController.swift */; };
+		70A3BE36208F7F97008C972C /* UserMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE35208F7F97008C972C /* UserMethods.swift */; };
+		70A3BE39208F8003008C972C /* UserDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE38208F8003008C972C /* UserDC.swift */; };
+		70D525A020915709004EB51E /* AlarmMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5259F20915709004EB51E /* AlarmMethods.swift */; };
+		70D525A32091590C004EB51E /* PakAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A22091590C004EB51E /* PakAlert.swift */; };
+		70D525A520915B91004EB51E /* UtilMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A420915B91004EB51E /* UtilMethods.swift */; };
+		70D525A820915C58004EB51E /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A720915C58004EB51E /* Urls.swift */; };
+		70D525AA20915C6A004EB51E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A920915C6A004EB51E /* Constants.swift */; };
+		70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525AB209163E9004EB51E /* AlomoMethods.swift */; };
+		70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF102A208FE8E200EDB1FA /* DistrictDC.swift */; };
+		70F54C9720901210003175AA /* BoxDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C9620901210003175AA /* BoxDC.swift */; };
+		70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C982090174F003175AA /* ItemSmallBox.swift */; };
+		70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C9A2090176B003175AA /* DiscountDC.swift */; };
 		D1E5D6AEBC3FD1CB1719C7BD /* Pods_pak_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88304DAD4411D9662A2FB6BA /* Pods_pak_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +43,21 @@
 		701D2889207EAD1F007AD7AC /* pak-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pak-ios.entitlements"; sourceTree = "<group>"; };
 		701D2896207EC5D6007AD7AC /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		70A3BE2D208F7BA1008C972C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		70A3BE31208F7C08008C972C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		70A3BE33208F7C1B008C972C /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
+		70A3BE35208F7F97008C972C /* UserMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMethods.swift; sourceTree = "<group>"; };
+		70A3BE38208F8003008C972C /* UserDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDC.swift; sourceTree = "<group>"; };
+		70D5259F20915709004EB51E /* AlarmMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMethods.swift; sourceTree = "<group>"; };
+		70D525A22091590C004EB51E /* PakAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlert.swift; sourceTree = "<group>"; };
+		70D525A420915B91004EB51E /* UtilMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilMethods.swift; sourceTree = "<group>"; };
+		70D525A720915C58004EB51E /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		70D525A920915C6A004EB51E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		70D525AB209163E9004EB51E /* AlomoMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlomoMethods.swift; sourceTree = "<group>"; };
+		70DF102A208FE8E200EDB1FA /* DistrictDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictDC.swift; sourceTree = "<group>"; };
+		70F54C9620901210003175AA /* BoxDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDC.swift; sourceTree = "<group>"; };
+		70F54C982090174F003175AA /* ItemSmallBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSmallBox.swift; sourceTree = "<group>"; };
+		70F54C9A2090176B003175AA /* DiscountDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountDC.swift; sourceTree = "<group>"; };
 		88304DAD4411D9662A2FB6BA /* Pods_pak_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pak_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD2BD39AD4E1893A86FD9E3 /* Pods-pak-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pak-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		E2970712E726CC2B47C49753 /* Pods-pak-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pak-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,7 +116,7 @@
 				701D2890207EB482007AD7AC /* helpers */,
 				701D288B207EB409007AD7AC /* models */,
 				701D2891207EB48D007AD7AC /* storyboards */,
-				701D2892207EB51C007AD7AC /* Views */,
+				701D2892207EB51C007AD7AC /* views */,
 			);
 			path = "pak-ios";
 			sourceTree = "<group>";
@@ -101,6 +131,7 @@
 		701D288B207EB409007AD7AC /* models */ = {
 			isa = PBXGroup;
 			children = (
+				70A3BE37208F7FE9008C972C /* entities */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -115,6 +146,8 @@
 		701D288F207EB478007AD7AC /* constants */ = {
 			isa = PBXGroup;
 			children = (
+				70D525A720915C58004EB51E /* Urls.swift */,
+				70D525A920915C6A004EB51E /* Constants.swift */,
 			);
 			path = constants;
 			sourceTree = "<group>";
@@ -137,11 +170,13 @@
 			path = storyboards;
 			sourceTree = "<group>";
 		};
-		701D2892207EB51C007AD7AC /* Views */ = {
+		701D2892207EB51C007AD7AC /* views */ = {
 			isa = PBXGroup;
 			children = (
+				70D525A1209158E4004EB51E /* alert */,
+				70D5259E20913FA1004EB51E /* authentication */,
 			);
-			path = Views;
+			path = views;
 			sourceTree = "<group>";
 		};
 		701D2893207EC583007AD7AC /* extensions */ = {
@@ -156,8 +191,42 @@
 		701D289A207EC7C6007AD7AC /* methods */ = {
 			isa = PBXGroup;
 			children = (
+				70A3BE35208F7F97008C972C /* UserMethods.swift */,
+				70D5259F20915709004EB51E /* AlarmMethods.swift */,
+				70D525A420915B91004EB51E /* UtilMethods.swift */,
+				70D525AB209163E9004EB51E /* AlomoMethods.swift */,
 			);
 			path = methods;
+			sourceTree = "<group>";
+		};
+		70A3BE37208F7FE9008C972C /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				70A3BE38208F8003008C972C /* UserDC.swift */,
+				70DF102A208FE8E200EDB1FA /* DistrictDC.swift */,
+				70F54C9620901210003175AA /* BoxDC.swift */,
+				70F54C982090174F003175AA /* ItemSmallBox.swift */,
+				70F54C9A2090176B003175AA /* DiscountDC.swift */,
+			);
+			path = entities;
+			sourceTree = "<group>";
+		};
+		70D5259E20913FA1004EB51E /* authentication */ = {
+			isa = PBXGroup;
+			children = (
+				70A3BE2D208F7BA1008C972C /* LoginController.swift */,
+				70A3BE31208F7C08008C972C /* SignUpController.swift */,
+				70A3BE33208F7C1B008C972C /* SplashController.swift */,
+			);
+			path = authentication;
+			sourceTree = "<group>";
+		};
+		70D525A1209158E4004EB51E /* alert */ = {
+			isa = PBXGroup;
+			children = (
+				70D525A22091590C004EB51E /* PakAlert.swift */,
+			);
+			path = alert;
 			sourceTree = "<group>";
 		};
 		F7B00583B7C9CFB537D8D142 /* Frameworks */ = {
@@ -341,10 +410,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */,
+				70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */,
+				70D525AA20915C6A004EB51E /* Constants.swift in Sources */,
+				70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */,
 				701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */,
+				70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */,
+				70A3BE39208F8003008C972C /* UserDC.swift in Sources */,
+				70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */,
 				701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */,
 				701D287A207EAD01007AD7AC /* ViewController.swift in Sources */,
+				70F54C9720901210003175AA /* BoxDC.swift in Sources */,
+				70D525A820915C58004EB51E /* Urls.swift in Sources */,
 				701D2878207EAD01007AD7AC /* AppDelegate.swift in Sources */,
+				70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */,
+				70D525A020915709004EB51E /* AlarmMethods.swift in Sources */,
+				70D525A520915B91004EB51E /* UtilMethods.swift in Sources */,
+				70D525A32091590C004EB51E /* PakAlert.swift in Sources */,
+				70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */,
+				70A3BE36208F7F97008C972C /* UserMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
