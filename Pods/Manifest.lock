@@ -71,6 +71,7 @@ PODS:
   - NVActivityIndicatorView/Presenter (4.2.0)
   - Pageboy (2.5.0)
   - Protobuf (3.5.0)
+  - RLBAlertsPickers (1.0)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
@@ -92,6 +93,7 @@ DEPENDENCIES:
   - ImageSlideshow
   - ImageSlideshow/Kingfisher
   - NVActivityIndicatorView
+  - RLBAlertsPickers (from `https://github.com/loicgriffie/Alerts-Pickers.git`, branch `master`)
   - SDWebImage
   - SwiftyJSON
   - Tabman
@@ -125,6 +127,16 @@ SPEC REPOS:
     - SwiftyJSON
     - Tabman
 
+EXTERNAL SOURCES:
+  RLBAlertsPickers:
+    :branch: master
+    :git: https://github.com/loicgriffie/Alerts-Pickers.git
+
+CHECKOUT OPTIONS:
+  RLBAlertsPickers:
+    :commit: 9f660cc3ed563caa60560a9e01341215d229ca04
+    :git: https://github.com/loicgriffie/Alerts-Pickers.git
+
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   AutoInsetter: 1a8f8ad5e7da8e993970b3809cfb8e8e330f4db1
@@ -149,10 +161,11 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 75c9634073e03b31d7e2748cd2417feab1206195
   Pageboy: 00985df8245ab2d4b4ef6959a0722d64b09aafee
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  RLBAlertsPickers: 3489f6d8b7ba4e04aa1f53b3a7d47edda040840f
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Tabman: d4d30ea7e6dfdc6aa15518287e3e283290345940
 
-PODFILE CHECKSUM: 750575faacd906ed69a42ad43438e1e2f0e81c99
+PODFILE CHECKSUM: bfc825e7995c32eea0370a73e2dd96af2e79118c
 
 COCOAPODS: 1.5.0

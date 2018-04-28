@@ -22,10 +22,10 @@ extension UIViewController {
     
     func customizeNavigationBar() {
         self.navigationController?.navigationBar.topItem?.title = " "
-        self.navigationItem.titleView = UIImageView(image: UIImage(named: "dwb_kinephy_logo"))
+        //self.navigationItem.titleView = UIImageView(image: UIImage(named: "dwb_kinephy_logo"))
         var btnsMenu : [UIBarButtonItem] = []
-        let btnMenu = UIBarButtonItem(image: UIImage(named: "ic_adidas_small_black"), style: .plain, target: self, action: nil)
+        let btnMenu = UIBarButtonItem(image: UIImage(named: "dwb_pak_menu_button"), style: .plain, target: self, action: nil)
         btnsMenu.append(btnMenu)
-        self.navigationItem.rightBarButtonItems = btnsMenu
+        self.navigationItem.leftBarButtonItems = btnsMenu
     }
 }

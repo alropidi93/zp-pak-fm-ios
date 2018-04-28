@@ -30,5 +30,9 @@ class Constants {
     static let LIGHT_BRILLIANT_RED_ORANGE : String = "FF8749"
     static let LIGHT_ORANGE_RED : String = "FF762F"
     static let DEEP_ORANGE_RED : String = "F15D34"
+    
+    //#MARK : Genre
+    static let MALE : String = "M/Masculino"
+    static let FEMALE : String = "F/Femenino"
 }
 

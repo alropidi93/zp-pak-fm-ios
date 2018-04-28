@@ -11,18 +11,23 @@ import SwiftyJSON
 import UIKit
 import Alamofire
 import NVActivityIndicatorView
+import FacebookCore
+import FacebookLogin
 
 class LoginController : UIViewController, NVActivityIndicatorViewable{
     let segue_identifier = "segue_login_main"
-    let singnup_identifier = "segue_login_signup"
+    let signup_identifier = "segue_login_signup"
     
     @IBOutlet weak var tf_email: UITextField!
     @IBOutlet weak var tf_password: UITextField!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.customizeNavigationBar()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         fullKeyboardSupport()
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,15 +36,16 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
     
     @IBAction func login(_ sender: Any) {
         if (self.tf_password.text?.isEmpty)! {
-            print("hello")
-  //          AlarmMethods.errorWarning(message: "La contraseña no puede estar vacía", uiViewController: self)
+          print ("hello 1")
+            AlamoMethods.customError(message: "La contraseña no puede estar vacía", uiViewController: self)
+            print ("hello 2")
             return
         }
         
         if (self.tf_email.text?.isEmpty)! {
-//            AlarmMethods.errorWarning(message: "El email no puede estar vacío", uiViewController: self)
-            print("hello")
-
+            print ("hello 3")
+            AlamoMethods.customError(message: "El email no puede estar vacío", uiViewController: self)
+            print ("hello 4")
             return
         }
         let params: Parameters = [ "email": self.tf_email.text!, "password": self.tf_password.text! , "GUID": ""]
@@ -75,7 +81,59 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
     }
 
     
+    @IBAction func loginWithFacebook(_ sender: Any) {
+        let loginManager = LoginManager()
+        print("hello")
+
+        loginManager.logIn(readPermissions: [ .publicProfile, .email ], viewController: self) { loginResult in
+            switch loginResult {
+            case .failed(let error):
+                AlarmMethods.errorWarning(message: "No se puede acceder: \(error.localizedDescription)", uiViewController: self)
+            case .cancelled:
+                AlarmMethods.errorWarning(message: "Tal vez aun no has instalado facebook para el celular?", uiViewController: self)
+            case .success( _, _, let accessToken):
+                self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+                let request = GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], accessToken: accessToken, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
+                request.start { (response, result) in
+                    switch result {
+                    case .success(let value):
+                        let params: Parameters = [
+                            "id": "",
+                            "name": value.dictionaryValue!["name"] ?? "",
+                            "lastname": "",
+                            "dni": "",
+                            "phone": "",
+                            "email": value.dictionaryValue!["email"] ?? "",
+                            "imageurl": "https://graph.facebook.com/\(value.dictionaryValue!["id"] ?? -1)/picture?type=large"
+                        ]
+                        print("Params: \(params)")
+                        self.stopAnimating()
+                        
+                        //TODO erase after API connection
+                        let jsonObj = JSON(params)
+                        let userDC = UserDC(jsonObj)
+                        UserMethods.saveUserToOptions(userDC)
+                        
+                        self.stopAnimating()
+                        
+//                        self.validateExistingUser(userDC)
+                    case .failed(let error):
+                        self.stopAnimating()
+                        AlarmMethods.errorWarning(message: "No se pudo obtener la información: \(error.localizedDescription)", uiViewController: self)
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    @IBAction func loginWithGoogle(_ sender: Any) {
+    }
+    
+    
+    
     
     @IBAction func signUp(_ sender: Any) {
+        self.performSegue(withIdentifier: self.signup_identifier, sender: self)
     }
 }

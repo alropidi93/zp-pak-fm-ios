@@ -28,7 +28,7 @@ class SplashController: UIViewController {
             }
         }
     }
-    
+    //https://stackoverflow.com/questions/41797844/swift-ios-multiple-successive-multiple-animations-with-same-uiview
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

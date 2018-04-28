@@ -9,8 +9,8 @@
 import Foundation
 struct URLs {
     private struct Domains {
-        static let Dev = "http://pakservice.zp.com.pe"
-        static let Release = "http://pakservice.zp.com.pe"
+        static let Dev = "http://pakservice.zp.com.pe/"
+        static let Release = "http://pakservice.zp.com.pe/"
     }
     
     private  struct Routes {
@@ -28,5 +28,9 @@ struct URLs {
     
     static var login: String { //POST
         return BaseURL + "AuthService.svc/Login"
+    }
+    
+    static var ListDistrict: String { //GET
+        return BaseURL + "AuthService.svc/ListarDistritos"
     }
 }
