@@ -943,6 +943,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 </state>
                                                 <connections>
                                                     <action selector="login:" destination="Bhp-gm-e4g" eventType="touchUpInside" id="isR-Mo-oAf"/>
+                                                    <action selector="signUp:" destination="Eg3-Le-Ybv" eventType="touchUpInside" id="4qy-OT-bJa"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="YSh-m1-yEe">
@@ -988,7 +989,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                     <size key="freeformSize" width="375" height="750"/>
                     <connections>
                         <outlet property="tf_address" destination="IMb-Gp-Fhn" id="x7k-cq-EpX"/>
-                        <outlet property="tf_brithday" destination="STq-Sc-AMW" id="xXV-up-9gr"/>
+                        <outlet property="tf_birthday" destination="STq-Sc-AMW" id="Ikh-Ki-akf"/>
                         <outlet property="tf_district" destination="3Ee-2y-aSa" id="4Bs-Rp-2GD"/>
                         <outlet property="tf_email" destination="zxw-wf-n88" id="5YZ-65-dOb"/>
                         <outlet property="tf_genre" destination="Bzb-9D-JYf" id="akW-HG-ZPs"/>
@@ -1118,6 +1119,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="login:" destination="Bhp-gm-e4g" eventType="touchUpInside" id="a9e-pW-sn9"/>
+                                                                    <action selector="onDismiss:" destination="YP8-7j-wph" eventType="touchUpInside" id="gqJ-Hd-jd1"/>
                                                                 </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="Ett-yR-4iL">
@@ -1132,13 +1134,9 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cV1-KD-SGr">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="asdsafasdasfsafasasdsafasdasfsafasasdsafasdasfsafasasdsafasdasfsafasasdsafasdasfsafasasdsafasdasfsafas" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cV1-KD-SGr">
                                                                 <rect key="frame" x="30" y="76" width="260" height="114"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <string key="text" base64-UTF8="YES">
-T2N1cnJpbyB1biBlcnJvciBhbCByZWFsaXphciBsYSBvcGVyYWNpw7JuLCBTaSBlbCBwcm9ibGVtYSBw
-ZXJzaXN0ZSwgY29udMOgdGN0YXRlIGNvbiB2ZW50YXMRQHBhay5wZQ
-</string>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
@@ -1210,8 +1208,9 @@ ZXJzaXN0ZSwgY29udMOgdGN0YXRlIGNvbiB2ZW50YXMRQHBhay5wZQ
                         <viewLayoutGuide key="safeArea" id="iQ6-fT-DOW"/>
                     </view>
                     <connections>
-                        <outlet property="nslc_inner_height" destination="1j7-nW-dpF" id="J0U-kX-8OL"/>
-                        <outlet property="nslc_outer_height" destination="aof-6c-WG2" id="awy-Mw-73g"/>
+                        <outlet property="nslc_inner_height" destination="1j7-nW-dpF" id="bri-C8-tx8"/>
+                        <outlet property="nslc_outer_height" destination="aof-6c-WG2" id="Xnj-Z7-jhS"/>
+                        <outlet property="tv_message" destination="cV1-KD-SGr" id="hVr-Qh-i5E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Wk-6i-rVH" userLabel="First Responder" sceneMemberID="firstResponder"/>

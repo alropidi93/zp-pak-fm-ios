@@ -33,4 +33,18 @@ struct URLs {
     static var ListDistrict: String { //GET
         return BaseURL + "AuthService.svc/ListarDistritos"
     }
+    
+    static var SignUp: String { //Post
+        return BaseURL + "AuthService.svc/RegistrarUsuario"
+    }
+    
+    
+    
+    
+    
+    // CAJITA
+    static var GetGUID: String { //GET
+        return BaseURL + "OrderService.svc/ObtenerCajita"
+    }
+    
 }

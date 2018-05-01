@@ -26,7 +26,7 @@
 		70D525AA20915C6A004EB51E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A920915C6A004EB51E /* Constants.swift */; };
 		70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525AB209163E9004EB51E /* AlomoMethods.swift */; };
 		70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF102A208FE8E200EDB1FA /* DistrictDC.swift */; };
-		70F54C9720901210003175AA /* BoxDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C9620901210003175AA /* BoxDC.swift */; };
+		70F54C9720901210003175AA /* SmallBoxDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C9620901210003175AA /* SmallBoxDC.swift */; };
 		70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C982090174F003175AA /* ItemSmallBox.swift */; };
 		70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C9A2090176B003175AA /* DiscountDC.swift */; };
 		D1E5D6AEBC3FD1CB1719C7BD /* Pods_pak_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88304DAD4411D9662A2FB6BA /* Pods_pak_ios.framework */; };
@@ -55,7 +55,7 @@
 		70D525A920915C6A004EB51E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		70D525AB209163E9004EB51E /* AlomoMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlomoMethods.swift; sourceTree = "<group>"; };
 		70DF102A208FE8E200EDB1FA /* DistrictDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictDC.swift; sourceTree = "<group>"; };
-		70F54C9620901210003175AA /* BoxDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDC.swift; sourceTree = "<group>"; };
+		70F54C9620901210003175AA /* SmallBoxDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBoxDC.swift; sourceTree = "<group>"; };
 		70F54C982090174F003175AA /* ItemSmallBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSmallBox.swift; sourceTree = "<group>"; };
 		70F54C9A2090176B003175AA /* DiscountDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountDC.swift; sourceTree = "<group>"; };
 		88304DAD4411D9662A2FB6BA /* Pods_pak_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pak_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,7 +204,7 @@
 			children = (
 				70A3BE38208F8003008C972C /* UserDC.swift */,
 				70DF102A208FE8E200EDB1FA /* DistrictDC.swift */,
-				70F54C9620901210003175AA /* BoxDC.swift */,
+				70F54C9620901210003175AA /* SmallBoxDC.swift */,
 				70F54C982090174F003175AA /* ItemSmallBox.swift */,
 				70F54C9A2090176B003175AA /* DiscountDC.swift */,
 			);
@@ -422,7 +422,7 @@
 				70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */,
 				701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */,
 				701D287A207EAD01007AD7AC /* ViewController.swift in Sources */,
-				70F54C9720901210003175AA /* BoxDC.swift in Sources */,
+				70F54C9720901210003175AA /* SmallBoxDC.swift in Sources */,
 				70D525A820915C58004EB51E /* Urls.swift in Sources */,
 				701D2878207EAD01007AD7AC /* AppDelegate.swift in Sources */,
 				70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */,

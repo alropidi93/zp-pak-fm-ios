@@ -27,7 +27,7 @@ class UserDC :  NSObject ,NSCoding{
     private var _district: DistrictDC? = nil
     private var _codeInvitation: String = ""
     private var _accessToken: String = ""
-    private var _smallBox: BoxDC? = nil
+    private var _smallBox: SmallBoxDC? = nil
     
     private var _applicableInvitationCode: Bool = true
 
@@ -57,7 +57,7 @@ class UserDC :  NSObject ,NSCoding{
         self._accessToken = jsonUser["AccessToken"].string ?? self._userName
         
         if !(jsonUser["Cajita"].null != nil){
-            self._smallBox = BoxDC(jsonUser["Cajita"])
+            self._smallBox = SmallBoxDC(jsonUser["Cajita"])
         }
     }
     
@@ -76,7 +76,7 @@ class UserDC :  NSObject ,NSCoding{
         self._district = decoder.decodeObject(forKey: "Distrito") as? DistrictDC ?? self._district
         self._codeInvitation = decoder.decodeObject(forKey: "CodigoInvitaticion") as? String ?? self._codeInvitation
         self._accessToken = decoder.decodeObject(forKey: "AccessToken") as? String ?? self._accessToken
-        self._smallBox = decoder.decodeObject(forKey: "Cajita") as? BoxDC ?? self._smallBox
+        self._smallBox = decoder.decodeObject(forKey: "Cajita") as? SmallBoxDC ?? self._smallBox
         self._applicableInvitationCode = decoder.decodeBool(forKey: "CodigoInvitacionAplicable")
     }
     
@@ -152,7 +152,7 @@ class UserDC :  NSObject ,NSCoding{
         get {return _accessToken}
     }
     
-    var smallBox : BoxDC? {
+    var smallBox : SmallBoxDC? {
         set { _smallBox = newValue}
         get {return _smallBox}
     }

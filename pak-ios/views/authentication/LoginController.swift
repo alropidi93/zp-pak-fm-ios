@@ -36,23 +36,44 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
     
     @IBAction func login(_ sender: Any) {
         if (self.tf_password.text?.isEmpty)! {
-          print ("hello 1")
             AlamoMethods.customError(message: "La contraseña no puede estar vacía", uiViewController: self)
-            print ("hello 2")
             return
         }
-        
         if (self.tf_email.text?.isEmpty)! {
-            print ("hello 3")
             AlamoMethods.customError(message: "El email no puede estar vacío", uiViewController: self)
-            print ("hello 4")
             return
         }
-        let params: Parameters = [ "email": self.tf_email.text!, "password": self.tf_password.text! , "GUID": ""]
+        self.getGUID()
+    }
 
+    func getGUID() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        
-        
+        Alamofire.request(URLs.login, method: .post, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    let smallBox = SmallBoxDC(jsonResult)
+                    let params: Parameters = [ "email": self.tf_email.text!, "password": self.tf_password.text! , "GUID": smallBox.GUID]
+                    self.loginAccess(params)
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlamoMethods.customError(message: jsonResult["message"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+        }
+    }
+    
+    func loginAccess(_ params :Parameters){
         Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -61,6 +82,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
             }
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
+               
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     let userDC = UserDC(jsonResult["body"])
@@ -79,7 +101,27 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
             self.stopAnimating()
         }
     }
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @IBAction func loginWithFacebook(_ sender: Any) {
         let loginManager = LoginManager()

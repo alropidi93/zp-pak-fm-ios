@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class BoxDC{
+class SmallBoxDC{
     private var _GUID: String = ""
     private var _items: [ItemSmallBoxDC] = []
     private var _costDelivery: Double = 0.0
@@ -18,20 +18,26 @@ class BoxDC{
     init() {
     }
 
-    init(_ jsonBoxDC: JSON){
-        self._GUID = jsonBoxDC["GUID"].string ?? self._GUID
+    init(_ jsonSmallBoxDC: JSON){
+        self._GUID = jsonSmallBoxDC["GUID"].string ?? self._GUID
         
-        for (_, subJson) in jsonBoxDC["Items"]{
+        for (_, subJson) in jsonSmallBoxDC["Items"]{
             let _item = ItemSmallBoxDC(subJson);
             self._items.append(_item)
         }
         
-        self._costDelivery = jsonBoxDC["CostoDelivery"].double ?? self._costDelivery
+        self._costDelivery = jsonSmallBoxDC["CostoDelivery"].double ?? self._costDelivery
         
-        if !(jsonBoxDC["Descuento"].null != nil) {
-            self.discount = DiscountDC(jsonBoxDC["Descuento"])
+        if !(jsonSmallBoxDC["Descuento"].null != nil) {
+            self.discount = DiscountDC(jsonSmallBoxDC["Descuento"])
         }
     }
+    
+    var GUID : String {
+        set { _GUID = newValue }
+        get { return _GUID }
+    }
+    
     
     var items : [ItemSmallBoxDC] {
         set { _items = newValue }

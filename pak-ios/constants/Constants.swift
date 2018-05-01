@@ -32,7 +32,7 @@ class Constants {
     static let DEEP_ORANGE_RED : String = "F15D34"
     
     //#MARK : Genre
-    static let MALE : String = "M/Masculino"
-    static let FEMALE : String = "F/Femenino"
+    static let MALE : String = "Masculino"
+    static let FEMALE : String = "Femenino"
 }
 

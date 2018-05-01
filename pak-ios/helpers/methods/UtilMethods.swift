@@ -81,6 +81,65 @@ class UtilMethods {
         return formattedDate
     }
     
+    static func DateToString(_ date : String) -> String {
+        var month : String = ""
+        
+        switch (date) {
+            
+        case "Jan":
+            month = "01"
+            return month
+        case "Feb":
+            month = "02"
+            return month
+        case "Mar":
+            month = "03"
+            return month
+        case "Apr":
+            month = "04"
+            return month
+        case "May":
+            month = "05"
+            return month
+        case "Jun":
+            month = "06"
+            return month
+        case "Jul":
+            month = "07"
+            return month
+        case "Aug":
+            month = "08"
+            return month
+        case "Sep":
+            month = "09"
+            return month
+        case "Oct":
+            month = "10"
+            return month
+        case "Nov":
+            month = "11"
+            return month
+        case "Dec":
+            month = "12"
+            return month
+        default:
+            month = "00"
+            return month
+        }
+    }
+    
+    
+    static func dateToSlash(_ dateToFormat : String) -> String {
+        
+        let date : [String] = dateToFormat.components(separatedBy: "-")
+        let day : String = date[0]
+        let month : String = DateToString(date[1])
+        let year : String = date[2]
+        let date2: String = day + "/" + month + "/" + year
+        return date2
+    }
+    
+    
     static func formatDate(dateFromInt : Int) -> String {
         let years = dateFromInt / 10000
         
