@@ -20,12 +20,40 @@ extension UIViewController {
         view.endEditing(true)
     }
     
-    func customizeNavigationBar() {
+    func customizeNavigationBar( ) {
         self.navigationController?.navigationBar.topItem?.title = " "
-        //self.navigationItem.titleView = UIImageView(image: UIImage(named: "dwb_kinephy_logo"))
         var btnsMenu : [UIBarButtonItem] = []
         let btnMenu = UIBarButtonItem(image: UIImage(named: "dwb_pak_menu_button"), style: .plain, target: self, action: nil)
         btnsMenu.append(btnMenu)
         self.navigationItem.leftBarButtonItems = btnsMenu
+        
+        
+    }
+    
+    
+    func customizeNavigationBarWithSearch() {
+        self.navigationController?.navigationBar.topItem?.title = " "
+        var btnsMenu : [UIBarButtonItem] = []
+        let btnMenu = UIBarButtonItem(image: UIImage(named: "dwb_pak_menu_button"), style: .plain, target: self, action: nil)
+        btnsMenu.append(btnMenu)
+        self.navigationItem.leftBarButtonItems = btnsMenu
+        
+        
+        var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        self.navigationItem.titleView = searchBar
+
+        var btnsMenuRight : [UIBarButtonItem] = []
+        let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: nil)
+        btnsMenuRight.append(btnMenuRight)
+        self.navigationItem.rightBarButtonItems = btnsMenuRight
+
+
+    }
+    
+    
+    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+        return CGRect(x: x, y: y, width: width, height: height)
     }
 }

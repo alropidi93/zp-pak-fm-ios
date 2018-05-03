@@ -12,9 +12,9 @@ import UIKit
 import Alamofire
 import NVActivityIndicatorView
 import RLBAlertsPickers
+import SwiftHash
 
-
-class SignUpController : UIViewController, NVActivityIndicatorViewable{
+class SignUpController : UIViewController, NVActivityIndicatorViewable {
     
     @IBOutlet weak var tf_name: UITextField!
     @IBOutlet weak var tf_lastname: UITextField!
@@ -26,8 +26,12 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable{
     @IBOutlet weak var tf_email: UITextField!
     @IBOutlet weak var tf_password: UITextField!
     @IBOutlet weak var tf_repassword: UITextField!
+    
     private var date : Int = -1
+    private var posDistrict: Int = -1
 
+    let segue_identifier = "segue_register_main"
+    
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
     
@@ -87,6 +91,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable{
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
                     self.tf_district.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
+                    self.posDistrict = index.row
                 }
             }
         }
@@ -232,6 +237,10 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable{
             AlarmMethods.errorWarning(message: "El cumpleaños no puede tener una extensión mayor a 30 caracteres", uiViewController: self)
             return
         }
+        if( self.tf_password.text! != self.tf_repassword.text!){
+            AlarmMethods.errorWarning(message: "los passwords son diferentes", uiViewController: self)
+            return
+        }
 
         self.getGUID()
 
@@ -251,8 +260,8 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable{
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    let GUID = (jsonResult["GUID"].string!)
-                    self.register(GUID)
+                    let obtenerCajita = SmallBoxDC(jsonResult)
+                    self.register(obtenerCajita.GUID)
                 }
             } else {
                 if let jsonResponse = response.result.value {
@@ -265,41 +274,24 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable{
         }
     }
     
-    func DistrictToInt(_ districtString : String ) -> UInt64 {
-      
-        for element in self.listDistrict {
-            let district = element
-            if districtString == district.name{
-                return district.idDistrict
-            }
-            
-        }
-        return 0
-    }
-    
-    
-    
     func register(_ GUID: String){
         var genre : String = "-"
-        if self.tf_genre.text! == "Masculino"  { genre = "M"   } else { genre = "F" }
+        if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
         
         let params: Parameters = [
             "Nombres": self.tf_name.text!,
             "Apellidos": self.tf_lastname.text!,
             "Email": self.tf_email.text!,
             "Direccion": self.tf_address.text!,
-            "IdDistrito": DistrictToInt(self.tf_district.text!),
+            "IdDistrito": self.listDistrict[self.posDistrict].idDistrict,
             "Telefono": self.tf_phone.text!,
-            "Password": self.tf_password.text!,
+            "Password": MD5(self.tf_password.text!),
+            "RepetirPassword": MD5(self.tf_repassword.text!),
             "Sexo": genre,
             "FechaNacimiento":UtilMethods.dateToSlash(self.tf_birthday.text!),
-            "RepetirPassword": self.tf_repassword.text!,
+            "GUID" : GUID,
             ]
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        print(params)
-        
-        
-        
+    
         Alamofire.request(URLs.SignUp, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if !(response.response != nil) {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -310,10 +302,21 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable{
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    let userDC = UserDC(jsonResult["body"])
-                    print(userDC)
-                    UserMethods.saveUserToOptions(userDC)
-                    self.stopAnimating()
+                    if jsonResult["Msg"] == "OK"{
+                        let userDC : UserDC = UserDC(jsonResult)
+                        userDC.valid = true                   
+                        UserMethods.saveUserToOptions(userDC)
+                        self.stopAnimating()
+                        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
+                    }else {
+                        self.stopAnimating()
+                        if let jsonResponse = response.result.value {
+                            let jsonResult = JSON(jsonResponse)
+                            AlamoMethods.customError(message: jsonResult["Msg"].string!, uiViewController: self)
+                        } else {
+                            AlamoMethods.defaultError(self)
+                        }
+                    }
                 }
             } else {
                 self.stopAnimating()

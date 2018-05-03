@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class ItemSmallBoxDC{
+class ItemSmallBoxDC : NSObject ,NSCoding{
     private var _idProduct : UInt64 = 0
     private var _cant: UInt64 = 0
     private var _img: String = ""
@@ -18,11 +18,12 @@ class ItemSmallBoxDC{
     private var _description: String = ""
     private var _price: Double = 0.0
 
-    init(){
+    override init(){
         
     }
     
     init(_ jsonItemSmallBoxDC: JSON){
+        super.init()
         self._idProduct = jsonItemSmallBoxDC["IdProducto"].uInt64 ?? self._idProduct
         self._cant = jsonItemSmallBoxDC["Cantidad"].uInt64 ?? self._cant
         self._img = jsonItemSmallBoxDC["Imagen"].string ?? self._img
@@ -31,6 +32,31 @@ class ItemSmallBoxDC{
         self._description = jsonItemSmallBoxDC["Descripcion"].string ?? self._description
         self._price = jsonItemSmallBoxDC["Precio"].double ?? self._price
     }
+    
+    
+    required init(coder decoder: NSCoder) {         // PREFERENCES
+        super.init()
+        self._idProduct = decoder.decodeObject(forKey: "IdProducto") as? UInt64 ?? self._idProduct
+        self._cant = decoder.decodeObject(forKey: "Cantidad") as? UInt64 ?? self._cant
+        self._img = decoder.decodeObject(forKey: "Imagen") as? String ?? self._img
+        self._SKU = decoder.decodeObject(forKey: "SKU") as? String ?? self._SKU
+        self._name = decoder.decodeObject(forKey: "Nombre") as? String ?? self._name
+        self._description = decoder.decodeObject(forKey: "Descripcion") as? String ?? self._description
+        self._price = decoder.decodeObject(forKey: "Precio") as? Double ?? self._price
+
+    }
+    
+    
+    func encode(with coder: NSCoder) {//
+        coder.encode(_idProduct, forKey: "IdProducto")
+        coder.encode(_cant, forKey: "Cantidad")
+        coder.encode(_img, forKey: "Imagen")
+        coder.encode(_SKU, forKey: "SKU")
+        coder.encode(_name, forKey: "Nombre")
+        coder.encode(_description, forKey: "Descripcion")
+        coder.encode(_price, forKey: "Precio")
+    }
+    
 
     var idProduct : UInt64 {
         set { _idProduct = newValue }
@@ -57,7 +83,7 @@ class ItemSmallBoxDC{
         get { return _name }
     }
     
-    var description : String {
+    var boxDescription : String {
         set { _description = newValue }
         get { return _description }
     }

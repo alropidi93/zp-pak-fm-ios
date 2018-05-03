@@ -47,5 +47,6 @@ class UserMethods {
             return false
         }
     }
+    
 }
 

@@ -13,6 +13,7 @@ import Alamofire
 import NVActivityIndicatorView
 import FacebookCore
 import FacebookLogin
+import SwiftHash
 
 class LoginController : UIViewController, NVActivityIndicatorViewable{
     let segue_identifier = "segue_login_main"
@@ -34,6 +35,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
         super.didReceiveMemoryWarning()
     }
     
+    
     @IBAction func login(_ sender: Any) {
         if (self.tf_password.text?.isEmpty)! {
             AlamoMethods.customError(message: "La contraseña no puede estar vacía", uiViewController: self)
@@ -43,12 +45,14 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
             AlamoMethods.customError(message: "El email no puede estar vacío", uiViewController: self)
             return
         }
+        
         self.getGUID()
     }
-
+    
     func getGUID() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        Alamofire.request(URLs.login, method: .post, encoding: JSONEncoding.default).responseJSON { response in
+        let params: Parameters = [:]
+        Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
                 self.stopAnimating()
@@ -58,22 +62,27 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    let smallBox = SmallBoxDC(jsonResult)
-                    let params: Parameters = [ "email": self.tf_email.text!, "password": self.tf_password.text! , "GUID": smallBox.GUID]
-                    self.loginAccess(params)
+                    let obtenerCajita = SmallBoxDC(jsonResult)
+                    print(obtenerCajita.GUID)
+                    self.loginUser(obtenerCajita.GUID)
+                    
                 }
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    AlamoMethods.customError(message: jsonResult["message"].string!, uiViewController: self)
+                    AlarmMethods.errorWarning(message:  jsonResult["message"].string!, uiViewController: self)
                 } else {
                     AlamoMethods.defaultError(self)
                 }
             }
         }
     }
-    
-    func loginAccess(_ params :Parameters){
+  
+    func loginUser(_ GUID: String) {
+        let params: Parameters = [ "Username": self.tf_email.text!,
+                                   "Password": MD5(self.tf_password.text!) ,
+                                   "GUID" : GUID ]
+        
         Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -82,13 +91,23 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
             }
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
-               
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    let userDC = UserDC(jsonResult["body"])
-                    userDC.valid = true
-                    UserMethods.saveUserToOptions(userDC)
-                    self.performSegue(withIdentifier: self.segue_identifier, sender: self)
+                    if jsonResult["Msg"] == "OK"{
+                        let userDC : UserDC = UserDC(jsonResult)
+                        userDC.valid = true
+                        UserMethods.saveUserToOptions(userDC)
+                        self.stopAnimating()
+                        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
+                    } else {
+                        self.stopAnimating()
+                        if let jsonResponse = response.result.value {
+                            let jsonResult = JSON(jsonResponse)
+                            AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
+                        } else {
+                            AlamoMethods.defaultError(self)
+                        }
+                    }
                 }
             } else {
                 if let jsonResponse = response.result.value {
@@ -101,26 +120,6 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
             self.stopAnimating()
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     @IBAction func loginWithFacebook(_ sender: Any) {
@@ -158,7 +157,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
                         
                         self.stopAnimating()
                         
-//                        self.validateExistingUser(userDC)
+//                      self.validateExistingUser(userDC)
                     case .failed(let error):
                         self.stopAnimating()
                         AlarmMethods.errorWarning(message: "No se pudo obtener la información: \(error.localizedDescription)", uiViewController: self)

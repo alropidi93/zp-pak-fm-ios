@@ -9,19 +9,34 @@
 import Foundation
 import SwiftyJSON
 
-class DistrictDC {
+class DistrictDC : NSObject ,NSCoding{
     
     private var _idDistrict: UInt64 = 0
     private var _name: String = ""
     private var _deliveryArrives: Bool = true
     
-    init() {
+    override init() {
     }
     
     init(_ jsonDistrict: JSON){
+        super.init()
         self._idDistrict = jsonDistrict["IdDistrito"].uInt64 ?? self._idDistrict
         self._name = jsonDistrict["Nombre"].string ?? self._name
-
+        self._deliveryArrives = jsonDistrict["LlegaDelivery"].bool ?? self._deliveryArrives
+    }
+    
+    required init(coder decoder: NSCoder) {         // PREFERENCES
+        super.init()
+        self._idDistrict = decoder.decodeObject(forKey: "IdDistrito") as? UInt64 ?? self._idDistrict
+        self._name = decoder.decodeObject(forKey: "Nombre") as? String ?? self._name
+        self._deliveryArrives = decoder.decodeObject(forKey: "LlegaDelivery") as? Bool ?? self._deliveryArrives
+    }
+    
+    
+    func encode(with coder: NSCoder) {//
+        coder.encode(_idDistrict, forKey: "IdDistrito")
+        coder.encode(_name, forKey: "Nombre")
+        coder.encode(_deliveryArrives, forKey: "LlegaDelivery")
     }
     
     var idDistrict : UInt64 {

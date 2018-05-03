@@ -54,6 +54,7 @@ class UserDC :  NSObject ,NSCoding{
         }
         
         self._codeInvitation = jsonUser["CodigoInvitaticion"].string ?? self._codeInvitation
+        self._applicableInvitationCode = jsonUser["CodigoInvitaticionAplicable"].bool ?? self._applicableInvitationCode
         self._accessToken = jsonUser["AccessToken"].string ?? self._userName
         
         if !(jsonUser["Cajita"].null != nil){
