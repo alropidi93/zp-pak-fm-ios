@@ -14,7 +14,6 @@
 		701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701D2880207EAD06007AD7AC /* LaunchScreen.storyboard */; };
 		701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2896207EC5D6007AD7AC /* UIViewExtension.swift */; };
 		701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */; };
-		70521642209A823700B14DB1 /* MainControllerOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70521641209A823700B14DB1 /* MainControllerOut.swift */; };
 		70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE2D208F7BA1008C972C /* LoginController.swift */; };
 		70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE31208F7C08008C972C /* SignUpController.swift */; };
 		70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE33208F7C1B008C972C /* SplashController.swift */; };
@@ -26,6 +25,9 @@
 		70D525A820915C58004EB51E /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A720915C58004EB51E /* Urls.swift */; };
 		70D525AA20915C6A004EB51E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A920915C6A004EB51E /* Constants.swift */; };
 		70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525AB209163E9004EB51E /* AlomoMethods.swift */; };
+		70D5F0ED209B78A400EE673B /* OutMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0EC209B78A400EE673B /* OutMainController.swift */; };
+		70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0EE209B7A4300EE673B /* InitialController.swift */; };
+		70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0F0209B7AA700EE673B /* StoreController.swift */; };
 		70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF102A208FE8E200EDB1FA /* DistrictDC.swift */; };
 		70F54C9720901210003175AA /* SmallBoxDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C9620901210003175AA /* SmallBoxDC.swift */; };
 		70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C982090174F003175AA /* ItemSmallBox.swift */; };
@@ -44,7 +46,6 @@
 		701D2889207EAD1F007AD7AC /* pak-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pak-ios.entitlements"; sourceTree = "<group>"; };
 		701D2896207EC5D6007AD7AC /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		70521641209A823700B14DB1 /* MainControllerOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerOut.swift; sourceTree = "<group>"; };
 		70A3BE2D208F7BA1008C972C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		70A3BE31208F7C08008C972C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		70A3BE33208F7C1B008C972C /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
@@ -56,6 +57,9 @@
 		70D525A720915C58004EB51E /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		70D525A920915C6A004EB51E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		70D525AB209163E9004EB51E /* AlomoMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlomoMethods.swift; sourceTree = "<group>"; };
+		70D5F0EC209B78A400EE673B /* OutMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutMainController.swift; sourceTree = "<group>"; };
+		70D5F0EE209B7A4300EE673B /* InitialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialController.swift; sourceTree = "<group>"; };
+		70D5F0F0209B7AA700EE673B /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
 		70DF102A208FE8E200EDB1FA /* DistrictDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictDC.swift; sourceTree = "<group>"; };
 		70F54C9620901210003175AA /* SmallBoxDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBoxDC.swift; sourceTree = "<group>"; };
 		70F54C982090174F003175AA /* ItemSmallBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSmallBox.swift; sourceTree = "<group>"; };
@@ -175,7 +179,7 @@
 		701D2892207EB51C007AD7AC /* views */ = {
 			isa = PBXGroup;
 			children = (
-				70521640209A81EC00B14DB1 /* main */,
+				70D5F0EB209B787F00EE673B /* store */,
 				70D525A1209158E4004EB51E /* alert */,
 				70D5259E20913FA1004EB51E /* authentication */,
 			);
@@ -200,14 +204,6 @@
 				70D525AB209163E9004EB51E /* AlomoMethods.swift */,
 			);
 			path = methods;
-			sourceTree = "<group>";
-		};
-		70521640209A81EC00B14DB1 /* main */ = {
-			isa = PBXGroup;
-			children = (
-				70521641209A823700B14DB1 /* MainControllerOut.swift */,
-			);
-			path = main;
 			sourceTree = "<group>";
 		};
 		70A3BE37208F7FE9008C972C /* entities */ = {
@@ -238,6 +234,16 @@
 				70D525A22091590C004EB51E /* PakAlert.swift */,
 			);
 			path = alert;
+			sourceTree = "<group>";
+		};
+		70D5F0EB209B787F00EE673B /* store */ = {
+			isa = PBXGroup;
+			children = (
+				70D5F0EC209B78A400EE673B /* OutMainController.swift */,
+				70D5F0EE209B7A4300EE673B /* InitialController.swift */,
+				70D5F0F0209B7AA700EE673B /* StoreController.swift */,
+			);
+			path = store;
 			sourceTree = "<group>";
 		};
 		F7B00583B7C9CFB537D8D142 /* Frameworks */ = {
@@ -277,6 +283,9 @@
 		701D286C207EAD01007AD7AC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					StartTab,
+				);
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Paolo Rossi";
@@ -426,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */,
+				70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */,
 				70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */,
 				70D525AA20915C6A004EB51E /* Constants.swift in Sources */,
 				70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */,
@@ -436,12 +446,13 @@
 				701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */,
 				701D287A207EAD01007AD7AC /* ViewController.swift in Sources */,
 				70F54C9720901210003175AA /* SmallBoxDC.swift in Sources */,
-				70521642209A823700B14DB1 /* MainControllerOut.swift in Sources */,
 				70D525A820915C58004EB51E /* Urls.swift in Sources */,
+				70D5F0ED209B78A400EE673B /* OutMainController.swift in Sources */,
 				701D2878207EAD01007AD7AC /* AppDelegate.swift in Sources */,
 				70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */,
 				70D525A020915709004EB51E /* AlarmMethods.swift in Sources */,
 				70D525A520915B91004EB51E /* UtilMethods.swift in Sources */,
+				70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */,
 				70D525A32091590C004EB51E /* PakAlert.swift in Sources */,
 				70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */,
 				70A3BE36208F7F97008C972C /* UserMethods.swift in Sources */,

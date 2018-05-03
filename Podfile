@@ -23,4 +23,5 @@ target 'pak-ios' do
   pod 'Cosmos'
   pod 'RLBAlertsPickers', :git => 'https://github.com/loicgriffie/Alerts-Pickers.git', :branch => 'master'
   pod 'SwiftHash'
+  
 end

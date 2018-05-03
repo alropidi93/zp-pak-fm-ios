@@ -224,7 +224,7 @@ Copyright 2018 Google
 
 ## GoogleMaps
 
-Copyright 2017 Google
+Copyright 2018 Google
 
 ## GoogleToolboxForMac
 
