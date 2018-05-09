@@ -19,6 +19,11 @@
 		70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE33208F7C1B008C972C /* SplashController.swift */; };
 		70A3BE36208F7F97008C972C /* UserMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE35208F7F97008C972C /* UserMethods.swift */; };
 		70A3BE39208F8003008C972C /* UserDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE38208F8003008C972C /* UserDC.swift */; };
+		70C9ED1B209CE8EA0096B656 /* VideoMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED1A209CE8EA0096B656 /* VideoMethods.swift */; };
+		70C9ED1D209D02FD0096B656 /* TVCPublicityImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED1C209D02FD0096B656 /* TVCPublicityImage.swift */; };
+		70C9ED1F209D140D0096B656 /* ListAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED1E209D140D0096B656 /* ListAds.swift */; };
+		70C9ED21209D14460096B656 /* Ads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED20209D14460096B656 /* Ads.swift */; };
+		70C9ED24209D33BC0096B656 /* TVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED23209D33BC0096B656 /* TVCPlaceholder.swift */; };
 		70D525A020915709004EB51E /* AlarmMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5259F20915709004EB51E /* AlarmMethods.swift */; };
 		70D525A32091590C004EB51E /* PakAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A22091590C004EB51E /* PakAlert.swift */; };
 		70D525A520915B91004EB51E /* UtilMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A420915B91004EB51E /* UtilMethods.swift */; };
@@ -51,6 +56,11 @@
 		70A3BE33208F7C1B008C972C /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		70A3BE35208F7F97008C972C /* UserMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMethods.swift; sourceTree = "<group>"; };
 		70A3BE38208F8003008C972C /* UserDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDC.swift; sourceTree = "<group>"; };
+		70C9ED1A209CE8EA0096B656 /* VideoMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMethods.swift; sourceTree = "<group>"; };
+		70C9ED1C209D02FD0096B656 /* TVCPublicityImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCPublicityImage.swift; sourceTree = "<group>"; };
+		70C9ED1E209D140D0096B656 /* ListAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAds.swift; sourceTree = "<group>"; };
+		70C9ED20209D14460096B656 /* Ads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ads.swift; sourceTree = "<group>"; };
+		70C9ED23209D33BC0096B656 /* TVCPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCPlaceholder.swift; sourceTree = "<group>"; };
 		70D5259F20915709004EB51E /* AlarmMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMethods.swift; sourceTree = "<group>"; };
 		70D525A22091590C004EB51E /* PakAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlert.swift; sourceTree = "<group>"; };
 		70D525A420915B91004EB51E /* UtilMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilMethods.swift; sourceTree = "<group>"; };
@@ -130,6 +140,8 @@
 		701D288A207EB3F1007AD7AC /* adapters */ = {
 			isa = PBXGroup;
 			children = (
+				70C9ED1C209D02FD0096B656 /* TVCPublicityImage.swift */,
+				70C9ED23209D33BC0096B656 /* TVCPlaceholder.swift */,
 			);
 			path = adapters;
 			sourceTree = "<group>";
@@ -202,6 +214,7 @@
 				70D5259F20915709004EB51E /* AlarmMethods.swift */,
 				70D525A420915B91004EB51E /* UtilMethods.swift */,
 				70D525AB209163E9004EB51E /* AlomoMethods.swift */,
+				70C9ED1A209CE8EA0096B656 /* VideoMethods.swift */,
 			);
 			path = methods;
 			sourceTree = "<group>";
@@ -214,6 +227,8 @@
 				70F54C9620901210003175AA /* SmallBoxDC.swift */,
 				70F54C982090174F003175AA /* ItemSmallBox.swift */,
 				70F54C9A2090176B003175AA /* DiscountDC.swift */,
+				70C9ED1E209D140D0096B656 /* ListAds.swift */,
+				70C9ED20209D14460096B656 /* Ads.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -342,6 +357,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AKMediaViewer/AKMediaViewer.framework",
+				"${BUILT_PRODUCTS_DIR}/ASBPlayerScrubbing/ASBPlayerScrubbing.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -351,6 +368,7 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
@@ -365,6 +383,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKMediaViewer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASBPlayerScrubbing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
@@ -374,6 +394,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
@@ -434,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70C9ED21209D14460096B656 /* Ads.swift in Sources */,
 				70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */,
 				70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */,
 				70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */,
@@ -442,10 +464,14 @@
 				701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */,
 				70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */,
 				70A3BE39208F8003008C972C /* UserDC.swift in Sources */,
+				70C9ED1B209CE8EA0096B656 /* VideoMethods.swift in Sources */,
 				70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */,
 				701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */,
 				701D287A207EAD01007AD7AC /* ViewController.swift in Sources */,
+				70C9ED1D209D02FD0096B656 /* TVCPublicityImage.swift in Sources */,
+				70C9ED1F209D140D0096B656 /* ListAds.swift in Sources */,
 				70F54C9720901210003175AA /* SmallBoxDC.swift in Sources */,
+				70C9ED24209D33BC0096B656 /* TVCPlaceholder.swift in Sources */,
 				70D525A820915C58004EB51E /* Urls.swift in Sources */,
 				70D5F0ED209B78A400EE673B /* OutMainController.swift in Sources */,
 				701D2878207EAD01007AD7AC /* AppDelegate.swift in Sources */,

@@ -1,5 +1,8 @@
 PODS:
+  - AKMediaViewer (1.0.8):
+    - ASBPlayerScrubbing (~> 0.1)
   - Alamofire (4.7.2)
+  - ASBPlayerScrubbing (0.1)
   - AutoInsetter (1.2.3)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
@@ -60,6 +63,7 @@ PODS:
   - ImageSlideshow/Kingfisher (1.5.3):
     - ImageSlideshow/Core
     - Kingfisher (> 3.0)
+  - IQKeyboardManagerSwift (6.0.2)
   - Kingfisher (4.7.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -82,6 +86,7 @@ PODS:
     - Pageboy (~> 2.5.0)
 
 DEPENDENCIES:
+  - AKMediaViewer
   - Alamofire
   - Cosmos
   - Crashlytics
@@ -93,6 +98,7 @@ DEPENDENCIES:
   - GoogleMaps
   - ImageSlideshow
   - ImageSlideshow/Kingfisher
+  - IQKeyboardManagerSwift
   - NVActivityIndicatorView
   - RLBAlertsPickers (from `https://github.com/loicgriffie/Alerts-Pickers.git`, branch `master`)
   - SDWebImage
@@ -102,7 +108,9 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - AKMediaViewer
     - Alamofire
+    - ASBPlayerScrubbing
     - AutoInsetter
     - Bolts
     - Cosmos
@@ -120,6 +128,7 @@ SPEC REPOS:
     - GoogleMaps
     - GoogleToolboxForMac
     - ImageSlideshow
+    - IQKeyboardManagerSwift
     - Kingfisher
     - nanopb
     - NVActivityIndicatorView
@@ -141,7 +150,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/loicgriffie/Alerts-Pickers.git
 
 SPEC CHECKSUMS:
+  AKMediaViewer: 356d179edf335efcfb72eaf4efd67095c56548d7
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  ASBPlayerScrubbing: 0fc5e76aad6fdbcf14380734fb7f2c127cd28b66
   AutoInsetter: 1a8f8ad5e7da8e993970b3809cfb8e8e330f4db1
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Cosmos: a6dbd3d0baa0cc8f51f8598f7508d5a09d0a9ade
@@ -159,6 +170,7 @@ SPEC CHECKSUMS:
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   ImageSlideshow: 24a1184909f589379ba2527ebcc77996881bb1f2
+  IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: 75c9634073e03b31d7e2748cd2417feab1206195
@@ -170,6 +182,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Tabman: 69ce69b44cec1ad693b82c24cdbdf0c45915668c
 
-PODFILE CHECKSUM: 6bdebb5e0dcb3a51bf338bae1c8d1f0584510b05
+PODFILE CHECKSUM: dfcfac6b86a292c19e493f204edc7cace77a6f30
 
 COCOAPODS: 1.5.0

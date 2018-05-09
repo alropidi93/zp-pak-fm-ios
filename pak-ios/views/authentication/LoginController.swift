@@ -82,7 +82,6 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
         let params: Parameters = [ "Username": self.tf_email.text!,
                                    "Password": MD5(self.tf_password.text!) ,
                                    "GUID" : GUID ]
-        
         Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)

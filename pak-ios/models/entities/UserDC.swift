@@ -79,6 +79,8 @@ class UserDC :  NSObject ,NSCoding{
         self._accessToken = decoder.decodeObject(forKey: "AccessToken") as? String ?? self._accessToken
         self._smallBox = decoder.decodeObject(forKey: "Cajita") as? SmallBoxDC ?? self._smallBox
         self._applicableInvitationCode = decoder.decodeBool(forKey: "CodigoInvitacionAplicable")
+        
+        self._valid =  decoder.decodeBool(forKey: "valid")
     }
     
     
@@ -97,6 +99,7 @@ class UserDC :  NSObject ,NSCoding{
         coder.encode(_accessToken, forKey: "AccessToken")
         coder.encode(_smallBox, forKey: "Cajita")
         
+        coder.encode(_valid, forKey: "valid")
     }
     func addValidationData(_ jsonUser: JSON){
         
