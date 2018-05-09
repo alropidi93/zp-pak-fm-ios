@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1069,65 +1068,67 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView hidden="YES" autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WxP-BE-yPy" userLabel="tv_publicity">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-RN-txU" userLabel="tv_publicity">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tvc_publicity_image" rowHeight="250" id="Kkt-fi-Za2" userLabel="tvc_publicity_image" customClass="TVCPublicityImage" customModule="pak_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="250"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tvc_publicity_image" rowHeight="162" id="gdp-h6-ch7" customClass="TVCPublicityImage" customModule="pak_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kkt-fi-Za2" id="nLt-Id-l3U">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gdp-h6-ch7" id="qgd-8U-0i7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kg0-wo-8ua" userLabel="iv_publicity_image">
-                                                    <rect key="frame" x="15" y="11" width="345" height="228"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vi0-85-p4F">
+                                                    <rect key="frame" x="67.5" y="16" width="240" height="128"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="228" id="E1O-7b-DDM"/>
+                                                        <constraint firstAttribute="width" constant="240" id="Yth-2k-wlf"/>
+                                                        <constraint firstAttribute="height" constant="128" id="wcT-fq-PW2"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Kg0-wo-8ua" secondAttribute="trailing" id="8W6-EC-fVJ"/>
-                                                <constraint firstItem="Kg0-wo-8ua" firstAttribute="centerY" secondItem="nLt-Id-l3U" secondAttribute="centerY" id="KuY-jR-NBZ"/>
-                                                <constraint firstItem="Kg0-wo-8ua" firstAttribute="leading" secondItem="nLt-Id-l3U" secondAttribute="leadingMargin" id="YdD-qr-rzL"/>
-                                                <constraint firstItem="Kg0-wo-8ua" firstAttribute="centerX" secondItem="nLt-Id-l3U" secondAttribute="centerX" id="ncR-bb-bRr"/>
+                                                <constraint firstItem="vi0-85-p4F" firstAttribute="centerX" secondItem="qgd-8U-0i7" secondAttribute="centerX" id="IRJ-u9-lNO"/>
+                                                <constraint firstItem="vi0-85-p4F" firstAttribute="centerY" secondItem="qgd-8U-0i7" secondAttribute="centerY" id="vT4-Bd-Lzw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="iv_publicity" destination="Kg0-wo-8ua" id="b1l-1E-D5d"/>
+                                            <outlet property="iv_publicity" destination="vi0-85-p4F" id="KTc-HS-AjR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tvc_placeholder" rowHeight="143" id="PAn-Nl-3o0" customClass="TVCPlaceholder" customModule="pak_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="278" width="375" height="143"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tvc_placeholder" rowHeight="158" id="BEX-B7-QJL" customClass="TVCPlaceholder" customModule="pak_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="190" width="375" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PAn-Nl-3o0" id="Wbm-Xc-68Q">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BEX-B7-QJL" id="NGr-1M-e9f">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="157.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No se encotraron Ads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpU-rN-gUo">
-                                                    <rect key="frame" x="104" y="61" width="166" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No hay anuncios que mostrar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dX7-oq-1Zc">
+                                                    <rect key="frame" x="81.5" y="69" width="211" height="19"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dX7-oq-1Zc" firstAttribute="centerY" secondItem="NGr-1M-e9f" secondAttribute="centerY" id="gXV-8N-1zu"/>
+                                                <constraint firstItem="dX7-oq-1Zc" firstAttribute="centerX" secondItem="NGr-1M-e9f" secondAttribute="centerX" id="hvD-vz-qqw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="WxP-BE-yPy" secondAttribute="trailing" id="0g0-Pj-EsP"/>
-                            <constraint firstItem="WxP-BE-yPy" firstAttribute="leading" secondItem="Gia-3O-gxQ" secondAttribute="leading" id="FCB-J2-5sZ"/>
-                            <constraint firstItem="Gia-3O-gxQ" firstAttribute="bottom" secondItem="WxP-BE-yPy" secondAttribute="bottom" id="YC3-ln-vwc"/>
-                            <constraint firstItem="WxP-BE-yPy" firstAttribute="top" secondItem="Gia-3O-gxQ" secondAttribute="top" id="jVx-j3-Fd5"/>
+                            <constraint firstItem="Gia-3O-gxQ" firstAttribute="trailing" secondItem="bzd-RN-txU" secondAttribute="trailing" id="6tw-8W-6PQ"/>
+                            <constraint firstItem="bzd-RN-txU" firstAttribute="top" secondItem="Gia-3O-gxQ" secondAttribute="top" id="J7x-hW-b5X"/>
+                            <constraint firstItem="bzd-RN-txU" firstAttribute="leading" secondItem="Gia-3O-gxQ" secondAttribute="leading" id="L5X-ka-0bq"/>
+                            <constraint firstItem="Gia-3O-gxQ" firstAttribute="bottom" secondItem="bzd-RN-txU" secondAttribute="bottom" id="Nfq-1X-qaF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gia-3O-gxQ"/>
                     </view>
                     <connections>
-                        <outlet property="tv_publicity" destination="WxP-BE-yPy" id="0f6-B8-vpz"/>
+                        <outlet property="tv_publicity" destination="bzd-RN-txU" id="ygL-T6-OdK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8o-lO-G0I" userLabel="First Responder" sceneMemberID="firstResponder"/>

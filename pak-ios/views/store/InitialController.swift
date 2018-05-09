@@ -18,7 +18,7 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
     
     private let reuse_question = "tvc_publicity_image"
     private let reuse_placeholder = "tvc_placeholder"
-
+    
     private var allItems : [Ads] = []
     
     //#MARK: Common functions
@@ -49,14 +49,7 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
         
         let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_question, for: indexPath as IndexPath) as! TVCPublicityImage
         if self.allItems[indexPath.row].type == "V" { // Videos
-            let url = URL(string:"\(self.allItems[indexPath.row].archive)")!
-            let asset = AVAsset(url: url)
-            let assetImgGenerate : AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
-            assetImgGenerate.appliesPreferredTrackTransform = true
-            let time = CMTimeMake(1, 2)
-            let img = try? assetImgGenerate.copyCGImage(at: time, actualTime: nil)
-            let frameImg  = UIImage(cgImage: img!)
-            cell.iv_publicity_image?.image = frameImg
+            cell.iv_publicity_image?.image = self.allItems[indexPath.row].thumbnail
         } else { // Images
             UtilMethods.setImage(imageview: cell.iv_publicity_image!, imageurl: self.allItems[indexPath.row].archive, placeholderurl: "dwb_pak_button_info")
         }
@@ -106,4 +99,5 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
         }
     }
 }
+
 
