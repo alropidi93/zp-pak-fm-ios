@@ -25,6 +25,8 @@ target 'pak-ios' do
   pod 'SwiftHash'
   pod 'IQKeyboardManagerSwift'
   pod 'AKMediaViewer'
+  pod 'Agrume'
+  pod 'SideMenu'
 
   
 end

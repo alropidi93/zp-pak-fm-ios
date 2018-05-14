@@ -36,7 +36,11 @@ class Ads  : NSObject  {
             assetImgGenerate.appliesPreferredTrackTransform = true
             let time = CMTimeMake(1, 2)
             let img = try? assetImgGenerate.copyCGImage(at: time, actualTime: nil)
-            self._thumbnail  = UIImage(cgImage: img!)
+            if img == nil {
+                self._thumbnail = UIImage(named: "pak-logo-name")
+            } else {
+                self._thumbnail  = UIImage(cgImage: img!)
+            }
         }
     }
     
@@ -54,7 +58,7 @@ class Ads  : NSObject  {
     
     var archive : String {
         set { _archive = newValue }
-        get { return URLs.MultimediaURL + _archive }
+        get { return URLs.MultimediaAnuncioURL + _archive }
     }
     
     var thumbnail : UIImage? {

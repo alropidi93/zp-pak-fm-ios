@@ -20,8 +20,9 @@ struct URLs {
     private  static let Domain = Domains.Release
     private  static let Route = Routes.Api
     private  static let BaseURL = Domain + Route
-    static let MultimediaURL = "http://pak.zp.com.pe/Images/Anuncios/"
-    
+    static let MultimediaAnuncioURL = "http://pakadmin.zp.com.pe/Images/Anuncios/"
+    static let MultimediaCategoriasURL = "http://pakadmin.zp.com.pe/Images/Categorias/"
+
     
     static var refreshToken: String { //POST
         return BaseURL + "client/refreshtoken"
@@ -53,6 +54,10 @@ struct URLs {
     //ANUNCIOS
     static var GetAds: String { //GET
         return BaseURL + "AdService.svc/ListarAnuncios"
+    }
+    //SOTRE
+    static var GetCategories: String { //GET
+        return BaseURL + "CatalogService.svc/listarCategorias"
     }
     
     

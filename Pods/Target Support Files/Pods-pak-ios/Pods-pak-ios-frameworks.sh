@@ -145,6 +145,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AKMediaViewer/AKMediaViewer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ASBPlayerScrubbing/ASBPlayerScrubbing.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Agrume/Agrume.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework"
@@ -162,6 +163,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RLBAlertsPickers/RLBAlertsPickers.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework"
@@ -170,6 +172,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AKMediaViewer/AKMediaViewer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ASBPlayerScrubbing/ASBPlayerScrubbing.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Agrume/Agrume.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework"
@@ -187,6 +190,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RLBAlertsPickers/RLBAlertsPickers.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework"

@@ -8,8 +8,13 @@
 
 import Foundation
 import UIKit
+import SideMenu
+
 
 extension UIViewController {
+    
+   
+
     func fullKeyboardSupport() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -23,7 +28,7 @@ extension UIViewController {
     func customizeNavigationBar( ) {
         self.navigationController?.navigationBar.topItem?.title = " "
         var btnsMenu : [UIBarButtonItem] = []
-        let btnMenu = UIBarButtonItem(image: UIImage(named: "dwb_pak_menu_button"), style: .plain, target: self, action: nil)
+        let btnMenu = UIBarButtonItem(image: UIImage(named: "dwb_pak_menu_button"), style: .plain, target: self, action: #selector(didPressLeftButton))
         btnsMenu.append(btnMenu)
         self.navigationItem.leftBarButtonItems = btnsMenu
         
@@ -34,7 +39,7 @@ extension UIViewController {
     func customizeNavigationBarWithSearch() {
         self.navigationController?.navigationBar.topItem?.title = " "
         var btnsMenu : [UIBarButtonItem] = []
-        let btnMenu = UIBarButtonItem(image: UIImage(named: "dwb_pak_menu_button"), style: .plain, target: self, action: nil)
+        let btnMenu = UIBarButtonItem(image: UIImage(named: "dwb_pak_menu_button"), style: .plain, target: self, action: #selector(didPressLeftButton))
         btnsMenu.append(btnMenu)
         self.navigationItem.leftBarButtonItems = btnsMenu
         
@@ -53,7 +58,47 @@ extension UIViewController {
     }
     
     
+    @objc func didPressLeftButton (_ sender: Any){
+        
+        if UserMethods.getUserFromOptions() != nil {
+            self.performSegue(withIdentifier: "segue_side_menu_in" , sender: self)
+            SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "InMenuNavigationController") as? UISideMenuNavigationController
+        } else {
+            self.performSegue(withIdentifier: "segue_side_menu_out" , sender: self)
+            SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "OutMenuNavigationController") as? UISideMenuNavigationController
+        }
+        
+        
+        
+        
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        SideMenuManager.default.menuPresentMode = .menuSlideIn
+        SideMenuManager.default.menuWidth = view.frame.width * CGFloat(0.8)
+        
+    }
+    
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
         return CGRect(x: x, y: y, width: width, height: height)
     }
+}
+
+extension UIViewController: UISideMenuNavigationControllerDelegate {
+    
+    public func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
+        print("SideMenu Appearing! (animated: \(animated))")
+    }
+    
+    public func sideMenuDidAppear(menu: UISideMenuNavigationController, animated: Bool) {
+        print("SideMenu Appeared! (animated: \(animated))")
+    }
+    
+    public func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+        print("SideMenu Disappearing! (animated: \(animated))")
+    }
+    
+    public func sideMenuDidDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+        print("SideMenu Disappeared! (animated: \(animated))")
+    }
+    
 }

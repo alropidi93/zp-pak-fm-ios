@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Tabman
 import Pageboy
+import SideMenu
 
 class OutMainController : TabmanViewController, PageboyViewControllerDataSource {
     
@@ -28,8 +29,11 @@ class OutMainController : TabmanViewController, PageboyViewControllerDataSource 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setElements()
-    }
+        setElements()}
+        
+    
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -72,4 +76,5 @@ class OutMainController : TabmanViewController, PageboyViewControllerDataSource 
     
 
 }
+
 

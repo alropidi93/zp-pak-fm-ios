@@ -12,14 +12,21 @@ import UIKit
 import Alamofire
 import AVKit
 import NVActivityIndicatorView
+import Agrume
 
 class InitialController : UIViewController , UITableViewDataSource, UITableViewDelegate, NVActivityIndicatorViewable {
+    
+    private let segue_identifier = "segue_splash_login"
+    
+    
     @IBOutlet weak var tv_publicity: UITableView!
     
     private let reuse_question = "tvc_publicity_image"
     private let reuse_placeholder = "tvc_placeholder"
     
     private var allItems : [Ads] = []
+    
+    
     
     //#MARK: Common functions
     override func viewDidLoad() {
@@ -57,8 +64,23 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected row at = \(indexPath.row)")
+        let cell = tableView.cellForRow(at: indexPath) as! TVCPublicityImage
+        if self.allItems.item(at: indexPath.row)?.type == "V" { // Videos
+            let videoURL = URL(string: (allItems.item(at: indexPath.row)?.archive)!)
+            let player = AVPlayer(url: videoURL!)
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.frame = self.view.bounds
+            self.view.layer.addSublayer(playerLayer)
+            player.play()
+            
+
+        } else { // Images
+            
+            let agrume = Agrume(image: (cell.iv_publicity_image?.image)!, backgroundColor: UIColor.black)
+            agrume.showFrom(self)
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(250.0)
@@ -82,6 +104,7 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
                         self.allItems = []
                         for ( _ , element) in jsonResult["Anuncios"] {
                             let ads  = Ads(element)
+                            print(ads.archive)
                             self.allItems.append(ads)
                         }
                         self.tv_publicity.reloadData()

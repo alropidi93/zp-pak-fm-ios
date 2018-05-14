@@ -1,4 +1,5 @@
 PODS:
+  - Agrume (4.0.4)
   - AKMediaViewer (1.0.8):
     - ASBPlayerScrubbing (~> 0.1)
   - Alamofire (4.7.2)
@@ -79,6 +80,7 @@ PODS:
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
+  - SideMenu (3.1.5)
   - SwiftHash (2.0.1)
   - SwiftyJSON (4.1.0)
   - Tabman (1.8.2):
@@ -86,6 +88,7 @@ PODS:
     - Pageboy (~> 2.5.0)
 
 DEPENDENCIES:
+  - Agrume
   - AKMediaViewer
   - Alamofire
   - Cosmos
@@ -102,12 +105,14 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - RLBAlertsPickers (from `https://github.com/loicgriffie/Alerts-Pickers.git`, branch `master`)
   - SDWebImage
+  - SideMenu
   - SwiftHash
   - SwiftyJSON
   - Tabman
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Agrume
     - AKMediaViewer
     - Alamofire
     - ASBPlayerScrubbing
@@ -135,6 +140,7 @@ SPEC REPOS:
     - Pageboy
     - Protobuf
     - SDWebImage
+    - SideMenu
     - SwiftHash
     - SwiftyJSON
     - Tabman
@@ -150,6 +156,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/loicgriffie/Alerts-Pickers.git
 
 SPEC CHECKSUMS:
+  Agrume: 123943d590fd0436a00642e37032da1814518153
   AKMediaViewer: 356d179edf335efcfb72eaf4efd67095c56548d7
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   ASBPlayerScrubbing: 0fc5e76aad6fdbcf14380734fb7f2c127cd28b66
@@ -178,10 +185,11 @@ SPEC CHECKSUMS:
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   RLBAlertsPickers: 3489f6d8b7ba4e04aa1f53b3a7d47edda040840f
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
   SwiftHash: c805de5a434eacfa0dac7210745a50c55d7fe33d
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Tabman: 69ce69b44cec1ad693b82c24cdbdf0c45915668c
 
-PODFILE CHECKSUM: dfcfac6b86a292c19e493f204edc7cace77a6f30
+PODFILE CHECKSUM: 619ca0ac3843054e3273c2d1810e60efcfb4858c
 
 COCOAPODS: 1.5.0
