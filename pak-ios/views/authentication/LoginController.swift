@@ -14,6 +14,7 @@ import NVActivityIndicatorView
 import FacebookCore
 import FacebookLogin
 import SwiftHash
+import SideMenu
 
 class LoginController : UIViewController, NVActivityIndicatorViewable{
     let segue_identifier = "segue_login_main"
@@ -24,7 +25,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.customizeNavigationBar()
+//        self.customizeNavigationBar()
     }
     override func viewDidLoad() {
         super.viewDidLoad()

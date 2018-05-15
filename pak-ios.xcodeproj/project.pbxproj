@@ -14,6 +14,7 @@
 		701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701D2880207EAD06007AD7AC /* LaunchScreen.storyboard */; };
 		701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2896207EC5D6007AD7AC /* UIViewExtension.swift */; };
 		701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */; };
+		7090A2EA20AB75DA00EF9F6D /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7090A2E920AB75DA00EF9F6D /* NotificationCenterExtension.swift */; };
 		7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7097EC6220A5FBEB008E1C9E /* CVCCategory.swift */; };
 		7097EC6520A60FA2008E1C9E /* CatagoriesDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7097EC6420A60FA2008E1C9E /* CatagoriesDC.swift */; };
 		70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE2D208F7BA1008C972C /* LoginController.swift */; };
@@ -55,6 +56,7 @@
 		701D2889207EAD1F007AD7AC /* pak-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pak-ios.entitlements"; sourceTree = "<group>"; };
 		701D2896207EC5D6007AD7AC /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		7090A2E920AB75DA00EF9F6D /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
 		7097EC6220A5FBEB008E1C9E /* CVCCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCCategory.swift; sourceTree = "<group>"; };
 		7097EC6420A60FA2008E1C9E /* CatagoriesDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoriesDC.swift; sourceTree = "<group>"; };
 		70A3BE2D208F7BA1008C972C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				701D2896207EC5D6007AD7AC /* UIViewExtension.swift */,
 				701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */,
+				7090A2E920AB75DA00EF9F6D /* NotificationCenterExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				70C9ED21209D14460096B656 /* Ads.swift in Sources */,
 				70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */,
 				7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */,
+				7090A2EA20AB75DA00EF9F6D /* NotificationCenterExtension.swift in Sources */,
 				70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */,
 				70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */,
 				70D525AA20915C6A004EB51E /* Constants.swift in Sources */,

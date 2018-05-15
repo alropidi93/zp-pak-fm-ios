@@ -23,6 +23,7 @@ class Constants {
     static let GOLD : String = "FFD700"
     static let RED : String = "FF0000"
     static let WHITE : String = "FFFFFF"
+    static let GREEN_PAK : String = "#77d05c"
     
     static let SKIN : String = "FFC79F"
     static let PUMPKIN : String = "FFB987"

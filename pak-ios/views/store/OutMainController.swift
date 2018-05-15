@@ -13,7 +13,6 @@ import Pageboy
 import SideMenu
 
 class OutMainController : TabmanViewController, PageboyViewControllerDataSource {
-    
     private let viewControllers : [UIViewController] = [
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "vc_initial"),
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "vc_store")
@@ -29,29 +28,52 @@ class OutMainController : TabmanViewController, PageboyViewControllerDataSource 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setElements()}
-        
-    
-    
-    
+        setElements()
+        setObservers()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setElements() {
         self.dataSource = self
         self.bar.items = [Item(title: "Inicio"), Item(title: "Tienda")]
         customizeTabBar()
-        
     }
+    
+    func setObservers() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(viewInitial),
+                                       name: .viewInit,
+                                       object: nil)
+        
+        notificationCenter.addObserver(self,
+                                       selector: #selector(viewStore),
+                                       name: .viewStore,
+                                       object: nil)
+    }
+    
+    @objc func viewInitial(_ notification: NSNotification) {
+        self.scrollToPage(.at(index: 0 ), animated: false)
+    }
+
+    @objc func viewStore(_ notification: NSNotification) {
+        self.scrollToPage(.at(index: 1 ), animated: false)
+    }
+    
     
     /* #MARK: Tabman methods and customization */
     func customizeTabBar() {
         self.bar.style = .buttonBar
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
             appearance.style.background = .solid(color: UtilMethods.hexStringToUIColor(hex: Constants.LIGHT_GRAY))
-            appearance.indicator.color = UtilMethods.hexStringToUIColor(hex: Constants.VELVET_ORANGE)
+            appearance.indicator.color = UtilMethods.hexStringToUIColor(hex: Constants.GREEN_PAK)
             
             appearance.layout.itemDistribution = .centered
             appearance.state.color = UIColor.lightGray
@@ -67,6 +89,7 @@ class OutMainController : TabmanViewController, PageboyViewControllerDataSource 
     
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
         self.visibleControllerIndex = index
+        
         return viewControllers[index]
     }
     
@@ -74,7 +97,8 @@ class OutMainController : TabmanViewController, PageboyViewControllerDataSource 
         return nil
     }
     
-
+    
+   
 }
 
 

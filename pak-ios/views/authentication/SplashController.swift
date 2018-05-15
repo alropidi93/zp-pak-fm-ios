@@ -9,8 +9,8 @@
 import UIKit
 
 class SplashController: UIViewController {
-    private let segue_identifier = "segue_splash_login"
-    private let logged_identifier = "segue_splash_main"
+    
+    private let splash_identifier = "segue_splash_main"
     
     @IBOutlet weak var iv_logo: UIImageView!
     
@@ -28,12 +28,7 @@ class SplashController: UIViewController {
         super.viewDidAppear(animated)
         OperationQueue.main.addOperation {
             [weak self] in
-            let user = UserMethods.getUserFromOptions()
-            if user != nil && user?.valid == true {
-                self?.performSegue(withIdentifier: (self?.logged_identifier)!, sender: self)
-            } else {
-                self?.performSegue(withIdentifier: (self?.segue_identifier)!, sender: self)
-            }
+            self?.performSegue(withIdentifier: (self?.splash_identifier)!, sender: self)
         }
     }
     

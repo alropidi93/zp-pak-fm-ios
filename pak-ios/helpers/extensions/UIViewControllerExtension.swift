@@ -59,7 +59,6 @@ extension UIViewController {
     
     
     @objc func didPressLeftButton (_ sender: Any){
-        
         if UserMethods.getUserFromOptions() != nil {
             self.performSegue(withIdentifier: "segue_side_menu_in" , sender: self)
             SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "InMenuNavigationController") as? UISideMenuNavigationController
@@ -84,7 +83,6 @@ extension UIViewController {
 }
 
 extension UIViewController: UISideMenuNavigationControllerDelegate {
-    
     public func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
         print("SideMenu Appearing! (animated: \(animated))")
     }

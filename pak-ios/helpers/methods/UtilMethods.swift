@@ -39,6 +39,7 @@ class UtilMethods {
         imageview.sd_setShowActivityIndicatorView(true)
         imageview.sd_setIndicatorStyle(.gray)
         imageview.sd_setImage(with: URL(string: imageurl), placeholderImage: UIImage(named: placeholderurl))
+        
     }
     
     static func roundImage(imageview: UIImageView){
