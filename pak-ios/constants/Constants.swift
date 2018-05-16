@@ -35,5 +35,8 @@ class Constants {
     //#MARK : Genre
     static let MALE : String = "Masculino"
     static let FEMALE : String = "Femenino"
+    
+    //SEARCHBAR
+    static let PLACEHOLDERSB : String = "Buscar producto"
 }
 

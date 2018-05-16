@@ -11,10 +11,8 @@ import UIKit
 import SideMenu
 
 
-extension UIViewController {
+extension UIViewController  {
     
-   
-
     func fullKeyboardSupport() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -47,8 +45,11 @@ extension UIViewController {
         var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
         searchBar = UISearchBar()
         searchBar.sizeToFit()
+        searchBar.placeholder = Constants.PLACEHOLDERSB
+        searchBar.delegate = self
         self.navigationItem.titleView = searchBar
-
+        
+        
         var btnsMenuRight : [UIBarButtonItem] = []
         let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: nil)
         btnsMenuRight.append(btnMenuRight)
@@ -56,6 +57,15 @@ extension UIViewController {
 
 
     }
+    
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        print(searchBar.text!)
+        self.view.endEditing(true)
+    }
+   
+    
+    
     
     
     @objc func didPressLeftButton (_ sender: Any){
@@ -66,9 +76,6 @@ extension UIViewController {
             self.performSegue(withIdentifier: "segue_side_menu_out" , sender: self)
             SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "OutMenuNavigationController") as? UISideMenuNavigationController
         }
-        
-        
-        
         
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
@@ -98,5 +105,24 @@ extension UIViewController: UISideMenuNavigationControllerDelegate {
     public func sideMenuDidDisappear(menu: UISideMenuNavigationController, animated: Bool) {
         print("SideMenu Disappeared! (animated: \(animated))")
     }
+    
+}
+
+
+extension  UIViewController : UISearchBarDelegate {
+    
+    public func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+       
+    }
+    
+    public func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+      
+        
+    }
+    
+    public func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    }
+    
+    
     
 }
