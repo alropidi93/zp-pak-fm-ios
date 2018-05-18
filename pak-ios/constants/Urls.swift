@@ -55,11 +55,14 @@ struct URLs {
     static var GetAds: String { //GET
         return BaseURL + "AdService.svc/ListarAnuncios"
     }
-    //SOTRE
+    //STORE
     static var GetCategories: String { //GET
         return BaseURL + "CatalogService.svc/listarCategorias"
     }
     
+    static var SearchProduct: String { //POST
+        return BaseURL + "CatalogService.svc/BuscarProductos"
+    }
     
     
     

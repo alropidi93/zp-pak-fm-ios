@@ -14,4 +14,5 @@ extension Notification.Name {
     
     static let viewStore = Notification.Name(
         rawValue: "to_store")
-}
+    
+    }

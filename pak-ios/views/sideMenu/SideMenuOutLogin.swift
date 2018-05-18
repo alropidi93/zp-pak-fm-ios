@@ -21,13 +21,11 @@ class SideMenuOutLogin: UIViewController  {
     }
     
     @IBAction func initial(_ sender: Any) {
-        print("hello 1")
         NotificationCenter.default.post(name: .viewInit, object: nil, userInfo: nil)
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func store(_ sender: Any) {
-        print("hello 2")
         NotificationCenter.default.post(name: .viewStore, object: nil, userInfo: nil)
         dismiss(animated: true, completion: nil)
     }

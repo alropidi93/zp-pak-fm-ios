@@ -13,6 +13,10 @@ import Pageboy
 import SideMenu
 
 class OutMainController : TabmanViewController, PageboyViewControllerDataSource {
+    let segue_identifier : String = "segue_search_view"
+
+    var searchWord : String = ""
+    
     private let viewControllers : [UIViewController] = [
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "vc_initial"),
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "vc_store")
@@ -97,8 +101,13 @@ class OutMainController : TabmanViewController, PageboyViewControllerDataSource 
         return nil
     }
     
-    
-   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.segue_identifier {
+            if let vc = segue.destination as? SearchView {
+                vc.text = self.searchWord
+            }
+        }
+    }
 }
 
 

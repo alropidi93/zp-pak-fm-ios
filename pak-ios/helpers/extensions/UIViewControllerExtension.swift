@@ -11,8 +11,7 @@ import UIKit
 import SideMenu
 
 
-extension UIViewController  {
-    
+extension UIViewController : UISearchBarDelegate {
     func fullKeyboardSupport() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -29,10 +28,7 @@ extension UIViewController  {
         let btnMenu = UIBarButtonItem(image: UIImage(named: "dwb_pak_menu_button"), style: .plain, target: self, action: #selector(didPressLeftButton))
         btnsMenu.append(btnMenu)
         self.navigationItem.leftBarButtonItems = btnsMenu
-        
-        
     }
-    
     
     func customizeNavigationBarWithSearch() {
         self.navigationController?.navigationBar.topItem?.title = " "
@@ -41,7 +37,6 @@ extension UIViewController  {
         btnsMenu.append(btnMenu)
         self.navigationItem.leftBarButtonItems = btnsMenu
         
-        
         var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
         searchBar = UISearchBar()
         searchBar.sizeToFit()
@@ -49,26 +44,20 @@ extension UIViewController  {
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar
         
-        
         var btnsMenuRight : [UIBarButtonItem] = []
         let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: nil)
         btnsMenuRight.append(btnMenuRight)
         self.navigationItem.rightBarButtonItems = btnsMenuRight
-
-
     }
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        print(searchBar.text!)
-        self.view.endEditing(true)
+        if let outMainController = self as? OutMainController {
+            outMainController.searchWord = searchBar.text!
+            outMainController.performSegue(withIdentifier: outMainController.segue_identifier, sender: self)
+        }
     }
-   
-    
-    
-    
-    
-    @objc func didPressLeftButton (_ sender: Any){
+
+    @objc func didPressLeftButton (_ sender: Any) {
         if UserMethods.getUserFromOptions() != nil {
             self.performSegue(withIdentifier: "segue_side_menu_in" , sender: self)
             SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "InMenuNavigationController") as? UISideMenuNavigationController
@@ -105,24 +94,5 @@ extension UIViewController: UISideMenuNavigationControllerDelegate {
     public func sideMenuDidDisappear(menu: UISideMenuNavigationController, animated: Bool) {
         print("SideMenu Disappeared! (animated: \(animated))")
     }
-    
 }
 
-
-extension  UIViewController : UISearchBarDelegate {
-    
-    public func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-       
-    }
-    
-    public func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-      
-        
-    }
-    
-    public func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-    }
-    
-    
-    
-}
