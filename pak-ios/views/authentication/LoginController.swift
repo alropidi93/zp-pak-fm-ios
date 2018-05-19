@@ -64,8 +64,8 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     let obtenerCajita = SmallBoxDC(jsonResult)
-                    print(obtenerCajita.GUID)
                     self.loginUser(obtenerCajita.GUID)
+                    PreferencesMethods.saveSmallBoxToOptions(obtenerCajita)
                     
                 }
             } else {
@@ -96,7 +96,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
                     if jsonResult["Msg"] == "OK"{
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
-                        UserMethods.saveUserToOptions(userDC)
+                        PreferencesMethods.saveUserToOptions(userDC)
                         self.stopAnimating()
                         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
                     } else {
@@ -153,7 +153,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
                         //TODO erase after API connection
                         let jsonObj = JSON(params)
                         let userDC = UserDC(jsonObj)
-                        UserMethods.saveUserToOptions(userDC)
+                        PreferencesMethods.saveUserToOptions(userDC)
                         
                         self.stopAnimating()
                         

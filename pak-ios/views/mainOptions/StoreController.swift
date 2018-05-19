@@ -63,10 +63,10 @@ class StoreController : UIViewController, UICollectionViewDelegate, UICollection
     
     func getCategories() {
         
-        let user = UserMethods.getUserFromOptions()
+        let user = PreferencesMethods.getUserFromOptions()
         var params : Parameters
         if user != nil  {
-            let idUser  :UInt64 = (UserMethods.getUserFromOptions()?.idUser)!
+            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
             params = [ "IdUsuario": idUser]
         } else {
             params = [ : ]

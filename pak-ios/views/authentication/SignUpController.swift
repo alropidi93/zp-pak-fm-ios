@@ -52,7 +52,6 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable {
     func setElements (){
         fullKeyboardSupport()
         getDistrict()
-        self.navigationController?.navigationBar.topItem?.title = "Registrarse en PAK"
         
         self.tf_genre.inputView = UIView()
         let tap_genre = UITapGestureRecognizer(target: self, action: #selector(self.tapGenre(_:)))
@@ -305,7 +304,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable {
                     if jsonResult["Msg"] == "OK"{
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true                   
-                        UserMethods.saveUserToOptions(userDC)
+                        PreferencesMethods.saveUserToOptions(userDC)
                         self.stopAnimating()
                         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
                     }else {

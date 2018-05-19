@@ -23,7 +23,7 @@
 		70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE2D208F7BA1008C972C /* LoginController.swift */; };
 		70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE31208F7C08008C972C /* SignUpController.swift */; };
 		70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE33208F7C1B008C972C /* SplashController.swift */; };
-		70A3BE36208F7F97008C972C /* UserMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE35208F7F97008C972C /* UserMethods.swift */; };
+		70A3BE36208F7F97008C972C /* PreferencesMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE35208F7F97008C972C /* PreferencesMethods.swift */; };
 		70A3BE39208F8003008C972C /* UserDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE38208F8003008C972C /* UserDC.swift */; };
 		70B623EE20A9ED5D001738C3 /* SideMenuOutLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B623ED20A9ED5D001738C3 /* SideMenuOutLogin.swift */; };
 		70B623F020AA1BDD001738C3 /* SideMenuInLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */; };
@@ -68,7 +68,7 @@
 		70A3BE2D208F7BA1008C972C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		70A3BE31208F7C08008C972C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		70A3BE33208F7C1B008C972C /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
-		70A3BE35208F7F97008C972C /* UserMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMethods.swift; sourceTree = "<group>"; };
+		70A3BE35208F7F97008C972C /* PreferencesMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesMethods.swift; sourceTree = "<group>"; };
 		70A3BE38208F8003008C972C /* UserDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDC.swift; sourceTree = "<group>"; };
 		70B623ED20A9ED5D001738C3 /* SideMenuOutLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOutLogin.swift; sourceTree = "<group>"; };
 		70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuInLogin.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		701D289A207EC7C6007AD7AC /* methods */ = {
 			isa = PBXGroup;
 			children = (
-				70A3BE35208F7F97008C972C /* UserMethods.swift */,
+				70A3BE35208F7F97008C972C /* PreferencesMethods.swift */,
 				70D5259F20915709004EB51E /* AlarmMethods.swift */,
 				70D525A420915B91004EB51E /* UtilMethods.swift */,
 				70D525AB209163E9004EB51E /* AlomoMethods.swift */,
@@ -533,7 +533,7 @@
 				70D525A32091590C004EB51E /* PakAlert.swift in Sources */,
 				70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */,
 				7010444F20AE38D900EFFC9B /* CVCSearchItem.swift in Sources */,
-				70A3BE36208F7F97008C972C /* UserMethods.swift in Sources */,
+				70A3BE36208F7F97008C972C /* PreferencesMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

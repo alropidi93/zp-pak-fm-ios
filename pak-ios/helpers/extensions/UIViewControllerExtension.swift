@@ -58,7 +58,7 @@ extension UIViewController : UISearchBarDelegate {
     }
 
     @objc func didPressLeftButton (_ sender: Any) {
-        if UserMethods.getUserFromOptions() != nil {
+        if PreferencesMethods.getUserFromOptions() != nil {
             self.performSegue(withIdentifier: "segue_side_menu_in" , sender: self)
             SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "InMenuNavigationController") as? UISideMenuNavigationController
         } else {
