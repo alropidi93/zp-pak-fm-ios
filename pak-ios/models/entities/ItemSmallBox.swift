@@ -70,7 +70,7 @@ class ItemSmallBoxDC : NSObject ,NSCoding{
     
     var img : String {
         set { _img = newValue }
-        get { return _img }
+        get { return URLs.MultimediaProductosURL + _img }
     }
     
     var SKU : String {

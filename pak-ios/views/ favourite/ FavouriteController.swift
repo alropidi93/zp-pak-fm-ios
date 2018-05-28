@@ -1,8 +1,8 @@
 //
-//  SearchView.swift
+//   FavouriteController.swift
 //  pak-ios
 //
-//  Created by Paolo Rossi on 5/16/18.
+//  Created by Paolo Rossi on 5/21/18.
 //  Copyright © 2018 Paolo Rossi. All rights reserved.
 //
 
@@ -11,49 +11,44 @@ import SwiftyJSON
 import UIKit
 import Alamofire
 import NVActivityIndicatorView
-import FacebookCore
-import FacebookLogin
 import SwiftHash
 import SideMenu
 
-class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable {
+class FavouriteController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable{
     
-    private let reuse_identifier = "cvc_search_item"
+    private let reuse_identifier = "cvc_favourite_item"
     var text:String = ""
     
-    @IBOutlet weak var l_search_word: UILabel!
-    @IBOutlet weak var cv_search: UICollectionView!
-   
-    private var items : [ProductoDC] = []
+    @IBOutlet weak var cv_favourite: UICollectionView!
     
+    private var items : [ProductoDC] = []
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        customizeNavigationBarFavourite()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.l_search_word.text = self.text
         setElements()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     func setElements(){
-        self.cv_search.delegate = self
-        self.cv_search.dataSource = self
-        getCategories()
+        self.cv_favourite.delegate = self
+        self.cv_favourite.dataSource = self
+        
+        getFavourite()
     }
     
-    //#MARK: Collectionview methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCSearchItem
-        cell.l_Item_name.text = self.items[indexPath.item].name
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCFavouriteItem
+        cell.l_item_name.text = self.items[indexPath.item].name
         cell.l_price_unity.text = "\(self.items[indexPath.item].price)"
         UtilMethods.setImage(imageview: cell.iv_item_photo, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
         cell.b_add_item.tag = indexPath.row
@@ -64,11 +59,10 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     @objc func buttonFavorite(sender: UIButton!) {
         let product : ProductoDC = items[sender.tag]
-        print(product.name)
-        addOrDeleteFavortie(product)
+        addOrDeleteFavortie(product,sender.tag)
         
     }
-    func addOrDeleteFavortie(_ product : ProductoDC){
+    func addOrDeleteFavortie(_ product : ProductoDC, _ index : Int){
         let params: Parameters = [ "IdUsuario": PreferencesMethods.getUserFromOptions()!.idUser,
                                    "IdProducto": product.idProduct,
                                    ]
@@ -82,18 +76,15 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                 return
             }
             let statusCode = response.response!.statusCode
-            print(statusCode)
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        //make a changue Hearth img grey to red or red to grey
-                        print("")
-                        self.cv_search.reloadData()
+                        self.items.remove(at: index)
+                        self.cv_favourite.reloadData()
                     }
                 }
             } else {
-                
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     AlarmMethods.errorWarning(message:  jsonResult["message"].string!, uiViewController: self)
@@ -103,9 +94,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
             }
             self.stopAnimating()
         }
-        
     }
-    
     @objc func buttonAdd(sender: UIButton!) {
         let product : ProductoDC = items[sender.tag]
         addProduct(product)
@@ -124,18 +113,60 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                 return
             }
             let statusCode = response.response!.statusCode
-            print(statusCode)
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                         //make a toast or something
-                        print("")
-                        self.cv_search.reloadData()
+                        self.cv_favourite.reloadData()
                     }
                 }
             } else {
-                
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message:  jsonResult["message"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+            self.stopAnimating()
+        }
+    }
+
+    //get favourite
+    func getFavourite() {
+        
+        let user = PreferencesMethods.getUserFromOptions()
+        var params : Parameters
+        if user != nil  {
+            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+            params = [ "IdUsuario": idUser,
+                       "Search": self.text]
+        } else {
+            params = [ "Search": self.text ]
+        }
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        
+        Alamofire.request(URLs.ListFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Msg"] == "OK"{
+                        self.items = []
+                        for ( _ , element) in jsonResult["Productos"] {
+                            let producto  = ProductoDC(element)
+                            self.items.append(producto)
+                        }
+                        self.cv_favourite.reloadData()
+                    }
+                }
+            } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     AlarmMethods.errorWarning(message:  jsonResult["message"].string!, uiViewController: self)
@@ -147,49 +178,4 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         }
     }
     
-    func getCategories() {
-        
-        let user = PreferencesMethods.getUserFromOptions()
-        var params : Parameters
-        if user != nil  {
-            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
-            params = [ "IdUsuario": idUser,
-            "Search": self.text]
-        } else {
-            params = [ "Search": self.text ]
-        }
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        
-        Alamofire.request(URLs.SearchProduct, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
-            if response.response == nil {
-                AlamoMethods.connectionError(uiViewController: self)
-                self.stopAnimating()
-                return
-            }
-            let statusCode = response.response!.statusCode
-            print(statusCode)
-            if statusCode == 200 {
-                if let jsonResponse = response.result.value {
-                    let jsonResult = JSON(jsonResponse)
-                    if jsonResult["Msg"] == "OK"{
-                        self.items = []
-                        for ( _ , element) in jsonResult["Productos"] {
-                            let producto  = ProductoDC(element)
-                            print(producto.price)
-                            self.items.append(producto)
-                        }
-                        self.cv_search.reloadData()
-                    }
-                }
-            } else {
-                if let jsonResponse = response.result.value {
-                    let jsonResult = JSON(jsonResponse)
-                    AlarmMethods.errorWarning(message:  jsonResult["message"].string!, uiViewController: self)
-                } else {
-                    AlamoMethods.defaultError(self)
-                }
-            }
-            self.stopAnimating()
-        }
-    }
 }

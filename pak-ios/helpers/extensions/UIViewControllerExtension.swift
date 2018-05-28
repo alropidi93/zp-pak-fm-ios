@@ -30,6 +30,41 @@ extension UIViewController : UISearchBarDelegate {
         self.navigationItem.leftBarButtonItems = btnsMenu
     }
     
+    func customizeNavigationBarSearch( ) {
+        self.navigationController?.navigationBar.topItem?.title = "Resultados de busqueda"
+        
+        var btnsMenuRight : [UIBarButtonItem] = []
+        let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
+        btnsMenuRight.append(btnMenuRight)
+        self.navigationItem.rightBarButtonItems = btnsMenuRight
+    }
+    
+    func customizeNavigationBarFavourite( ) {
+
+            let navView = UIView()
+            let label = UILabel()
+            label.text = "  Mis Favoritos"
+            label.sizeToFit()
+            label.center = navView.center
+            label.textAlignment = NSTextAlignment.center
+            let image = UIImageView()
+            image.image = UIImage(named: "dwb_pak_button_favorites")
+            let imageAspect = image.image!.size.width/image.image!.size.height
+            image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
+            image.contentMode = UIViewContentMode.scaleAspectFit
+            navView.addSubview(label)
+            navView.addSubview(image)
+            self.navigationItem.titleView = navView
+            navView.sizeToFit()
+        
+        var btnsMenuRight : [UIBarButtonItem] = []
+        let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
+        btnsMenuRight.append(btnMenuRight)
+        self.navigationItem.rightBarButtonItems = btnsMenuRight
+    }
+    
+    
+    
     func customizeNavigationBarWithSearch() {
         self.navigationController?.navigationBar.topItem?.title = " "
         var btnsMenu : [UIBarButtonItem] = []
@@ -45,7 +80,7 @@ extension UIViewController : UISearchBarDelegate {
         self.navigationItem.titleView = searchBar
         
         var btnsMenuRight : [UIBarButtonItem] = []
-        let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: nil)
+        let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
         btnsMenuRight.append(btnMenuRight)
         self.navigationItem.rightBarButtonItems = btnsMenuRight
     }
@@ -57,6 +92,10 @@ extension UIViewController : UISearchBarDelegate {
         }
     }
 
+    @objc func didPressRightButton(_ sender: Any){
+        self.performSegue(withIdentifier: "segue_small_box" , sender: self)
+    }
+    
     @objc func didPressLeftButton (_ sender: Any) {
         if PreferencesMethods.getUserFromOptions() != nil {
             self.performSegue(withIdentifier: "segue_side_menu_in" , sender: self)

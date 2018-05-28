@@ -20,6 +20,8 @@ class ProductoDC  : NSObject  {
     private var _price : Double = 0.0
     private var _favourite : Bool = true
 
+    
+    
     override init() {
     }
     

@@ -19,28 +19,41 @@ import SideMenu
 
 class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     private let segue_about = "segue_about"
+    private let segue_favorites = "segue_favorites"
+    private let segue_discounts = "segue_discounts"
 
+    @IBOutlet weak var b_name: UIButton!
+    
+    @IBAction func ba_name(_ sender: Any) {
+        print("edita")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.b_name.setTitle(PreferencesMethods.getUserFromOptions()?.names, for : .normal)
     }
     
     @IBAction func logueOut(_ sender: Any) {
-        PreferencesMethods.logoutUserFromOptions()
         PreferencesMethods.deleteSmallBoxFromOptions()
-        getGUID()
-        self.dismiss(animated: false, completion: nil)
+       
+        PreferencesMethods.logoutUserFromOptions()
+        self.getGUID()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func initial(_ sender: Any) {
-        print("Initial")
+        NotificationCenter.default.post(name: .viewInit, object: nil, userInfo: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func store(_ sender: Any) {
-        print("store")
+        NotificationCenter.default.post(name: .viewStore, object: nil, userInfo: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func Favorities(_ sender: Any) {
         print("Favorities")
+        self.performSegue(withIdentifier: (self.segue_favorites), sender: self)
     }
     
     @IBAction func Orders(_ sender: Any) {
@@ -48,7 +61,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     }
     
     @IBAction func Discounts(_ sender: Any) {
-        print("Discounts")
+        self.performSegue(withIdentifier: (self.segue_discounts), sender: self)
     }
     
     @IBAction func aboutPak(_ sender: Any) {
@@ -70,8 +83,8 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     let obtenerCajita = SmallBoxDC(jsonResult)
+                    print(obtenerCajita.GUID)
                     PreferencesMethods.saveSmallBoxToOptions(obtenerCajita)
-                    
                 }
             } else {
                 if let jsonResponse = response.result.value {
@@ -81,7 +94,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
                     AlamoMethods.defaultError(self)
                 }
             }
+            self.stopAnimating()
         }
-        self.stopAnimating()
     }
 }

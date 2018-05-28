@@ -64,6 +64,7 @@ class OutMainController : TabmanViewController, PageboyViewControllerDataSource 
     }
     
     @objc func viewInitial(_ notification: NSNotification) {
+        
         self.scrollToPage(.at(index: 0 ), animated: false)
     }
 

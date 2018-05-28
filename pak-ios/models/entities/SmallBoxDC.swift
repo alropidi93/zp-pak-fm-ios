@@ -61,6 +61,11 @@ class SmallBoxDC  : NSObject ,NSCoding{
         get { return _items }
     }
     
+    var costDelivery : Double {
+        set { _costDelivery = newValue }
+        get { return _costDelivery }
+    }
+    
     var discount : DiscountDC? {
         set { _discount = newValue }
         get { return _discount }

@@ -27,6 +27,9 @@ target 'pak-ios' do
   pod 'AKMediaViewer'
   pod 'Agrume'
   pod 'SideMenu'
+  pod 'TTGSnackbar'
+  pod 'PlayerKit'
+
 
   
 end

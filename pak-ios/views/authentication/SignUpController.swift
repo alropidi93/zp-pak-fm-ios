@@ -151,9 +151,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable {
             self.stopAnimating()
         }
     }
-    
     @IBAction func signUp(_ sender: Any) {
-
         if (self.tf_name.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El nombre no puede estar vacío", uiViewController: self)
             return
@@ -241,37 +239,12 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable {
             return
         }
 
-        self.getGUID()
+        
+        
+        self.register((PreferencesMethods.getSmallBoxFromOptions()!.GUID))
 
     }
 
-    
-    func getGUID() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        let params: Parameters = [:]
-        Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
-            if response.response == nil {
-                AlamoMethods.connectionError(uiViewController: self)
-                self.stopAnimating()
-                return
-            }
-            let statusCode = response.response!.statusCode
-            if statusCode == 200 {
-                if let jsonResponse = response.result.value {
-                    let jsonResult = JSON(jsonResponse)
-                    let obtenerCajita = SmallBoxDC(jsonResult)
-                    self.register(obtenerCajita.GUID)
-                }
-            } else {
-                if let jsonResponse = response.result.value {
-                    let jsonResult = JSON(jsonResponse)
-                    AlamoMethods.customError(message: jsonResult["message"].string!, uiViewController: self)
-                } else {
-                    AlamoMethods.defaultError(self)
-                }
-            }
-        }
-    }
     
     func register(_ GUID: String){
         var genre : String = "-"

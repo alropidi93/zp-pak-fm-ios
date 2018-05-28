@@ -56,11 +56,6 @@ class StoreController : UIViewController, UICollectionViewDelegate, UICollection
         return CGSize(width: itemWidth, height: 200)
     }
     
-    
-    
-    
-    
-    
     func getCategories() {
         
         let user = PreferencesMethods.getUserFromOptions()
@@ -80,7 +75,6 @@ class StoreController : UIViewController, UICollectionViewDelegate, UICollection
                 return
             }
             let statusCode = response.response!.statusCode
-            print(statusCode)
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
@@ -94,7 +88,6 @@ class StoreController : UIViewController, UICollectionViewDelegate, UICollection
                     }
                 }
             } else {
-                print("hopa1")
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     AlarmMethods.errorWarning(message:  jsonResult["message"].string!, uiViewController: self)

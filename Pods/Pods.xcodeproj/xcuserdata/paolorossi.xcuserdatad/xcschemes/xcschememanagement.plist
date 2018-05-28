@@ -99,6 +99,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PlayerKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-pak-ios.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -130,6 +135,11 @@
 			<false/>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TTGSnackbar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

@@ -13,6 +13,7 @@ import Alamofire
 import AVKit
 import NVActivityIndicatorView
 import Agrume
+import PlayerKit
 
 class InitialController : UIViewController , UITableViewDataSource, UITableViewDelegate, NVActivityIndicatorViewable {
     
@@ -21,7 +22,7 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var tv_publicity: UITableView!
     
-    private let reuse_question = "tvc_publicity_image"
+    private let reuse_question = "cvc_publicity_image"
     private let reuse_placeholder = "tvc_placeholder"
     
     private var allItems : [Ads] = []
@@ -66,13 +67,17 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TVCPublicityImage
         if self.allItems.item(at: indexPath.row)?.type == "V" { // Videos
+           
+          
+            
             let videoURL = URL(string: (allItems.item(at: indexPath.row)?.archive)!)
             let player = AVPlayer(url: videoURL!)
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.frame = self.view.bounds
+            
             self.view.layer.addSublayer(playerLayer)
             player.play()
-            
+
 
         } else { // Images
             
@@ -96,7 +101,6 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
                 return
             }
             let statusCode = response.response!.statusCode
-            print(statusCode)
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
@@ -104,7 +108,6 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
                         self.allItems = []
                         for ( _ , element) in jsonResult["Anuncios"] {
                             let ads  = Ads(element)
-                            print(ads.archive)
                             self.allItems.append(ads)
                         }
                         self.tv_publicity.reloadData()

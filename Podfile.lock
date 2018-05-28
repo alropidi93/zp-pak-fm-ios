@@ -75,6 +75,7 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.2.0)
   - NVActivityIndicatorView/Presenter (4.2.0)
   - Pageboy (2.5.1)
+  - PlayerKit (1.2.0)
   - Protobuf (3.5.0)
   - RLBAlertsPickers (1.0)
   - SDWebImage (4.3.3):
@@ -86,6 +87,7 @@ PODS:
   - Tabman (1.8.2):
     - AutoInsetter (~> 1.2.0)
     - Pageboy (~> 2.5.0)
+  - TTGSnackbar (1.7.3)
 
 DEPENDENCIES:
   - Agrume
@@ -103,12 +105,14 @@ DEPENDENCIES:
   - ImageSlideshow/Kingfisher
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView
+  - PlayerKit
   - RLBAlertsPickers (from `https://github.com/loicgriffie/Alerts-Pickers.git`, branch `master`)
   - SDWebImage
   - SideMenu
   - SwiftHash
   - SwiftyJSON
   - Tabman
+  - TTGSnackbar
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -138,12 +142,14 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - Pageboy
+    - PlayerKit
     - Protobuf
     - SDWebImage
     - SideMenu
     - SwiftHash
     - SwiftyJSON
     - Tabman
+    - TTGSnackbar
 
 EXTERNAL SOURCES:
   RLBAlertsPickers:
@@ -182,6 +188,7 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: 75c9634073e03b31d7e2748cd2417feab1206195
   Pageboy: f0295ea949f0b0123a1b486fd347ea892d0078e0
+  PlayerKit: a1fd44e0d2277ac5e2e6cb1fae38e86c872abb5b
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   RLBAlertsPickers: 3489f6d8b7ba4e04aa1f53b3a7d47edda040840f
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
@@ -189,7 +196,8 @@ SPEC CHECKSUMS:
   SwiftHash: c805de5a434eacfa0dac7210745a50c55d7fe33d
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Tabman: 69ce69b44cec1ad693b82c24cdbdf0c45915668c
+  TTGSnackbar: a66e929fd17d662152ec0964990a86e966310edb
 
-PODFILE CHECKSUM: 619ca0ac3843054e3273c2d1810e60efcfb4858c
+PODFILE CHECKSUM: 9322c0de2f702adfa95702be6a5b6ae999284b54
 
 COCOAPODS: 1.5.0

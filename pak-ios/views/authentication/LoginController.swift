@@ -27,6 +27,12 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
         super.viewWillAppear(animated)
 //        self.customizeNavigationBar()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if PreferencesMethods.isFirstTime() {
+            self.getGUID()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fullKeyboardSupport()
@@ -46,8 +52,8 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
             AlamoMethods.customError(message: "El email no puede estar vacío", uiViewController: self)
             return
         }
+        self.loginUser()
         
-        self.getGUID()
     }
     
     func getGUID() {
@@ -64,9 +70,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     let obtenerCajita = SmallBoxDC(jsonResult)
-                    self.loginUser(obtenerCajita.GUID)
                     PreferencesMethods.saveSmallBoxToOptions(obtenerCajita)
-                    
                 }
             } else {
                 if let jsonResponse = response.result.value {
@@ -76,13 +80,23 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
                     AlamoMethods.defaultError(self)
                 }
             }
+            self.stopAnimating()
         }
     }
   
-    func loginUser(_ GUID: String) {
+    func loginUser() {
+    self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+
+        if PreferencesMethods.getSmallBoxFromOptions() == nil {
+            getGUID()
+            
+            return
+        }
+    
+
         let params: Parameters = [ "Username": self.tf_email.text!,
                                    "Password": MD5(self.tf_password.text!) ,
-                                   "GUID" : GUID ]
+                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
         Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -97,6 +111,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
                         PreferencesMethods.saveUserToOptions(userDC)
+                        PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
                         self.stopAnimating()
                         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
                     } else {
@@ -124,7 +139,6 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
     
     @IBAction func loginWithFacebook(_ sender: Any) {
         let loginManager = LoginManager()
-        print("hello")
 
         loginManager.logIn(readPermissions: [ .publicProfile, .email ], viewController: self) { loginResult in
             switch loginResult {
@@ -147,7 +161,6 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
                             "email": value.dictionaryValue!["email"] ?? "",
                             "imageurl": "https://graph.facebook.com/\(value.dictionaryValue!["id"] ?? -1)/picture?type=large"
                         ]
-                        print("Params: \(params)")
                         self.stopAnimating()
                         
                         //TODO erase after API connection
