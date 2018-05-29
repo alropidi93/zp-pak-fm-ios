@@ -31,4 +31,6 @@ class AlarmMethods {
         alertManager.view.tintColor = UtilMethods.hexStringToUIColor(hex: Constants.VELVET_ORANGE)
         uiViewController.present(alertManager, animated: true, completion: nil)
     }
+    
+    
 }

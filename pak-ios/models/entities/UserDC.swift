@@ -53,7 +53,7 @@ class UserDC :  NSObject ,NSCoding{
             self._district = DistrictDC(jsonUser["Distrito"])
         }
         
-        self._codeInvitation = jsonUser["CodigoInvitaticion"].string ?? self._codeInvitation
+        self._codeInvitation = jsonUser["CodigoInvitacion"].string ?? self._codeInvitation
         self._applicableInvitationCode = jsonUser["CodigoInvitaticionAplicable"].bool ?? self._applicableInvitationCode
         self._accessToken = jsonUser["AccessToken"].string ?? self._userName
         
@@ -75,7 +75,7 @@ class UserDC :  NSObject ,NSCoding{
         self._address = decoder.decodeObject(forKey: "Direccion") as? String ?? self._address
         self._telephone = decoder.decodeObject(forKey: "Telefono") as? String ?? self._telephone
         self._district = decoder.decodeObject(forKey: "Distrito") as? DistrictDC ?? self._district
-        self._codeInvitation = decoder.decodeObject(forKey: "CodigoInvitaticion") as? String ?? self._codeInvitation
+        self._codeInvitation = decoder.decodeObject(forKey: "CodigoInvitacion") as? String ?? self._codeInvitation
         self._accessToken = decoder.decodeObject(forKey: "AccessToken") as? String ?? self._accessToken
         self._smallBox = decoder.decodeObject(forKey: "Cajita") as? SmallBoxDC ?? self._smallBox
         self._applicableInvitationCode = decoder.decodeBool(forKey: "CodigoInvitacionAplicable")
@@ -95,7 +95,7 @@ class UserDC :  NSObject ,NSCoding{
         coder.encode(_genere, forKey: "Sexo")
         coder.encode(_telephone, forKey: "Telefono")
         coder.encode(_district, forKey: "Distrito")
-        coder.encode(_codeInvitation, forKey: "CodigoInvitaticion")
+        coder.encode(_codeInvitation, forKey: "CodigoInvitacion")
         coder.encode(_accessToken, forKey: "AccessToken")
         coder.encode(_smallBox, forKey: "Cajita")
         

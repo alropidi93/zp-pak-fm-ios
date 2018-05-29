@@ -276,7 +276,8 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                         let userDC : UserDC = UserDC(jsonResult)
-                        userDC.valid = true                   
+                        userDC.valid = true
+                        print(jsonResult["CodigoInvitacion"])
                         PreferencesMethods.saveUserToOptions(userDC)
                         self.stopAnimating()
                         self.performSegue(withIdentifier: self.segue_identifier, sender: self)

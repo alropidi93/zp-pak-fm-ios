@@ -1831,19 +1831,96 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-bm-Lxd">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="547"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK1-zz-KBd" userLabel="b_add_invitation">
+                                        <rect key="frame" x="88" y="497" width="198" height="30"/>
+                                        <state key="normal" title="Ingresar código de invitación"/>
+                                        <connections>
+                                            <action selector="ba_add_invitation:" destination="U92-eC-NN0" eventType="touchUpInside" id="E1z-Kq-jC9"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_discounts" translatesAutoresizingMaskIntoConstraints="NO" id="lOY-vi-X7h" userLabel="v_discount">
+                                        <rect key="frame" x="149.5" y="186" width="76" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="76" id="VFF-X8-345"/>
+                                            <constraint firstAttribute="height" constant="76" id="ZCz-Ww-SPH"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No háy ningún cupón de descuento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-la-4pe" userLabel="l_announc_discount">
+                                        <rect key="frame" x="52" y="270" width="271" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90080391479999999" green="0.90080391479999999" blue="0.90080391479999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dK1-zz-KBd" secondAttribute="bottom" constant="20" id="440-XK-qCa"/>
+                                    <constraint firstItem="hvD-la-4pe" firstAttribute="centerX" secondItem="5JS-bm-Lxd" secondAttribute="centerX" id="8y0-Tn-wuM"/>
+                                    <constraint firstItem="dK1-zz-KBd" firstAttribute="centerX" secondItem="5JS-bm-Lxd" secondAttribute="centerX" id="PUv-ez-cnZ"/>
+                                    <constraint firstItem="hvD-la-4pe" firstAttribute="top" secondItem="lOY-vi-X7h" secondAttribute="bottom" constant="8" symbolic="YES" id="SyM-MT-oSO"/>
+                                    <constraint firstAttribute="trailing" secondItem="lOY-vi-X7h" secondAttribute="trailing" constant="149.5" id="TOS-NQ-58R"/>
+                                    <constraint firstItem="lOY-vi-X7h" firstAttribute="centerX" secondItem="5JS-bm-Lxd" secondAttribute="centerX" id="XRh-e2-qxQ"/>
+                                    <constraint firstItem="lOY-vi-X7h" firstAttribute="leading" secondItem="5JS-bm-Lxd" secondAttribute="leading" constant="149.5" id="oXu-AG-CT7"/>
+                                    <constraint firstItem="dK1-zz-KBd" firstAttribute="top" secondItem="hvD-la-4pe" secondAttribute="bottom" constant="206" id="uBR-a6-O4h"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-eN-6Y4">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi código de invitación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofb-fO-IrG" userLabel="l_code_invitation">
+                                        <rect key="frame" x="118" y="16" width="140" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb4-Wh-DeD" userLabel="l_code">
+                                        <rect key="frame" x="159" y="42" width="57" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhu-pE-5iQ" userLabel="b_copy">
+                                        <rect key="frame" x="278" y="38" width="22" height="25"/>
+                                        <state key="normal" backgroundImage="dwb_pak_copy"/>
+                                        <connections>
+                                            <action selector="ba_copy:" destination="U92-eC-NN0" eventType="touchUpInside" id="EdV-kl-bHm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="mb4-Wh-DeD" firstAttribute="centerX" secondItem="kdq-eN-6Y4" secondAttribute="centerX" id="5l2-7X-Og4"/>
+                                    <constraint firstItem="xhu-pE-5iQ" firstAttribute="centerY" secondItem="kdq-eN-6Y4" secondAttribute="centerY" id="Ing-37-xEW"/>
+                                    <constraint firstItem="ofb-fO-IrG" firstAttribute="centerX" secondItem="kdq-eN-6Y4" secondAttribute="centerX" id="MMZ-1Q-9HB"/>
+                                    <constraint firstItem="mb4-Wh-DeD" firstAttribute="top" secondItem="ofb-fO-IrG" secondAttribute="bottom" constant="10" id="UUJ-a2-9n7"/>
+                                    <constraint firstItem="ofb-fO-IrG" firstAttribute="centerX" secondItem="kdq-eN-6Y4" secondAttribute="centerX" id="XZS-dS-I9J"/>
+                                    <constraint firstItem="xhu-pE-5iQ" firstAttribute="leading" secondItem="ofb-fO-IrG" secondAttribute="trailing" constant="20" id="eWs-CI-c8U"/>
+                                    <constraint firstAttribute="bottom" secondItem="mb4-Wh-DeD" secondAttribute="bottom" constant="25" id="xXg-Cw-nDr"/>
+                                    <constraint firstAttribute="height" constant="100" id="yA1-f1-iAv"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5JS-bm-Lxd" firstAttribute="top" secondItem="crl-mr-WGn" secondAttribute="top" id="6DB-7t-DoJ"/>
                             <constraint firstItem="5JS-bm-Lxd" firstAttribute="trailing" secondItem="crl-mr-WGn" secondAttribute="trailing" id="8f6-tu-E0U"/>
-                            <constraint firstItem="5JS-bm-Lxd" firstAttribute="bottom" secondItem="crl-mr-WGn" secondAttribute="bottom" id="AW3-gY-0o7"/>
+                            <constraint firstItem="crl-mr-WGn" firstAttribute="bottom" secondItem="5JS-bm-Lxd" secondAttribute="bottom" constant="100" id="F15-WB-PyI"/>
                             <constraint firstItem="5JS-bm-Lxd" firstAttribute="top" secondItem="crl-mr-WGn" secondAttribute="top" id="J2u-lp-vKJ"/>
+                            <constraint firstItem="kdq-eN-6Y4" firstAttribute="bottom" secondItem="crl-mr-WGn" secondAttribute="bottom" id="Mpz-k1-8Li"/>
+                            <constraint firstItem="5JS-bm-Lxd" firstAttribute="leading" secondItem="crl-mr-WGn" secondAttribute="leading" id="V3f-fE-ONr"/>
+                            <constraint firstItem="kdq-eN-6Y4" firstAttribute="top" secondItem="5JS-bm-Lxd" secondAttribute="bottom" id="VbU-80-viC"/>
+                            <constraint firstItem="5JS-bm-Lxd" firstAttribute="trailing" secondItem="crl-mr-WGn" secondAttribute="trailing" id="dgP-wD-IvR"/>
                             <constraint firstItem="5JS-bm-Lxd" firstAttribute="leading" secondItem="crl-mr-WGn" secondAttribute="leading" id="lXG-NF-Jul"/>
+                            <constraint firstItem="kdq-eN-6Y4" firstAttribute="trailing" secondItem="crl-mr-WGn" secondAttribute="trailing" id="lmN-51-Qib"/>
+                            <constraint firstItem="kdq-eN-6Y4" firstAttribute="leading" secondItem="crl-mr-WGn" secondAttribute="leading" id="ouX-td-ZhI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="crl-mr-WGn"/>
                     </view>
+                    <connections>
+                        <outlet property="l_code" destination="mb4-Wh-DeD" id="7BZ-hJ-kMs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmu-KL-dXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1962,7 +2039,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
         <!--Code Invitation-->
         <scene sceneID="lmX-hx-CUw">
             <objects>
-                <viewController title="Alert" id="vtc-2A-fV1" userLabel="Code Invitation" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc_pak_alert_invitation" title="Alert" id="vtc-2A-fV1" userLabel="Code Invitation" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kBS-Mb-fO3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3442,16 +3519,18 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
         <image name="dwb_pak_button_login_detail" width="21" height="42"/>
         <image name="dwb_pak_button_orders" width="19" height="19"/>
         <image name="dwb_pak_button_store" width="19" height="19"/>
+        <image name="dwb_pak_copy" width="22" height="25"/>
+        <image name="dwb_pak_discounts" width="60" height="51"/>
         <image name="dwb_pak_empty_box" width="74" height="57"/>
         <image name="dwb_pak_logo" width="134" height="117"/>
         <image name="dwb_pak_usericon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eWD-Wl-ASh"/>
         <segue reference="OS7-IV-a8p"/>
         <segue reference="xVe-nE-p4w"/>
         <segue reference="oBi-e6-wfk"/>
         <segue reference="1vM-Rq-4HF"/>
         <segue reference="692-lH-5Bg"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
