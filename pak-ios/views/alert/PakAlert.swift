@@ -23,7 +23,6 @@ class PakAlert : UIViewController {
         super.viewDidLoad()
         setElements()
 
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

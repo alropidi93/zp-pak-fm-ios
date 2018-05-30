@@ -36,17 +36,18 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setElements()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navBarLabelWithImg()
-        setElements()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
@@ -55,6 +56,9 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier_box, for: indexPath) as! CVCSmallBoxItem
         cell.l_name.text = self.items[indexPath.item].name
         cell.tf_count_item.text = String(self.items[indexPath.item].cant)
+        cell.tf_count_item.addTarget(self,
+                                      action: #selector(textFieldDidChange(_:)),
+                                      for: .valueChanged)
         let stringValue = "S./"
         cell.l_mount_total_item.text = stringValue + String(Double(self.items[indexPath.item].cant) * self.items[indexPath.item].price)
         cell.l_price.text = stringValue + String(self.items[indexPath.item].price)
@@ -89,6 +93,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
             self.v_total.isHidden = true
         }
     }
+    
     func setSubTotal(){
         for element in self.items {
             self.subTotal = self.subTotal + (element.price * Double(element.cant))
@@ -96,6 +101,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         self.l_mount_subt.text = String(self.subTotal)
         self.l_mount_total.text = String(self.subTotal + self.deliveryCost )
     }
+    
     func getGUID() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         let params: Parameters = ["GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
@@ -119,6 +125,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                         let smallItemBox  = ItemSmallBoxDC(element)
                         self.items.append(smallItemBox)
                     }
+                    self.cv_item_list.reloadData()
                     self.showOrHidenItems()
                     
                 }
@@ -134,9 +141,22 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         }
     }
 
+    
+    
     @IBAction func ba_buying(_ sender: Any) {
         print("compra")
     }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        print(textField.text)
+        
+    }
+    
+    func update_cant_item(){
+        //upgreo la cantidad
+    }
+    
+    
     func navBarLabelWithImg(){
         let navView = UIView()
         let label = UILabel()

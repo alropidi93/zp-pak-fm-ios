@@ -46,6 +46,7 @@
 		70D5F0ED209B78A400EE673B /* OutMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0EC209B78A400EE673B /* OutMainController.swift */; };
 		70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0EE209B7A4300EE673B /* InitialController.swift */; };
 		70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0F0209B7AA700EE673B /* StoreController.swift */; };
+		70D6D2EC20BDAEF4006BDC19 /* PakAlertCodeInvitationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6D2EB20BDAEF4006BDC19 /* PakAlertCodeInvitationDelegate.swift */; };
 		70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF102A208FE8E200EDB1FA /* DistrictDC.swift */; };
 		70F54C9720901210003175AA /* SmallBoxDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C9620901210003175AA /* SmallBoxDC.swift */; };
 		70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C982090174F003175AA /* ItemSmallBox.swift */; };
@@ -96,6 +97,7 @@
 		70D5F0EC209B78A400EE673B /* OutMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutMainController.swift; sourceTree = "<group>"; };
 		70D5F0EE209B7A4300EE673B /* InitialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialController.swift; sourceTree = "<group>"; };
 		70D5F0F0209B7AA700EE673B /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
+		70D6D2EB20BDAEF4006BDC19 /* PakAlertCodeInvitationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCodeInvitationDelegate.swift; sourceTree = "<group>"; };
 		70DF102A208FE8E200EDB1FA /* DistrictDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictDC.swift; sourceTree = "<group>"; };
 		70F54C9620901210003175AA /* SmallBoxDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBoxDC.swift; sourceTree = "<group>"; };
 		70F54C982090174F003175AA /* ItemSmallBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSmallBox.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		701D288E207EB463007AD7AC /* delegates */ = {
 			isa = PBXGroup;
 			children = (
+				70D6D2EB20BDAEF4006BDC19 /* PakAlertCodeInvitationDelegate.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				70D525AA20915C6A004EB51E /* Constants.swift in Sources */,
 				70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */,
 				701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */,
+				70D6D2EC20BDAEF4006BDC19 /* PakAlertCodeInvitationDelegate.swift in Sources */,
 				703BA2CC20ACF2EE00AC9597 /* SearchView.swift in Sources */,
 				7094FE9D20B2B14100511297 /*  FavouriteController.swift in Sources */,
 				70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */,

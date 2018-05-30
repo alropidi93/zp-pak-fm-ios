@@ -22,7 +22,7 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var tv_publicity: UITableView!
     
-    private let reuse_question = "cvc_publicity_image"
+    private let reuse_question = "tvc_publicity_image"
     private let reuse_placeholder = "tvc_placeholder"
     
     private var allItems : [Ads] = []
