@@ -143,7 +143,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable {
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    AlamoMethods.customError(message: jsonResult["message"].string!, uiViewController: self)
+                    AlamoMethods.customError(message: jsonResult["Msg"].string!, uiViewController: self)
                 } else {
                     AlamoMethods.defaultError(self)
                 }
@@ -295,7 +295,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable {
                 self.stopAnimating()
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    AlamoMethods.customError(message: jsonResult["message"].string!, uiViewController: self)
+                    AlamoMethods.customError(message: jsonResult["Msg"].string!, uiViewController: self)
                 } else {
                     AlamoMethods.defaultError(self)
                 }

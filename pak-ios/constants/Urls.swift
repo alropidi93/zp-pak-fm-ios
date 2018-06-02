@@ -53,7 +53,9 @@ struct URLs {
         return BaseURL + "OrderService.svc/AgregarItemCajita"
     }
     
-    
+    static var ModifySmallBox: String { //POST
+        return BaseURL + "OrderService.svc/ModificarItemCajita"
+    }
     //ANUNCIOS
     static var GetAds: String { //GET
         return BaseURL + "AdService.svc/ListarAnuncios"
@@ -73,6 +75,13 @@ struct URLs {
     static var ListFavoritie: String { //POST
         return BaseURL + "CustomerService.svc/ListarFavoritos"
     }
+    static var RegisterInvitationCode: String { //POST
+        return BaseURL + "CustomerService.svc/RegistrarCodigoInvitacion"
+    }
+    static var ListDiscount: String { //POST
+        return BaseURL + "CustomerService.svc/ListarDescuentos"
+    }
+    
     
     
 }

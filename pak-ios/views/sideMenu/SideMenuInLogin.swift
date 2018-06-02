@@ -89,7 +89,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    AlarmMethods.errorWarning(message:  jsonResult["message"].string!, uiViewController: self)
+                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
                 } else {
                     AlamoMethods.defaultError(self)
                 }

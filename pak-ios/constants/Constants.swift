@@ -38,5 +38,7 @@ class Constants {
     
     //SEARCHBAR
     static let PLACEHOLDERSB : String = "Buscar producto"
+    //
+    static let MOTIVE : String = "Gracias a la invitación de "
 }
 

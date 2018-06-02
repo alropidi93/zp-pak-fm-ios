@@ -1830,7 +1830,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-bm-Lxd">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-bm-Lxd" userLabel="v_add_code">
                                 <rect key="frame" x="0.0" y="20" width="375" height="547"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK1-zz-KBd" userLabel="b_add_invitation">
@@ -1866,7 +1866,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                     <constraint firstItem="dK1-zz-KBd" firstAttribute="top" secondItem="hvD-la-4pe" secondAttribute="bottom" constant="206" id="uBR-a6-O4h"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-eN-6Y4">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-eN-6Y4" userLabel="v_own_code">
                                 <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi código de invitación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofb-fO-IrG" userLabel="l_code_invitation">
@@ -1901,11 +1901,11 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                     <constraint firstAttribute="height" constant="100" id="yA1-f1-iAv"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYP-Io-EAz">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYP-Io-EAz" userLabel="v_code_show">
                                 <rect key="frame" x="0.0" y="20" width="375" height="547"/>
                                 <subviews>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWp-NL-keC" userLabel="v_head">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWp-NL-keC" userLabel="v_head">
+                                        <rect key="frame" x="0.0" y="10" width="375" height="30"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="fkv-6g-wEO">
                                                 <rect key="frame" x="175" y="0.0" width="25" height="11"/>
@@ -1948,23 +1948,23 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="imD-mH-bHD">
                                         <rect key="frame" x="0.0" y="38" width="375" height="62"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02/06/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSO-5W-ibN">
-                                                <rect key="frame" x="21" y="19" width="108" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02/06/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSO-5W-ibN" userLabel="l_date_discount">
+                                                <rect key="frame" x="21" y="19" width="129" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gracias a la invitación de asdfghjklzxcvbnm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u12-UY-S1B">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gracias a la invitación de asdfghjklzxcvbnm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u12-UY-S1B" userLabel="l_motive">
                                                 <rect key="frame" x="198" y="13" width="62" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="6"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10.0 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jt-Lw-zfs">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10.0 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jt-Lw-zfs" userLabel="l_discount_percent">
                                                 <rect key="frame" x="292" y="21" width="50" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1979,7 +1979,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="LWp-NL-keC" secondAttribute="trailing" id="EEK-SJ-ugi"/>
                                     <constraint firstItem="LWp-NL-keC" firstAttribute="leading" secondItem="sYP-Io-EAz" secondAttribute="leading" id="ieg-Yb-GeF"/>
-                                    <constraint firstItem="LWp-NL-keC" firstAttribute="top" secondItem="sYP-Io-EAz" secondAttribute="top" id="yeQ-Yl-cB5"/>
+                                    <constraint firstItem="LWp-NL-keC" firstAttribute="top" secondItem="sYP-Io-EAz" secondAttribute="top" constant="10" id="yeQ-Yl-cB5"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1990,7 +1990,6 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                             <constraint firstItem="5JS-bm-Lxd" firstAttribute="trailing" secondItem="crl-mr-WGn" secondAttribute="trailing" id="8f6-tu-E0U"/>
                             <constraint firstItem="crl-mr-WGn" firstAttribute="bottom" secondItem="5JS-bm-Lxd" secondAttribute="bottom" constant="100" id="F15-WB-PyI"/>
                             <constraint firstItem="sYP-Io-EAz" firstAttribute="top" secondItem="crl-mr-WGn" secondAttribute="top" id="HXn-s6-JyP"/>
-                            <constraint firstItem="5JS-bm-Lxd" firstAttribute="top" secondItem="crl-mr-WGn" secondAttribute="top" id="J2u-lp-vKJ"/>
                             <constraint firstItem="kdq-eN-6Y4" firstAttribute="bottom" secondItem="crl-mr-WGn" secondAttribute="bottom" id="Mpz-k1-8Li"/>
                             <constraint firstItem="sYP-Io-EAz" firstAttribute="trailing" secondItem="crl-mr-WGn" secondAttribute="trailing" id="O1b-0W-4ow"/>
                             <constraint firstItem="5JS-bm-Lxd" firstAttribute="leading" secondItem="crl-mr-WGn" secondAttribute="leading" id="V3f-fE-ONr"/>
@@ -1999,12 +1998,18 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                             <constraint firstItem="5JS-bm-Lxd" firstAttribute="trailing" secondItem="crl-mr-WGn" secondAttribute="trailing" id="dgP-wD-IvR"/>
                             <constraint firstItem="5JS-bm-Lxd" firstAttribute="leading" secondItem="crl-mr-WGn" secondAttribute="leading" id="lXG-NF-Jul"/>
                             <constraint firstItem="kdq-eN-6Y4" firstAttribute="trailing" secondItem="crl-mr-WGn" secondAttribute="trailing" id="lmN-51-Qib"/>
+                            <constraint firstItem="sYP-Io-EAz" firstAttribute="top" secondItem="crl-mr-WGn" secondAttribute="top" id="naH-7v-WYY"/>
                             <constraint firstItem="kdq-eN-6Y4" firstAttribute="leading" secondItem="crl-mr-WGn" secondAttribute="leading" id="ouX-td-ZhI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="crl-mr-WGn"/>
                     </view>
                     <connections>
                         <outlet property="l_code" destination="mb4-Wh-DeD" id="7BZ-hJ-kMs"/>
+                        <outlet property="l_date_discount" destination="WSO-5W-ibN" id="Hli-KS-ofq"/>
+                        <outlet property="l_discount_percent" destination="9jt-Lw-zfs" id="0hw-AS-TnN"/>
+                        <outlet property="l_motive" destination="u12-UY-S1B" id="Qmm-WL-gA0"/>
+                        <outlet property="v_add_code" destination="5JS-bm-Lxd" id="lcY-xj-lAb"/>
+                        <outlet property="v_code_show" destination="sYP-Io-EAz" id="Q3b-3z-4TU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmu-KL-dXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3346,11 +3351,15 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     <color key="textColor" white="0.0" alpha="0.68219866070000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdL-6Z-nZ6" userLabel="tf_count_item">
-                                                    <rect key="frame" x="239" y="30" width="25" height="30"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdL-6Z-nZ6" userLabel="tf_count_item">
+                                                    <rect key="frame" x="229" y="30" width="51" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <string key="background">
+self.backgroundColor  = UIColor.blue
+
+</string>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -3358,16 +3367,16 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4k-Ae-se0" userLabel="l_mount_total_item">
-                                                    <rect key="frame" x="303.5" y="36" width="43.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="costo unidad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhB-S1-5D6" userLabel="l_price">
                                                     <rect key="frame" x="93" y="52" width="72.5" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <color key="textColor" white="0.0" alpha="0.68219866070000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Monto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4k-Ae-se0" userLabel="l_mount_total_item">
+                                                    <rect key="frame" x="303" y="36" width="43.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -3403,7 +3412,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <color key="textColor" white="0.0" alpha="0.68219866070000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Costo de Delibery" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weV-ZB-A9s" userLabel="l_delivery_cost">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Costo de Delivery" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weV-ZB-A9s" userLabel="l_delivery_cost">
                                         <rect key="frame" x="160" y="34" width="107" height="16"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                         <color key="textColor" white="0.0" alpha="0.68219866070000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3490,7 +3499,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGu-2c-KLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5953" y="485"/>
+            <point key="canvasLocation" x="5952.8000000000002" y="484.40779610194909"/>
         </scene>
         <!--Publicity-->
         <scene sceneID="lTx-4w-lfQ">
@@ -3591,6 +3600,12 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
         </scene>
     </scenes>
     <resources>
+        <image width="16" height="16">
+            <string key="name">
+self.backgroundColor  = UIColor.blue
+
+</string>
+        </image>
         <image name="dwb-pak-logo-name" width="483" height="362"/>
         <image name="dwb_pak_add_Item" width="33" height="19"/>
         <image name="dwb_pak_background_loby" width="163" height="290"/>

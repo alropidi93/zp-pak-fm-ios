@@ -36,13 +36,15 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setElements()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setElements()
         navBarLabelWithImg()
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,9 +58,9 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier_box, for: indexPath) as! CVCSmallBoxItem
         cell.l_name.text = self.items[indexPath.item].name
         cell.tf_count_item.text = String(self.items[indexPath.item].cant)
-        cell.tf_count_item.addTarget(self,
-                                      action: #selector(textFieldDidChange(_:)),
-                                      for: .valueChanged)
+        cell.tf_count_item.backgroundColor = UIColor.lightGray
+        cell.tf_count_item.tag = indexPath.row
+        cell.tf_count_item .addTarget(self, action: #selector(textFieldEditingDidChangeEnd), for: UIControlEvents.editingDidEnd)
         let stringValue = "S./"
         cell.l_mount_total_item.text = stringValue + String(Double(self.items[indexPath.item].cant) * self.items[indexPath.item].price)
         cell.l_price.text = stringValue + String(self.items[indexPath.item].price)
@@ -66,6 +68,52 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         UtilMethods.setImage(imageview: cell.iv_product, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
         return cell
     }
+    
+    @objc func textFieldEditingDidChangeEnd(sender: UITextField!) {
+//        UInt64(Int64(sender.text!)!)
+        if sender.text?.isEmpty == false {
+            
+            let cant = UInt64(sender.text!)!
+            modifyItemSmallBox(items[sender.tag],cant)
+            
+            }
+    }
+    
+    func modifyItemSmallBox(_ itemProduct:ItemSmallBoxDC , _ cant : UInt64){
+        
+        let params : Parameters = [ "IdProducto": itemProduct.idProduct,
+                       "Cantidad":cant,
+                       "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        print(PreferencesMethods.getUserFromOptions()?.idUser)
+        Alamofire.request(URLs.ModifySmallBox , method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Msg"] == "OK"{
+                        itemProduct.cant = cant
+                        self.setSubTotal()
+                    }
+                    self.cv_item_list.reloadData()
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+            self.stopAnimating()
+        }
+    }
+ 
     
     func setElements(){
         self.cv_item_list.delegate = self
@@ -95,6 +143,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func setSubTotal(){
+        self.subTotal = 0
         for element in self.items {
             self.subTotal = self.subTotal + (element.price * Double(element.cant))
         }
@@ -105,7 +154,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     func getGUID() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         let params: Parameters = ["GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
-
+        print(PreferencesMethods.getSmallBoxFromOptions()!.GUID)
         Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -132,7 +181,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    AlarmMethods.errorWarning(message:  jsonResult["message"].string!, uiViewController: self)
+                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
                 } else {
                     AlamoMethods.defaultError(self)
                 }
@@ -147,10 +196,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         print("compra")
     }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        print(textField.text)
-        
-    }
+    
     
     func update_cant_item(){
         //upgreo la cantidad
