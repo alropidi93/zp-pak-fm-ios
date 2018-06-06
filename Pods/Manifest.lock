@@ -5,6 +5,7 @@ PODS:
   - Alamofire (4.7.2)
   - ASBPlayerScrubbing (0.1)
   - AutoInsetter (1.2.3)
+  - BmoViewPager (4.1.1)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -93,6 +94,7 @@ DEPENDENCIES:
   - Agrume
   - AKMediaViewer
   - Alamofire
+  - BmoViewPager
   - Cosmos
   - Crashlytics
   - Fabric
@@ -121,6 +123,7 @@ SPEC REPOS:
     - Alamofire
     - ASBPlayerScrubbing
     - AutoInsetter
+    - BmoViewPager
     - Bolts
     - Cosmos
     - Crashlytics
@@ -167,6 +170,7 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   ASBPlayerScrubbing: 0fc5e76aad6fdbcf14380734fb7f2c127cd28b66
   AutoInsetter: 1a8f8ad5e7da8e993970b3809cfb8e8e330f4db1
+  BmoViewPager: b2a1f7d2f5988b7ced848ddd1ad6f7941dd6d50c
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Cosmos: a6dbd3d0baa0cc8f51f8598f7508d5a09d0a9ade
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
@@ -198,6 +202,6 @@ SPEC CHECKSUMS:
   Tabman: 69ce69b44cec1ad693b82c24cdbdf0c45915668c
   TTGSnackbar: a66e929fd17d662152ec0964990a86e966310edb
 
-PODFILE CHECKSUM: 9322c0de2f702adfa95702be6a5b6ae999284b54
+PODFILE CHECKSUM: bcf330087b87f3f0978b46edf3813947f15e95ba
 
 COCOAPODS: 1.5.0

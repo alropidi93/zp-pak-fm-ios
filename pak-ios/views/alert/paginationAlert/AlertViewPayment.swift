@@ -1,0 +1,36 @@
+//
+//  AlertViewPayment.swift
+//  pak-ios
+//
+//  Created by Paolo Rossi on 6/6/18.
+//  Copyright © 2018 Paolo Rossi. All rights reserved.
+//
+
+
+import Foundation
+import UIKit
+
+class AlertViewPayment : UIViewController {
+    
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    
+   
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.layoutIfNeeded()
+    }
+    
+    
+    
+}

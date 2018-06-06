@@ -70,7 +70,6 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     }
     
     @objc func textFieldEditingDidChangeEnd(sender: UITextField!) {
-//        UInt64(Int64(sender.text!)!)
         if sender.text?.isEmpty == false {
             
             let cant = UInt64(sender.text!)!
@@ -85,7 +84,6 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                        "Cantidad":cant,
                        "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        print(PreferencesMethods.getUserFromOptions()?.idUser)
         Alamofire.request(URLs.ModifySmallBox , method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -193,15 +191,13 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     
     
     @IBAction func ba_buying(_ sender: Any) {
-        print("compra")
+        let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "alert_payment") as! AlertViewPayment
+        customAlert.definesPresentationContext = true
+        customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        customAlert.codeInvitationDelegate = self
+        self.present(customAlert, animated: true, completion: nil)
     }
-    
-    
-    
-    func update_cant_item(){
-        //upgreo la cantidad
-    }
-    
     
     func navBarLabelWithImg(){
         let navView = UIView()

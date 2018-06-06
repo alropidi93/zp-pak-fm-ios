@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91957F1F9AEA5A95C3EBE9392367E087"
+               BlueprintIdentifier = "D1D1AD5A62F5708AED9481A979CF4B82"
                BlueprintName = "RLBAlertsPickers"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "RLBAlertsPickers.framework">

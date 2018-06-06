@@ -7,6 +7,14 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Foundation
+import Alamofire
+import NVActivityIndicatorView
+import FacebookCore
+import FacebookLogin
+import SwiftHash
+import SideMenu
 
 class SplashController: UIViewController {
     
@@ -26,6 +34,9 @@ class SplashController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if PreferencesMethods.isFirstTime() {
+            self.getGUID()
+        }
         OperationQueue.main.addOperation {
             [weak self] in
             self?.performSegue(withIdentifier: (self?.splash_identifier)!, sender: self)
@@ -34,5 +45,30 @@ class SplashController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+   
+    func getGUID() {
+        let params: Parameters = [:]
+        Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    let obtenerCajita = SmallBoxDC(jsonResult)
+                    PreferencesMethods.saveSmallBoxToOptions(obtenerCajita)
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+        }
     }
 }

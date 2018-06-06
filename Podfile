@@ -29,7 +29,7 @@ target 'pak-ios' do
   pod 'SideMenu'
   pod 'TTGSnackbar'
   pod 'PlayerKit'
-
+  pod 'BmoViewPager'
 
   
 end

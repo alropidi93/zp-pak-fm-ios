@@ -27,11 +27,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
         super.viewWillAppear(animated)
 //        self.customizeNavigationBar()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        if PreferencesMethods.isFirstTime() {
-            self.getGUID()
-        }
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

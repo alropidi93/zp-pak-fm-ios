@@ -28,7 +28,7 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
     private var allItems : [Ads] = []
     
     
-    
+   
     //#MARK: Common functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +124,7 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
             self.stopAnimating()
         }
     }
+    
 }
 
 
