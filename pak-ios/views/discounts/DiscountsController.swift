@@ -22,16 +22,16 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
     @IBOutlet weak var v_add_code: UIView!
     @IBOutlet weak var v_code_show: UIView!
     
-    @IBOutlet weak var l_date_discount: UILabel!
-    @IBOutlet weak var l_motive: UILabel!
-    @IBOutlet weak var l_discount_percent: UILabel!
+ 
     
-    
-    
+    @IBOutlet weak var cv_discount_list: UICollectionView!
+    private var items : [DiscountDC] = []
+
+    private let reuse_identifier = "cvc_discount_item"
+  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
- 
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
@@ -43,7 +43,16 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
         self.getListDiscount()
         l_code.text = PreferencesMethods.getUserFromOptions()?.codeInvitation
     }
-    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.items.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCAddCode
+        cell.l_date_discount.text = self.items[indexPath.item].caducityDate
+        cell.l_motive.text = Constants.MOTIVE + self.items[indexPath.item].detail
+        cell.l_discount_percent.text = String(self.items[indexPath.item].percentage) + " %"
+        return cell
+    }
     @IBAction func ba_copy(_ sender: Any) {
         UIPasteboard.general.string = PreferencesMethods.getUserFromOptions()?.codeInvitation
         let snackbar = TTGSnackbar(message: "Codigo copiado a portapales", duration: .middle)
@@ -51,7 +60,6 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
         snackbar.show()
 
     }
-
     @IBAction func ba_add_invitation(_ sender: Any) {
         let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "vc_pak_alert_invitation") as! PakAlertCodeInvitation
         customAlert.definesPresentationContext = true
@@ -84,7 +92,6 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        print("hola")
                         self.getListDiscount()
                     }else{
                         AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
@@ -102,21 +109,9 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
         }
     }
     
-    func showDiscuount(_ discount : DiscountDC){
+    func showDiscuount(){
         self.v_add_code.isHidden = true
         self.v_code_show.isHidden = false
-        
-        self.l_date_discount.text = discount.caducityDate
-        self.l_motive.text = Constants.MOTIVE + discount.detail
-        self.l_discount_percent.text = String(discount.percentage) + " %"
-        
-//        if PreferencesMethods.getUserFromOptions()?.applicableInvitationCode == true {
-//            self.v_add_code.isHidden = true
-//            self.v_code_show.isHidden = false
-//        } else {
-//            self.v_add_code.isHidden = false
-//            self.v_code_show.isHidden = true
-//        }
     }
     
     func getListDiscount(){
@@ -141,9 +136,14 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                         if jsonResult["Descuentos"].count > 0 {
-                            let discountDc : DiscountDC = DiscountDC(jsonResult["Descuentos"][0])
-                            self.showDiscuount(discountDc)
+                            for ( _ , element) in jsonResult["Descuentos"] {
+                                let discount  = DiscountDC(element)
+                                self.items.append(discount)
+                            }
+                            self.showDiscuount()
                         }
+                       self.cv_discount_list.reloadData()
+                        
                     }else{
                         AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
                     }

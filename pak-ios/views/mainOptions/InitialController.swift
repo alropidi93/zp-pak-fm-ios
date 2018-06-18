@@ -27,8 +27,6 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
     
     private var allItems : [Ads] = []
     
-    
-   
     //#MARK: Common functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,13 +70,13 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
             
             let videoURL = URL(string: (allItems.item(at: indexPath.row)?.archive)!)
             let player = AVPlayer(url: videoURL!)
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = self.view.bounds
-            
-            self.view.layer.addSublayer(playerLayer)
-            player.play()
-
-
+            let videoPlayer = AVPlayerViewController()
+            videoPlayer.player = player
+            present(videoPlayer,animated:true,completion:{
+                    player.play()
+                }
+           
+            )
         } else { // Images
             
             let agrume = Agrume(image: (cell.iv_publicity_image?.image)!, backgroundColor: UIColor.black)

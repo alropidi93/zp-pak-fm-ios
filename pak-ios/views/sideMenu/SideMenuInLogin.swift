@@ -21,11 +21,12 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     private let segue_about = "segue_about"
     private let segue_favorites = "segue_favorites"
     private let segue_discounts = "segue_discounts"
-
+    private let segue_edit = "segue_editar"
     @IBOutlet weak var b_name: UIButton!
     
     @IBAction func ba_name(_ sender: Any) {
-        print("edita")
+        self.performSegue(withIdentifier: self.segue_edit, sender: self)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +35,6 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     }
     
     @IBAction func logueOut(_ sender: Any) {
-        PreferencesMethods.deleteSmallBoxFromOptions()
        
         PreferencesMethods.logoutUserFromOptions()
         self.getGUID()

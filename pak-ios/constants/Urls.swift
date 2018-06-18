@@ -40,6 +40,16 @@ struct URLs {
     static var SignUp: String { //Post
         return BaseURL + "AuthService.svc/RegistrarUsuario"
     }
+    static var PasswordModify: String {// POST
+        return BaseURL + "AuthService.svc/ModificarPassword"
+    }
+    static var RecoveryPassword: String {// POST
+        return BaseURL + "AuthService.svc/RecuperarPassword"
+    }
+    static var ModifyAccount: String {// POST
+        return BaseURL + "AuthService.svc/ModificarCuenta"
+    }
+    
     
     
     

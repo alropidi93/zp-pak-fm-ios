@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-class AlertPageVc : UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate , UIPageViewControllerDataSource
+
+{
     var controllers = [UIViewController]()
     var nowPage = 0
     
@@ -58,4 +60,6 @@ class AlertPageVc : UIPageViewController, UIPageViewControllerDataSource, UIPage
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return nowPage
     }
+    
+    
 }

@@ -22,20 +22,29 @@ class SplashController: UIViewController {
     
     @IBOutlet weak var iv_logo: UIImageView!
     
-    var images: [UIImage] = [UIImage(named: "dwb_pak_menu_button")!, UIImage(named: "dwb_pak_logo")!, UIImage(named: "dwb_pak_menu_button")!, UIImage(named: "dwb_pak_logo")!, UIImage(named: "dwb_pak_menu_button")!, UIImage(named: "dwb_pak_logo")!, UIImage(named: "dwb_pak_menu_button")!, UIImage(named: "dwb_pak_logo")!]
+    var images: [UIImage] = [UIImage(named: "dwb-pak-splash-1")!,UIImage(named: "dwb-pak-splash-2")!,UIImage(named: "dwb-pak-splash-3")!,UIImage(named: "dwb-pak-splash-4")!,UIImage(named: "dwb-pak-splash-5")!]
+    // dwb-pak-logo dwb-pak-logo-name
+//    var animatedImage: UIImage!
     
-    var animatedImage: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.animatedImage = UIImage.animatedImage(with: images, duration: 10.0)
-        self.iv_logo.image = self.animatedImage
+      
+        self.iv_logo.animationImages = self.images
+        
+        self.iv_logo.startAnimating()
+        
+//        self.iv_logo.image = UIImage.animatedImage(with: images, duration: 1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
         if PreferencesMethods.isFirstTime() {
             self.getGUID()
+            PreferencesMethods.saveFirstTime()
         }
         OperationQueue.main.addOperation {
             [weak self] in

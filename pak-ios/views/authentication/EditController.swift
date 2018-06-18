@@ -1,11 +1,12 @@
 //
-//  SingupController.swift
+//  EditController.swift
 //  pak-ios
 //
-//  Created by Paolo Rossi on 4/24/18.
+//  Created by Paolo Rossi on 6/12/18.
 //  Copyright © 2018 Paolo Rossi. All rights reserved.
 //
 
+import UIKit
 import Foundation
 import SwiftyJSON
 import UIKit
@@ -13,8 +14,9 @@ import Alamofire
 import NVActivityIndicatorView
 import RLBAlertsPickers
 import SwiftHash
-import Firebase
-class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlertRegisterDelegate {
+
+class EditController : UIViewController,NVActivityIndicatorViewable{
+    
     
     @IBOutlet weak var tf_name: UITextField!
     @IBOutlet weak var tf_lastname: UITextField!
@@ -24,36 +26,32 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
     @IBOutlet weak var tf_address: UITextField!
     @IBOutlet weak var tf_district: UITextField!
     @IBOutlet weak var tf_email: UITextField!
-    @IBOutlet weak var tf_password: UITextField!
-    @IBOutlet weak var tf_repassword: UITextField!
-    
-    
     
     private var date : Int = -1
     private var posDistrict: Int = -1
-
-    let segue_identifier = "segue_register_main"
+    
     
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setElements()
-
+        
+        self.setElements()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+     
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func setElements (){
-        fullKeyboardSupport()
+    func setElements(){
+        setInfoUser()
         getDistrict()
         
         self.tf_genre.inputView = UIView()
@@ -68,7 +66,16 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
         let tap_birtday = UITapGestureRecognizer(target: self, action: #selector(self.tapCalendar(_:)))
         self.tf_birthday.addGestureRecognizer(tap_birtday)
     }
-    
+    func setInfoUser(){
+        tf_name.text = PreferencesMethods.getUserFromOptions()?.names
+        tf_lastname.text = PreferencesMethods.getUserFromOptions()?.lastNames
+        tf_birthday.text = PreferencesMethods.getUserFromOptions()?.birthDate
+        tf_genre.text = PreferencesMethods.getUserFromOptions()?.genere
+        tf_phone.text = PreferencesMethods.getUserFromOptions()?.telephone
+        tf_address.text = PreferencesMethods.getUserFromOptions()?.address
+        tf_district.text = PreferencesMethods.getUserFromOptions()?.district?.name
+        tf_email.text = PreferencesMethods.getUserFromOptions()?.userName
+    }
     
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {
         
@@ -120,7 +127,6 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
         self.present(alert, animated: true, completion: nil)
     }
     
-    
     func getDistrict(){
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
@@ -141,7 +147,6 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
                         self.districts.append(district.name)
                         self.listDistrict.append(DistrictDC(element))
                     }
-
                 }
             } else {
                 if let jsonResponse = response.result.value {
@@ -154,7 +159,10 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             self.stopAnimating()
         }
     }
-    @IBAction func signUp(_ sender: Any) {
+    
+    
+    
+    @IBAction func b_save(_ sender: Any) {
         if (self.tf_name.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El nombre no puede estar vacío", uiViewController: self)
             return
@@ -162,7 +170,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             AlarmMethods.errorWarning(message: "El nombre no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
             return
         }
-
+        
         if (self.tf_lastname.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El apellido no puede estar vacío", uiViewController: self)
             return
@@ -170,7 +178,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             AlarmMethods.errorWarning(message: "El apellido no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
             return
         }
-
+        
         if (self.tf_email.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El email no puede estar vacío", uiViewController: self)
             return
@@ -178,7 +186,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             AlarmMethods.errorWarning(message: "El email no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
             return
         }
-
+        
         if (self.tf_address.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "La dirección no puede estar vacío", uiViewController: self)
             return
@@ -186,7 +194,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             AlarmMethods.errorWarning(message: "La dirección no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
             return
         }
-
+        
         if (self.tf_district.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El distrito no puede estar vacío", uiViewController: self)
             return
@@ -194,7 +202,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             AlarmMethods.errorWarning(message: "El distrito no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
             return
         }
-
+        
         if (self.tf_phone.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El teléfono no puede estar vacío", uiViewController: self)
             return
@@ -205,23 +213,6 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             AlarmMethods.errorWarning(message: "El teléfono no puede tener una extensión menor a 7 caracteres", uiViewController: self)
             return
         }
-
-        if (self.tf_password.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "La contraseña no puede estar vacía", uiViewController: self)
-            return
-        } else if self.tf_password.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "La contraseña no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
-            return
-        }
-
-        if (self.tf_repassword.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "La contraseña no puede estar vacía", uiViewController: self)
-            return
-        } else if self.tf_repassword.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "La contraseña no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
-            return
-        }
-
         if (self.tf_genre.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El sexo no puede estar vacía", uiViewController: self)
             return
@@ -229,7 +220,6 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             AlarmMethods.errorWarning(message: "El sexo  no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
             return
         }
-
         if (self.tf_birthday.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El cumpleaños no puede estar vacío", uiViewController: self)
             return
@@ -237,40 +227,27 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             AlarmMethods.errorWarning(message: "El cumpleaños no puede tener una extensión mayor a 30 caracteres", uiViewController: self)
             return
         }
-        if( self.tf_password.text! != self.tf_repassword.text!){
-            AlarmMethods.errorWarning(message: "los passwords son diferentes", uiViewController: self)
-            return
-        }
-
-        
-        
         self.register((PreferencesMethods.getSmallBoxFromOptions()!.GUID))
-
     }
-
     
     func register(_ GUID: String){
         var genre : String = "-"
         if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
         
         let params: Parameters = [
-            "Nombres": self.tf_name.text!,
-            "Apellidos": self.tf_lastname.text!,
             "Email": self.tf_email.text!,
             "Direccion": self.tf_address.text!,
             "IdDistrito": self.listDistrict[self.posDistrict].idDistrict,
             "Telefono": self.tf_phone.text!,
-            "Password": MD5(self.tf_password.text!),
-            "RepetirPassword": MD5(self.tf_repassword.text!),
             "Sexo": genre,
             "FechaNacimiento":UtilMethods.dateToSlash(self.tf_birthday.text!),
             "GUID" : GUID,
-            //"AccessToken": InstanceID.instanceID().token() ?? "No token",
-            ]
+           
+        ]
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-
         
-        Alamofire.request(URLs.SignUp, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+        
+        Alamofire.request(URLs.ModifyAccount, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if !(response.response != nil) {
                 AlamoMethods.connectionError(uiViewController: self)
                 self.stopAnimating()
@@ -281,7 +258,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        self.alertDialog(uiViewController: self)
+                        //self.alertDialog(uiViewController: self)
                         
                         self.stopAnimating()
                         
@@ -306,23 +283,19 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             }
         }
         
+        
+    }
+    
+    @IBAction func b_password_edit(_ sender: Any) {
+        alertDialog(uiViewController: self)
+        
     }
     
     func alertDialog(uiViewController: UIViewController) {
-        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_ready") as! PakAlertReady
+        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_modify_password") as! PakAlertModifyPassword
         pakAlert.definesPresentationContext = true
         pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        pakAlert.registerDelegate = self
         pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         uiViewController.present(pakAlert, animated: true, completion: nil)
-    }
-    
-    func okButtonTapped(){
-        print("hola")
-        dismiss(animated: true, completion: nil)
-      //  self.navigationController?.dismiss(animated: true,completion: nil)
-//        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
-        print("hola")
-
     }
 }

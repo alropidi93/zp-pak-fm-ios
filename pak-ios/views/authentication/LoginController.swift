@@ -41,11 +41,11 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
     
     @IBAction func login(_ sender: Any) {
         if (self.tf_password.text?.isEmpty)! {
-            AlamoMethods.customError(message: "La contraseña no puede estar vacía", uiViewController: self)
+            AlarmMethods.errorWarning(message: "La contraseña no puede estar vacía", uiViewController: self)
             return
         }
         if (self.tf_email.text?.isEmpty)! {
-            AlamoMethods.customError(message: "El email no puede estar vacío", uiViewController: self)
+            AlarmMethods.errorWarning(message: "El email no puede estar vacío", uiViewController: self)
             return
         }
         self.loginUser()
@@ -85,11 +85,8 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
 
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             getGUID()
-            
             return
         }
-    
-
         let params: Parameters = [ "Username": self.tf_email.text!,
                                    "Password": MD5(self.tf_password.text!) ,
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
@@ -123,7 +120,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    AlamoMethods.customError(message: jsonResult["Msg"].string!, uiViewController: self)
+                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
                 } else {
                     AlamoMethods.defaultError(self)
                 }
@@ -138,12 +135,18 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
 
         loginManager.logIn(readPermissions: [ .publicProfile, .email ], viewController: self) { loginResult in
             switch loginResult {
+
             case .failed(let error):
+                print("hi3")
+
                 AlarmMethods.errorWarning(message: "No se puede acceder: \(error.localizedDescription)", uiViewController: self)
             case .cancelled:
+                print("hi2")
+
                 AlarmMethods.errorWarning(message: "Tal vez aun no has instalado facebook para el celular?", uiViewController: self)
             case .success( _, _, let accessToken):
                 self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+                print("hi")
                 let request = GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], accessToken: accessToken, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
                 request.start { (response, result) in
                     switch result {
@@ -158,15 +161,10 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
                             "imageurl": "https://graph.facebook.com/\(value.dictionaryValue!["id"] ?? -1)/picture?type=large"
                         ]
                         self.stopAnimating()
-                        
-                        //TODO erase after API connection
                         let jsonObj = JSON(params)
-                        let userDC = UserDC(jsonObj)
-                        PreferencesMethods.saveUserToOptions(userDC)
-                        
+                        print(jsonObj)
                         self.stopAnimating()
-                        
-//                      self.validateExistingUser(userDC)
+                       
                     case .failed(let error):
                         self.stopAnimating()
                         AlarmMethods.errorWarning(message: "No se pudo obtener la información: \(error.localizedDescription)", uiViewController: self)
@@ -180,7 +178,17 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
     @IBAction func loginWithGoogle(_ sender: Any) {
     }
     
-    
+    @IBAction func ForgetMyPassword(_ sender: Any) {
+        alertDialog(uiViewController: self)
+    }
+    func alertDialog(uiViewController: UIViewController) {
+        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_alert_recovery") as! PakAlertModifyPassword
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        uiViewController.present(pakAlert, animated: true, completion: nil)
+    }
     
     
     @IBAction func signUp(_ sender: Any) {

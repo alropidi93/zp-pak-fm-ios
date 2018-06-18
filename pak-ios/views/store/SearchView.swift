@@ -17,7 +17,8 @@ import SwiftHash
 import SideMenu
 import TTGSnackbar
 class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable {
-    
+
+    let segue_identifier : String = "segue_product_detail"
     private let reuse_identifier = "cvc_search_item"
     var text:String = ""
     
@@ -25,8 +26,10 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var cv_search: UICollectionView!
    
     private var items : [ProductoDC] = []
+    var item : ProductoDC? = nil
+
     
-    var indexPath : IndexPath? = nil
+    //var indexPath : IndexPath? = nil
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,13 +70,22 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
             cell.b_favorites.setImage(UIImage(named: "dwb_pak_button_hearth_gray"), for: .normal)
         }
         
-        self.indexPath = indexPath
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(connected(_:)))
         
-        cell.b_add_item.tag = indexPath.row
+        cell.iv_item_photo.isUserInteractionEnabled = true
+        cell.iv_item_photo.tag = indexPath.row
+        cell.iv_item_photo.addGestureRecognizer(tapGestureRecognizer)
+        
         cell.b_add_item.addTarget(self, action: #selector(buttonAdd), for: .touchUpInside)
         cell.b_favorites.tag = indexPath.row
         cell.b_favorites.addTarget(self, action: #selector(buttonFavorite), for: .touchUpInside)
         return cell
+    }
+    @objc func connected(_ sender:AnyObject){
+        self.item = items[sender.view.tag]
+        print("you tap image number : \(sender.view.tag)")
+        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
+        //Your code for navigate to another viewcontroller
     }
     @objc func buttonFavorite(sender: UIButton!) {
         let product : ProductoDC = items[sender.tag]
@@ -110,7 +122,8 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                         } else {
                             self.items[index].favourite = true
                         }
-                      self.cv_search.reloadItems(at: [self.indexPath!])
+                        let indexPath = IndexPath(item: index, section: 0)
+                        self.cv_search.reloadItems(at: [indexPath])
                   }
                 }
             } else {
@@ -134,12 +147,11 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         let params: Parameters = [ "IdProducto": product.idProduct,
                                    "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID,
                                    "Cantidad": 1]
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
-                self.stopAnimating()
+              
                 return
             }
             let statusCode = response.response!.statusCode
@@ -163,7 +175,6 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
         }
     }
     
@@ -209,6 +220,14 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                 }
             }
             self.stopAnimating()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.segue_identifier {
+            if let pdc = segue.destination as? ProductsDetailController {
+                pdc.item = self.item
+            }
         }
     }
 }

@@ -25,6 +25,7 @@ class UserDC :  NSObject ,NSCoding{
     private var _address:String = ""
     private var _telephone:String = ""
     private var _district: DistrictDC? = nil
+    
     private var _codeInvitation: String = ""
     private var _accessToken: String = ""
     private var _smallBox: SmallBoxDC? = nil
@@ -48,7 +49,6 @@ class UserDC :  NSObject ,NSCoding{
         self._genere = jsonUser["Sexo"].string ?? self._genere
         self._address = jsonUser["Direccion"].string ?? self._address
         self._telephone = jsonUser["Telefono"].string ?? self._telephone
-        
         if !(jsonUser["Distrito"].null != nil){
             self._district = DistrictDC(jsonUser["Distrito"])
         }
@@ -93,6 +93,7 @@ class UserDC :  NSObject ,NSCoding{
         coder.encode(_lastNames, forKey: "Apellidos")
         coder.encode(_birthDate, forKey: "FechaNacimiento")
         coder.encode(_genere, forKey: "Sexo")
+        coder.encode(_address,forKey: "Direccion")
         coder.encode(_telephone, forKey: "Telefono")
         coder.encode(_district, forKey: "Distrito")
         coder.encode(_codeInvitation, forKey: "CodigoInvitacion")
@@ -167,6 +168,10 @@ class UserDC :  NSObject ,NSCoding{
     var valid : Bool {
         set {  _valid = newValue }
         get {  return _valid }
+    }
+    var address : String {
+        set {  _address = newValue }
+        get {  return _address }
     }
     
 }

@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7007930D20D2256A00DE70CA /* PakAlertReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007930C20D2256A00DE70CA /* PakAlertReady.swift */; };
+		7007930F20D22F8700DE70CA /* PakAlertRegisterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007930E20D22F8700DE70CA /* PakAlertRegisterDelegate.swift */; };
+		7007931120D2438200DE70CA /* PakAlertModifyPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007931020D2438200DE70CA /* PakAlertModifyPassword.swift */; };
+		7007931320D2B26000DE70CA /* PakAlertRecoverAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007931220D2B26000DE70CA /* PakAlertRecoverAccount.swift */; };
 		7010444F20AE38D900EFFC9B /* CVCSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7010444E20AE38D900EFFC9B /* CVCSearchItem.swift */; };
 		701D2878207EAD01007AD7AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2877207EAD01007AD7AC /* AppDelegate.swift */; };
-		701D287A207EAD01007AD7AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2879207EAD01007AD7AC /* ViewController.swift */; };
 		701D287D207EAD01007AD7AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701D287B207EAD01007AD7AC /* Main.storyboard */; };
 		701D287F207EAD06007AD7AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701D287E207EAD06007AD7AC /* Assets.xcassets */; };
 		701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701D2880207EAD06007AD7AC /* LaunchScreen.storyboard */; };
@@ -20,7 +23,8 @@
 		7028135320C44FF700DD5443 /* PakAlertFacturation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028135220C44FF700DD5443 /* PakAlertFacturation.swift */; };
 		7028135520C4504500DD5443 /* PakAlertCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028135420C4504400DD5443 /* PakAlertCardData.swift */; };
 		7028135720C4509300DD5443 /* PakAlertSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028135620C4509300DD5443 /* PakAlertSummary.swift */; };
-		7028135920C4578200DD5443 /* PakAlertPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028135820C4578200DD5443 /* PakAlertPayment.swift */; };
+		7028135920C4578200DD5443 /* PakAlertPaymentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028135820C4578200DD5443 /* PakAlertPaymentDelegate.swift */; };
+		702DCB3420D6D65000702D18 /* CVCAddCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702DCB3320D6D65000702D18 /* CVCAddCode.swift */; };
 		703BA2CC20ACF2EE00AC9597 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703BA2CB20ACF2EE00AC9597 /* SearchView.swift */; };
 		703C1C3820C83D3400488E16 /* AlertViewPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C1C3720C83D3400488E16 /* AlertViewPayment.swift */; };
 		7043B0B320BC86FB00CC31D0 /* DiscountsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7043B0B220BC86FB00CC31D0 /* DiscountsController.swift */; };
@@ -38,8 +42,10 @@
 		70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE33208F7C1B008C972C /* SplashController.swift */; };
 		70A3BE36208F7F97008C972C /* PreferencesMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE35208F7F97008C972C /* PreferencesMethods.swift */; };
 		70A3BE39208F8003008C972C /* UserDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE38208F8003008C972C /* UserDC.swift */; };
+		70A4254520CDC31A005B00AC /* ProductsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A4254420CDC31A005B00AC /* ProductsDetailController.swift */; };
 		70B623EE20A9ED5D001738C3 /* SideMenuOutLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B623ED20A9ED5D001738C3 /* SideMenuOutLogin.swift */; };
 		70B623F020AA1BDD001738C3 /* SideMenuInLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */; };
+		70BF263A20D087EC002FD0F9 /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BF263920D087EC002FD0F9 /* EditController.swift */; };
 		70C9ED1D209D02FD0096B656 /* CVCPublicityImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED1C209D02FD0096B656 /* CVCPublicityImage.swift */; };
 		70C9ED1F209D140D0096B656 /* ListAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED1E209D140D0096B656 /* ListAds.swift */; };
 		70C9ED21209D14460096B656 /* Ads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED20209D14460096B656 /* Ads.swift */; };
@@ -62,10 +68,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7007930C20D2256A00DE70CA /* PakAlertReady.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertReady.swift; sourceTree = "<group>"; };
+		7007930E20D22F8700DE70CA /* PakAlertRegisterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertRegisterDelegate.swift; sourceTree = "<group>"; };
+		7007931020D2438200DE70CA /* PakAlertModifyPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertModifyPassword.swift; sourceTree = "<group>"; };
+		7007931220D2B26000DE70CA /* PakAlertRecoverAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertRecoverAccount.swift; sourceTree = "<group>"; };
 		7010444E20AE38D900EFFC9B /* CVCSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCSearchItem.swift; sourceTree = "<group>"; };
 		701D2874207EAD01007AD7AC /* pak-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pak-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		701D2877207EAD01007AD7AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		701D2879207EAD01007AD7AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		701D287C207EAD01007AD7AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		701D287E207EAD06007AD7AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		701D2881207EAD06007AD7AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,7 +87,8 @@
 		7028135220C44FF700DD5443 /* PakAlertFacturation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertFacturation.swift; sourceTree = "<group>"; };
 		7028135420C4504400DD5443 /* PakAlertCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCardData.swift; sourceTree = "<group>"; };
 		7028135620C4509300DD5443 /* PakAlertSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertSummary.swift; sourceTree = "<group>"; };
-		7028135820C4578200DD5443 /* PakAlertPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertPayment.swift; sourceTree = "<group>"; };
+		7028135820C4578200DD5443 /* PakAlertPaymentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertPaymentDelegate.swift; sourceTree = "<group>"; };
+		702DCB3320D6D65000702D18 /* CVCAddCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCAddCode.swift; sourceTree = "<group>"; };
 		703BA2CB20ACF2EE00AC9597 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		703C1C3720C83D3400488E16 /* AlertViewPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewPayment.swift; sourceTree = "<group>"; };
 		7043B0B220BC86FB00CC31D0 /* DiscountsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsController.swift; sourceTree = "<group>"; };
@@ -96,8 +106,10 @@
 		70A3BE33208F7C1B008C972C /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		70A3BE35208F7F97008C972C /* PreferencesMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesMethods.swift; sourceTree = "<group>"; };
 		70A3BE38208F8003008C972C /* UserDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDC.swift; sourceTree = "<group>"; };
+		70A4254420CDC31A005B00AC /* ProductsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDetailController.swift; sourceTree = "<group>"; };
 		70B623ED20A9ED5D001738C3 /* SideMenuOutLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOutLogin.swift; sourceTree = "<group>"; };
 		70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuInLogin.swift; sourceTree = "<group>"; };
+		70BF263920D087EC002FD0F9 /* EditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
 		70C9ED1C209D02FD0096B656 /* CVCPublicityImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCPublicityImage.swift; sourceTree = "<group>"; };
 		70C9ED1E209D140D0096B656 /* ListAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAds.swift; sourceTree = "<group>"; };
 		70C9ED20209D14460096B656 /* Ads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ads.swift; sourceTree = "<group>"; };
@@ -166,7 +178,6 @@
 				701D2889207EAD1F007AD7AC /* pak-ios.entitlements */,
 				701D2883207EAD06007AD7AC /* Info.plist */,
 				701D2877207EAD01007AD7AC /* AppDelegate.swift */,
-				701D2879207EAD01007AD7AC /* ViewController.swift */,
 				701D287E207EAD06007AD7AC /* Assets.xcassets */,
 				701D288A207EB3F1007AD7AC /* adapters */,
 				701D288F207EB478007AD7AC /* constants */,
@@ -188,6 +199,7 @@
 				7010444E20AE38D900EFFC9B /* CVCSearchItem.swift */,
 				7094FE9E20B2B25900511297 /* CVCFavouriteItem.swift */,
 				707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */,
+				702DCB3320D6D65000702D18 /* CVCAddCode.swift */,
 			);
 			path = adapters;
 			sourceTree = "<group>";
@@ -204,7 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				70D6D2EB20BDAEF4006BDC19 /* PakAlertCodeInvitationDelegate.swift */,
-				7028135820C4578200DD5443 /* PakAlertPayment.swift */,
+				7028135820C4578200DD5443 /* PakAlertPaymentDelegate.swift */,
+				7007930E20D22F8700DE70CA /* PakAlertRegisterDelegate.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -289,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				703BA2CB20ACF2EE00AC9597 /* SearchView.swift */,
+				70A4254420CDC31A005B00AC /* ProductsDetailController.swift */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -348,6 +362,7 @@
 				70A3BE2D208F7BA1008C972C /* LoginController.swift */,
 				70A3BE31208F7C08008C972C /* SignUpController.swift */,
 				70A3BE33208F7C1B008C972C /* SplashController.swift */,
+				70BF263920D087EC002FD0F9 /* EditController.swift */,
 			);
 			path = authentication;
 			sourceTree = "<group>";
@@ -357,7 +372,10 @@
 			children = (
 				7028134D20C3963300DD5443 /* paginationAlert */,
 				70D525A22091590C004EB51E /* PakAlert.swift */,
+				7007930C20D2256A00DE70CA /* PakAlertReady.swift */,
+				7007931020D2438200DE70CA /* PakAlertModifyPassword.swift */,
 				7043B0B420BCF28200CC31D0 /* PakAlertCodeInvitation.swift */,
+				7007931220D2B26000DE70CA /* PakAlertRecoverAccount.swift */,
 			);
 			path = alert;
 			sourceTree = "<group>";
@@ -580,6 +598,7 @@
 				70C9ED21209D14460096B656 /* Ads.swift in Sources */,
 				70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */,
 				7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */,
+				70A4254520CDC31A005B00AC /* ProductsDetailController.swift in Sources */,
 				7090A2EA20AB75DA00EF9F6D /* NotificationCenterExtension.swift in Sources */,
 				7094FE9A20B2A30F00511297 /* SmallBoxController.swift in Sources */,
 				70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */,
@@ -592,12 +611,13 @@
 				7094FE9D20B2B14100511297 /*  FavouriteController.swift in Sources */,
 				70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */,
 				7028135320C44FF700DD5443 /* PakAlertFacturation.swift in Sources */,
+				7007931320D2B26000DE70CA /* PakAlertRecoverAccount.swift in Sources */,
 				70A3BE39208F8003008C972C /* UserDC.swift in Sources */,
 				709A334420AE0FC1003AB207 /* ProductoDC.swift in Sources */,
 				70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */,
 				707B8F6520B4F3E600FC7848 /* CVCSmallBoxItem.swift in Sources */,
+				70BF263A20D087EC002FD0F9 /* EditController.swift in Sources */,
 				701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */,
-				701D287A207EAD01007AD7AC /* ViewController.swift in Sources */,
 				70B623EE20A9ED5D001738C3 /* SideMenuOutLogin.swift in Sources */,
 				70C9ED1D209D02FD0096B656 /* CVCPublicityImage.swift in Sources */,
 				7028135520C4504500DD5443 /* PakAlertCardData.swift in Sources */,
@@ -606,6 +626,7 @@
 				70C9ED24209D33BC0096B656 /* TVCPlaceholder.swift in Sources */,
 				70D525A820915C58004EB51E /* Urls.swift in Sources */,
 				7043B0B320BC86FB00CC31D0 /* DiscountsController.swift in Sources */,
+				7007930D20D2256A00DE70CA /* PakAlertReady.swift in Sources */,
 				7028135720C4509300DD5443 /* PakAlertSummary.swift in Sources */,
 				70D5F0ED209B78A400EE673B /* OutMainController.swift in Sources */,
 				701D2878207EAD01007AD7AC /* AppDelegate.swift in Sources */,
@@ -617,12 +638,15 @@
 				70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */,
 				70D525A32091590C004EB51E /* PakAlert.swift in Sources */,
 				7028134F20C396F500DD5443 /* AlertPageVc.swift in Sources */,
+				7007930F20D22F8700DE70CA /* PakAlertRegisterDelegate.swift in Sources */,
 				7043B0B520BCF28200CC31D0 /* PakAlertCodeInvitation.swift in Sources */,
 				70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */,
 				7010444F20AE38D900EFFC9B /* CVCSearchItem.swift in Sources */,
 				7028135120C44F8900DD5443 /* PakAlertSendData.swift in Sources */,
+				702DCB3420D6D65000702D18 /* CVCAddCode.swift in Sources */,
 				70A3BE36208F7F97008C972C /* PreferencesMethods.swift in Sources */,
-				7028135920C4578200DD5443 /* PakAlertPayment.swift in Sources */,
+				7028135920C4578200DD5443 /* PakAlertPaymentDelegate.swift in Sources */,
+				7007931120D2438200DE70CA /* PakAlertModifyPassword.swift in Sources */,
 				7094FE9F20B2B25900511297 /* CVCFavouriteItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

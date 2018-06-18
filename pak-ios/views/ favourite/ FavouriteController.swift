@@ -63,9 +63,15 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         
     }
     func addOrDeleteFavortie(_ product : ProductoDC, _ index : Int){
-        let params: Parameters = [ "IdUsuario": PreferencesMethods.getUserFromOptions()!.idUser,
-                                   "IdProducto": product.idProduct,
-                                   ]
+        let user = PreferencesMethods.getUserFromOptions()
+        let params: Parameters
+        if user != nil  {
+            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+            params = [ "IdUsuario": idUser,
+                       "IdProducto": product.idProduct]
+        } else {
+            return
+        }
         
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
@@ -133,7 +139,6 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         }
     }
 
-    //get favourite
     func getFavourite() {
         
         let user = PreferencesMethods.getUserFromOptions()

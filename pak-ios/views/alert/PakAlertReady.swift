@@ -1,27 +1,19 @@
 //
-//  AlertViewPayment.swift
+//  PakAlertReady.swift
 //  pak-ios
 //
-//  Created by Paolo Rossi on 6/6/18.
+//  Created by Paolo Rossi on 6/13/18.
 //  Copyright © 2018 Paolo Rossi. All rights reserved.
 //
-
 
 import Foundation
 import UIKit
 
-class AlertViewPayment : UIViewController {
-    
-    var page : Int = 3
-    @IBOutlet weak var uv_pv_payments: UIView!
-    
-    @IBAction func b_next(_ sender: Any) {
-    }
-    
-    
+class PakAlertReady : UIViewController {
+    var registerDelegate : PakAlertRegisterDelegate? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,5 +23,13 @@ class AlertViewPayment : UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         view.layoutIfNeeded()
-    }   
+    }
+  
+    @IBAction func b_accept(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+        registerDelegate?.okButtonTapped()
+
+    }
+    
+    
 }

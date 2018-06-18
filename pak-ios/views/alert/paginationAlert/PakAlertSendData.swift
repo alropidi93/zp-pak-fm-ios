@@ -11,7 +11,8 @@ import UIKit
 class PakAlertSendData : UIViewController{
 
     
-    
-   
+    @IBAction func b_dismiss(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
     
 }

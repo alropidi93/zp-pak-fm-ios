@@ -8,14 +8,14 @@
     
     import Foundation
     import UIKit
-    class PakAlertCodeInvitation: UIViewController {
+    class PakAlertCodeInvitation: UIViewController  {
         
         @IBOutlet weak var tf_code_invitation: UITextField!
         @IBOutlet weak var nslc_outer_height: NSLayoutConstraint!
         @IBOutlet weak var nslc_inner_height: NSLayoutConstraint!
         
         var codeInvitationDelegate : PakAlertCodeInvitationDelegate? = nil
-        
+
         override func viewDidLoad() {
             super.viewDidLoad()
             

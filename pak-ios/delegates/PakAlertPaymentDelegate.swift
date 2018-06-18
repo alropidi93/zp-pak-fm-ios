@@ -7,11 +7,9 @@
 //
 
 import Foundation
-protocol PakAlertNext {
-    func nextButtonTapped()
+
+protocol PakAlertPaymentDelegate {
+    func goNextPage(position : Int)
 }
 
-protocol PakAlertPrevious {
-    func nextButtonTapped()
-}
 
