@@ -12,18 +12,25 @@ import UIKit
 
 class AlertViewPayment : UIViewController {
     
-    var page : Int = 3
     @IBOutlet weak var uv_pv_payments: UIView!
+    var dataDelivery : DataDeliveryDC? = nil
+    private var embeddedViewController : AlertPageVc!
+    
     
     @IBAction func b_next(_ sender: Any) {
+        print(Calendar.current.component(.hour, from: Date()))
+        self.embeddedViewController.goNextPage(forwardTo: 1)
     }
-    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setElements()
         
     }
-    
+    func setElements(){
+        self.embeddedViewController.dataDelivery = self.dataDelivery
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -31,5 +38,13 @@ class AlertViewPayment : UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         view.layoutIfNeeded()
-    }   
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let vc = segue.destination as? AlertPageVc,
+                segue.identifier == "segue_embed_page_vc" {
+            self.embeddedViewController = vc
+        }
+    }
+    
 }

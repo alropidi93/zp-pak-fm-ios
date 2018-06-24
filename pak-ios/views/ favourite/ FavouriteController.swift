@@ -14,12 +14,13 @@ import NVActivityIndicatorView
 import SwiftHash
 import SideMenu
 
-class FavouriteController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable{
+class FavouriteController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable {
     
     private let reuse_identifier = "cvc_favourite_item"
-    var text:String = ""
     
-    @IBOutlet weak var cv_favourite: UICollectionView!
+    
+    @IBOutlet weak var cv_favorite: UICollectionView!
+    
     
     private var items : [ProductoDC] = []
 
@@ -36,8 +37,8 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         super.didReceiveMemoryWarning()
     }
     func setElements(){
-        self.cv_favourite.delegate = self
-        self.cv_favourite.dataSource = self
+        self.cv_favorite.delegate = self
+        self.cv_favorite.dataSource = self
         
         getFavourite()
     }
@@ -87,7 +88,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                         self.items.remove(at: index)
-                        self.cv_favourite.reloadData()
+                        self.cv_favorite.reloadData()
                     }
                 }
             } else {
@@ -110,6 +111,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         let params: Parameters = [ "IdProducto": product.idProduct,
                                    "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID,
                                    "Cantidad": 1]
+       
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
@@ -124,7 +126,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                         //make a toast or something
-                        self.cv_favourite.reloadData()
+                        self.cv_favorite.reloadData()
                     }
                 }
             } else {
@@ -140,19 +142,16 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
     }
 
     func getFavourite() {
-        
-        let user = PreferencesMethods.getUserFromOptions()
         var params : Parameters
-        if user != nil  {
-            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
-            params = [ "IdUsuario": idUser,
-                       "Search": self.text]
-        } else {
-            params = [ "Search": self.text ]
-        }
+        let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+            print(idUser)
+            params = [ "IdUsuario": idUser]
+            print("holaaa")
+       
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         Alamofire.request(URLs.ListFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
+            
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
                 self.stopAnimating()
@@ -168,7 +167,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                             let producto  = ProductoDC(element)
                             self.items.append(producto)
                         }
-                        self.cv_favourite.reloadData()
+                        self.cv_favorite.reloadData()
                     }
                 }
             } else {

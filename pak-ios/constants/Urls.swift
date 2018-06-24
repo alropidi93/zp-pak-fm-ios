@@ -66,6 +66,9 @@ struct URLs {
     static var ModifySmallBox: String { //POST
         return BaseURL + "OrderService.svc/ModificarItemCajita"
     }
+    static var DataDelivery: String { //POST
+        return BaseURL + "OrderService.svc/ObtenerDataDelivery"
+    }
     //ANUNCIOS
     static var GetAds: String { //GET
         return BaseURL + "AdService.svc/ListarAnuncios"

@@ -38,7 +38,7 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
         UtilMethods.setImage(imageview: iv_product, imageurl: (self.item?.img)!, placeholderurl: "dwb-pak-logo")
         l_name_of_product.text = item?.name
         l_product_description.text = item?.descript
-        let priceString : String = String(format : "%.2f",(item?.price)!)
+        let priceString : String = "S/" + String(format : "%.2f",(item?.price)!)
         l_producto_cost.text = priceString
         tf_cant_add_item.addTarget(self, action: #selector(textFieldEditingDidChangeEnd), for: UIControlEvents.editingDidEnd)
         self.printFavorite()
@@ -53,7 +53,7 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
         }
     }
     func modifeTotal(_ val : Int64){
-        l_product_cost_total.text = String(Double(val) * (item?.price)!)
+        l_product_cost_total.text = "S/" + String(format : "%.2f",(Double(val) * (item?.price)!))
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

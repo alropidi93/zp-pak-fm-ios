@@ -15,11 +15,13 @@ import FacebookCore
 import FacebookLogin
 import SwiftHash
 import SideMenu
-
-class LoginController : UIViewController, NVActivityIndicatorViewable{
+import GoogleSignIn
+class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInDelegate, GIDSignInUIDelegate{
+    
+    
     let segue_identifier = "segue_login_main"
     let signup_identifier = "segue_login_signup"
-    
+    let user : UserDC? = nil
     @IBOutlet weak var tf_email: UITextField!
     @IBOutlet weak var tf_password: UITextField!
     
@@ -31,6 +33,8 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
         fullKeyboardSupport()
     }
     
@@ -105,6 +109,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
                         userDC.valid = true
                         PreferencesMethods.saveUserToOptions(userDC)
                         PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
+                        print(userDC)
                         self.stopAnimating()
                         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
                     } else {
@@ -137,29 +142,21 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
             switch loginResult {
 
             case .failed(let error):
-                print("hi3")
-
                 AlarmMethods.errorWarning(message: "No se puede acceder: \(error.localizedDescription)", uiViewController: self)
             case .cancelled:
-                print("hi2")
-
                 AlarmMethods.errorWarning(message: "Tal vez aun no has instalado facebook para el celular?", uiViewController: self)
             case .success( _, _, let accessToken):
                 self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-                print("hi")
                 let request = GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], accessToken: accessToken, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
                 request.start { (response, result) in
                     switch result {
                     case .success(let value):
                         let params: Parameters = [
-                            "id": "",
                             "name": value.dictionaryValue!["name"] ?? "",
-                            "lastname": "",
-                            "dni": "",
-                            "phone": "",
                             "email": value.dictionaryValue!["email"] ?? "",
                             "imageurl": "https://graph.facebook.com/\(value.dictionaryValue!["id"] ?? -1)/picture?type=large"
                         ]
+                        
                         self.stopAnimating()
                         let jsonObj = JSON(params)
                         print(jsonObj)
@@ -176,6 +173,35 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
     
     
     @IBAction func loginWithGoogle(_ sender: Any) {
+        GIDSignIn.sharedInstance().signOut()
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        GIDSignIn.sharedInstance().shouldFetchBasicProfile = true
+        GIDSignIn.sharedInstance().signIn()
+        
+        
+    }
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if (error == nil) {
+//            self.user.name = user.profile.givenName
+            
+            let params: Parameters = [
+                "id": user.userID,
+                "name": user.profile.givenName,
+                "lastname": user.profile.familyName,
+                "dni": "",
+                "phone": "",
+                "email": user.profile.email,
+                "photo_url": user.profile.imageURL(withDimension: 100) ?? "",
+                "facebook_id": "",
+                "google_id": user.authentication.idToken
+            ]
+            print(user.profile.email)
+        
+
+        } else {
+            print("\(error.localizedDescription)")
+        }
+        self.stopAnimating()
     }
     
     @IBAction func ForgetMyPassword(_ sender: Any) {
@@ -194,4 +220,13 @@ class LoginController : UIViewController, NVActivityIndicatorViewable{
     @IBAction func signUp(_ sender: Any) {
         self.performSegue(withIdentifier: self.signup_identifier, sender: self)
     }
+    
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == self.segue_identifier {
+//            if let vc = segue.destination as? SignUpController {
+//                vc.user = self.user
+//            }
+//        }
+//    }
 }

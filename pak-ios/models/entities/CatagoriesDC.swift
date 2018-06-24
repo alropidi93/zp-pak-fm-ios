@@ -15,20 +15,27 @@ class CategoriesDC  : NSObject  {
     private var _idCategory: Int64 = 0
     private var _name: String = ""
     private var _img : String = ""
-    //     private var _listAds: [listDC] = []
-    //     private var _listAds: [CategoriesDC] = []
+    private var _list : [ListDC] = []
+    private var _category : [CategoriesDC] = []
 
     
     
     override init() {
     }
     
-    init(_ jsonDiscount: JSON){
+    init(_ jsonCategory: JSON){
         super.init()
-        self._idCategory = jsonDiscount["IdCategoria"].int64 ?? self._idCategory
-        self._name = jsonDiscount["Nombre"].string ?? self._name
-        self._img = jsonDiscount["Imagen"].string ?? self._img
-        
+        self._idCategory = jsonCategory["IdCategoria"].int64 ?? self._idCategory
+        self._name = jsonCategory["Nombre"].string ?? self._name
+        self._img = jsonCategory["Imagen"].string ?? self._img
+        for (_, subJson) in jsonCategory["Items"]{
+            let _item = ListDC(subJson);
+            self._list.append(_item)
+        }
+        for (_, subJson) in jsonCategory["Items"]{
+            let _item = CategoriesDC(subJson);
+            self._category.append(_item)
+        }
     }
     
     
@@ -44,6 +51,15 @@ class CategoriesDC  : NSObject  {
     var img : String {
         set { _img = newValue }
         get { return URLs.MultimediaCategoriasURL + _img }
+    }
+    var list : [ListDC] {
+        set { _list = newValue }
+        get { return _list }
+    }
+    
+    var category : [CategoriesDC] {
+        set { _category = newValue }
+        get { return _category }
     }
     
     

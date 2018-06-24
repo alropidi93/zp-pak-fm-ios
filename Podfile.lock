@@ -54,11 +54,30 @@ PODS:
   - GoogleMaps/Base (2.7.0)
   - GoogleMaps/Maps (2.7.0):
     - GoogleMaps/Base
+  - GoogleSignIn (4.1.2):
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
   - GoogleToolboxForMac/Defines (2.1.4)
   - GoogleToolboxForMac/Logger (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.4)":
+    - GoogleToolboxForMac/DebugUtils (= 2.1.4)
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
+  - GTMOAuth2 (1.1.6):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.15):
+    - GTMSessionFetcher/Full (= 1.1.15)
+  - GTMSessionFetcher/Core (1.1.15)
+  - GTMSessionFetcher/Full (1.1.15):
+    - GTMSessionFetcher/Core (= 1.1.15)
   - ImageSlideshow (1.5.3):
     - ImageSlideshow/Core (= 1.5.3)
   - ImageSlideshow/Core (1.5.3)
@@ -67,6 +86,7 @@ PODS:
     - Kingfisher (> 3.0)
   - IQKeyboardManagerSwift (6.0.2)
   - Kingfisher (4.7.0)
+  - MIBadgeButton-Swift (0.5)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -85,6 +105,7 @@ PODS:
   - SideMenu (3.1.5)
   - SwiftHash (2.0.1)
   - SwiftyJSON (4.1.0)
+  - SwipeCellKit (2.3.2)
   - Tabman (1.8.2):
     - AutoInsetter (~> 1.2.0)
     - Pageboy (~> 2.5.0)
@@ -103,9 +124,11 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
   - GoogleMaps
+  - GoogleSignIn
   - ImageSlideshow
   - ImageSlideshow/Kingfisher
   - IQKeyboardManagerSwift
+  - MIBadgeButton-Swift (from `https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git`, branch `master`)
   - NVActivityIndicatorView
   - PlayerKit
   - RLBAlertsPickers (from `https://github.com/loicgriffie/Alerts-Pickers.git`, branch `master`)
@@ -113,6 +136,7 @@ DEPENDENCIES:
   - SideMenu
   - SwiftHash
   - SwiftyJSON
+  - SwipeCellKit
   - Tabman
   - TTGSnackbar
 
@@ -138,7 +162,10 @@ SPEC REPOS:
     - FirebaseInstanceID
     - FirebaseMessaging
     - GoogleMaps
+    - GoogleSignIn
     - GoogleToolboxForMac
+    - GTMOAuth2
+    - GTMSessionFetcher
     - ImageSlideshow
     - IQKeyboardManagerSwift
     - Kingfisher
@@ -151,15 +178,22 @@ SPEC REPOS:
     - SideMenu
     - SwiftHash
     - SwiftyJSON
+    - SwipeCellKit
     - Tabman
     - TTGSnackbar
 
 EXTERNAL SOURCES:
+  MIBadgeButton-Swift:
+    :branch: master
+    :git: https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git
   RLBAlertsPickers:
     :branch: master
     :git: https://github.com/loicgriffie/Alerts-Pickers.git
 
 CHECKOUT OPTIONS:
+  MIBadgeButton-Swift:
+    :commit: 3c2638d2e6e46ec2e6dd978d8ada8863df3df5e6
+    :git: https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git
   RLBAlertsPickers:
     :commit: 9f660cc3ed563caa60560a9e01341215d229ca04
     :git: https://github.com/loicgriffie/Alerts-Pickers.git
@@ -185,10 +219,14 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
   FirebaseMessaging: 75cdb862e86c30e0913a2ff307e48d49357c5b73
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
+  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   ImageSlideshow: 24a1184909f589379ba2527ebcc77996881bb1f2
   IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
+  MIBadgeButton-Swift: 9e57309b00b168d75ca8fecb45bc75124a8ffddf
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: 75c9634073e03b31d7e2748cd2417feab1206195
   Pageboy: f0295ea949f0b0123a1b486fd347ea892d0078e0
@@ -199,9 +237,10 @@ SPEC CHECKSUMS:
   SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
   SwiftHash: c805de5a434eacfa0dac7210745a50c55d7fe33d
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  SwipeCellKit: 52b160ea820245eb972b2eca270cb3a6f68e33af
   Tabman: 69ce69b44cec1ad693b82c24cdbdf0c45915668c
   TTGSnackbar: a66e929fd17d662152ec0964990a86e966310edb
 
-PODFILE CHECKSUM: bcf330087b87f3f0978b46edf3813947f15e95ba
+PODFILE CHECKSUM: 4e8bf7142bc58c903266c48a2aaef2fc74d5024e
 
 COCOAPODS: 1.5.0

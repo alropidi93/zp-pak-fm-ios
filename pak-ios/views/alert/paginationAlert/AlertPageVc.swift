@@ -9,22 +9,20 @@
 import Foundation
 import UIKit
 
-class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate , UIPageViewControllerDataSource
-
-{
+class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate {
     var controllers = [UIViewController]()
     var nowPage = 0
+    //boleta 0 factura 1
+    var boletaOrFactura : Int = 0
+    var checkOut: CheckOut? = nil
+    var dataDelivery : DataDeliveryDC? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        super.viewDidLoad()
-        
-        if let firstVC = VCArr.first{
+        if let firstVC = VCArr.first {
             setViewControllers([firstVC], direction: .forward, animated: true , completion: nil)
         }
-        self.dataSource = self
         self.delegate = self
     }
     
@@ -32,12 +30,14 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate , UIPage
         return [self.VCInstance(name: "v_send_data"),
                 self.VCInstance(name: "v_alert_facturation"),
                 self.VCInstance(name: "v_card_data"),
-                self.VCInstance(name: "v_order_summary"),
-                ]
+                self.VCInstance(name: "v_order_summary")]
     }()
     
-    private func VCInstance(name : String ) -> UIViewController{
-        return UIStoryboard(name : "Main", bundle : nil).instantiateViewController(withIdentifier : name)
+    private func VCInstance(name : String ) -> UIViewController {
+        let childViewController = UIStoryboard(name : "Main", bundle : nil).instantiateViewController(withIdentifier : name)
+        let childViewParent = childViewController as! PageObservation
+        childViewParent.getParentPageViewController(parentRef: self)
+        return childViewController
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -54,11 +54,28 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate , UIPage
         }
         return VCArr[nowPage - 1]
     }
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return VCArr.count
+  
+    
+    func goNextPage(forwardTo position: Int) {
+        if (self.checkOut?.district != 0){
+            let viewController = self.VCArr[position]
+            setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
+        }
     }
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return nowPage
+    func printfc() {
+        print("holiiii")
+    }
+    func validateFistController(_pos : Int)  -> Bool{
+        if checkOut?.address != "" && checkOut?.district != 0 && checkOut?.reference != "" && checkOut?.recipentName != "" && checkOut?.hourlySale != "" && checkOut?.date != "" {
+            return true
+        }
+        return false
+    }
+    func validateSecondController(_pos : Int) -> Bool {
+        if checkOut?.ruc != "" && checkOut?.businessName != "" && checkOut?.fiscalAddress != "" {
+            return true
+        }
+        return false
     }
     
     

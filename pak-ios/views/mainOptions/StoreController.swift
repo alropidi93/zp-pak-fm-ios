@@ -13,14 +13,18 @@ import Alamofire
 import AVKit
 import NVActivityIndicatorView
 
-
-
-class StoreController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable,UICollectionViewDelegateFlowLayout{
+class StoreController : UIViewController, UICollectionViewDelegate,  UICollectionViewDataSource, NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout{
     @IBOutlet weak var cv_categories: UICollectionView!
     
     private let reuse_identifier = "cvc_category"
     private var items : [CategoriesDC] = []
+    private var selectedItems : [CategoriesDC] = []
     
+    private let segue_category_sub_category = "segue_category_sub_category"
+    private let segue_category_detail = "segue_category_detail"
+    
+    private var isIndexOf : Int = -1
+
     //#MARK: Common methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,17 +41,23 @@ class StoreController : UIViewController, UICollectionViewDelegate, UICollection
         getCategories()
     }
 
-    //#MARK: Collectionview methods
+    //#MARK: Collectionview methods and select event
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCCategory
         cell.l_name_category.text = self.items[indexPath.item].name
         UtilMethods.setImage(imageview: cell.iv_category, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let id_item = items[indexPath.item].idCategory
+        getCategories(Int(id_item))
+    }
+    
     //Perfectly fit collection (all screens)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -55,17 +65,21 @@ class StoreController : UIViewController, UICollectionViewDelegate, UICollection
         let itemWidth = (collectionView.bounds.size.width - marginsAndInsets).rounded(.down)
         return CGSize(width: itemWidth, height: 200)
     }
-    
-    func getCategories() {
-        
+
+    func getCategories(_ selectedId :Int = -1) {
+        self.isIndexOf = selectedId
         let user = PreferencesMethods.getUserFromOptions()
         var params : Parameters
-        if user != nil  {
+        if user != nil  && selectedId == -1 {
             let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
             params = [ "IdUsuario": idUser]
-        } else {
-            params = [ : ]
-        }
+        } else if user != nil && selectedId != -1 {
+            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+            params = [ "IdUsuario": idUser, "IdCategoria": selectedId]
+        } else if user == nil && selectedId != -1 {
+            params = [ "IdCategoria": selectedId]
+        } else { params = [ : ] }
+            
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         Alamofire.request(URLs.GetCategories, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
@@ -78,13 +92,40 @@ class StoreController : UIViewController, UICollectionViewDelegate, UICollection
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    if jsonResult["Msg"] == "OK"{
-                        self.items = []
-                        for ( _ , element) in jsonResult["Categorias"] {
-                            let category  = CategoriesDC(element)
-                            self.items.append(category)
+                    print(jsonResult["Data"])
+                    print(selectedId)
+                    if jsonResult["Data"] == true { //means its a list
+                        if selectedId != -1 {
+                            self.selectedItems = []
+                            // needs a more complex if due to possibility of 2 types of
+                            for ( _ , element) in jsonResult["Categorias"] {
+                                let category  = CategoriesDC(element)
+                                self.selectedItems.append(category)
+                            }
+                            self.performSegue(withIdentifier: self.segue_category_sub_category, sender: self)
+                        } else {
+                            self.items = []
+                            // needs a more complex if due to possibility of 2 types of
+                            for ( _ , element) in jsonResult["Categorias"] {
+                                let category  = CategoriesDC(element)
+                                self.items.append(category)
+                                
+                                
+                                print(category.idCategory)
+                            }
+                            self.cv_categories.reloadData()
                         }
-                        self.cv_categories.reloadData()
+                    } else if jsonResult["Data"] == false { //means its a grid
+                        print("Fresh aca a vista compleja")
+                        if selectedId != -1 {
+                            self.selectedItems = []
+                            // needs a more complex if due to possibility of 2 types of
+                            for ( _ , element) in jsonResult["Categorias"] {
+                                let category  = CategoriesDC(element)
+                                self.selectedItems.append(category)
+                            }
+                            self.performSegue(withIdentifier: self.segue_category_detail, sender: self)
+                        }
                     }
                 }
             } else {
@@ -99,5 +140,13 @@ class StoreController : UIViewController, UICollectionViewDelegate, UICollection
         }
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.segue_category_sub_category {
+            let vc = segue.destination as! SubCategoriesController
+            vc.items = selectedItems
+        }else if segue.identifier == self.segue_category_detail {
+            let vcpl = segue.destination as! ProductsListControllers
+            vcpl.items = selectedItems
+        }
+    }
 }

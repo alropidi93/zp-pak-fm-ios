@@ -11,6 +11,8 @@
 		7007930F20D22F8700DE70CA /* PakAlertRegisterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007930E20D22F8700DE70CA /* PakAlertRegisterDelegate.swift */; };
 		7007931120D2438200DE70CA /* PakAlertModifyPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007931020D2438200DE70CA /* PakAlertModifyPassword.swift */; };
 		7007931320D2B26000DE70CA /* PakAlertRecoverAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007931220D2B26000DE70CA /* PakAlertRecoverAccount.swift */; };
+		700C7C7720D88BFF000FD7E5 /* SubCategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700C7C7620D88BFF000FD7E5 /* SubCategoriesController.swift */; };
+		700C7C7920D89534000FD7E5 /* RootCategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700C7C7820D89534000FD7E5 /* RootCategoriesController.swift */; };
 		7010444F20AE38D900EFFC9B /* CVCSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7010444E20AE38D900EFFC9B /* CVCSearchItem.swift */; };
 		701D2878207EAD01007AD7AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2877207EAD01007AD7AC /* AppDelegate.swift */; };
 		701D287D207EAD01007AD7AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701D287B207EAD01007AD7AC /* Main.storyboard */; };
@@ -18,6 +20,10 @@
 		701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701D2880207EAD06007AD7AC /* LaunchScreen.storyboard */; };
 		701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2896207EC5D6007AD7AC /* UIViewExtension.swift */; };
 		701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */; };
+		70242A9420D8FEF000F89299 /* ProductsListControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9320D8FEF000F89299 /* ProductsListControllers.swift */; };
+		70242A9820D914E600F89299 /* ListDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9720D914E600F89299 /* ListDC.swift */; };
+		70242A9A20D937B600F89299 /* PageObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9920D937B600F89299 /* PageObservation.swift */; };
+		70242A9C20D9857700F89299 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70242A9B20D9857600F89299 /* GoogleService-Info.plist */; };
 		7028134F20C396F500DD5443 /* AlertPageVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028134E20C396F500DD5443 /* AlertPageVc.swift */; };
 		7028135120C44F8900DD5443 /* PakAlertSendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028135020C44F8900DD5443 /* PakAlertSendData.swift */; };
 		7028135320C44FF700DD5443 /* PakAlertFacturation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028135220C44FF700DD5443 /* PakAlertFacturation.swift */; };
@@ -30,6 +36,8 @@
 		7043B0B320BC86FB00CC31D0 /* DiscountsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7043B0B220BC86FB00CC31D0 /* DiscountsController.swift */; };
 		7043B0B520BCF28200CC31D0 /* PakAlertCodeInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7043B0B420BCF28200CC31D0 /* PakAlertCodeInvitation.swift */; };
 		707B8F6520B4F3E600FC7848 /* CVCSmallBoxItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */; };
+		708AC99A20E01AEF004BD8FD /* DataDeliveryDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */; };
+		708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC99B20E039E2004BD8FD /* DistributionHour.swift */; };
 		7090A2EA20AB75DA00EF9F6D /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7090A2E920AB75DA00EF9F6D /* NotificationCenterExtension.swift */; };
 		7094FE9A20B2A30F00511297 /* SmallBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094FE9920B2A30F00511297 /* SmallBoxController.swift */; };
 		7094FE9D20B2B14100511297 /*  FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094FE9C20B2B14100511297 /*  FavouriteController.swift */; };
@@ -45,6 +53,7 @@
 		70A4254520CDC31A005B00AC /* ProductsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A4254420CDC31A005B00AC /* ProductsDetailController.swift */; };
 		70B623EE20A9ED5D001738C3 /* SideMenuOutLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B623ED20A9ED5D001738C3 /* SideMenuOutLogin.swift */; };
 		70B623F020AA1BDD001738C3 /* SideMenuInLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */; };
+		70B88D1120DD5AE300D97816 /* CheckOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B88D1020DD5AE300D97816 /* CheckOut.swift */; };
 		70BF263A20D087EC002FD0F9 /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BF263920D087EC002FD0F9 /* EditController.swift */; };
 		70C9ED1D209D02FD0096B656 /* CVCPublicityImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED1C209D02FD0096B656 /* CVCPublicityImage.swift */; };
 		70C9ED1F209D140D0096B656 /* ListAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED1E209D140D0096B656 /* ListAds.swift */; };
@@ -72,6 +81,8 @@
 		7007930E20D22F8700DE70CA /* PakAlertRegisterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertRegisterDelegate.swift; sourceTree = "<group>"; };
 		7007931020D2438200DE70CA /* PakAlertModifyPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertModifyPassword.swift; sourceTree = "<group>"; };
 		7007931220D2B26000DE70CA /* PakAlertRecoverAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertRecoverAccount.swift; sourceTree = "<group>"; };
+		700C7C7620D88BFF000FD7E5 /* SubCategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesController.swift; sourceTree = "<group>"; };
+		700C7C7820D89534000FD7E5 /* RootCategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCategoriesController.swift; sourceTree = "<group>"; };
 		7010444E20AE38D900EFFC9B /* CVCSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCSearchItem.swift; sourceTree = "<group>"; };
 		701D2874207EAD01007AD7AC /* pak-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pak-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		701D2877207EAD01007AD7AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +93,10 @@
 		701D2889207EAD1F007AD7AC /* pak-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pak-ios.entitlements"; sourceTree = "<group>"; };
 		701D2896207EC5D6007AD7AC /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		70242A9320D8FEF000F89299 /* ProductsListControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListControllers.swift; sourceTree = "<group>"; };
+		70242A9720D914E600F89299 /* ListDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDC.swift; sourceTree = "<group>"; };
+		70242A9920D937B600F89299 /* PageObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageObservation.swift; sourceTree = "<group>"; };
+		70242A9B20D9857600F89299 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7028134E20C396F500DD5443 /* AlertPageVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPageVc.swift; sourceTree = "<group>"; };
 		7028135020C44F8900DD5443 /* PakAlertSendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertSendData.swift; sourceTree = "<group>"; };
 		7028135220C44FF700DD5443 /* PakAlertFacturation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertFacturation.swift; sourceTree = "<group>"; };
@@ -94,6 +109,8 @@
 		7043B0B220BC86FB00CC31D0 /* DiscountsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsController.swift; sourceTree = "<group>"; };
 		7043B0B420BCF28200CC31D0 /* PakAlertCodeInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCodeInvitation.swift; sourceTree = "<group>"; };
 		707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCSmallBoxItem.swift; sourceTree = "<group>"; };
+		708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDeliveryDC.swift; sourceTree = "<group>"; };
+		708AC99B20E039E2004BD8FD /* DistributionHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionHour.swift; sourceTree = "<group>"; };
 		7090A2E920AB75DA00EF9F6D /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
 		7094FE9920B2A30F00511297 /* SmallBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBoxController.swift; sourceTree = "<group>"; };
 		7094FE9C20B2B14100511297 /*  FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " FavouriteController.swift"; sourceTree = "<group>"; };
@@ -109,6 +126,7 @@
 		70A4254420CDC31A005B00AC /* ProductsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDetailController.swift; sourceTree = "<group>"; };
 		70B623ED20A9ED5D001738C3 /* SideMenuOutLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOutLogin.swift; sourceTree = "<group>"; };
 		70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuInLogin.swift; sourceTree = "<group>"; };
+		70B88D1020DD5AE300D97816 /* CheckOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOut.swift; sourceTree = "<group>"; };
 		70BF263920D087EC002FD0F9 /* EditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
 		70C9ED1C209D02FD0096B656 /* CVCPublicityImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCPublicityImage.swift; sourceTree = "<group>"; };
 		70C9ED1E209D140D0096B656 /* ListAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAds.swift; sourceTree = "<group>"; };
@@ -176,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				701D2889207EAD1F007AD7AC /* pak-ios.entitlements */,
+				70242A9B20D9857600F89299 /* GoogleService-Info.plist */,
 				701D2883207EAD06007AD7AC /* Info.plist */,
 				701D2877207EAD01007AD7AC /* AppDelegate.swift */,
 				701D287E207EAD06007AD7AC /* Assets.xcassets */,
@@ -218,6 +237,7 @@
 				70D6D2EB20BDAEF4006BDC19 /* PakAlertCodeInvitationDelegate.swift */,
 				7028135820C4578200DD5443 /* PakAlertPaymentDelegate.swift */,
 				7007930E20D22F8700DE70CA /* PakAlertRegisterDelegate.swift */,
+				70242A9920D937B600F89299 /* PageObservation.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -285,6 +305,16 @@
 			path = methods;
 			sourceTree = "<group>";
 		};
+		70242A9120D8FE6C00F89299 /* storeViews */ = {
+			isa = PBXGroup;
+			children = (
+				700C7C7620D88BFF000FD7E5 /* SubCategoriesController.swift */,
+				700C7C7820D89534000FD7E5 /* RootCategoriesController.swift */,
+				70242A9320D8FEF000F89299 /* ProductsListControllers.swift */,
+			);
+			path = storeViews;
+			sourceTree = "<group>";
+		};
 		7028134D20C3963300DD5443 /* paginationAlert */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +364,7 @@
 		70A3BE37208F7FE9008C972C /* entities */ = {
 			isa = PBXGroup;
 			children = (
+				70B88D0F20DD5AD100D97816 /* modelAsView */,
 				70A3BE38208F8003008C972C /* UserDC.swift */,
 				70DF102A208FE8E200EDB1FA /* DistrictDC.swift */,
 				70F54C9620901210003175AA /* SmallBoxDC.swift */,
@@ -343,6 +374,9 @@
 				70C9ED20209D14460096B656 /* Ads.swift */,
 				7097EC6420A60FA2008E1C9E /* CatagoriesDC.swift */,
 				709A334320AE0FC1003AB207 /* ProductoDC.swift */,
+				70242A9720D914E600F89299 /* ListDC.swift */,
+				708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */,
+				708AC99B20E039E2004BD8FD /* DistributionHour.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -354,6 +388,14 @@
 				70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */,
 			);
 			path = sideMenu;
+			sourceTree = "<group>";
+		};
+		70B88D0F20DD5AD100D97816 /* modelAsView */ = {
+			isa = PBXGroup;
+			children = (
+				70B88D1020DD5AE300D97816 /* CheckOut.swift */,
+			);
+			path = modelAsView;
 			sourceTree = "<group>";
 		};
 		70D5259E20913FA1004EB51E /* authentication */ = {
@@ -386,6 +428,7 @@
 				70D5F0EC209B78A400EE673B /* OutMainController.swift */,
 				70D5F0EE209B7A4300EE673B /* InitialController.swift */,
 				70D5F0F0209B7AA700EE673B /* StoreController.swift */,
+				70242A9120D8FE6C00F89299 /* storeViews */,
 			);
 			path = mainOptions;
 			sourceTree = "<group>";
@@ -471,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */,
+				70242A9C20D9857700F89299 /* GoogleService-Info.plist in Resources */,
 				701D287F207EAD06007AD7AC /* Assets.xcassets in Resources */,
 				701D287D207EAD01007AD7AC /* Main.storyboard in Resources */,
 			);
@@ -498,10 +542,13 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MIBadgeButton-Swift/MIBadgeButton_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
 				"${BUILT_PRODUCTS_DIR}/PlayerKit/PlayerKit.framework",
@@ -511,6 +558,7 @@
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TTGSnackbar/TTGSnackbar.framework",
 				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -529,10 +577,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MIBadgeButton_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlayerKit.framework",
@@ -542,6 +593,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTGSnackbar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -559,10 +611,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -596,6 +650,7 @@
 			files = (
 				70B623F020AA1BDD001738C3 /* SideMenuInLogin.swift in Sources */,
 				70C9ED21209D14460096B656 /* Ads.swift in Sources */,
+				70242A9A20D937B600F89299 /* PageObservation.swift in Sources */,
 				70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */,
 				7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */,
 				70A4254520CDC31A005B00AC /* ProductsDetailController.swift in Sources */,
@@ -607,11 +662,15 @@
 				70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */,
 				701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */,
 				70D6D2EC20BDAEF4006BDC19 /* PakAlertCodeInvitationDelegate.swift in Sources */,
+				700C7C7920D89534000FD7E5 /* RootCategoriesController.swift in Sources */,
 				703BA2CC20ACF2EE00AC9597 /* SearchView.swift in Sources */,
 				7094FE9D20B2B14100511297 /*  FavouriteController.swift in Sources */,
 				70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */,
 				7028135320C44FF700DD5443 /* PakAlertFacturation.swift in Sources */,
 				7007931320D2B26000DE70CA /* PakAlertRecoverAccount.swift in Sources */,
+				70242A9820D914E600F89299 /* ListDC.swift in Sources */,
+				708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */,
+				700C7C7720D88BFF000FD7E5 /* SubCategoriesController.swift in Sources */,
 				70A3BE39208F8003008C972C /* UserDC.swift in Sources */,
 				709A334420AE0FC1003AB207 /* ProductoDC.swift in Sources */,
 				70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */,
@@ -633,18 +692,21 @@
 				70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */,
 				703C1C3820C83D3400488E16 /* AlertViewPayment.swift in Sources */,
 				70D525A020915709004EB51E /* AlarmMethods.swift in Sources */,
+				70B88D1120DD5AE300D97816 /* CheckOut.swift in Sources */,
 				70D525A520915B91004EB51E /* UtilMethods.swift in Sources */,
 				7097EC6520A60FA2008E1C9E /* CatagoriesDC.swift in Sources */,
 				70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */,
 				70D525A32091590C004EB51E /* PakAlert.swift in Sources */,
 				7028134F20C396F500DD5443 /* AlertPageVc.swift in Sources */,
 				7007930F20D22F8700DE70CA /* PakAlertRegisterDelegate.swift in Sources */,
+				708AC99A20E01AEF004BD8FD /* DataDeliveryDC.swift in Sources */,
 				7043B0B520BCF28200CC31D0 /* PakAlertCodeInvitation.swift in Sources */,
 				70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */,
 				7010444F20AE38D900EFFC9B /* CVCSearchItem.swift in Sources */,
 				7028135120C44F8900DD5443 /* PakAlertSendData.swift in Sources */,
 				702DCB3420D6D65000702D18 /* CVCAddCode.swift in Sources */,
 				70A3BE36208F7F97008C972C /* PreferencesMethods.swift in Sources */,
+				70242A9420D8FEF000F89299 /* ProductsListControllers.swift in Sources */,
 				7028135920C4578200DD5443 /* PakAlertPaymentDelegate.swift in Sources */,
 				7007931120D2438200DE70CA /* PakAlertModifyPassword.swift in Sources */,
 				7094FE9F20B2B25900511297 /* CVCFavouriteItem.swift in Sources */,

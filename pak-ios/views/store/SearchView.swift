@@ -21,7 +21,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     let segue_identifier : String = "segue_product_detail"
     private let reuse_identifier = "cvc_search_item"
     var text:String = ""
-    
+    var cant = 0
     @IBOutlet weak var l_search_word: UILabel!
     @IBOutlet weak var cv_search: UICollectionView!
    
@@ -29,7 +29,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     var item : ProductoDC? = nil
 
     
-    //var indexPath : IndexPath? = nil
+    var indexPath : IndexPath? = nil
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -160,7 +160,8 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        let snackbar = TTGSnackbar(message: "Se agrego el producto", duration: .middle)
+                        self.cant += 1
+                        let snackbar = TTGSnackbar(message: "Se agrego " + String(self.cant) + "el producto", duration: .middle)
                         snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                         snackbar.show()
                         self.cv_search.reloadData()
@@ -207,7 +208,6 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                             let producto  = ProductoDC(element)
                             self.items.append(producto)
                         }
-                        
                         self.cv_search.reloadData()
                     }
                 }

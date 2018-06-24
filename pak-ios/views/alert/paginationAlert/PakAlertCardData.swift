@@ -8,6 +8,10 @@
 
 import Foundation
 import UIKit
-class PakAlertCardData : UIViewController{
+class PakAlertCardData : UIViewController, PageObservation{
+    var parentPageViewController: AlertPageVc!
     
+    func getParentPageViewController(parentRef: AlertPageVc) {
+        parentPageViewController = parentRef
+    }
 }

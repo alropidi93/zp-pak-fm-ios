@@ -27,16 +27,17 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var l_mount_delivery: UILabel!
     @IBOutlet weak var l_mount_total: UILabel!
     @IBOutlet weak var cv_item_list: UICollectionView!
+    @IBOutlet weak var l_discount: UILabel!
+    @IBOutlet weak var l_mount_discount: UILabel!
     
     private let reuse_identifier_box = "cvc_smallBox_item"
-
     private var items : [ItemSmallBoxDC] = []
+    private var dataDelivery : DataDeliveryDC? = nil
     private var deliveryCost : Double = 0.0
     private var subTotal : Double = 0.0
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     override func viewDidLoad() {
@@ -44,7 +45,6 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         setElements()
         navBarLabelWithImg()
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -145,8 +145,8 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         for element in self.items {
             self.subTotal = self.subTotal + (element.price * Double(element.cant))
         }
-        self.l_mount_subt.text = String(self.subTotal)
-        self.l_mount_total.text = String(self.subTotal + self.deliveryCost )
+        self.l_mount_subt.text = "S/" + String(self.subTotal)
+        self.l_mount_total.text = "S/" + String(self.subTotal + self.deliveryCost )
     }
     
     func getGUID() {
@@ -190,16 +190,65 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
 
     
     
+
+    
+    
+    
+    func getDataDelivery() {
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        let params: Parameters = ["GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
+        print(PreferencesMethods.getSmallBoxFromOptions()!.GUID)
+        Alamofire.request(URLs.DataDelivery, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Data"] == true {
+                        self.dataDelivery  = DataDeliveryDC(jsonResult)
+                        self.customAlertPayment()
+                    }else{
+                        let jsonResult = JSON(jsonResponse)
+                        print(jsonResult["MontoMinimo"])
+                        AlarmMethods.errorWarning(message: "El monto mínimo para el pedido es de S/ " + jsonResult["MontoMinimo"].stringValue + " (sin incluir costo de delivery).", uiViewController: self)
+                    }
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+            self.stopAnimating()
+        }
+    }
+    
+    
+    
     @IBAction func ba_buying(_ sender: Any) {
+        self.getDataDelivery()
+        
+    }
+    
+    func customAlertPayment(){
+        
         let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "alert_payment") as! AlertViewPayment
         customAlert.definesPresentationContext = true
         customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-//        customAlert.codeInvitationDelegate = self
+        customAlert.dataDelivery = self.dataDelivery
         self.present(customAlert, animated: true, completion: nil)
     }
     
     func navBarLabelWithImg(){
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
         let navView = UIView()
         let label = UILabel()
         label.text = "  Mi cajita"

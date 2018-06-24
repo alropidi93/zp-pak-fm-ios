@@ -36,7 +36,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
     
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
-    
+//    var user : UserDC = nil
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

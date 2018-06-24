@@ -30,6 +30,7 @@ target 'pak-ios' do
   pod 'TTGSnackbar'
   pod 'PlayerKit'
   pod 'BmoViewPager'
-
-  
+  pod 'GoogleSignIn'
+  pod 'MIBadgeButton-Swift', :git => 'https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git', :branch => 'master'
+  pod 'SwipeCellKit'
 end

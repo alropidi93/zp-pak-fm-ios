@@ -11,9 +11,13 @@ import UIKit
 
 class CVCFavouriteItem : UICollectionViewCell {
   
-    @IBOutlet weak var iv_item_photo: UIImageView!
-    @IBOutlet weak var b_favorites: UIButton!
-    @IBOutlet weak var l_item_name: UILabel!
-    @IBOutlet weak var l_price_unity: UILabel!
     @IBOutlet weak var b_add_item: UIButton!
+    
+    @IBOutlet weak var l_price_unity: UILabel!
+    
+    
+    @IBOutlet weak var b_favorites: UIButton!
+    
+    @IBOutlet weak var iv_item_photo: UIImageView!
+    @IBOutlet weak var l_item_name: UILabel!
 }

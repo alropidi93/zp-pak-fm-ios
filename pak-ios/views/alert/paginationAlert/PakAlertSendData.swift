@@ -7,12 +7,177 @@
 //
 
 import Foundation
+import SwiftyJSON
 import UIKit
-class PakAlertSendData : UIViewController{
+import Alamofire
+import NVActivityIndicatorView
+import RLBAlertsPickers
+import SwiftHash
 
+class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicatorViewable{
+    var parentPageViewController: AlertPageVc!
+
+    @IBOutlet weak var tf_direction: UITextField!
+    @IBOutlet weak var tf_district: UITextField!
+    @IBOutlet weak var tf_reference: UITextField!
+    @IBOutlet weak var tf_data_reciver: UITextField!
+    @IBOutlet weak var tf_date: UITextField!
+    @IBOutlet weak var tf_hours: UITextField!
+    
+    var checkOut : CheckOut? = nil
+    private var posDistrict: Int = -1
+    
+    var districts : [String] = []
+    var listDistrict : [DistrictDC] = []
+    
+    var hours : [String] = []
+    var district : [String] = []
     
     @IBAction func b_dismiss(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setElements()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    func setElements(){
+        fullKeyboardSupport()
+        cleanHoursAndDate()
+        getDistrict()
+        tf_data_reciver.text = PreferencesMethods.getUserFromOptions()?.names
+        self.tf_district.inputView = UIView()
+        let tap_district = UITapGestureRecognizer(target: self, action: #selector(self.tapDistrict(_:)))
+        self.tf_district.addGestureRecognizer(tap_district)
+        
+        self.tf_hours.inputView = UIView()
+        let tap_hours = UITapGestureRecognizer(target: self, action: #selector(self.tapHours(_:)))
+        self.tf_hours.addGestureRecognizer(tap_hours)
+        
+        self.tf_date.inputView = UIView()
+        let tap_date = UITapGestureRecognizer(target: self, action: #selector(self.tapDate(_:)))
+        self.tf_date.addGestureRecognizer(tap_date)
+        
+        tf_direction.addTarget(self, action: #selector(textfieldDidChangedirection), for: .editingChanged)
+        tf_reference.addTarget(self, action: #selector(textfieldDidChangereference), for: .editingChanged)
+        tf_data_reciver.addTarget(self, action: #selector(textfieldDidChangereciver), for: .editingChanged)
+    }
+    @objc func textfieldDidChangedirection(sender: UITextField!){
+        parentPageViewController.checkOut?.address = sender.text!
+    }
+    @objc func textfieldDidChangereference(sender: UITextField!){
+        parentPageViewController.checkOut?.address = sender.text!
+    }
+    @objc func textfieldDidChangereciver(sender: UITextField!){
+        parentPageViewController.checkOut?.address = sender.text!
+    }
+
+    @objc func tapHours(_ sender: UITapGestureRecognizer) -> Void {
+        let alert = UIAlertController(style: .actionSheet, title: "Horas")
+        let pickerViewValues: [[String]] = [districts]
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        
+        alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 1) {
+                    self.tf_district.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
+                    self.parentPageViewController.checkOut?.district = Int64(self.listDistrict[index.row].idDistrict)
+                    
+                }
+            }
+        }
+        alert.addAction(title: "OK", style: .cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
+        let alert = UIAlertController(style: .actionSheet, title: "Distritos")
+        let pickerViewValues: [[String]] = [districts]
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        
+        alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 1) {
+                    self.tf_district.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
+                    self.parentPageViewController.checkOut?.district = Int64(self.listDistrict[index.row].idDistrict)
+                    
+                }
+            }
+        }
+        alert.addAction(title: "OK", style: .cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    @objc func tapDistrict(_ sender: UITapGestureRecognizer) -> Void {
+        
+        let alert = UIAlertController(style: .actionSheet, title: "Distritos")
+        let pickerViewValues: [[String]] = [districts]
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        
+        alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 1) {
+                    self.tf_district.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
+                    self.parentPageViewController.checkOut?.district = Int64(self.listDistrict[index.row].idDistrict)
+                    
+                }
+            }
+        }
+        alert.addAction(title: "OK", style: .cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    func cleanHoursAndDate(){
+//        let hour = Calendar.current.component(.hour, from: Date())
+//
+//        for elem in (parentPageViewController.dataDelivery?.hours)! {
+//            let distributionHour  = elem.iniHour + "-" + elem.endHour
+//            self.hours.append(distributionHour)
+//        }
+//
+        
+    }
+    
+    func getParentPageViewController(parentRef: AlertPageVc) {
+        parentPageViewController = parentRef
+    }
+    
+    func getDistrict(){
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        
+        Alamofire.request(URLs.ListDistrict, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    
+                    self.districts = []
+                    for ( _ , element) in jsonResult["Distritos"] {
+                        let district = DistrictDC(element)
+                        self.districts.append(district.name)
+                        self.listDistrict.append(DistrictDC(element))
+                    }
+                    
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+            self.stopAnimating()
+        }
     }
     
 }
