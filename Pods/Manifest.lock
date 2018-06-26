@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
   - Agrume (4.0.4)
   - AKMediaViewer (1.0.8):
     - ASBPlayerScrubbing (~> 0.1)
@@ -112,6 +127,7 @@ PODS:
   - TTGSnackbar (1.7.3)
 
 DEPENDENCIES:
+  - AFNetworking (~> 3.0)
   - Agrume
   - AKMediaViewer
   - Alamofire
@@ -142,6 +158,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
     - Agrume
     - AKMediaViewer
     - Alamofire
@@ -199,6 +216,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/loicgriffie/Alerts-Pickers.git
 
 SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Agrume: 123943d590fd0436a00642e37032da1814518153
   AKMediaViewer: 356d179edf335efcfb72eaf4efd67095c56548d7
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -241,6 +259,6 @@ SPEC CHECKSUMS:
   Tabman: 69ce69b44cec1ad693b82c24cdbdf0c45915668c
   TTGSnackbar: a66e929fd17d662152ec0964990a86e966310edb
 
-PODFILE CHECKSUM: 4e8bf7142bc58c903266c48a2aaef2fc74d5024e
+PODFILE CHECKSUM: 7bf649304d4d457eae7de15556b143918c48fb12
 
 COCOAPODS: 1.5.0

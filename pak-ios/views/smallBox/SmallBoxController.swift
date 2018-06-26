@@ -241,6 +241,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         customAlert.dataDelivery = self.dataDelivery
+        
         self.present(customAlert, animated: true, completion: nil)
     }
     

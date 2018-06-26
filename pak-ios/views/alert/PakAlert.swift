@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-
 class PakAlert : UIViewController {
 
 
@@ -22,7 +21,6 @@ class PakAlert : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

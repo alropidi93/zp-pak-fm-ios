@@ -52,7 +52,10 @@ struct URLs {
     
     
     
-    
+    //Culqi
+    static var CulqiValidation:String {//POST
+        return "https://checkout.culqi.com/tokens"
+    }
     
     
     // CAJITA

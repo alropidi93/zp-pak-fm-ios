@@ -81,6 +81,13 @@ class UtilMethods {
         formattedDate = dateFormatter.string(from: dateToFormat)
         return formattedDate
     }
+    static func formatDateMY(_ dateToFormat : Date) -> String {
+        var formattedDate : String = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM-yyyy"
+        formattedDate = dateFormatter.string(from: dateToFormat)
+        return formattedDate
+    }
     
     static func DateToString(_ date : String) -> String {
         var month : String = ""

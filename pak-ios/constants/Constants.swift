@@ -9,6 +9,10 @@
 import Foundation
 
 class Constants {
+    
+    //#MARK:PUBLIC KEYS
+    static let CULQI_KEY : String = "pk_test_Fn37UeqKL5dE0rE2"
+    
     // #MARK: Reserved words
     static let STATUS : String = "status"
     static let SUCCESS : String = "success"

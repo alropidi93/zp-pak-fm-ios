@@ -47,8 +47,9 @@ class PakAlertCardData : UIViewController, PageObservation{
         let alert = UIAlertController(style: .actionSheet, title: "Fecha")
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: nil ) { date in
             self.date = UtilMethods.intFromDate(date)
-            self.tf_expired_date.text = UtilMethods.formatDate(date)
-            self.parentPageViewController.expiredDate = UtilMethods.formatDate(date)
+            self.tf_expired_date.text = UtilMethods.formatDateMY(date)
+            self.parentPageViewController.expiredDateMM = UtilMethods.DateToString(UtilMethods.formatDateMY(date).components(separatedBy: "-")[0])
+            self.parentPageViewController.expiredDateYYYY = UtilMethods.formatDateMY(date).components(separatedBy: "-")[1]
         }
         alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: nil)
         self.present(alert, animated: true, completion: nil)

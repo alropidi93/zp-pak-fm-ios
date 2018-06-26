@@ -9,11 +9,14 @@
 
 import Foundation
 import UIKit
-
-class AlertViewPayment : UIViewController {
+import Alamofire
+import SwiftyJSON
+import NVActivityIndicatorView
+class AlertViewPayment : UIViewController ,NVActivityIndicatorViewable {
     var page : Int = -1
     @IBOutlet weak var uv_pv_payments: UIView!
     var dataDelivery : DataDeliveryDC? = nil
+
     private var embeddedViewController : AlertPageVc!
     
     
@@ -47,5 +50,7 @@ class AlertViewPayment : UIViewController {
             self.embeddedViewController = vc
         }
     }
+    
+    
     
 }

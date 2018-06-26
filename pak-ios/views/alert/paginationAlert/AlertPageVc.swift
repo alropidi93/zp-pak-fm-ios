@@ -8,8 +8,11 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import SwiftyJSON
+import NVActivityIndicatorView
 
-class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate {
+class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate ,NVActivityIndicatorViewable {
     var controllers = [UIViewController]()
     var nowPage = 0
     
@@ -22,12 +25,12 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate {
     
     var titular :String = ""
     var numTarjeta : String = ""
-    var expiredDate : String = ""
+    var expiredDateMM : String = ""
+    var expiredDateYYYY : String = ""
     var ccv : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let firstVC = VCArr.first {
             setViewControllers([firstVC], direction: .forward, animated: true , completion: nil)
         }
@@ -79,18 +82,27 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate {
             }
             
         case 2:
-            print(validateSecondController())
-            print("2")
+            if validateSecondController() == true {
+                let viewController = self.VCArr[position]
+                setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
+                self.pageNow = self.pageNow + 1
+            }else{
+                print("2")
+
+            }
         case 3:
-            print("3")
+            if /*validateThirdController() == true*/true {
+                let viewController = self.VCArr[position]
+                setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
+                self.pageNow = self.pageNow + 1
+            }else{
+                print("3")
+            }
         case 4:
             print("4")
         default:
             return
         }
-        
-        
-        
     }
     func printfc() {
         print("holiiii")
@@ -113,10 +125,49 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate {
                 return true
         }
     }
+    
     func validateThirdController() -> Bool {
-        return true
+        return validateCulqi()
     }
-    func validateCulqi(){
+    func validateCulqi() -> Bool {
         
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        let headersHttp: HTTPHeaders = ["Content-Type" : "application/json; charset=utf-8",
+                                    "Authorization": "Bearer " + Constants.CULQI_KEY ]
+        let params: Parameters = [ "email" : PreferencesMethods.getUserFromOptions()?.userName ?? "",
+                                   "card_number": self.numTarjeta,
+                                   "public_key":Constants.CULQI_KEY,
+                                   "cvv": self.ccv,
+                                   "expiration_year": self.expiredDateYYYY ,
+                                   "expiration_month":expiredDateMM,
+                                   "fingerprint": 89]
+        
+        Alamofire.request(URLs.CulqiValidation, method: .post, parameters: params ,encoding: JSONEncoding.default, headers: headersHttp).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["object"].string! == "token"{
+                        let id  = jsonResult["id"]
+                        self.checkOut.token = id.string!
+                        self.stopAnimating()
+                    }else{
+                        AlarmMethods.errorWarning(message: jsonResult["merchant_message"].string!, uiViewController: self)
+                    }
+                }
+            } else {
+                AlamoMethods.defaultError(self)
+            }
+        }
+        if checkOut.token != "" {
+            return true
+        }else{
+            return false
+        }
     }
 }
