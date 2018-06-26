@@ -12,10 +12,18 @@ import UIKit
 class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate {
     var controllers = [UIViewController]()
     var nowPage = 0
+    
+    var pageNow : Int = 1
     //boleta 0 factura 1
     var boletaOrFactura : Int = 0
-    var checkOut: CheckOut? = nil
+    
+    var checkOut = CheckOut()
     var dataDelivery : DataDeliveryDC? = nil
+    
+    var titular :String = ""
+    var numTarjeta : String = ""
+    var expiredDate : String = ""
+    var ccv : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,26 +65,58 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate {
   
     
     func goNextPage(forwardTo position: Int) {
-        if (self.checkOut?.district != 0){
-            let viewController = self.VCArr[position]
-            setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
+       
+        switch position {
+        case 1:
+            if (/*validateFirstController() == true*/ true){
+                let viewController = self.VCArr[position]
+                setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
+                self.pageNow = self.pageNow + 1 
+            }
+            else {
+                //crear alerta 
+                print("1")
+            }
+            
+        case 2:
+            print(validateSecondController())
+            print("2")
+        case 3:
+            print("3")
+        case 4:
+            print("4")
+        default:
+            return
         }
+        
+        
+        
     }
     func printfc() {
         print("holiiii")
+        
     }
-    func validateFistController(_pos : Int)  -> Bool{
-        if checkOut?.address != "" && checkOut?.district != 0 && checkOut?.reference != "" && checkOut?.recipentName != "" && checkOut?.hourlySale != "" && checkOut?.date != "" {
+    func validateFirstController()  -> Bool{
+        if checkOut.address != "" && checkOut.district != 0 && checkOut.reference != "" && checkOut.recipentName != "" && checkOut.hourlySale != "" && checkOut.date != "" {
             return true
         }
         return false
     }
-    func validateSecondController(_pos : Int) -> Bool {
-        if checkOut?.ruc != "" && checkOut?.businessName != "" && checkOut?.fiscalAddress != "" {
-            return true
+    func validateSecondController() -> Bool {
+        if boletaOrFactura == 1{
+            if checkOut.ruc != "" && checkOut.businessName != "" && checkOut.fiscalAddress != "" {
+                return true
+            }else {
+                return false
+            }
+        }else {
+                return true
         }
-        return false
     }
-    
-    
+    func validateThirdController() -> Bool {
+        return true
+    }
+    func validateCulqi(){
+        
+    }
 }

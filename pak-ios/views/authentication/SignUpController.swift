@@ -72,7 +72,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
     
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {
         
-        let alert = UIAlertController(style: .actionSheet, title: "Distritos")
+        let alert = UIAlertController(style: .actionSheet, title: "Fecha")
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: nil, maximumDate: Date()) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_birthday.text = UtilMethods.formatDate(date)

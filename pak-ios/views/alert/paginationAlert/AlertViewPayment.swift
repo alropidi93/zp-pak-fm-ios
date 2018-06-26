@@ -11,15 +11,15 @@ import Foundation
 import UIKit
 
 class AlertViewPayment : UIViewController {
-    
+    var page : Int = -1
     @IBOutlet weak var uv_pv_payments: UIView!
     var dataDelivery : DataDeliveryDC? = nil
     private var embeddedViewController : AlertPageVc!
     
     
     @IBAction func b_next(_ sender: Any) {
-        print(Calendar.current.component(.hour, from: Date()))
-        self.embeddedViewController.goNextPage(forwardTo: 1)
+        self.page = self.embeddedViewController.pageNow
+        self.embeddedViewController.goNextPage(forwardTo: page)
     }
  
     
@@ -29,6 +29,7 @@ class AlertViewPayment : UIViewController {
         
     }
     func setElements(){
+        
         self.embeddedViewController.dataDelivery = self.dataDelivery
     }
     override func viewWillAppear(_ animated: Bool) {

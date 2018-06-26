@@ -229,8 +229,6 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
-    
-    
     @IBAction func ba_buying(_ sender: Any) {
         self.getDataDelivery()
         

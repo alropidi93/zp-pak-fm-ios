@@ -13,7 +13,7 @@ import AVKit
 class DataDeliveryDC  : NSObject {
     private var _district : [DistrictDC] = []
     private var _hours : [DistributionHour] = []
-    
+    private var _hoursString : [String] = []
     private var _deliveryCost : Double = 0.0
     private var _minAmount : Double = 0.0
     private var _timeMaxAnulation : Int64 = 0
@@ -40,10 +40,13 @@ class DataDeliveryDC  : NSObject {
         
         
     }
-    
     var district : [DistrictDC] {
         set { _district = newValue }
         get { return _district }
+    }
+    var hoursString : [String] {
+        set { _hoursString = newValue }
+        get { return _hoursString }
     }
     var hours : [DistributionHour] {
         set { _hours = newValue }

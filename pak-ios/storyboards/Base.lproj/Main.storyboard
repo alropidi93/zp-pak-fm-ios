@@ -4583,7 +4583,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBU-Os-uBg" userLabel="v_content">
                                 <rect key="frame" x="0.0" y="0.0" width="335" height="427"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="El comprobante llegará con tu caja de productos al entregarte el pedido." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6xx-kb-Y1Y">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="El comprobante llegará con tu caja de productos al entregarte el pedido." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6xx-kb-Y1Y" userLabel="tf_announcment_bol">
                                         <rect key="frame" x="34" y="186" width="267" height="55"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -4618,7 +4618,9 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="165" id="YuA-bd-tOn"/>
                                                 </constraints>
-                                                <state key="normal" title="Boleta"/>
+                                                <state key="normal" title="Boleta">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="b_bolata:" destination="SCH-V4-qyQ" eventType="touchUpInside" id="vqT-dt-B6i"/>
                                                 </connections>
@@ -4628,7 +4630,9 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="146" id="qm1-bH-Om8"/>
                                                 </constraints>
-                                                <state key="normal" title="Factura"/>
+                                                <state key="normal" title="Factura">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="b_factura:" destination="SCH-V4-qyQ" eventType="touchUpInside" id="jPx-7M-JLK"/>
                                                 </connections>
@@ -4661,7 +4665,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                         <rect key="frame" x="35" y="21" width="265" height="24"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZiD-m6-r1V" userLabel="v_line">
                                                         <rect key="frame" x="0.0" y="49" width="335" height="1"/>
@@ -4785,7 +4789,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="El comprobante llegará con tu caja de productos al entregarte el pedido." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PmS-YC-PdK">
+                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="El comprobante llegará con tu caja de productos al entregarte el pedido." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PmS-YC-PdK" userLabel="tf_announcemt_fac">
                                         <rect key="frame" x="34" y="328" width="267" height="55"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -4854,10 +4858,11 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <outlet property="dwb_pak_boleta" destination="oaw-rg-Qq2" id="zNi-mH-th2"/>
                         <outlet property="dwb_pak_factura" destination="A4g-Le-jdX" id="Njb-db-ba3"/>
                         <outlet property="sv_facture_data" destination="x2U-Pc-M5L" id="j9x-RL-tuw"/>
-                        <outlet property="tf_address" destination="pj5-xu-vjL" id="waG-4R-wuV"/>
-                        <outlet property="tf_announcement" destination="6xx-kb-Y1Y" id="Dnk-K2-9gl"/>
-                        <outlet property="tf_ruc" destination="cna-OB-D39" id="7m6-J1-wPK"/>
-                        <outlet property="tf_social_reason" destination="9zf-qq-F56" id="Upg-eQ-IvN"/>
+                        <outlet property="tf_announcement_fac" destination="PmS-YC-PdK" id="Nf5-F9-O98"/>
+                        <outlet property="tf_announcment_bol" destination="6xx-kb-Y1Y" id="1Mt-qV-X0G"/>
+                        <outlet property="tf_fiscal_direcction" destination="eff-YS-Imz" id="axa-16-gZf"/>
+                        <outlet property="tf_ruc" destination="jlf-iF-iHc" id="oR1-JE-Tgn"/>
+                        <outlet property="tf_socialRazon" destination="Zlf-xK-5Tk" id="7fw-AW-0Z7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mM-rJ-9Ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5067,10 +5072,23 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                     </view>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1du-aG-E4i" userLabel="b_close">
+                                <rect key="frame" x="299" y="8" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="4sJ-mJ-GIi"/>
+                                    <constraint firstAttribute="height" constant="20" id="6lK-Nv-IZj"/>
+                                </constraints>
+                                <state key="normal" image="dwb_pak_button_close"/>
+                                <connections>
+                                    <action selector="b_close:" destination="IZa-Yr-bFb" eventType="touchUpInside" id="UYV-f5-9Mx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="1du-aG-E4i" firstAttribute="trailing" secondItem="fpm-x0-Tks" secondAttribute="trailingMargin" id="DWQ-2k-Bjd"/>
                             <constraint firstItem="R0M-Tq-dVD" firstAttribute="top" secondItem="JIJ-ow-Ryc" secondAttribute="bottom" constant="50" id="EDu-Mh-UQD"/>
+                            <constraint firstItem="1du-aG-E4i" firstAttribute="top" secondItem="JIJ-ow-Ryc" secondAttribute="bottom" constant="8" id="Tta-LO-XWy"/>
                             <constraint firstItem="R0M-Tq-dVD" firstAttribute="centerX" secondItem="fpm-x0-Tks" secondAttribute="centerX" id="bq2-q0-eFy"/>
                             <constraint firstAttribute="trailing" secondItem="TOk-cq-Sh8" secondAttribute="trailing" id="cO1-St-Onl"/>
                             <constraint firstItem="TOk-cq-Sh8" firstAttribute="leading" secondItem="fpm-x0-Tks" secondAttribute="leading" id="dVs-dS-eWq"/>
@@ -5078,6 +5096,12 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         </constraints>
                     </view>
                     <size key="freeformSize" width="335" height="427"/>
+                    <connections>
+                        <outlet property="tf_card_number" destination="hyf-PP-hsN" id="C1z-ex-JZC"/>
+                        <outlet property="tf_ccv" destination="rwx-sa-qO6" id="KOB-nd-SeE"/>
+                        <outlet property="tf_expired_date" destination="sfP-bg-qRC" id="A1M-oj-Nld"/>
+                        <outlet property="tf_titular" destination="oPa-XS-5Df" id="Xfp-uZ-3Nz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QnG-Yl-c3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
