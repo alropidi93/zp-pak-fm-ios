@@ -71,7 +71,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate ,NVActiv
        
         switch position {
         case 1:
-            if (/*validateFirstController() == true*/ true){
+            if (validateFirstController() == true){
                 let viewController = self.VCArr[position]
                 setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
                 self.pageNow = self.pageNow + 1 
@@ -82,7 +82,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate ,NVActiv
             }
             
         case 2:
-            if validateSecondController() == true {
+            if validateSecondController() == true{
                 let viewController = self.VCArr[position]
                 setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
                 self.pageNow = self.pageNow + 1
@@ -91,23 +91,14 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate ,NVActiv
 
             }
         case 3:
-            if /*validateThirdController() == true*/true {
-                let viewController = self.VCArr[position]
-                setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
-                self.pageNow = self.pageNow + 1
-            }else{
-                print("3")
-            }
+             validateThirdController()
         case 4:
-            print("4")
+            validatePayController()
         default:
             return
         }
     }
-    func printfc() {
-        print("holiiii")
-        
-    }
+   
     func validateFirstController()  -> Bool{
         if checkOut.address != "" && checkOut.district != 0 && checkOut.reference != "" && checkOut.recipentName != "" && checkOut.hourlySale != "" && checkOut.date != "" {
             return true
@@ -126,15 +117,75 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate ,NVActiv
         }
     }
     
-    func validateThirdController() -> Bool {
-        return validateCulqi()
+    func validateThirdController()  {
+        validateCulqi()
     }
-    func validateCulqi() -> Bool {
+    func validatePayController()  {
+        payment()
+       
+    }
+    func payment(){
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        var params: Parameters = [:]
+        if boletaOrFactura == 0 {
+            params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" ,
+                                       "Direccion" : checkOut.address,
+                                       "IdDistrito" : checkOut.district,
+                                       "Referencia" : checkOut.reference,
+                                       "TipoFacturacion" : "B",
+                                       "NombreDestinatario": checkOut.recipentName,
+                                       "FechaEntrega":checkOut.date,
+                                       "VentanaHoraria":checkOut.hourlySale,
+                                       "Token":checkOut.token]
+            
+        }else if boletaOrFactura == 1 {
+            params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" ,
+                                       "Direccion" : checkOut.address,
+                                       "IdDistrito" : checkOut.district,
+                                       "Referencia" : checkOut.reference,
+                                       "TipoFacturacion" : "F",
+                                       "RUC" : checkOut.ruc,
+                                       "RazonSocial" : checkOut.businessName ,
+                                       "DireccionFiscal" : checkOut.fiscalAddress,
+                                       "NombreDestinatario": checkOut.recipentName,
+                                       "FechaEntrega":checkOut.date,
+                                       "VentanaHoraria":checkOut.hourlySale,
+                                       "Token":checkOut.token]
+        }
+        print(PreferencesMethods.getSmallBoxFromOptions()?.GUID )
+        print(checkOut.address)
+        print( checkOut.district )
+        print(checkOut.reference )
+        print(checkOut.recipentName + "--" + checkOut.date + "--" + checkOut.hourlySale + "--" + checkOut.token )
+        Alamofire.request(URLs.Payment, method: .post, parameters: params ,encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    print(jsonResult["Msg"])
+                    self.stopAnimating()
+
+                }
+            } else {
+                AlamoMethods.defaultError(self)
+            }
+        }
+        self.stopAnimating()
+
+    
+    }
+    
+    func validateCulqi()  {
         
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         let headersHttp: HTTPHeaders = ["Content-Type" : "application/json; charset=utf-8",
                                     "Authorization": "Bearer " + Constants.CULQI_KEY ]
-        let params: Parameters = [ "email" : PreferencesMethods.getUserFromOptions()?.userName ?? "",
+        let params: Parameters = [ "email" : ConstantsModels.UserStatic!.userName ?? "",
                                    "card_number": self.numTarjeta,
                                    "public_key":Constants.CULQI_KEY,
                                    "cvv": self.ccv,
@@ -155,19 +206,23 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate ,NVActiv
                     if jsonResult["object"].string! == "token"{
                         let id  = jsonResult["id"]
                         self.checkOut.token = id.string!
+                        let viewController = self.VCArr[3]
+                        self.setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
+                        self.pageNow = self.pageNow + 1
                         self.stopAnimating()
                     }else{
                         AlarmMethods.errorWarning(message: jsonResult["merchant_message"].string!, uiViewController: self)
+                        print("3")
+                        self.stopAnimating()
+
                     }
                 }
             } else {
+                print("3")
+
                 AlamoMethods.defaultError(self)
+   
             }
-        }
-        if checkOut.token != "" {
-            return true
-        }else{
-            return false
-        }
+       }
     }
 }

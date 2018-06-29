@@ -31,12 +31,12 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.b_name.setTitle(PreferencesMethods.getUserFromOptions()?.names, for : .normal)
+        self.b_name.setTitle(ConstantsModels.UserStatic?.names, for : .normal)
     }
     
     @IBAction func logueOut(_ sender: Any) {
        
-        PreferencesMethods.logoutUserFromOptions()
+        ConstantsModels.UserStatic = nil
         self.getGUID()
         dismiss(animated: true, completion: nil)
     }

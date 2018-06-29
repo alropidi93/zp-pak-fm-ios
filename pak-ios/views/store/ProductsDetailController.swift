@@ -60,10 +60,10 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     }
     
     func addOrDeleteFavortie(){
-        let user = PreferencesMethods.getUserFromOptions()
+        let user = ConstantsModels.UserStatic
         let params: Parameters
         if user != nil  {
-            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+            let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
             params = [ "IdUsuario": idUser,
                        "IdProducto": item?.idProduct as Any]
         } else {

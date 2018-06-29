@@ -93,7 +93,8 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         }
         let params: Parameters = [ "Username": self.tf_email.text!,
                                    "Password": MD5(self.tf_password.text!) ,
-                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
+                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
+                                   ]
         Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -107,9 +108,14 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                     if jsonResult["Msg"] == "OK"{
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
-                        PreferencesMethods.saveUserToOptions(userDC)
+                        ConstantsModels.UserStatic = userDC
                         PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
-                        print(userDC)
+                        PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
+                        PreferencesMethods.saveIdToOptions(userDC.idUser)
+
+//                        let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
+//                        let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+//                        print(string ?? "")
                         self.stopAnimating()
                         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
                     } else {

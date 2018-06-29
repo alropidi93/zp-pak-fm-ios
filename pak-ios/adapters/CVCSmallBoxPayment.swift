@@ -11,6 +11,7 @@ class CVCSmallBoxPayment : UICollectionViewCell {
     
     @IBOutlet weak var l_name: UILabel!
     
-    @IBOutlet weak var tf_count_item: UITextField!
+    @IBOutlet weak var l_count_item: UILabel!
+    
     @IBOutlet weak var l_mount_total_item: UILabel!
 }

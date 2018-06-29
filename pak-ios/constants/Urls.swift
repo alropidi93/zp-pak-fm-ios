@@ -72,6 +72,10 @@ struct URLs {
     static var DataDelivery: String { //POST
         return BaseURL + "OrderService.svc/ObtenerDataDelivery"
     }
+    static var Payment: String { //POST
+        return BaseURL + "OrderService.svc/RealizarCheckout"
+    }
+    
     //ANUNCIOS
     static var GetAds: String { //GET
         return BaseURL + "AdService.svc/ListarAnuncios"

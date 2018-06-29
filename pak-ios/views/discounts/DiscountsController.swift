@@ -41,7 +41,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
     }
     func setElements(){
         self.getListDiscount()
-        l_code.text = PreferencesMethods.getUserFromOptions()?.codeInvitation
+        l_code.text = ConstantsModels.UserStatic?.codeInvitation
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
@@ -54,7 +54,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
         return cell
     }
     @IBAction func ba_copy(_ sender: Any) {
-        UIPasteboard.general.string = PreferencesMethods.getUserFromOptions()?.codeInvitation
+        UIPasteboard.general.string = ConstantsModels.UserStatic?.codeInvitation
         let snackbar = TTGSnackbar(message: "Codigo copiado a portapales", duration: .middle)
         snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
         snackbar.show()
@@ -75,7 +75,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
     
     func register_code(_ codeInvitation : String){
         var params : Parameters
-        let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+        let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
         params = [ "IdUsuario": idUser,
                    "CodigoInvitacion": codeInvitation]
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
@@ -116,7 +116,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
     
     func getListDiscount(){
         var params : Parameters
-        let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+        let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
         params = [ "IdUsuario": idUser,
                    ]
   

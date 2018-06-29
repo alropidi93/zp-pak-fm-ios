@@ -93,10 +93,10 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     func addOrDeleteFavortie(_ product : ProductoDC, _ index : Int){
         
-        let user = PreferencesMethods.getUserFromOptions()
+        let user = ConstantsModels.UserStatic
         var params : Parameters
         if user != nil  {
-            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+            let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
             params =  [ "IdUsuario": idUser,
               "IdProducto": product.idProduct,
               ]
@@ -181,10 +181,10 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     func getProducts() {
         
-        let user = PreferencesMethods.getUserFromOptions()
+        let user = ConstantsModels.UserStatic
         var params : Parameters
         if user != nil  {
-            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+            let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
             params = [ "IdUsuario": idUser,
             "Search": self.text]
         } else {

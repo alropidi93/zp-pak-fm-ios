@@ -64,10 +64,10 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         
     }
     func addOrDeleteFavortie(_ product : ProductoDC, _ index : Int){
-        let user = PreferencesMethods.getUserFromOptions()
+        let user = ConstantsModels.UserStatic
         let params: Parameters
         if user != nil  {
-            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+            let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
             params = [ "IdUsuario": idUser,
                        "IdProducto": product.idProduct]
         } else {
@@ -143,7 +143,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
 
     func getFavourite() {
         var params : Parameters
-        let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+        let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
             print(idUser)
             params = [ "IdUsuario": idUser]
             print("holaaa")

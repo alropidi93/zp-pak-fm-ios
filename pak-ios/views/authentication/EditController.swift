@@ -67,14 +67,14 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
         self.tf_birthday.addGestureRecognizer(tap_birtday)
     }
     func setInfoUser(){
-        tf_name.text = PreferencesMethods.getUserFromOptions()?.names
-        tf_lastname.text = PreferencesMethods.getUserFromOptions()?.lastNames
-        tf_birthday.text = PreferencesMethods.getUserFromOptions()?.birthDate
-        tf_genre.text = PreferencesMethods.getUserFromOptions()?.genere
-        tf_phone.text = PreferencesMethods.getUserFromOptions()?.telephone
-        tf_address.text = PreferencesMethods.getUserFromOptions()?.address
-        tf_district.text = PreferencesMethods.getUserFromOptions()?.district?.name
-        tf_email.text = PreferencesMethods.getUserFromOptions()?.userName
+        tf_name.text = ConstantsModels.UserStatic?.names
+        tf_lastname.text = ConstantsModels.UserStatic?.lastNames
+        tf_birthday.text = ConstantsModels.UserStatic?.birthDate
+        tf_genre.text = ConstantsModels.UserStatic?.genere
+        tf_phone.text = ConstantsModels.UserStatic?.telephone
+        tf_address.text = ConstantsModels.UserStatic?.address
+        tf_district.text = ConstantsModels.UserStatic?.district?.name
+        tf_email.text = ConstantsModels.UserStatic?.userName
     }
     
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {

@@ -50,9 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-    
-    
-
     func applicationWillResignActive(_ application: UIApplication) {
        }
 
@@ -74,7 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print(userInfo)
     }
-    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let messageID = userInfo[AppDelegate.gcmMessageIDKey] {
@@ -86,7 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         completionHandler(UIBackgroundFetchResult.newData)
     }
-    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
@@ -94,9 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("APNs token retrieved: \(deviceToken)")
     }
-
 }
-
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
@@ -126,20 +119,16 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[AppDelegate.gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
-        
         completionHandler()
     }
-    
 }
-
 // [END ios_10_message_handling]
 extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("FCM Token: \(fcmToken)")
         
-        let pakUser = PreferencesMethods.getUserFromOptions()
+        let pakUser = ConstantsModels.UserStatic
         if pakUser == nil {
             return
         }
@@ -158,7 +147,7 @@ extension AppDelegate : MessagingDelegate {
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 pakUser?.accessToken = fcmToken
-                PreferencesMethods.saveUserToOptions(pakUser!)
+                ConstantsModels.UserStatic = pakUser!
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)

@@ -68,13 +68,13 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
 
     func getCategories(_ selectedId :Int = -1) {
         self.isIndexOf = selectedId
-        let user = PreferencesMethods.getUserFromOptions()
+        let user = ConstantsModels.UserStatic
         var params : Parameters
         if user != nil  && selectedId == -1 {
-            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+            let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
             params = [ "IdUsuario": idUser]
         } else if user != nil && selectedId != -1 {
-            let idUser  :UInt64 = (PreferencesMethods.getUserFromOptions()?.idUser)!
+            let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
             params = [ "IdUsuario": idUser, "IdCategoria": selectedId]
         } else if user == nil && selectedId != -1 {
             params = [ "IdCategoria": selectedId]

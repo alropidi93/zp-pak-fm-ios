@@ -3981,6 +3981,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <outlet property="l_mount_total" destination="QCK-tb-i4a" id="BUT-di-oyc"/>
                         <outlet property="v_head" destination="UzA-vd-2f9" id="cBz-jX-JGB"/>
                         <outlet property="v_total" destination="Sag-4z-YcS" id="6PE-n1-RVi"/>
+                        <segue destination="Bhp-gm-e4g" kind="show" identifier="segue_buy_loguin" id="AdC-De-agH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGu-2c-KLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4208,6 +4209,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="b_next" destination="jBg-4U-gdD" id="Zjy-Gh-w8z"/>
                         <outlet property="uv_pv_payments" destination="WEa-EQ-OJn" id="idR-br-EEi"/>
                     </connections>
                 </viewController>
@@ -5191,39 +5193,30 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lEi-Nd-neY" userLabel="tf_count_item">
-                                                    <rect key="frame" x="193" y="15" width="40" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="lmK-sO-uQh"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1li-XW-B9G" userLabel="l_count_item">
+                                                    <rect key="frame" x="188" y="19" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="16"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="YP5-hi-lMi" secondAttribute="trailing" constant="20" id="2EH-vE-2xt"/>
                                             <constraint firstAttribute="trailing" secondItem="T2i-JL-BKR" secondAttribute="trailingMargin" constant="194" id="37P-RT-udP"/>
                                             <constraint firstItem="YP5-hi-lMi" firstAttribute="centerY" secondItem="eRL-bP-HIP" secondAttribute="centerY" id="I4Y-Yc-hdf"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="lEi-Nd-neY" secondAttribute="bottom" constant="7" id="KBq-sm-0XP"/>
-                                            <constraint firstItem="lEi-Nd-neY" firstAttribute="centerY" secondItem="eRL-bP-HIP" secondAttribute="centerY" id="ZJY-cK-RA1"/>
+                                            <constraint firstItem="YP5-hi-lMi" firstAttribute="leading" secondItem="1li-XW-B9G" secondAttribute="trailing" constant="31" id="JpM-Zx-A0Z"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="1li-XW-B9G" secondAttribute="bottom" constant="12" id="YVb-K5-3SH"/>
                                             <constraint firstItem="T2i-JL-BKR" firstAttribute="top" secondItem="eRL-bP-HIP" secondAttribute="topMargin" constant="4" id="ccY-LL-Wxn"/>
-                                            <constraint firstItem="lEi-Nd-neY" firstAttribute="top" secondItem="eRL-bP-HIP" secondAttribute="topMargin" constant="7" id="kLT-5d-Ts4"/>
-                                            <constraint firstItem="YP5-hi-lMi" firstAttribute="leading" secondItem="lEi-Nd-neY" secondAttribute="trailing" constant="28" id="lMW-E8-hRq"/>
+                                            <constraint firstItem="1li-XW-B9G" firstAttribute="leading" secondItem="T2i-JL-BKR" secondAttribute="trailing" constant="41" id="dSo-Q4-lkc"/>
+                                            <constraint firstItem="1li-XW-B9G" firstAttribute="top" secondItem="eRL-bP-HIP" secondAttribute="topMargin" constant="11" id="ioq-Zu-uvR"/>
                                             <constraint firstItem="T2i-JL-BKR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eRL-bP-HIP" secondAttribute="leadingMargin" id="nm9-7g-5qp"/>
                                         </constraints>
                                         <size key="customSize" width="333" height="60"/>
                                         <connections>
+                                            <outlet property="l_count_item" destination="1li-XW-B9G" id="L1d-eD-wb4"/>
                                             <outlet property="l_mount_total_item" destination="YP5-hi-lMi" id="Gxu-p0-3Oq"/>
                                             <outlet property="l_name" destination="T2i-JL-BKR" id="ER9-m8-WjK"/>
-                                            <outlet property="tf_count_item" destination="lEi-Nd-neY" id="cpE-Ox-bxO"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -5324,6 +5317,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <state key="normal" image="dwb_pak_button_close"/>
                                 <connections>
                                     <action selector="b_close:" destination="IZa-Yr-bFb" eventType="touchUpInside" id="Tnx-Iz-gwZ"/>
+                                    <action selector="b_close:" destination="r6k-Ik-pAA" eventType="touchUpInside" id="Xbq-eh-CIX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -6070,14 +6064,14 @@ EMKhTGlzdG8hA
         <image name="dwb_pak_usericon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0wQ-9P-YXB"/>
+        <segue reference="4If-JT-tFy"/>
         <segue reference="OS7-IV-a8p"/>
         <segue reference="xVe-nE-p4w"/>
-        <segue reference="Mj0-oe-INs"/>
+        <segue reference="qbC-4W-Evn"/>
         <segue reference="oBi-e6-wfk"/>
         <segue reference="1vM-Rq-4HF"/>
         <segue reference="dfd-t0-Qql"/>
-        <segue reference="Ech-he-LCT"/>
+        <segue reference="AdC-De-agH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

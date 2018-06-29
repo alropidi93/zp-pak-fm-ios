@@ -16,7 +16,6 @@ class CheckOut: NSObject {
     private var _ruc: String = ""
     private var _businessName : String = ""
     private var _fiscalAddress : String = ""
-    private var _discount: Int64 = 0
     private var _recipentName: String = ""
     private var _date : String = ""
     private var _hourlySale : String = ""
@@ -74,10 +73,6 @@ class CheckOut: NSObject {
         get { return _district }
     }
    
-    var discount : Int64 {
-        set { _discount = newValue }
-        get { return _discount }
-    }
     
     
 }

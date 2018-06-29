@@ -31,6 +31,8 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var l_mount_discount: UILabel!
     
     private let reuse_identifier_box = "cvc_smallBox_item"
+    
+    private let segue_identification = "segue_buy_loguin"
     private var items : [ItemSmallBoxDC] = []
     private var dataDelivery : DataDeliveryDC? = nil
     private var deliveryCost : Double = 0.0
@@ -189,11 +191,6 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     }
 
     
-    
-
-    
-    
-    
     func getDataDelivery() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         let params: Parameters = ["GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
@@ -230,7 +227,11 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     }
     
     @IBAction func ba_buying(_ sender: Any) {
-        self.getDataDelivery()
+        if ConstantsModels.UserStatic != nil {
+            self.getDataDelivery()
+        }else{
+            self.performSegue(withIdentifier: self.segue_identification , sender: self)
+        }
         
     }
     
@@ -241,7 +242,6 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         customAlert.dataDelivery = self.dataDelivery
-        
         self.present(customAlert, animated: true, completion: nil)
     }
     

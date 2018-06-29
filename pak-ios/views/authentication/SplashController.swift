@@ -41,9 +41,8 @@ class SplashController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
+        self.loginUser()
         if PreferencesMethods.isFirstTime() {
-            self.getGUID()
             PreferencesMethods.saveFirstTime()
         }
         OperationQueue.main.addOperation {
@@ -74,6 +73,47 @@ class SplashController: UIViewController {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+        }
+    }
+    
+    func loginUser() {
+       
+        
+        if PreferencesMethods.getSmallBoxFromOptions() == nil {
+            getGUID()
+            return
+        }
+        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
+                                   "AceessToken": PreferencesMethods.getAccessTokenFromOptions() ?? "" ,
+                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
+        ]
+        Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Result"] == "0"{
+                        let userDC : UserDC = UserDC(jsonResult)
+                        userDC.valid = true
+                        ConstantsModels.UserStatic = userDC // aqui se guarda pero staticamente
+                        PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
+                        PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
+                    } else {
+                        self.getGUID()
+                    }
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
                 } else {
                     AlamoMethods.defaultError(self)
                 }

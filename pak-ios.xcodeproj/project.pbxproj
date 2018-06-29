@@ -46,6 +46,7 @@
 		7050F22720E24233001DFF10 /* CLQBaseModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21C20E24232001DFF10 /* CLQBaseModelObject.m */; };
 		7050F22820E24233001DFF10 /* Culqi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21D20E24232001DFF10 /* Culqi.m */; };
 		7050F22A20E2F9CB001DFF10 /* CVCSmallBoxPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7050F22920E2F9CB001DFF10 /* CVCSmallBoxPayment.swift */; };
+		7050F22C20E5BBD3001DFF10 /* ConstantsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7050F22B20E5BBD3001DFF10 /* ConstantsModels.swift */; };
 		707B8F6520B4F3E600FC7848 /* CVCSmallBoxItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */; };
 		708AC99A20E01AEF004BD8FD /* DataDeliveryDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */; };
 		708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC99B20E039E2004BD8FD /* DistributionHour.swift */; };
@@ -141,6 +142,7 @@
 		7050F21D20E24232001DFF10 /* Culqi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Culqi.m; sourceTree = "<group>"; };
 		7050F21E20E24233001DFF10 /* CLQIssuerIdentificationNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLQIssuerIdentificationNumber.h; sourceTree = "<group>"; };
 		7050F22920E2F9CB001DFF10 /* CVCSmallBoxPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCSmallBoxPayment.swift; sourceTree = "<group>"; };
+		7050F22B20E5BBD3001DFF10 /* ConstantsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsModels.swift; sourceTree = "<group>"; };
 		707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCSmallBoxItem.swift; sourceTree = "<group>"; };
 		708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDeliveryDC.swift; sourceTree = "<group>"; };
 		708AC99B20E039E2004BD8FD /* DistributionHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionHour.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			children = (
 				70D525A720915C58004EB51E /* Urls.swift */,
 				70D525A920915C6A004EB51E /* Constants.swift */,
+				7050F22B20E5BBD3001DFF10 /* ConstantsModels.swift */,
 			);
 			path = constants;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				70B623F020AA1BDD001738C3 /* SideMenuInLogin.swift in Sources */,
 				70C9ED21209D14460096B656 /* Ads.swift in Sources */,
 				70242A9A20D937B600F89299 /* PageObservation.swift in Sources */,
+				7050F22C20E5BBD3001DFF10 /* ConstantsModels.swift in Sources */,
 				70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */,
 				7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */,
 				70A4254520CDC31A005B00AC /* ProductsDetailController.swift in Sources */,

@@ -32,7 +32,8 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     
     var hours : [String] = []
     var district : [String] = []
-    
+    var varHours: [String] = []
+
     var date = -1
     @IBAction func b_dismiss(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
@@ -49,7 +50,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     func setElements(){
         fullKeyboardSupport()
         getDistrict()
-        tf_data_reciver.text = PreferencesMethods.getUserFromOptions()?.names
+        tf_data_reciver.text = ConstantsModels.UserStatic?.names
         self.tf_district.inputView = UIView()
         let tap_district = UITapGestureRecognizer(target: self, action: #selector(self.tapDistrict(_:)))
         self.tf_district.addGestureRecognizer(tap_district)
@@ -84,14 +85,18 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         if tf_date.text != "" {
             if hour > 18 && tf_date.text == Date().tomorrow.toString(dateFormat: "dd-MMM-yyyy"){
                 let elem = self.parentPageViewController.dataDelivery?.hours[2]
+                varHours.append("N")
                 let distributionHour  = (elem?.iniHour)! + " - " + (elem?.endHour)!
                 hours.append(distributionHour)
-                
             }else{
                 for elem in (self.parentPageViewController.dataDelivery?.hours)! {
                     let distributionHour  = elem.iniHour + " - " + elem.endHour
                     hours.append(distributionHour)
                 }
+                self.varHours.append("D")
+                self.varHours.append("T")
+                self.varHours.append("N")
+
             }
         }else {
             return
@@ -105,7 +110,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
                     self.tf_hours.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
-                    self.parentPageViewController.checkOut.hourlySale = self.tf_hours.text!
+                    self.parentPageViewController.checkOut.hourlySale = self.varHours[index.row]
                     
                 }
             }
@@ -119,7 +124,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: nil ) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_date.text = UtilMethods.formatDate(date)
-            self.parentPageViewController.checkOut.date = UtilMethods.formatDate(date)
+            self.parentPageViewController.checkOut.date = date.toString(dateFormat: "dd/MM/YYYY")
         }
         alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: nil)
         self.present(alert, animated: true, completion: nil)
