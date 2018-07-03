@@ -21,6 +21,7 @@ class ListDC  : NSObject {
     
     
     override init() {
+        
     }
     
     init(_ jsonList: JSON){

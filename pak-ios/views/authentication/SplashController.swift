@@ -23,10 +23,6 @@ class SplashController: UIViewController {
     @IBOutlet weak var iv_logo: UIImageView!
     
     var images: [UIImage] = [UIImage(named: "dwb-pak-splash-1")!,UIImage(named: "dwb-pak-splash-2")!,UIImage(named: "dwb-pak-splash-3")!,UIImage(named: "dwb-pak-splash-4")!,UIImage(named: "dwb-pak-splash-5")!]
-    // dwb-pak-logo dwb-pak-logo-name
-//    var animatedImage: UIImage!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,8 +30,6 @@ class SplashController: UIViewController {
         self.iv_logo.animationImages = self.images
         
         self.iv_logo.startAnimating()
-        
-//        self.iv_logo.image = UIImage.animatedImage(with: images, duration: 1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -81,17 +75,17 @@ class SplashController: UIViewController {
     }
     
     func loginUser() {
-       
-        
+
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             getGUID()
             return
         }
         let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
-                                   "AceessToken": PreferencesMethods.getAccessTokenFromOptions() ?? "" ,
-                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
+                                   "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? "" ,
+                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID,
+                                    "FCMToken" : ""
         ]
-        Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request(URLs.loginAccessToken, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
                 return
@@ -100,7 +94,7 @@ class SplashController: UIViewController {
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    if jsonResult["Result"] == "0"{
+                    if jsonResult["Msg"] == "OK"{
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
                         ConstantsModels.UserStatic = userDC // aqui se guarda pero staticamente

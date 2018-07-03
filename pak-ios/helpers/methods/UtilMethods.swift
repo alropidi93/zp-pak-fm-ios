@@ -136,6 +136,52 @@ class UtilMethods {
         }
     }
     
+    static func DateIntToString(_ date : String) -> String {
+        var month : String = ""
+        
+        switch (date) {
+            
+        case "01":
+            month = "Jan"
+            return month
+        case "02":
+            month = "Feb"
+            return month
+        case "03":
+            month = "Mar"
+            return month
+        case "04":
+            month = "Apr"
+            return month
+        case "05":
+            month = "May"
+            return month
+        case "06":
+            month = "Jun"
+            return month
+        case "07":
+            month = "Jul"
+            return month
+        case "08":
+            month = "Aug"
+            return month
+        case "09":
+            month = "Sep"
+            return month
+        case "10":
+            month = "Oct"
+            return month
+        case "11":
+            month = "Nov"
+            return month
+        case "12":
+            month = "Dec"
+            return month
+        default:
+            month = ""
+            return month
+        }
+    }
     
     static func dateToSlash(_ dateToFormat : String) -> String {
         
@@ -160,8 +206,11 @@ class UtilMethods {
         return "\(truedays)-\(truemonths)-\(years)"
     }
     
-    
-    
+    static func stringToDate(_ data : String ) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy-HH:mm:ss"
+        return dateFormatter.date(from : data)!
+    }
     static func presentationTime(_ time : Int) -> String {
         if time < 10 {
             return "0\(time)"

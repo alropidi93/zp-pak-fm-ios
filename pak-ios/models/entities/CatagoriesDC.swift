@@ -28,7 +28,8 @@ class CategoriesDC  : NSObject  {
         self._idCategory = jsonCategory["IdCategoria"].int64 ?? self._idCategory
         self._name = jsonCategory["Nombre"].string ?? self._name
         self._img = jsonCategory["Imagen"].string ?? self._img
-        for (_, subJson) in jsonCategory["Items"]{
+        
+        for (_, subJson) in jsonCategory["Listas"]{
             let _item = ListDC(subJson);
             self._list.append(_item)
         }

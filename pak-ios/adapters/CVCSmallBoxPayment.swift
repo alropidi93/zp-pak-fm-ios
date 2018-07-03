@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 class CVCSmallBoxPayment : UICollectionViewCell {
     
     @IBOutlet weak var l_name: UILabel!

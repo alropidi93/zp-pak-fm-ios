@@ -32,6 +32,12 @@ struct URLs {
     static var login: String { //POST
         return BaseURL + "AuthService.svc/Login"
     }
+    static var loginAccessToken: String { //POST
+        return BaseURL + "AuthService.svc/LoginAccessToken"
+    }
+    static var LoginGo: String { //POST
+        return BaseURL + "AuthService.svc/LoginGoogle"
+    }
     
     static var ListDistrict: String { //GET
         return BaseURL + "AuthService.svc/ListarDistritos"
@@ -75,7 +81,12 @@ struct URLs {
     static var Payment: String { //POST
         return BaseURL + "OrderService.svc/RealizarCheckout"
     }
-    
+    static var ListOrders: String { //POST
+        return BaseURL + "OrderService.svc/ListarPedidos"
+    }
+    static var GerOrder: String { //POST
+        return BaseURL + "OrderService.svc/ObtenerPedido"
+    }
     //ANUNCIOS
     static var GetAds: String { //GET
         return BaseURL + "AdService.svc/ListarAnuncios"

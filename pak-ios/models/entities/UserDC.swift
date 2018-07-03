@@ -34,6 +34,7 @@ class UserDC :  NSObject ,NSCoding{
 
     private var _valid: Bool = false
     
+    
     override init() {
     }
     

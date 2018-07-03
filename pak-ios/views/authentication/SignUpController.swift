@@ -36,7 +36,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
     
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
-//    var user : UserDC = nil
+    var user : UserDC? = nil
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,7 +45,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,7 +55,6 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
     func setElements (){
         fullKeyboardSupport()
         getDistrict()
-        
         self.tf_genre.inputView = UIView()
         let tap_genre = UITapGestureRecognizer(target: self, action: #selector(self.tapGenre(_:)))
         self.tf_genre.addGestureRecognizer(tap_genre)
@@ -67,6 +66,14 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
         self.tf_birthday.inputView = UIView()
         let tap_birtday = UITapGestureRecognizer(target: self, action: #selector(self.tapCalendar(_:)))
         self.tf_birthday.addGestureRecognizer(tap_birtday)
+        
+        if user != nil {
+            self.tf_name.text = user?.names
+            self.tf_email.text = user?.userName
+            self.tf_lastname.text = user?.lastNames
+            self.tf_email.isUserInteractionEnabled = false
+        }
+        
     }
     
     
@@ -155,6 +162,8 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
         }
     }
     @IBAction func signUp(_ sender: Any) {
+        
+        
         if (self.tf_name.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El nombre no puede estar vacío", uiViewController: self)
             return
@@ -252,6 +261,12 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
     func register(_ GUID: String){
         var genre : String = "-"
         if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
+        var facebookid : String = ""
+        var googleid:String = ""
+        if user != nil{
+            facebookid = (user?.facebookID)!
+            googleid = (user?.googleID)!
+        }
         
         let params: Parameters = [
             "Nombres": self.tf_name.text!,
@@ -265,7 +280,10 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             "Sexo": genre,
             "FechaNacimiento":UtilMethods.dateToSlash(self.tf_birthday.text!),
             "GUID" : GUID,
-            //"AccessToken": InstanceID.instanceID().token() ?? "No token",
+            "FacebookID": facebookid,
+            "GoogleID": googleid,
+
+//            "FCMTOKEN": InstanceID.instanceID().token() ?? "No token",
             ]
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
 
@@ -318,11 +336,8 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
     }
     
     func okButtonTapped(){
-        print("hola")
         dismiss(animated: true, completion: nil)
-      //  self.navigationController?.dismiss(animated: true,completion: nil)
-//        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
-        print("hola")
-
+//        self.navigationController?.dismiss(animated: true,completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
 }

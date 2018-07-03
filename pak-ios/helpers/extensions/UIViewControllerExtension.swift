@@ -36,10 +36,14 @@ extension UIViewController : UISearchBarDelegate {
         self.navigationController?.navigationBar.topItem?.title = "Resultados de busqueda"
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
-        var btnsMenuRight : [UIBarButtonItem] = []
-        let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
-        btnsMenuRight.append(btnMenuRight)
-        self.navigationItem.rightBarButtonItems = btnsMenuRight
+        let notificationButton = SSBadgeButton()
+        notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
+        notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+        notificationButton.badge = "\(PreferencesMethods.getSmallBoxFromOptions()?.items.count ?? 0) "
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
     }
     
     func customizeNavigationBarFavourite( ) {
@@ -61,10 +65,15 @@ extension UIViewController : UISearchBarDelegate {
         self.navigationItem.titleView = navView
         navView.sizeToFit()
         
-        var btnsMenuRight : [UIBarButtonItem] = []
-        let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
-        btnsMenuRight.append(btnMenuRight)
-        self.navigationItem.rightBarButtonItems = btnsMenuRight
+    
+        let notificationButton = SSBadgeButton()
+        notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
+        notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+        notificationButton.badge = "\(PreferencesMethods.getSmallBoxFromOptions()?.items.count ?? 0) "
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
     }
     
     
@@ -83,10 +92,14 @@ extension UIViewController : UISearchBarDelegate {
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar
         
-        var btnsMenuRight : [UIBarButtonItem] = []
-        let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
-        btnsMenuRight.append(btnMenuRight)
-        self.navigationItem.rightBarButtonItems = btnsMenuRight
+        let notificationButton = SSBadgeButton()
+        notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
+        notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+        notificationButton.badge = "\(PreferencesMethods.getSmallBoxFromOptions()?.items.count ?? 0) "
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
     }
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

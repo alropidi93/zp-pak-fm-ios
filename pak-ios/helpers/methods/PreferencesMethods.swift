@@ -31,7 +31,6 @@ class PreferencesMethods {
     static func deleteSmallBoxFromOptions() {
         let defaults = UserDefaults.standard
         defaults.set(nil, forKey: "smallBoxData")
-        
     }
     
     
@@ -80,16 +79,6 @@ class PreferencesMethods {
         defaults.set(nil, forKey: "idUser")
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     static func saveFirstTime() {
         let encodedFirstTime = NSKeyedArchiver.archivedData(withRootObject: true)

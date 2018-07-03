@@ -119,8 +119,6 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , PakA
         let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
         params = [ "IdUsuario": idUser,
                    ]
-  
-        
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         Alamofire.request(URLs.ListDiscount, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in

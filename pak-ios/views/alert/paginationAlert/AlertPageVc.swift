@@ -152,11 +152,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate ,NVActiv
                                        "VentanaHoraria":checkOut.hourlySale,
                                        "Token":checkOut.token]
         }
-        print(PreferencesMethods.getSmallBoxFromOptions()?.GUID )
-        print(checkOut.address)
-        print( checkOut.district )
-        print(checkOut.reference )
-        print(checkOut.recipentName + "--" + checkOut.date + "--" + checkOut.hourlySale + "--" + checkOut.token )
+        
         Alamofire.request(URLs.Payment, method: .post, parameters: params ,encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)

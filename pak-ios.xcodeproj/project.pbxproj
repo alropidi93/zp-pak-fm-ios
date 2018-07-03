@@ -35,18 +35,16 @@
 		703C1C3820C83D3400488E16 /* AlertViewPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C1C3720C83D3400488E16 /* AlertViewPayment.swift */; };
 		7043B0B320BC86FB00CC31D0 /* DiscountsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7043B0B220BC86FB00CC31D0 /* DiscountsController.swift */; };
 		7043B0B520BCF28200CC31D0 /* PakAlertCodeInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7043B0B420BCF28200CC31D0 /* PakAlertCodeInvitation.swift */; };
-		7050F21F20E24233001DFF10 /* CLQClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F20C20E2422F001DFF10 /* CLQClient.m */; };
-		7050F22020E24233001DFF10 /* CLQHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21020E2422F001DFF10 /* CLQHTTPSessionManager.m */; };
-		7050F22120E24233001DFF10 /* CLQResponseHeaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21120E24230001DFF10 /* CLQResponseHeaders.m */; };
-		7050F22220E24233001DFF10 /* CLQCardIssuer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21420E24230001DFF10 /* CLQCardIssuer.m */; };
-		7050F22320E24233001DFF10 /* CLQIssuerIdentificationNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21520E24230001DFF10 /* CLQIssuerIdentificationNumber.m */; };
-		7050F22420E24233001DFF10 /* CLQToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21620E24230001DFF10 /* CLQToken.m */; };
-		7050F22520E24233001DFF10 /* CLQWebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21820E24231001DFF10 /* CLQWebServices.m */; };
-		7050F22620E24233001DFF10 /* CLQError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21B20E24232001DFF10 /* CLQError.m */; };
-		7050F22720E24233001DFF10 /* CLQBaseModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21C20E24232001DFF10 /* CLQBaseModelObject.m */; };
-		7050F22820E24233001DFF10 /* Culqi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050F21D20E24232001DFF10 /* Culqi.m */; };
 		7050F22A20E2F9CB001DFF10 /* CVCSmallBoxPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7050F22920E2F9CB001DFF10 /* CVCSmallBoxPayment.swift */; };
 		7050F22C20E5BBD3001DFF10 /* ConstantsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7050F22B20E5BBD3001DFF10 /* ConstantsModels.swift */; };
+		7053BB7620E6FCE100C5A277 /* OrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7520E6FCE100C5A277 /* OrdersController.swift */; };
+		7053BB7920E70CD900C5A277 /* ToDeliverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7820E70CD900C5A277 /* ToDeliverController.swift */; };
+		7053BB7B20E70CE400C5A277 /* DeliverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7A20E70CE400C5A277 /* DeliverController.swift */; };
+		7053BB7D20E70CF100C5A277 /* CanceledController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7C20E70CF100C5A277 /* CanceledController.swift */; };
+		7053BB7F20E729C900C5A277 /* BadgedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7E20E729C900C5A277 /* BadgedExtension.swift */; };
+		705677E120E8027D007AFD71 /* CVCNameCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705677E020E8027D007AFD71 /* CVCNameCategory.swift */; };
+		705677E320E80C36007AFD71 /* TVCListProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705677E220E80C36007AFD71 /* TVCListProducts.swift */; };
+		705677E520E80C45007AFD71 /* CVCProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705677E420E80C45007AFD71 /* CVCProducts.swift */; };
 		707B8F6520B4F3E600FC7848 /* CVCSmallBoxItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */; };
 		708AC99A20E01AEF004BD8FD /* DataDeliveryDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */; };
 		708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC99B20E039E2004BD8FD /* DistributionHour.swift */; };
@@ -57,6 +55,9 @@
 		7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7097EC6220A5FBEB008E1C9E /* CVCCategory.swift */; };
 		7097EC6520A60FA2008E1C9E /* CatagoriesDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7097EC6420A60FA2008E1C9E /* CatagoriesDC.swift */; };
 		709A334420AE0FC1003AB207 /* ProductoDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709A334320AE0FC1003AB207 /* ProductoDC.swift */; };
+		709D48F520EB0E2000B990DE /* CVCDetailOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D48F420EB0E2000B990DE /* CVCDetailOrder.swift */; };
+		709D48F720EB12AD00B990DE /* DetailOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D48F620EB12AD00B990DE /* DetailOrderController.swift */; };
+		709D48F920EB54FD00B990DE /* PakAlertCancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D48F820EB54FD00B990DE /* PakAlertCancel.swift */; };
 		70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE2D208F7BA1008C972C /* LoginController.swift */; };
 		70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE31208F7C08008C972C /* SignUpController.swift */; };
 		70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3BE33208F7C1B008C972C /* SplashController.swift */; };
@@ -67,6 +68,11 @@
 		70B623F020AA1BDD001738C3 /* SideMenuInLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */; };
 		70B88D1120DD5AE300D97816 /* CheckOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B88D1020DD5AE300D97816 /* CheckOut.swift */; };
 		70BF263A20D087EC002FD0F9 /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BF263920D087EC002FD0F9 /* EditController.swift */; };
+		70C6D13B20E988B100560D7C /* CVCToDeliver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6D13A20E988B100560D7C /* CVCToDeliver.swift */; };
+		70C6D13D20E988CE00560D7C /* CVCCancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6D13C20E988CE00560D7C /* CVCCancel.swift */; };
+		70C6D13F20E9893F00560D7C /* CVCDeliver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6D13E20E9893F00560D7C /* CVCDeliver.swift */; };
+		70C6D14120E9D29000560D7C /* OrderDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6D14020E9D29000560D7C /* OrderDC.swift */; };
+		70C6D14320E9D5DE00560D7C /* ItemOrderDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6D14220E9D5DE00560D7C /* ItemOrderDC.swift */; };
 		70C9ED1D209D02FD0096B656 /* CVCPublicityImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED1C209D02FD0096B656 /* CVCPublicityImage.swift */; };
 		70C9ED1F209D140D0096B656 /* ListAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED1E209D140D0096B656 /* ListAds.swift */; };
 		70C9ED21209D14460096B656 /* Ads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED20209D14460096B656 /* Ads.swift */; };
@@ -96,6 +102,7 @@
 		700C7C7620D88BFF000FD7E5 /* SubCategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesController.swift; sourceTree = "<group>"; };
 		700C7C7820D89534000FD7E5 /* RootCategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCategoriesController.swift; sourceTree = "<group>"; };
 		7010444E20AE38D900EFFC9B /* CVCSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCSearchItem.swift; sourceTree = "<group>"; };
+		7015913320E6E907006A7509 /* pak-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pak-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		701D2874207EAD01007AD7AC /* pak-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pak-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		701D2877207EAD01007AD7AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		701D287C207EAD01007AD7AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,29 +127,16 @@
 		703C1C3720C83D3400488E16 /* AlertViewPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewPayment.swift; sourceTree = "<group>"; };
 		7043B0B220BC86FB00CC31D0 /* DiscountsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsController.swift; sourceTree = "<group>"; };
 		7043B0B420BCF28200CC31D0 /* PakAlertCodeInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCodeInvitation.swift; sourceTree = "<group>"; };
-		7050F20A20E2422D001DFF10 /* pak-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pak-ios-Bridging-Header.h"; sourceTree = "<group>"; };
-		7050F20B20E2422E001DFF10 /* CLQBaseModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLQBaseModelObject.h; sourceTree = "<group>"; };
-		7050F20C20E2422F001DFF10 /* CLQClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLQClient.m; sourceTree = "<group>"; };
-		7050F20D20E2422F001DFF10 /* CLQResponseHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLQResponseHeaders.h; sourceTree = "<group>"; };
-		7050F20E20E2422F001DFF10 /* Culqi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Culqi.h; sourceTree = "<group>"; };
-		7050F20F20E2422F001DFF10 /* CLQHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLQHTTPSessionManager.h; sourceTree = "<group>"; };
-		7050F21020E2422F001DFF10 /* CLQHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLQHTTPSessionManager.m; sourceTree = "<group>"; };
-		7050F21120E24230001DFF10 /* CLQResponseHeaders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLQResponseHeaders.m; sourceTree = "<group>"; };
-		7050F21220E24230001DFF10 /* CLQToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLQToken.h; sourceTree = "<group>"; };
-		7050F21320E24230001DFF10 /* CLQCardIssuer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLQCardIssuer.h; sourceTree = "<group>"; };
-		7050F21420E24230001DFF10 /* CLQCardIssuer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLQCardIssuer.m; sourceTree = "<group>"; };
-		7050F21520E24230001DFF10 /* CLQIssuerIdentificationNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLQIssuerIdentificationNumber.m; sourceTree = "<group>"; };
-		7050F21620E24230001DFF10 /* CLQToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLQToken.m; sourceTree = "<group>"; };
-		7050F21720E24231001DFF10 /* CLQWebServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLQWebServices.h; sourceTree = "<group>"; };
-		7050F21820E24231001DFF10 /* CLQWebServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLQWebServices.m; sourceTree = "<group>"; };
-		7050F21920E24231001DFF10 /* CLQError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLQError.h; sourceTree = "<group>"; };
-		7050F21A20E24232001DFF10 /* CLQClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLQClient.h; sourceTree = "<group>"; };
-		7050F21B20E24232001DFF10 /* CLQError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLQError.m; sourceTree = "<group>"; };
-		7050F21C20E24232001DFF10 /* CLQBaseModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLQBaseModelObject.m; sourceTree = "<group>"; };
-		7050F21D20E24232001DFF10 /* Culqi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Culqi.m; sourceTree = "<group>"; };
-		7050F21E20E24233001DFF10 /* CLQIssuerIdentificationNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLQIssuerIdentificationNumber.h; sourceTree = "<group>"; };
 		7050F22920E2F9CB001DFF10 /* CVCSmallBoxPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCSmallBoxPayment.swift; sourceTree = "<group>"; };
 		7050F22B20E5BBD3001DFF10 /* ConstantsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsModels.swift; sourceTree = "<group>"; };
+		7053BB7520E6FCE100C5A277 /* OrdersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersController.swift; sourceTree = "<group>"; };
+		7053BB7820E70CD900C5A277 /* ToDeliverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDeliverController.swift; sourceTree = "<group>"; };
+		7053BB7A20E70CE400C5A277 /* DeliverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverController.swift; sourceTree = "<group>"; };
+		7053BB7C20E70CF100C5A277 /* CanceledController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanceledController.swift; sourceTree = "<group>"; };
+		7053BB7E20E729C900C5A277 /* BadgedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgedExtension.swift; sourceTree = "<group>"; };
+		705677E020E8027D007AFD71 /* CVCNameCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCNameCategory.swift; sourceTree = "<group>"; };
+		705677E220E80C36007AFD71 /* TVCListProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCListProducts.swift; sourceTree = "<group>"; };
+		705677E420E80C45007AFD71 /* CVCProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCProducts.swift; sourceTree = "<group>"; };
 		707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCSmallBoxItem.swift; sourceTree = "<group>"; };
 		708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDeliveryDC.swift; sourceTree = "<group>"; };
 		708AC99B20E039E2004BD8FD /* DistributionHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionHour.swift; sourceTree = "<group>"; };
@@ -153,6 +147,9 @@
 		7097EC6220A5FBEB008E1C9E /* CVCCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCCategory.swift; sourceTree = "<group>"; };
 		7097EC6420A60FA2008E1C9E /* CatagoriesDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoriesDC.swift; sourceTree = "<group>"; };
 		709A334320AE0FC1003AB207 /* ProductoDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoDC.swift; sourceTree = "<group>"; };
+		709D48F420EB0E2000B990DE /* CVCDetailOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCDetailOrder.swift; sourceTree = "<group>"; };
+		709D48F620EB12AD00B990DE /* DetailOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrderController.swift; sourceTree = "<group>"; };
+		709D48F820EB54FD00B990DE /* PakAlertCancel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCancel.swift; sourceTree = "<group>"; };
 		70A3BE2D208F7BA1008C972C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		70A3BE31208F7C08008C972C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		70A3BE33208F7C1B008C972C /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
@@ -163,6 +160,11 @@
 		70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuInLogin.swift; sourceTree = "<group>"; };
 		70B88D1020DD5AE300D97816 /* CheckOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOut.swift; sourceTree = "<group>"; };
 		70BF263920D087EC002FD0F9 /* EditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
+		70C6D13A20E988B100560D7C /* CVCToDeliver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCToDeliver.swift; sourceTree = "<group>"; };
+		70C6D13C20E988CE00560D7C /* CVCCancel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCCancel.swift; sourceTree = "<group>"; };
+		70C6D13E20E9893F00560D7C /* CVCDeliver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCDeliver.swift; sourceTree = "<group>"; };
+		70C6D14020E9D29000560D7C /* OrderDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDC.swift; sourceTree = "<group>"; };
+		70C6D14220E9D5DE00560D7C /* ItemOrderDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOrderDC.swift; sourceTree = "<group>"; };
 		70C9ED1C209D02FD0096B656 /* CVCPublicityImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCPublicityImage.swift; sourceTree = "<group>"; };
 		70C9ED1E209D140D0096B656 /* ListAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAds.swift; sourceTree = "<group>"; };
 		70C9ED20209D14460096B656 /* Ads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ads.swift; sourceTree = "<group>"; };
@@ -207,6 +209,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7015913220E6E8CD006A7509 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				7015913320E6E907006A7509 /* pak-ios-Bridging-Header.h */,
+			);
+			name = "New Group";
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
 		701D286B207EAD01007AD7AC = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +239,7 @@
 		701D2876207EAD01007AD7AC /* pak-ios */ = {
 			isa = PBXGroup;
 			children = (
-				7050F20920E24200001DFF10 /* Culqi */,
+				7015913220E6E8CD006A7509 /* New Group */,
 				701D2889207EAD1F007AD7AC /* pak-ios.entitlements */,
 				70242A9B20D9857600F89299 /* GoogleService-Info.plist */,
 				701D2883207EAD06007AD7AC /* Info.plist */,
@@ -256,6 +267,13 @@
 				707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */,
 				702DCB3320D6D65000702D18 /* CVCAddCode.swift */,
 				7050F22920E2F9CB001DFF10 /* CVCSmallBoxPayment.swift */,
+				705677E020E8027D007AFD71 /* CVCNameCategory.swift */,
+				705677E220E80C36007AFD71 /* TVCListProducts.swift */,
+				705677E420E80C45007AFD71 /* CVCProducts.swift */,
+				70C6D13A20E988B100560D7C /* CVCToDeliver.swift */,
+				70C6D13C20E988CE00560D7C /* CVCCancel.swift */,
+				70C6D13E20E9893F00560D7C /* CVCDeliver.swift */,
+				709D48F420EB0E2000B990DE /* CVCDetailOrder.swift */,
 			);
 			path = adapters;
 			sourceTree = "<group>";
@@ -310,6 +328,7 @@
 		701D2892207EB51C007AD7AC /* views */ = {
 			isa = PBXGroup;
 			children = (
+				7053BB7420E6FCB700C5A277 /* Orders */,
 				7043B0B120BC86DA00CC31D0 /* discounts */,
 				7094FE9B20B2B0EB00511297 /*  favourite */,
 				7094FE9820B2A2DF00511297 /* smallBox */,
@@ -328,6 +347,7 @@
 				701D2896207EC5D6007AD7AC /* UIViewExtension.swift */,
 				701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */,
 				7090A2E920AB75DA00EF9F6D /* NotificationCenterExtension.swift */,
+				7053BB7E20E729C900C5A277 /* BadgedExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -383,33 +403,24 @@
 			path = discounts;
 			sourceTree = "<group>";
 		};
-		7050F20920E24200001DFF10 /* Culqi */ = {
+		7053BB7420E6FCB700C5A277 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
-				7050F20B20E2422E001DFF10 /* CLQBaseModelObject.h */,
-				7050F21C20E24232001DFF10 /* CLQBaseModelObject.m */,
-				7050F21320E24230001DFF10 /* CLQCardIssuer.h */,
-				7050F21420E24230001DFF10 /* CLQCardIssuer.m */,
-				7050F21A20E24232001DFF10 /* CLQClient.h */,
-				7050F20C20E2422F001DFF10 /* CLQClient.m */,
-				7050F21920E24231001DFF10 /* CLQError.h */,
-				7050F21B20E24232001DFF10 /* CLQError.m */,
-				7050F20F20E2422F001DFF10 /* CLQHTTPSessionManager.h */,
-				7050F21020E2422F001DFF10 /* CLQHTTPSessionManager.m */,
-				7050F21E20E24233001DFF10 /* CLQIssuerIdentificationNumber.h */,
-				7050F21520E24230001DFF10 /* CLQIssuerIdentificationNumber.m */,
-				7050F20D20E2422F001DFF10 /* CLQResponseHeaders.h */,
-				7050F21120E24230001DFF10 /* CLQResponseHeaders.m */,
-				7050F21220E24230001DFF10 /* CLQToken.h */,
-				7050F21620E24230001DFF10 /* CLQToken.m */,
-				7050F21720E24231001DFF10 /* CLQWebServices.h */,
-				7050F21820E24231001DFF10 /* CLQWebServices.m */,
-				7050F20E20E2422F001DFF10 /* Culqi.h */,
-				7050F21D20E24232001DFF10 /* Culqi.m */,
-				7050F20A20E2422D001DFF10 /* pak-ios-Bridging-Header.h */,
+				7053BB7720E70CB000C5A277 /* tabsOrders */,
+				7053BB7520E6FCE100C5A277 /* OrdersController.swift */,
+				709D48F620EB12AD00B990DE /* DetailOrderController.swift */,
 			);
-			name = Culqi;
-			path = "New Group";
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		7053BB7720E70CB000C5A277 /* tabsOrders */ = {
+			isa = PBXGroup;
+			children = (
+				7053BB7820E70CD900C5A277 /* ToDeliverController.swift */,
+				7053BB7A20E70CE400C5A277 /* DeliverController.swift */,
+				7053BB7C20E70CF100C5A277 /* CanceledController.swift */,
+			);
+			path = tabsOrders;
 			sourceTree = "<group>";
 		};
 		7094FE9820B2A2DF00511297 /* smallBox */ = {
@@ -444,6 +455,8 @@
 				70242A9720D914E600F89299 /* ListDC.swift */,
 				708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */,
 				708AC99B20E039E2004BD8FD /* DistributionHour.swift */,
+				70C6D14020E9D29000560D7C /* OrderDC.swift */,
+				70C6D14220E9D5DE00560D7C /* ItemOrderDC.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -485,6 +498,7 @@
 				7007931020D2438200DE70CA /* PakAlertModifyPassword.swift */,
 				7043B0B420BCF28200CC31D0 /* PakAlertCodeInvitation.swift */,
 				7007931220D2B26000DE70CA /* PakAlertRecoverAccount.swift */,
+				709D48F820EB54FD00B990DE /* PakAlertCancel.swift */,
 			);
 			path = alert;
 			sourceTree = "<group>";
@@ -719,19 +733,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				70B623F020AA1BDD001738C3 /* SideMenuInLogin.swift in Sources */,
+				70C6D13F20E9893F00560D7C /* CVCDeliver.swift in Sources */,
 				70C9ED21209D14460096B656 /* Ads.swift in Sources */,
 				70242A9A20D937B600F89299 /* PageObservation.swift in Sources */,
 				7050F22C20E5BBD3001DFF10 /* ConstantsModels.swift in Sources */,
+				709D48F720EB12AD00B990DE /* DetailOrderController.swift in Sources */,
 				70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */,
 				7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */,
+				70C6D13B20E988B100560D7C /* CVCToDeliver.swift in Sources */,
 				70A4254520CDC31A005B00AC /* ProductsDetailController.swift in Sources */,
 				7090A2EA20AB75DA00EF9F6D /* NotificationCenterExtension.swift in Sources */,
 				7094FE9A20B2A30F00511297 /* SmallBoxController.swift in Sources */,
-				7050F22320E24233001DFF10 /* CLQIssuerIdentificationNumber.m in Sources */,
 				70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */,
 				70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */,
 				70D525AA20915C6A004EB51E /* Constants.swift in Sources */,
-				7050F22220E24233001DFF10 /* CLQCardIssuer.m in Sources */,
+				705677E520E80C45007AFD71 /* CVCProducts.swift in Sources */,
 				70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */,
 				701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */,
 				70D6D2EC20BDAEF4006BDC19 /* PakAlertCodeInvitationDelegate.swift in Sources */,
@@ -741,26 +757,28 @@
 				70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */,
 				7028135320C44FF700DD5443 /* PakAlertFacturation.swift in Sources */,
 				7007931320D2B26000DE70CA /* PakAlertRecoverAccount.swift in Sources */,
+				709D48F920EB54FD00B990DE /* PakAlertCancel.swift in Sources */,
 				70242A9820D914E600F89299 /* ListDC.swift in Sources */,
 				708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */,
-				7050F22820E24233001DFF10 /* Culqi.m in Sources */,
+				709D48F520EB0E2000B990DE /* CVCDetailOrder.swift in Sources */,
 				700C7C7720D88BFF000FD7E5 /* SubCategoriesController.swift in Sources */,
 				70A3BE39208F8003008C972C /* UserDC.swift in Sources */,
-				7050F22520E24233001DFF10 /* CLQWebServices.m in Sources */,
 				709A334420AE0FC1003AB207 /* ProductoDC.swift in Sources */,
+				7053BB7F20E729C900C5A277 /* BadgedExtension.swift in Sources */,
 				70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */,
 				707B8F6520B4F3E600FC7848 /* CVCSmallBoxItem.swift in Sources */,
 				70BF263A20D087EC002FD0F9 /* EditController.swift in Sources */,
+				70C6D14320E9D5DE00560D7C /* ItemOrderDC.swift in Sources */,
 				701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */,
 				70B623EE20A9ED5D001738C3 /* SideMenuOutLogin.swift in Sources */,
 				70C9ED1D209D02FD0096B656 /* CVCPublicityImage.swift in Sources */,
 				7028135520C4504500DD5443 /* PakAlertCardData.swift in Sources */,
 				70C9ED1F209D140D0096B656 /* ListAds.swift in Sources */,
 				70F54C9720901210003175AA /* SmallBoxDC.swift in Sources */,
-				7050F22620E24233001DFF10 /* CLQError.m in Sources */,
 				70C9ED24209D33BC0096B656 /* TVCPlaceholder.swift in Sources */,
 				70D525A820915C58004EB51E /* Urls.swift in Sources */,
 				7043B0B320BC86FB00CC31D0 /* DiscountsController.swift in Sources */,
+				7053BB7D20E70CF100C5A277 /* CanceledController.swift in Sources */,
 				7007930D20D2256A00DE70CA /* PakAlertReady.swift in Sources */,
 				7028135720C4509300DD5443 /* PakAlertSummary.swift in Sources */,
 				70D5F0ED209B78A400EE673B /* OutMainController.swift in Sources */,
@@ -768,29 +786,31 @@
 				70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */,
 				703C1C3820C83D3400488E16 /* AlertViewPayment.swift in Sources */,
 				70D525A020915709004EB51E /* AlarmMethods.swift in Sources */,
-				7050F22120E24233001DFF10 /* CLQResponseHeaders.m in Sources */,
 				70B88D1120DD5AE300D97816 /* CheckOut.swift in Sources */,
 				70D525A520915B91004EB51E /* UtilMethods.swift in Sources */,
 				7097EC6520A60FA2008E1C9E /* CatagoriesDC.swift in Sources */,
 				70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */,
+				705677E320E80C36007AFD71 /* TVCListProducts.swift in Sources */,
 				7050F22A20E2F9CB001DFF10 /* CVCSmallBoxPayment.swift in Sources */,
-				7050F21F20E24233001DFF10 /* CLQClient.m in Sources */,
-				7050F22020E24233001DFF10 /* CLQHTTPSessionManager.m in Sources */,
 				70D525A32091590C004EB51E /* PakAlert.swift in Sources */,
 				7028134F20C396F500DD5443 /* AlertPageVc.swift in Sources */,
+				7053BB7B20E70CE400C5A277 /* DeliverController.swift in Sources */,
 				7007930F20D22F8700DE70CA /* PakAlertRegisterDelegate.swift in Sources */,
 				708AC99A20E01AEF004BD8FD /* DataDeliveryDC.swift in Sources */,
+				705677E120E8027D007AFD71 /* CVCNameCategory.swift in Sources */,
 				7043B0B520BCF28200CC31D0 /* PakAlertCodeInvitation.swift in Sources */,
+				70C6D13D20E988CE00560D7C /* CVCCancel.swift in Sources */,
+				7053BB7620E6FCE100C5A277 /* OrdersController.swift in Sources */,
 				70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */,
 				7010444F20AE38D900EFFC9B /* CVCSearchItem.swift in Sources */,
 				7028135120C44F8900DD5443 /* PakAlertSendData.swift in Sources */,
 				702DCB3420D6D65000702D18 /* CVCAddCode.swift in Sources */,
 				70A3BE36208F7F97008C972C /* PreferencesMethods.swift in Sources */,
 				70242A9420D8FEF000F89299 /* ProductsListControllers.swift in Sources */,
+				70C6D14120E9D29000560D7C /* OrderDC.swift in Sources */,
+				7053BB7920E70CD900C5A277 /* ToDeliverController.swift in Sources */,
 				7028135920C4578200DD5443 /* PakAlertPaymentDelegate.swift in Sources */,
 				7007931120D2438200DE70CA /* PakAlertModifyPassword.swift in Sources */,
-				7050F22720E24233001DFF10 /* CLQBaseModelObject.m in Sources */,
-				7050F22420E24233001DFF10 /* CLQToken.m in Sources */,
 				7094FE9F20B2B25900511297 /* CVCFavouriteItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import SwiftyJSON
 import UIKit
+import SwiftyJSON
 import Alamofire
 import NVActivityIndicatorView
 import FacebookCore
@@ -22,6 +22,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     private let segue_favorites = "segue_favorites"
     private let segue_discounts = "segue_discounts"
     private let segue_edit = "segue_editar"
+    private let segue_order = "segue_order"
     @IBOutlet weak var b_name: UIButton!
     
     @IBAction func ba_name(_ sender: Any) {
@@ -57,7 +58,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     }
     
     @IBAction func Orders(_ sender: Any) {
-        print("Orders")
+        self.performSegue(withIdentifier: (self.segue_order), sender: self)
     }
     
     @IBAction func Discounts(_ sender: Any) {

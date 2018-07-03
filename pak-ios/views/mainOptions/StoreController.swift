@@ -146,7 +146,14 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
             vc.items = selectedItems
         }else if segue.identifier == self.segue_category_detail {
             let vcpl = segue.destination as! ProductsListControllers
-            vcpl.items = selectedItems
+//            if selectedItems.count > 0{
+//                let categoriesDC = CategoriesDC()
+//                categoriesDC.name = "Todos"
+//                vcpl.items.append(categoriesDC)
+//                vcpl.items.append(contentsOf : selectedItems)
+//            }else {
+                vcpl.items = selectedItems
+//            }
         }
     }
 }

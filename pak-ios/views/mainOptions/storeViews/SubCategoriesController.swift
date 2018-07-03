@@ -57,6 +57,8 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
         getCategories(Int(id_item))
     }
     
+    
+    
     //Perfectly fit collection (all screens)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -137,8 +139,15 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
             let vc = segue.destination as! RootCategoriesController
             vc.items = selectedItems
         } else if segue.identifier == self.segue_category_detail {
-            let vc = segue.destination as! ProductsListControllers
-            vc.items = selectedItems
+            let vcpl = segue.destination as! ProductsListControllers
+            if selectedItems.count > 0{
+                let categoriesDC = CategoriesDC()
+                categoriesDC.name = "Todos"
+                vcpl.items.append(categoriesDC)
+                vcpl.items.append(contentsOf : selectedItems)
+            }else {
+                vcpl.items = selectedItems
+            }
         }
     }
 }

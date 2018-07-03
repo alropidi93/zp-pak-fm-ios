@@ -21,7 +21,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     
     let segue_identifier = "segue_login_main"
     let signup_identifier = "segue_login_signup"
-    let user : UserDC? = nil
+    var user : UserDC? = nil
     @IBOutlet weak var tf_email: UITextField!
     @IBOutlet weak var tf_password: UITextField!
     
@@ -85,7 +85,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
   
     func loginUser() {
-    self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
 
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             getGUID()
@@ -95,6 +95,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                                    "Password": MD5(self.tf_password.text!) ,
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
                                    ]
+        
         Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -112,7 +113,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                         PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
                         PreferencesMethods.saveIdToOptions(userDC.idUser)
-
+                      
 //                        let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
 //                        let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
 //                        print(string ?? "")
@@ -166,7 +167,6 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                         self.stopAnimating()
                         let jsonObj = JSON(params)
                         print(jsonObj)
-                        self.stopAnimating()
                        
                     case .failed(let error):
                         self.stopAnimating()
@@ -188,27 +188,69 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
-//            self.user.name = user.profile.givenName
-            
-            let params: Parameters = [
-                "id": user.userID,
-                "name": user.profile.givenName,
-                "lastname": user.profile.familyName,
-                "dni": "",
-                "phone": "",
-                "email": user.profile.email,
-                "photo_url": user.profile.imageURL(withDimension: 100) ?? "",
-                "facebook_id": "",
-                "google_id": user.authentication.idToken
-            ]
-            print(user.profile.email)
-        
-
+            let userDC : UserDC = UserDC()
+            userDC.names = user.profile.givenName
+            userDC.lastNames = user.profile.familyName
+            userDC.userName = user.profile.email
+//            "photo_url": user.profile.imageURL(withDimension: 100) ?? "",
+            userDC.googleID = user.authentication.idToken
+            validateGoogle(userDC)
         } else {
             print("\(error.localizedDescription)")
         }
         self.stopAnimating()
     }
+    
+    func validateGoogle (_ userDC : UserDC){
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        
+        
+        let params: Parameters = [ "AccessToken": userDC.accessToken,
+//                                   "FCMToken": InstanceID.instanceID().token() ?? "No token",
+                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
+        ]
+        Alamofire.request(URLs.LoginGo, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Msg"] == "OK"{
+                        let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
+                        let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                        print(string ?? "")
+
+                        let userDC : UserDC = UserDC(jsonResult)
+                        userDC.valid = true
+                        ConstantsModels.UserStatic = userDC
+                        PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
+                        PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
+                        PreferencesMethods.saveIdToOptions(userDC.idUser)
+                        
+                        self.stopAnimating()
+                        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
+                    } else {
+                        self.stopAnimating()
+                        self.user = userDC
+                        self.performSegue(withIdentifier: self.signup_identifier, sender: self)
+                    }
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+            self.stopAnimating()
+        }
+    }
+    
     
     @IBAction func ForgetMyPassword(_ sender: Any) {
         alertDialog(uiViewController: self)
@@ -228,11 +270,11 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
     
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == self.segue_identifier {
-//            if let vc = segue.destination as? SignUpController {
-//                vc.user = self.user
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.signup_identifier {
+            if let vc = segue.destination as? SignUpController {
+                vc.user = self.user
+            }
+        }
+    }
 }
