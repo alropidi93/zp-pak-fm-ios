@@ -256,7 +256,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         alertDialog(uiViewController: self)
     }
     func alertDialog(uiViewController: UIViewController) {
-        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_alert_recovery") as! PakAlertModifyPassword
+        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_alert_recovery") as! PakAlertRecoverAccount
         pakAlert.definesPresentationContext = true
         pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
 

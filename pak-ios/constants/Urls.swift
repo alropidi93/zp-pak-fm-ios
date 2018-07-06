@@ -50,7 +50,7 @@ struct URLs {
         return BaseURL + "AuthService.svc/ModificarPassword"
     }
     static var RecoveryPassword: String {// POST
-        return BaseURL + "AuthService.svc/RecuperarPassword"
+        return BaseURL + "AuthService.svc/RestablecerPassword"
     }
     static var ModifyAccount: String {// POST
         return BaseURL + "AuthService.svc/ModificarCuenta"

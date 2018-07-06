@@ -14,7 +14,7 @@ import NVActivityIndicatorView
 import RLBAlertsPickers
 import SwiftHash
 import Firebase
-class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlertRegisterDelegate {
+class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlertRegisterDelegate ,UITextFieldDelegate{
     
     @IBOutlet weak var tf_name: UITextField!
     @IBOutlet weak var tf_lastname: UITextField!
@@ -51,7 +51,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+   
     func setElements (){
         fullKeyboardSupport()
         getDistrict()
@@ -67,6 +67,8 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
         let tap_birtday = UITapGestureRecognizer(target: self, action: #selector(self.tapCalendar(_:)))
         self.tf_birthday.addGestureRecognizer(tap_birtday)
         
+        self.tf_phone.delegate = self
+        
         if user != nil {
             self.tf_name.text = user?.names
             self.tf_email.text = user?.userName
@@ -80,6 +82,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {
         
         let alert = UIAlertController(style: .actionSheet, title: "Fecha")
+        self.tf_birthday.text = UtilMethods.formatDate(Date())
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: nil, maximumDate: Date()) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_birthday.text = UtilMethods.formatDate(date)
@@ -95,7 +98,8 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
         let alert = UIAlertController(style: .actionSheet, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
-        
+        self.tf_district.text = districts[0]
+        self.posDistrict = 0
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
@@ -115,7 +119,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
         let alert = UIAlertController(style: .actionSheet, title: "Genero")
         let pickerViewValues: [[String]] = [pickerData]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
-        
+        self.tf_genre.text = "Masculino"
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
@@ -186,6 +190,9 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
         } else if self.tf_email.text?.count > 50 {
             AlarmMethods.errorWarning(message: "El email no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
             return
+        } else if !isValidEmail(testStr: tf_email.text!){
+            AlarmMethods.errorWarning(message: "No es un correo valido", uiViewController: self)
+            return
         }
 
         if (self.tf_address.text?.isEmpty)! {
@@ -251,12 +258,18 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             return
         }
 
-        
+      
         
         self.register((PreferencesMethods.getSmallBoxFromOptions()!.GUID))
 
     }
-
+    func isValidEmail(testStr:String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
     
     func register(_ GUID: String){
         var genre : String = "-"
@@ -285,6 +298,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
 
 //            "FCMTOKEN": InstanceID.instanceID().token() ?? "No token",
             ]
+        print(UtilMethods.dateToSlash(tf_birthday.text!))
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
 
         
@@ -297,6 +311,12 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
+                    print("HOLAAAAAA")
+                    let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
+                    let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                    print(string ?? "")
+                    print("HOLAAAAAA2")
+                    
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                         self.alertDialog(uiViewController: self)
@@ -304,6 +324,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
                         self.stopAnimating()
                         
                     }else {
+                        print(jsonResult["exMessage"])
                         self.stopAnimating()
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
@@ -335,9 +356,18 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
         uiViewController.present(pakAlert, animated: true, completion: nil)
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 11
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+    
     func okButtonTapped(){
         dismiss(animated: true, completion: nil)
 //        self.navigationController?.dismiss(animated: true,completion: nil)
         _ = navigationController?.popViewController(animated: true)
     }
 }
+

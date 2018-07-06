@@ -959,7 +959,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LB6PGNF3Z4;
+				DEVELOPMENT_TEAM = 8T7Y68JUC9;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -982,7 +982,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LB6PGNF3Z4;
+				DEVELOPMENT_TEAM = 8T7Y68JUC9;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
