@@ -50,7 +50,7 @@ class SplashController: UIViewController {
     }
    
     func getGUID() {
-        let params: Parameters = [:]
+        let params: Parameters = ["GUID": PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? ""]
         Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -62,6 +62,7 @@ class SplashController: UIViewController {
                     let jsonResult = JSON(jsonResponse)
                     let obtenerCajita = SmallBoxDC(jsonResult)
                     PreferencesMethods.saveSmallBoxToOptions(obtenerCajita)
+                    ConstantsModels.CountItem = obtenerCajita.items.count
                 }
             } else {
                 if let jsonResponse = response.result.value {

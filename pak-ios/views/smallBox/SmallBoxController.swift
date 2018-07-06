@@ -37,7 +37,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     private var dataDelivery : DataDeliveryDC? = nil
     private var deliveryCost : Double = 0.0
     private var subTotal : Double = 0.0
-    
+    private var discount : Double = 0.0
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -168,7 +168,12 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                     let smallBox  = SmallBoxDC(jsonResult)
                     self.deliveryCost = smallBox.costDelivery
                     self.l_mount_delivery.text = String(self.deliveryCost)
-
+                    if smallBox.discount != nil {
+                        self.l_mount_discount.text = String(format: "%.2f",(smallBox.discount?.percentage)!) + "%"
+                        self.discount = (smallBox.discount?.percentage)!
+                    }else {
+                        self.l_mount_discount.text = "--"
+                    }
                     self.items = []
                     for ( _ , element) in jsonResult["Items"] {
                         let smallItemBox  = ItemSmallBoxDC(element)

@@ -8,5 +8,6 @@
 
 import Foundation
 class ConstantsModels {
-    static var UserStatic : UserDC? = nil    
+    static var UserStatic : UserDC? = nil
+    static var CountItem : Int = 0 
 }

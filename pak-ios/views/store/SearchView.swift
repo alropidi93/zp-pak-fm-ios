@@ -22,12 +22,15 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     private let reuse_identifier = "cvc_search_item"
     var text:String = ""
     var cant = 0
+
+    let notificationButton = SSBadgeButton()
+    
     @IBOutlet weak var l_search_word: UILabel!
     @IBOutlet weak var cv_search: UICollectionView!
    
     private var items : [ProductoDC] = []
     var item : ProductoDC? = nil
-
+    
     
     var indexPath : IndexPath? = nil
     
@@ -49,6 +52,10 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     func setElements(){
         self.cv_search.delegate = self
         self.cv_search.dataSource = self
+        let bgImage = UIImageView();
+        bgImage.image = UIImage(named: "dwb_pak_background_loby")
+        bgImage.contentMode = .scaleToFill
+        self.cv_search.backgroundView = bgImage
         getProducts()
     }
     
@@ -164,7 +171,11 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                         let snackbar = TTGSnackbar(message: "Se agrego " + String(self.cant) + "el producto", duration: .middle)
                         snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                         snackbar.show()
+                        ConstantsModels.CountItem = ConstantsModels.CountItem + 1
+                        self.notificationButton.badge = "\(ConstantsModels.CountItem) "
+
                         self.cv_search.reloadData()
+                        
                     }
                 }
             } else {
@@ -230,4 +241,18 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
             }
         }
     }
+    func customizeNavigationBarSearch( ) {
+        self.navigationController?.navigationBar.topItem?.title = "Resultados de busqueda"
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+     
+        notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
+        notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+        notificationButton.badge = "\(ConstantsModels.CountItem) "
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+    }
+    
 }

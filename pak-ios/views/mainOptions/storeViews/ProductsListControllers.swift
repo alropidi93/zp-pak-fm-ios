@@ -36,7 +36,6 @@ class ProductsListControllers : UIViewController , UICollectionViewDelegate, UIC
         super.didReceiveMemoryWarning()
     }
     func setElements(){
-        print(items[1].list[0].name)
         tv_list_Brand.reloadData()
         itemsPorducto = items[0].list
         self.cv_name_category.delegate = self
