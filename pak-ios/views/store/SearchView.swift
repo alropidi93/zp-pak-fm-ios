@@ -75,7 +75,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         cell.iv_item_photo.isUserInteractionEnabled = true
         cell.iv_item_photo.tag = indexPath.row
         cell.iv_item_photo.addGestureRecognizer(tapGestureRecognizer)
-        
+        cell.b_add_item.tag = indexPath.row
         cell.b_add_item.addTarget(self, action: #selector(buttonAdd), for: .touchUpInside)
         cell.b_favorites.tag = indexPath.row
         cell.b_favorites.addTarget(self, action: #selector(buttonFavorite), for: .touchUpInside)
@@ -147,7 +147,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         let params: Parameters = [ "IdProducto": product.idProduct,
                                    "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID,
                                    "Cantidad": 1]
-        
+        print(product.idProduct)
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)

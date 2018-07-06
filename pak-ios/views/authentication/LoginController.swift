@@ -147,27 +147,35 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
 
         loginManager.logIn(readPermissions: [ .publicProfile, .email ], viewController: self) { loginResult in
             switch loginResult {
-
             case .failed(let error):
                 AlarmMethods.errorWarning(message: "No se puede acceder: \(error.localizedDescription)", uiViewController: self)
             case .cancelled:
                 AlarmMethods.errorWarning(message: "Tal vez aun no has instalado facebook para el celular?", uiViewController: self)
             case .success( _, _, let accessToken):
                 self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-                let request = GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], accessToken: accessToken, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
+                let request = GraphRequest(graphPath: "me", parameters: ["fields":"id,email,first_name,last_name,birthday"], accessToken: accessToken, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
                 request.start { (response, result) in
                     switch result {
                     case .success(let value):
-                        let params: Parameters = [
-                            "name": value.dictionaryValue!["name"] ?? "",
-                            "email": value.dictionaryValue!["email"] ?? "",
-                            "imageurl": "https://graph.facebook.com/\(value.dictionaryValue!["id"] ?? -1)/picture?type=large"
-                        ]
+//                        let params: Parameters = [
+//                            "name": value.dictionaryValue!["name"] ?? "",
+//                            "email": value.dictionaryValue!["email"] ?? "",
+//                            "imageurl": "https://graph.facebook.com/\(value.dictionaryValue!["id"] ?? -1)/picture?type=large"
+//                        ]
                         
                         self.stopAnimating()
-                        let jsonObj = JSON(params)
-                        print(jsonObj)
-                       
+                        let userDC : UserDC = UserDC()
+                        userDC.names = value.dictionaryValue!["first_name"] as! String
+                        userDC.lastNames = value.dictionaryValue!["last_name"] as! String
+                        userDC.userName = value.dictionaryValue!["email"] as! String
+                        //"photo_url": user.profile.imageURL(withDimension: 100) ?? "",
+                        userDC.birthDate = UtilMethods.dateSplit(value.dictionaryValue!["birthday"] as! String)
+                        print("ASFJPSFASFHASHFJOSAFJOSA======")
+                        print(value.dictionaryValue!["id"] as! String)
+                        print("ASFJPSFASFHASHFJOSAFJOSA======")
+                        userDC.facebookID = value.dictionaryValue!["id"] as! String
+                        self.validateFacebook(userDC)
+                        loginManager.logOut()
                     case .failed(let error):
                         self.stopAnimating()
                         AlarmMethods.errorWarning(message: "No se pudo obtener la información: \(error.localizedDescription)", uiViewController: self)
@@ -176,7 +184,55 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
             }
         }
     }
-    
+    func validateFacebook(_ userDC : UserDC){
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        
+        
+        let params: Parameters = [ "AccessToken": userDC.facebookID,
+                                   //                                   "FCMToken": InstanceID.instanceID().token() ?? "No token",
+            "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
+        ]
+        Alamofire.request(URLs.LoginFb, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Msg"] == "OK"{
+                        let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
+                        let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                        print(string ?? "")
+                        
+                        let userDC : UserDC = UserDC(jsonResult)
+                        userDC.valid = true
+                        ConstantsModels.UserStatic = userDC
+                        PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
+                        PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
+                        PreferencesMethods.saveIdToOptions(userDC.idUser)
+                        
+                        self.stopAnimating()
+                        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
+                    } else {
+                        self.stopAnimating()
+                        self.user = userDC
+                        self.performSegue(withIdentifier: self.signup_identifier, sender: self)
+                    }
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+            self.stopAnimating()
+        }
+    }
     
     @IBAction func loginWithGoogle(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
@@ -205,7 +261,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         
-        let params: Parameters = [ "AccessToken": userDC.accessToken,
+        let params: Parameters = [ "AccessToken": userDC.googleID,
 //                                   "FCMToken": InstanceID.instanceID().token() ?? "No token",
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
         ]

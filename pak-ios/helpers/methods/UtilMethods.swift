@@ -183,11 +183,19 @@ class UtilMethods {
             return month
         }
     }
-    
+    static func dateSplit(_ dateToFormat : String) -> String {
+        let date : [String] = dateToFormat.components(separatedBy: "/")
+        let day : String = date[1]
+        let month : String = DateIntToString(date[0])
+        let year : String = date[2]
+        let date2: String = day + "-" + month + "-" + year
+        return date2
+    }
     static func dateToSlash(_ dateToFormat : String) -> String {
         
         let date : [String] = dateToFormat.components(separatedBy: "-")
         let day : String = date[0]
+        
         let month : String = DateToString(date[1])
         let year : String = date[2]
         let date2: String = day + "/" + month + "/" + year

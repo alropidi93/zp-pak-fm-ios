@@ -73,6 +73,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             self.tf_name.text = user?.names
             self.tf_email.text = user?.userName
             self.tf_lastname.text = user?.lastNames
+            self.tf_birthday.text = user?.birthDate
             self.tf_email.isUserInteractionEnabled = false
         }
         
@@ -298,7 +299,11 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
 
 //            "FCMTOKEN": InstanceID.instanceID().token() ?? "No token",
             ]
-        print(UtilMethods.dateToSlash(tf_birthday.text!))
+
+        let data = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+                                let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                                print(string ?? "")
+        print("holeooasddsñdsñadfldahiñadfhñadhdahadsgdgashadgshadghñadsg")
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
 
         

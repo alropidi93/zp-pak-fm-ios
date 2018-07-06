@@ -39,6 +39,10 @@ struct URLs {
         return BaseURL + "AuthService.svc/LoginGoogle"
     }
     
+    static var LoginFb: String { //POST
+        return BaseURL + "AuthService.svc/LoginFacebook"
+    }
+    
     static var ListDistrict: String { //GET
         return BaseURL + "AuthService.svc/ListarDistritos"
     }
