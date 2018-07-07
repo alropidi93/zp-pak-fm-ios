@@ -94,6 +94,9 @@ public class BmoViewPager: UIView {
         }
     }
     
+    /// enable page changed animation, it work or not depend on viewPgaer have the page viewController's referecne
+    public var isInterporationAnimated: Bool = true
+
     public var scrollable: Bool = true {
         didSet {
             if !inited { return }
@@ -102,12 +105,29 @@ public class BmoViewPager: UIView {
     }
 
     public var lastPresentedPageIndex: Int = 0
-    public var presentedPageIndex: Int = 0 {
-        didSet {
-            if !inited { return }
-            if oldValue != presentedPageIndex {
-                lastPresentedPageIndex = oldValue
-                if self.presentedPageIndex != self.pageControlIndex {
+    private var _presentedPageIndex: Int = 0
+    public var presentedPageIndex: Int {
+        get {
+            return _presentedPageIndex
+        }
+        set {
+            guard inited else {
+                _presentedPageIndex = newValue
+                return
+            }
+            if _presentedPageIndex != newValue {
+                if !presentedIndexInternalFlag && isInterporationAnimated {
+                    if let bar = self.navigationBars.first?.bar {
+                        bar.bmoViewPageItemList(didSelectItemAt: newValue, previousIndex: _presentedPageIndex)
+                    } else {
+                        self.addSubview(defaultNavigaionBar)
+                        defaultNavigaionBar.viewPager = self
+                        defaultNavigaionBar.bmoViewPageItemList(didSelectItemAt: newValue, previousIndex: _presentedPageIndex)
+                    }
+                    return
+                }
+                lastPresentedPageIndex = _presentedPageIndex
+                if newValue != self.pageControlIndex {
                     pageViewController.setViewPagerPageCompletion = { [weak self] (page) in
                         self?.navigationBars.forEach { (weakBar: WeakBmoVPbar<BmoViewPagerNavigationBar>) in
                             if let bar = weakBar.bar {
@@ -116,6 +136,7 @@ public class BmoViewPager: UIView {
                         }
                     }
                 }
+                _presentedPageIndex = newValue
                 self.pageControlIndex = presentedPageIndex
                 if let view = pageViewController.pageScrollView?.subviews[safe: 1] {
                     if let vc = view.subviews.first?.bmoVP.ownerVC(), view.subviews.first?.bmoVP.index() == presentedPageIndex {
@@ -154,6 +175,8 @@ public class BmoViewPager: UIView {
         return pageVC
     }()
     
+    private let defaultNavigaionBar = BmoViewPagerNavigationBar()
+    private var presentedIndexInternalFlag = false
     internal var referencePageViewControllers = [Int : WeakBmoVPpageViewController]()
     internal var navigationBars = [WeakBmoVPbar]()
     fileprivate var delegateObserver: NSKeyValueObservation?
@@ -177,7 +200,7 @@ public class BmoViewPager: UIView {
     }
     convenience init(initPage: Int, orientation: UIPageViewControllerNavigationOrientation = .horizontal) {
         self.init()
-        self.presentedPageIndex = initPage
+        self.internalSetPresentedIndex(initPage)
         self.isHorizontal = (orientation == .horizontal)
         delegateObserver = scrollView?.observe(\.delegate, options: [.new], changeHandler: { [weak self] (scrollView, value) in
             if let newDelegate = (value.newValue as? UIScrollViewDelegate), !(newDelegate is BmoViewPagerDelegateProxy) {
@@ -240,7 +263,7 @@ public class BmoViewPager: UIView {
             self.inited = false
             self.referencePageViewControllers.removeAll()
             if self.dataSource?.bmoViewPagerDataSourceNumberOfPage(in: self) ?? 0 <= self.presentedPageIndex {
-                self.presentedPageIndex = 0
+                self.internalSetPresentedIndex(0)
             }
             self.navigationBars.forEach { (weakBar: WeakBmoVPbar<BmoViewPagerNavigationBar>) in
                 if let bar = weakBar.bar {
@@ -285,6 +308,12 @@ public class BmoViewPager: UIView {
         (str2 as NSString).draw(at: str2Point, withAttributes: subAttributed)
         (str3 as NSString).draw(at: str3Point, withAttributes: subAttributed)
         (str4 as NSString).draw(at: str4Point, withAttributes: subAttributed)
+    }
+    
+    internal func internalSetPresentedIndex(_ index: Int) {
+        presentedIndexInternalFlag = true
+        self.presentedPageIndex = index
+        presentedIndexInternalFlag = false
     }
 }
 
