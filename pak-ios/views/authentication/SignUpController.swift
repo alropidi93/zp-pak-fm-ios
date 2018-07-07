@@ -303,7 +303,6 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
         let data = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
                                 let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
                                 print(string ?? "")
-        print("holeooasddsñdsñadfldahiñadfhñadhdahadsgdgashadgshadghñadsg")
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
 
         
@@ -316,11 +315,10 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,PakAlert
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
-                    print("HOLAAAAAA")
+              
                     let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
                     let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-                    print(string ?? "")
-                    print("HOLAAAAAA2")
+                   
                     
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{

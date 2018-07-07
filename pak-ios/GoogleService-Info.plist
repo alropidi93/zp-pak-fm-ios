@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>576896496368-hln7047tacts8hmm60qv8jp550o738j5.apps.googleusercontent.com</string>
+	<string>576896496368-jh24qbjghvjfmloucki8vd3j627j752u.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.576896496368-hln7047tacts8hmm60qv8jp550o738j5</string>
+	<string>com.googleusercontent.apps.576896496368-jh24qbjghvjfmloucki8vd3j627j752u</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCC74fUMC0ATd8PFhbSuBn5SIBfokj7LX8</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>pe.com.zp.pakfoodsmarket</string>
+	<string>pe.com.zp.PAKFoodsMarket</string>
 	<key>PROJECT_ID</key>
 	<string>firebase-pak-foods-market</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:576896496368:ios:bc67fa7fb63b282a</string>
+	<string>1:576896496368:ios:169908baddd0ebd9</string>
 	<key>DATABASE_URL</key>
 	<string>https://fir-pak-foods-market.firebaseio.com</string>
 </dict>

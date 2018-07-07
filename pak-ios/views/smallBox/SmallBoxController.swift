@@ -167,7 +167,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                     let jsonResult = JSON(jsonResponse)
                     let smallBox  = SmallBoxDC(jsonResult)
                     self.deliveryCost = smallBox.costDelivery
-                    self.l_mount_delivery.text = String(self.deliveryCost)
+                    self.l_mount_delivery.text = "S/" + String(self.deliveryCost)
                     if smallBox.discount != nil {
                         self.l_mount_discount.text = String(format: "%.2f",(smallBox.discount?.percentage)!) + "%"
                         self.discount = (smallBox.discount?.percentage)!

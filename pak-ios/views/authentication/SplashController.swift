@@ -34,7 +34,6 @@ class SplashController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         self.loginUser()
         if PreferencesMethods.isFirstTime() {
             PreferencesMethods.saveFirstTime()

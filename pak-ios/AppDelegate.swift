@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         application.registerForRemoteNotifications()
         
+
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
 
         return true
