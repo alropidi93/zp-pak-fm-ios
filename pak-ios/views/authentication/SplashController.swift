@@ -17,79 +17,63 @@ import SwiftHash
 import SideMenu
 
 class SplashController: UIViewController {
-    
+    // Segues
     private let splash_identifier = "segue_splash_main"
     
+    // Visual variables
     @IBOutlet weak var iv_logo: UIImageView!
     
-    var images: [UIImage] = [UIImage(named: "dwb-pak-splash-1")!,UIImage(named: "dwb-pak-splash-2")!,UIImage(named: "dwb-pak-splash-3")!,UIImage(named: "dwb-pak-splash-4")!,UIImage(named: "dwb-pak-splash-5")!]
+    // Local variables
+    private var animation_parts: [UIImage] = [UIImage(named: "dwb-pak-splash-1")!, UIImage(named: "dwb-pak-splash-2")!, UIImage(named: "dwb-pak-splash-3")!, UIImage(named: "dwb-pak-splash-4")!, UIImage(named: "dwb-pak-splash-5")!]
+    
+    // Common functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
-        self.iv_logo.animationImages = self.images
-        
-        self.iv_logo.startAnimating()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.iv_logo.animationImages = self.animation_parts
+        self.iv_logo.animationRepeatCount = 1
+        self.iv_logo.animationDuration = 3
+        self.iv_logo.startAnimating()
+        
         self.loginUser()
+        
         if PreferencesMethods.isFirstTime() {
             PreferencesMethods.saveFirstTime()
         }
-        OperationQueue.main.addOperation {
-            [weak self] in
-            self?.performSegue(withIdentifier: (self?.splash_identifier)!, sender: self)
+        
+        // must be careful that the animation duration and this stuff remains equal
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            OperationQueue.main.addOperation {
+                [weak self] in
+                while (self?.iv_logo.isAnimating)! {} //we wait until is finished
+                self?.performSegue(withIdentifier: (self?.splash_identifier)!, sender: self)
+            }
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-   
-    func getGUID() {
-        let params: Parameters = ["GUID": PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? ""]
-        Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
-            if response.response == nil {
-                AlamoMethods.connectionError(uiViewController: self)
-                return
-            }
-            let statusCode = response.response!.statusCode
-            if statusCode == 200 {
-                if let jsonResponse = response.result.value {
-                    let jsonResult = JSON(jsonResponse)
-                    let obtenerCajita = SmallBoxDC(jsonResult)
-                    PreferencesMethods.saveSmallBoxToOptions(obtenerCajita)
-                    ConstantsModels.CountItem = obtenerCajita.items.count
-                }
-            } else {
-                if let jsonResponse = response.result.value {
-                    let jsonResult = JSON(jsonResponse)
-                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
-                } else {
-                    AlamoMethods.defaultError(self)
-                }
-            }
-        }
-    }
     
+    // Custom functions
     func loginUser() {
-
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             getGUID()
             return
         }
-        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
-                                   "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? "" ,
-                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID,
-                                    "FCMToken" : ""
-        ]
+        
+        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? "" , "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID, "FCMToken" : "" ]
+        
         Alamofire.request(URLs.loginAccessToken, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
                 return
             }
+            
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
@@ -114,4 +98,33 @@ class SplashController: UIViewController {
             }
         }
     }
+    
+    func getGUID() {
+        let params: Parameters = ["GUID": PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? ""]
+        
+        Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                return
+            }
+            
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    let obtenerCajita = SmallBoxDC(jsonResult)
+                    PreferencesMethods.saveSmallBoxToOptions(obtenerCajita)
+                    ConstantsModels.CountItem = obtenerCajita.items.count
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+        }
+    }
+    
 }

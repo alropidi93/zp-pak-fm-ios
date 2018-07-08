@@ -11,10 +11,8 @@ import SwiftyJSON
 
 
 class UserDC :  NSObject ,NSCoding{
-    
-    
+    // #MARK: Variables
     private var _idUser: UInt64 = 0
-    
     private var _userName: String = ""
     private var _facebookID: String = ""
     private var _googleID: String = ""
@@ -29,12 +27,11 @@ class UserDC :  NSObject ,NSCoding{
     private var _codeInvitation: String = ""
     private var _accessToken: String = ""
     private var _smallBox: SmallBoxDC? = nil
-    
-    private var _applicableInvitationCode: Bool = true
 
+    private var _applicableInvitationCode: Bool = true
     private var _valid: Bool = false
     
-    
+    // #MARK: Constructiors
     override init() {
     }
     
@@ -63,7 +60,8 @@ class UserDC :  NSObject ,NSCoding{
         }
     }
     
-    required init(coder decoder: NSCoder) {         // PREFERENCES
+    // #MARK: Preferences management
+    required init(coder decoder: NSCoder) {
         super.init()
         self._idUser = decoder.decodeObject(forKey: "IdUsuario") as? UInt64 ?? self._idUser
         self._userName = decoder.decodeObject(forKey: "Username") as? String ?? self._userName
@@ -80,10 +78,8 @@ class UserDC :  NSObject ,NSCoding{
         self._accessToken = decoder.decodeObject(forKey: "AccessToken") as? String ?? self._accessToken
         self._smallBox = decoder.decodeObject(forKey: "Cajita") as? SmallBoxDC ?? self._smallBox
         self._applicableInvitationCode = decoder.decodeBool(forKey: "CodigoInvitacionAplicable")
-        
         self._valid =  decoder.decodeBool(forKey: "valid")
     }
-    
     
     func encode(with coder: NSCoder) {//
         coder.encode(_idUser, forKey: "IdUsuario")
@@ -100,13 +96,14 @@ class UserDC :  NSObject ,NSCoding{
         coder.encode(_codeInvitation, forKey: "CodigoInvitacion")
         coder.encode(_accessToken, forKey: "AccessToken")
         coder.encode(_smallBox, forKey: "Cajita")
-        
         coder.encode(_valid, forKey: "valid")
     }
+    
     func addValidationData(_ jsonUser: JSON){
-        
+        //TODO: Incomplete function
     }
     
+    // #MARK: Accessors
     var idUser : UInt64 {
         set { _idUser = newValue}
         get {return _idUser}
@@ -121,38 +118,47 @@ class UserDC :  NSObject ,NSCoding{
         set { _facebookID = newValue}
         get {return _facebookID}
     }
+    
     var googleID : String {
         set { _googleID = newValue}
         get {return _googleID}
     }
+    
     var names : String {
         set { _names = newValue}
         get {return _names}
     }
+    
     var lastNames : String {
         set { _lastNames = newValue}
         get {return _lastNames}
     }
+    
     var birthDate : String {
         set { _birthDate = newValue}
         get {return _birthDate}
     }
+    
     var genere : String {
         set { _genere = newValue}
         get {return _genere}
     }
+    
     var telephone : String {
         set { _telephone = newValue}
         get {return _telephone}
     }
+    
     var district : DistrictDC? {
         set { _district = newValue}
         get {return _district}
     }
+    
     var codeInvitation : String {
         set { _codeInvitation = newValue}
         get {return _codeInvitation}
     }
+    
     var accessToken : String {
         set { _accessToken = newValue}
         get {return _accessToken}
@@ -162,17 +168,19 @@ class UserDC :  NSObject ,NSCoding{
         set { _smallBox = newValue}
         get {return _smallBox}
     }
+    
     var applicableInvitationCode : Bool {
         set { _applicableInvitationCode = newValue}
         get {return _applicableInvitationCode}
     }
+    
     var valid : Bool {
         set {  _valid = newValue }
         get {  return _valid }
     }
+    
     var address : String {
         set {  _address = newValue }
         get {  return _address }
     }
-    
 }

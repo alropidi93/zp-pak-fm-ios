@@ -78,9 +78,8 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
            
             )
         } else { // Images
-            
-            let agrume = Agrume(image: (cell.iv_publicity_image?.image)!, backgroundColor: UIColor.black)
-            agrume.showFrom(self)
+            let agrume = Agrume(image: (cell.iv_publicity_image?.image)!, background: .colored(.black))
+            agrume.show(from: self)
         }
     }
     
