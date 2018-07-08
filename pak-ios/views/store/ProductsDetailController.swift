@@ -16,25 +16,24 @@ import FacebookLogin
 import SwiftHash
 import SideMenu
 import TTGSnackbar
-class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
-    
 
-    var item : ProductoDC? = nil
-   
+class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     @IBOutlet weak var iv_product: UIImageView!
     @IBOutlet weak var l_product_description: UILabel!
     @IBOutlet weak var l_producto_cost: UILabel!
     @IBOutlet weak var l_product_cost_total: UILabel!
     @IBOutlet weak var l_name_of_product: UILabel!
-    
     @IBOutlet weak var b_add_favoritie: UIButton!
     @IBOutlet weak var tf_cant_add_item: UITextField!
+    
+    var item : ProductDC? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
     }
-    func setElements(){
+    
+    func setElements() {
         UtilMethods.setImage(imageview: iv_product, imageurl: (self.item?.img)!, placeholderurl: "dwb-pak-logo")
         l_name_of_product.text = item?.name
         l_product_description.text = item?.descript
@@ -42,32 +41,31 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
         l_producto_cost.text = priceString
         tf_cant_add_item.addTarget(self, action: #selector(textFieldEditingDidChangeEnd), for: UIControlEvents.editingDidEnd)
         self.printFavorite()
-
     }
     
     @objc func textFieldEditingDidChangeEnd(sender: UITextField!) {
         if sender.text?.isEmpty == false {
-            
             let cant = Int64(sender.text!)!
             self.modifeTotal(cant)
         }
     }
-    func modifeTotal(_ val : Int64){
+    
+    func modifeTotal(_ val : Int64) {
         l_product_cost_total.text = "S/" + String(format : "%.2f",(Double(val) * (item?.price)!))
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func addOrDeleteFavortie(){
+    func addOrDeleteFavortie() {
         let user = ConstantsModels.static_user
         let params: Parameters
         if user != nil  {
             let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
-            params = [ "IdUsuario": idUser,
-                       "IdProducto": item?.idProduct as Any]
+            params = [ "IdUsuario": idUser, "IdProducto": item?.idProduct as Any]
         } else {
-           return
+            return
         }
         
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
@@ -102,17 +100,17 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
             self.stopAnimating()
         }
     }
-    func printFavorite(){
+    
+    func printFavorite() {
         if self.item?.favourite == true {
             b_add_favoritie.setImage(UIImage(named: "dwb_pak_button_hearth_red"), for: .normal)
         }else {
             b_add_favoritie.setImage(UIImage(named: "dwb_pak_button_hearth_gray"), for: .normal)
         }
     }
-    func addProduct(){
-        let params: Parameters = [ "IdProducto": item?.idProduct as Any,
-                                   "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID,
-                                   "Cantidad": Int(tf_cant_add_item.text!)!]
+    
+    func addProduct() {
+        let params: Parameters = [ "IdProducto": item?.idProduct as Any, "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID, "Cantidad": Int(tf_cant_add_item.text!)!]
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
@@ -147,6 +145,4 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     @IBAction func b_add_box(_ sender: Any) {
         self.addProduct()
     }
-    
-    
 }

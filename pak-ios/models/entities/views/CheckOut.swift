@@ -20,49 +20,57 @@ class CheckOut: NSObject {
     private var _date : String = ""
     private var _hourlySale : String = ""
     private var _token : String = ""
-
-    
     
     var GUID : String {
         set { _GUID = newValue }
         get { return _GUID }
     }
+    
     var address : String {
         set { _address = newValue }
         get { return _address }
     }
+    
     var reference : String {
         set { _reference = newValue }
         get { return _reference }
     }
+    
     var facturationType : String {
         set { _facturationType = newValue }
         get { return _facturationType }
     }
+    
     var ruc : String {
         set { _ruc = newValue }
         get { return _ruc }
     }
+    
     var businessName : String {
         set { _businessName = newValue }
         get { return _businessName }
     }
+    
     var fiscalAddress : String {
         set { _fiscalAddress = newValue }
         get { return _fiscalAddress }
     }
+    
     var recipentName : String {
         set { _recipentName = newValue }
         get { return _recipentName }
     }
+    
     var date : String {
         set { _date = newValue }
         get { return _date }
     }
+    
     var hourlySale : String {
         set { _hourlySale = newValue }
         get { return _hourlySale }
     }
+    
     var token : String {
         set { _token = newValue }
         get { return _token }
@@ -72,7 +80,4 @@ class CheckOut: NSObject {
         set { _district = newValue }
         get { return _district }
     }
-   
-    
-    
 }

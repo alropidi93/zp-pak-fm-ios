@@ -17,15 +17,12 @@ import Agrume
 import PlayerKit
 
 class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource  {
-   
     @IBOutlet weak var cv_detail_order: UICollectionView!
-    
     @IBOutlet weak var l_number: UILabel!
     @IBOutlet weak var l_order: UILabel!
     @IBOutlet weak var l_delivery: UILabel!
     @IBOutlet weak var l_address: UILabel!
     @IBOutlet weak var l_delivery_cancel: UILabel!
-    
     @IBOutlet weak var l_subtotal: UILabel!
     @IBOutlet weak var l_delivery_cost: UILabel!
     @IBOutlet weak var l_total: UILabel!
@@ -36,47 +33,42 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     var itemId : Int = -1
     var items : [ItemOrderDC] = []
     var order : OrderDC? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func setElements(){
+    func setElements() {
         self.getOrder()
         self.cv_detail_order.delegate = self
         self.cv_detail_order.dataSource = self
     }
-    func setLabels(){
+    
+    func setLabels() {
         l_number.text = "\(String(describing: order?.number ?? 0))"
-          l_address.text = order?.address
+        l_address.text = order?.address
         if type == 1{
-            
             l_order.text = order?.dateToRecive
             l_delivery.text = (order?.dateOfDelivery)! + " " + (order?.distributionHour?.iniHour)! + "-" + (order?.distributionHour?.endHour)!
-         
         } else if type == 2{
             l_order.text = order?.dateToRecive
             l_delivery.text = order?.dateCancel
         } else if type == 3{
             l_delivery_cancel.text = "Anulado"
-
             l_order.text = order?.dateToRecive
             l_delivery.text = order?.dateCancel
-          
-            
         }
-        
         
         l_subtotal.text = "\(String(describing: order?.subTotal ?? 0))"
         l_delivery_cost.text = "\(String(describing: order?.deliveryCost ?? 0))"
         l_total.text = "\(String(describing: order?.total ?? 0))"
-
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
@@ -96,8 +88,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     func getOrder() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
-        let params: Parameters = [ "Numero": itemId
-        ]
+        let params: Parameters = [ "Numero": itemId ]
         
         Alamofire.request(URLs.GerOrder, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -118,7 +109,6 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                         }
                         self.setLabels()
                         self.cv_detail_order.reloadData()
-
                     }
                 }
             } else {
@@ -133,3 +123,4 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         }
     }
 }
+

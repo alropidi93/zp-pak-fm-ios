@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 import SideMenu
 
-
-
 extension UIViewController : UISearchBarDelegate {
     func fullKeyboardSupport() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
@@ -51,7 +49,6 @@ extension UIViewController : UISearchBarDelegate {
         self.navigationItem.titleView = navView
         navView.sizeToFit()
         
-    
         let notificationButton = SSBadgeButton()
         notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -61,8 +58,6 @@ extension UIViewController : UISearchBarDelegate {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
     }
-    
-    
     
     func customizeNavigationBarWithSearch() {
         self.navigationController?.navigationBar.topItem?.title = " "
@@ -112,7 +107,6 @@ extension UIViewController : UISearchBarDelegate {
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         SideMenuManager.default.menuPresentMode = .menuSlideIn
         SideMenuManager.default.menuWidth = view.frame.width * CGFloat(0.8)
-        
     }
     
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {

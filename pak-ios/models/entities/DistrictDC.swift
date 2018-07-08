@@ -9,8 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class DistrictDC : NSObject ,NSCoding{
-    
+class DistrictDC : NSObject, NSCoding {
     private var _idDistrict: UInt64 = 0
     private var _name: String = ""
     private var _deliveryArrives: Bool = true
@@ -18,7 +17,7 @@ class DistrictDC : NSObject ,NSCoding{
     override init() {
     }
     
-    init(_ jsonDistrict: JSON){
+    init(_ jsonDistrict: JSON) {
         super.init()
         self._idDistrict = jsonDistrict["IdDistrito"].uInt64 ?? self._idDistrict
         self._name = jsonDistrict["Nombre"].string ?? self._name
@@ -51,8 +50,4 @@ class DistrictDC : NSObject ,NSCoding{
         set { _deliveryArrives = newValue}
         get {return _deliveryArrives}
     }
-    
-
-   
-
 }

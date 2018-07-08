@@ -9,7 +9,6 @@
 import UIKit
 
 class SSBadgeButton: UIButton {
-    
     var badgeLabel = UILabel()
     
     var badge: String? {

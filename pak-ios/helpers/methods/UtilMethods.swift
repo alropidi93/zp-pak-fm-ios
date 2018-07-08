@@ -82,6 +82,7 @@ class UtilMethods {
         formattedDate = dateFormatter.string(from: dateToFormat)
         return formattedDate
     }
+    
     static func formatDateMY(_ dateToFormat : Date) -> String {
         var formattedDate : String = ""
         let dateFormatter = DateFormatter()
@@ -92,9 +93,7 @@ class UtilMethods {
     
     static func DateToString(_ date : String) -> String {
         var month : String = ""
-        
         switch (date) {
-            
         case "Jan":
             month = "01"
             return month
@@ -139,9 +138,7 @@ class UtilMethods {
     
     static func DateIntToString(_ date : String) -> String {
         var month : String = ""
-        
         switch (date) {
-            
         case "01":
             month = "Jan"
             return month
@@ -183,6 +180,7 @@ class UtilMethods {
             return month
         }
     }
+    
     static func dateSplit(_ dateToFormat : String) -> String {
         let date : [String] = dateToFormat.components(separatedBy: "/")
         let day : String = date[1]
@@ -192,10 +190,8 @@ class UtilMethods {
         return date2
     }
     static func dateToSlash(_ dateToFormat : String) -> String {
-        
         let date : [String] = dateToFormat.components(separatedBy: "-")
         let day : String = date[0]
-        
         let month : String = DateToString(date[1])
         let year : String = date[2]
         let date2: String = day + "/" + month + "/" + year
@@ -205,13 +201,10 @@ class UtilMethods {
     
     static func formatDate(dateFromInt : Int) -> String {
         let years = dateFromInt / 10000
-        
         let months = (dateFromInt % 10000) / 100
         let truemonths = months<10 ? "0\(months)" : "\(months)"
-        
         let days = dateFromInt % 100
         let truedays = days<10 ? "0\(days)" : "\(days)"
-        
         return "\(truedays)-\(truemonths)-\(years)"
     }
     
@@ -220,6 +213,7 @@ class UtilMethods {
         dateFormatter.dateFormat = "dd/MM/yyyy-HH:mm:ss"
         return dateFormatter.date(from : data)!
     }
+    
     static func presentationTime(_ time : Int) -> String {
         if time < 10 {
             return "0\(time)"
@@ -235,5 +229,5 @@ class UtilMethods {
             return 0
         }
     }
-    
 }
+

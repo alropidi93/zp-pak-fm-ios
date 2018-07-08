@@ -16,26 +16,25 @@ import Agrume
 import PlayerKit
 
 class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource {
-    
     @IBOutlet weak var cv_delivery: UICollectionView!
+    
     let filtre : Int = 1
     var items : [OrderDC] = []
     let segue_identifier = "segue_delivery_todetail"
-
+    
     private let reuse_identifier = "cvc_delivery"
     var item : Int = -1
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func setElements(){
+    func setElements() {
         self.ToDeliver()
         
         self.cv_delivery.delegate = self
@@ -46,8 +45,7 @@ class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UIC
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
-    //29/06/2018 21:06:04
-    //    01/07/2018
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCDeliver
         cell.l_total.text = "S/" + String(format : "%.2f",(self.items[indexPath.item].total))
@@ -73,16 +71,12 @@ class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.item = Int(items[indexPath.item].number)
         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
-        
-        
     }
+    
     func ToDeliver() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
-        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
-                                   "Estado": "E" ,
-                                   "FiltroMeses" : self.filtre
-        ]
+        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "Estado": "E" , "FiltroMeses" : self.filtre ]
         
         Alamofire.request(URLs.ListOrders, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -100,8 +94,6 @@ class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UIC
                             let order  = OrderDC(element)
                             self.items.append(order)
                         }
-                     
-
                         self.cv_delivery.reloadData()
                     }
                 }
@@ -116,6 +108,7 @@ class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UIC
             self.stopAnimating()
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segue_identifier {
             if let vc = segue.destination as? DetailOrderController {
@@ -125,3 +118,4 @@ class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UIC
         }
     }
 }
+

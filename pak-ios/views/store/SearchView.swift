@@ -17,28 +17,26 @@ import SwiftHash
 import SideMenu
 import TTGSnackbar
 class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable {
-
     let segue_identifier : String = "segue_product_detail"
     private let reuse_identifier = "cvc_search_item"
+    
     var text:String = ""
     var cant = 0
-
+    
     let notificationButton = SSBadgeButton()
     
     @IBOutlet weak var l_search_word: UILabel!
     @IBOutlet weak var cv_search: UICollectionView!
-   
-    private var items : [ProductoDC] = []
-    var item : ProductoDC? = nil
     
-    
+    private var items : [ProductDC] = []
+    var item : ProductDC? = nil
     var indexPath : IndexPath? = nil
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         customizeNavigationBarSearch()
-
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.l_search_word.text = self.text
@@ -49,7 +47,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         super.didReceiveMemoryWarning()
     }
     
-    func setElements(){
+    func setElements() {
         self.cv_search.delegate = self
         self.cv_search.dataSource = self
         let bgImage = UIImageView();
@@ -88,25 +86,27 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         cell.b_favorites.addTarget(self, action: #selector(buttonFavorite), for: .touchUpInside)
         return cell
     }
-    @objc func connected(_ sender:AnyObject){
+    
+    @objc func connected(_ sender:AnyObject) {
         self.item = items[sender.view.tag]
         print("you tap image number : \(sender.view.tag)")
         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
         //Your code for navigate to another viewcontroller
     }
+    
     @objc func buttonFavorite(sender: UIButton!) {
-        let product : ProductoDC = items[sender.tag]
+        let product : ProductDC = items[sender.tag]
         addOrDeleteFavortie(product,sender.tag)
     }
-    func addOrDeleteFavortie(_ product : ProductoDC, _ index : Int){
-        
+    
+    func addOrDeleteFavortie(_ product : ProductDC, _ index : Int) {
         let user = ConstantsModels.static_user
         var params : Parameters
         if user != nil  {
             let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
             params =  [ "IdUsuario": idUser,
-              "IdProducto": product.idProduct,
-              ]
+                        "IdProducto": product.idProduct,
+            ]
         } else {
             return
         }
@@ -131,7 +131,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                         }
                         let indexPath = IndexPath(item: index, section: 0)
                         self.cv_search.reloadItems(at: [indexPath])
-                  }
+                    }
                 }
             } else {
                 if let jsonResponse = response.result.value {
@@ -146,19 +146,17 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     @objc func buttonAdd(sender: UIButton!) {
-        let product : ProductoDC = items[sender.tag]
+        let product : ProductDC = items[sender.tag]
         addProduct(product)
-        
     }
-    func addProduct(_ product : ProductoDC){
-        let params: Parameters = [ "IdProducto": product.idProduct,
-                                   "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID,
-                                   "Cantidad": 1]
+    
+    func addProduct(_ product : ProductDC) {
+        let params: Parameters = [ "IdProducto": product.idProduct, "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID, "Cantidad": 1]
         print(product.idProduct)
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
-              
+                
                 return
             }
             let statusCode = response.response!.statusCode
@@ -173,13 +171,10 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                         snackbar.show()
                         ConstantsModels.count_item = ConstantsModels.count_item + 1
                         self.notificationButton.badge = "\(ConstantsModels.count_item) "
-
                         self.cv_search.reloadData()
-                        
                     }
                 }
             } else {
-                
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
@@ -191,13 +186,12 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     func getProducts() {
-        
         let user = ConstantsModels.static_user
         var params : Parameters
         if user != nil  {
             let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
             params = [ "IdUsuario": idUser,
-            "Search": self.text]
+                       "Search": self.text]
         } else {
             params = [ "Search": self.text ]
         }
@@ -216,7 +210,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                     if jsonResult["Msg"] == "OK"{
                         self.items = []
                         for ( _ , element) in jsonResult["Productos"] {
-                            let producto  = ProductoDC(element)
+                            let producto  = ProductDC(element)
                             self.items.append(producto)
                         }
                         self.cv_search.reloadData()
@@ -241,18 +235,15 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
             }
         }
     }
+    
     func customizeNavigationBarSearch( ) {
         self.navigationController?.navigationBar.topItem?.title = "Resultados de busqueda"
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        
-     
         notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
         notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
         notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
         notificationButton.badge = "\(ConstantsModels.count_item) "
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
-    }
-    
+    }    
 }

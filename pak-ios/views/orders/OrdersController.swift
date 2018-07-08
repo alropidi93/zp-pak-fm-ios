@@ -13,14 +13,12 @@ import Pageboy
 import SideMenu
 
 class OrdersController : TabmanViewController, PageboyViewControllerDataSource {
-    
     var searchWord : String = ""
     
     private let viewControllers : [UIViewController] = [
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "vc_to_deliver"),
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "vc_deliver"),
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "vc_canceled")
-
     ]
     
     var visibleControllerIndex : Int = -1
@@ -33,23 +31,17 @@ class OrdersController : TabmanViewController, PageboyViewControllerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
-     
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-
-    
     func setElements() {
         self.dataSource = self
         self.bar.items = [Item(title: "Por Entregar"), Item(title: "Entregados"), Item(title: "Anulados")]
         customizeTabBar()
     }
-    
-    
-
     
     /* #MARK: Tabman methods and customization */
     func customizeTabBar() {
@@ -72,13 +64,10 @@ class OrdersController : TabmanViewController, PageboyViewControllerDataSource {
     
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
         self.visibleControllerIndex = index
-        
         return viewControllers[index]
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
-    
-   
 }

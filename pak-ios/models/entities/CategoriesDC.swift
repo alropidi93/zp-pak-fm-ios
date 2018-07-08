@@ -18,12 +18,10 @@ class CategoriesDC  : NSObject  {
     private var _list : [ListDC] = []
     private var _category : [CategoriesDC] = []
 
-    
-    
     override init() {
     }
     
-    init(_ jsonCategory: JSON){
+    init(_ jsonCategory: JSON) {
         super.init()
         self._idCategory = jsonCategory["IdCategoria"].int64 ?? self._idCategory
         self._name = jsonCategory["Nombre"].string ?? self._name
@@ -38,7 +36,6 @@ class CategoriesDC  : NSObject  {
             self._category.append(_item)
         }
     }
-    
     
     var idCategory : Int64 {
         set { _idCategory = newValue }
@@ -62,7 +59,4 @@ class CategoriesDC  : NSObject  {
         set { _category = newValue }
         get { return _category }
     }
-    
-    
-    
 }

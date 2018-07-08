@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 
-class UserDC :  NSObject ,NSCoding{
+class UserDC : NSObject, NSCoding {
     // #MARK: Variables
     private var _idUser: UInt64 = 0
     private var _userName: String = ""

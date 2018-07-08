@@ -15,34 +15,29 @@ class ListDC  : NSObject {
     private var _name: String = ""
     private var _sort : Int64 = 0
     private var _idCatgory : Int64 = 0
-    private var _product : [ProductoDC] = []
+    private var _product : [ProductDC] = []
     
     // Utility extras
-    
-    
     override init() {
-        
     }
     
-    init(_ jsonList: JSON){
+    init(_ jsonList: JSON) {
         super.init()
         self._idList = jsonList["IdLista"].int64 ?? self._idList
         self._name = jsonList["Nombre"].string ?? self._name
         self._sort = jsonList["Orden"].int64 ?? self._sort
         self._idCatgory = jsonList["IdCategoria"].int64 ?? self._idCatgory
 
-        for (_, subJson) in jsonList["Productos"]{
-            let _item = ProductoDC(subJson);
+        for (_, subJson) in jsonList["Productos"] {
+            let _item = ProductDC(subJson);
             self._product.append(_item)
         }
     }
-    
     
     var idList : Int64 {
         set { _idList = newValue }
         get { return _idList }
     }
-    
     
     var name : String {
         set { _name = newValue }
@@ -59,10 +54,8 @@ class ListDC  : NSObject {
         get { return _idCatgory }
     }
     
-    var product : [ProductoDC] {
+    var product : [ProductDC] {
         set { _product = newValue }
         get { return _product }
     }
-    
-    
 }

@@ -18,25 +18,23 @@ import PlayerKit
 class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var cv_to_delivery: UICollectionView!
     
-    let segue_identifier = "segue_todelivery_todetail"
-
+    private let segue_identifier = "segue_todelivery_todetail"
+    private let reuse_identifier = "cvc_todelivery"
+    
     let filtre : Int = 1
     var items : [OrderDC] = []
-    
     var item : Int = -1
-    private let reuse_identifier = "cvc_todelivery"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func setElements(){
+    func setElements() {
         self.ToDeliver()
         
         self.cv_to_delivery.delegate = self
@@ -47,8 +45,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
-    //29/06/2018 21:06:04
-//    01/07/2018
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCToDeliver
         cell.l_total.text = "S/" + String(format : "%.2f",(self.items[indexPath.item].total))
@@ -72,24 +69,18 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
             cell.ui_cancel.isHidden = false
             cell.l_cancel.isHidden = false
         }
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.item = Int(items[indexPath.item].number)
         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
-
-       
     }
     
     func ToDeliver() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
-        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
-                                   "Estado": "P" ,
-                                   "FiltroMeses" : self.filtre
-        ]
+        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "Estado": "P" , "FiltroMeses" : self.filtre]
         
         Alamofire.request(URLs.ListOrders, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -107,7 +98,6 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
                             let order  = OrderDC(element)
                             self.items.append(order)
                         }
-                      
                         self.cv_to_delivery.reloadData()
                     }
                 }
@@ -131,6 +121,5 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
             }
         }
     }
-    
-    
 }
+

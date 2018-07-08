@@ -15,19 +15,17 @@ import SwiftHash
 import SideMenu
 
 class FavouriteController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable {
-    
     private let reuse_identifier = "cvc_favourite_item"
-    
     
     @IBOutlet weak var cv_favorite: UICollectionView!
     
+    private var items : [ProductDC] = []
     
-    private var items : [ProductoDC] = []
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         customizeNavigationBarFavourite()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
@@ -36,10 +34,10 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    func setElements(){
+    
+    func setElements() {
         self.cv_favorite.delegate = self
         self.cv_favorite.dataSource = self
-        
         getFavourite()
     }
     
@@ -58,18 +56,18 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         cell.b_favorites.addTarget(self, action: #selector(buttonFavorite), for: .touchUpInside)
         return cell
     }
+    
     @objc func buttonFavorite(sender: UIButton!) {
-        let product : ProductoDC = items[sender.tag]
+        let product : ProductDC = items[sender.tag]
         addOrDeleteFavortie(product,sender.tag)
-        
     }
-    func addOrDeleteFavortie(_ product : ProductoDC, _ index : Int){
+    
+    func addOrDeleteFavortie(_ product : ProductDC, _ index : Int) {
         let user = ConstantsModels.static_user
         let params: Parameters
         if user != nil  {
             let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
-            params = [ "IdUsuario": idUser,
-                       "IdProducto": product.idProduct]
+            params = [ "IdUsuario": idUser, "IdProducto": product.idProduct]
         } else {
             return
         }
@@ -102,16 +100,17 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
             self.stopAnimating()
         }
     }
+    
     @objc func buttonAdd(sender: UIButton!) {
-        let product : ProductoDC = items[sender.tag]
+        let product : ProductDC = items[sender.tag]
         addProduct(product)
-        
     }
-    func addProduct(_ product : ProductoDC){
+    
+    func addProduct(_ product : ProductDC) {
         let params: Parameters = [ "IdProducto": product.idProduct,
                                    "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID,
                                    "Cantidad": 1]
-       
+        
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
@@ -140,14 +139,14 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
             self.stopAnimating()
         }
     }
-
+    
     func getFavourite() {
         var params : Parameters
         let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
-            print(idUser)
-            params = [ "IdUsuario": idUser]
-            print("holaaa")
-       
+        print(idUser)
+        params = [ "IdUsuario": idUser]
+        print("holaaa")
+        
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         Alamofire.request(URLs.ListFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
@@ -164,7 +163,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                     if jsonResult["Msg"] == "OK"{
                         self.items = []
                         for ( _ , element) in jsonResult["Productos"] {
-                            let producto  = ProductoDC(element)
+                            let producto  = ProductDC(element)
                             self.items.append(producto)
                         }
                         self.cv_favorite.reloadData()
@@ -181,5 +180,4 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
             self.stopAnimating()
         }
     }
-    
 }

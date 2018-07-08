@@ -14,7 +14,7 @@ class TVCListProducts : UITableViewCell, UICollectionViewDelegate, UICollectionV
     @IBOutlet weak var l_name_brand: UILabel!
     
     //    let segue_identifier = "segue_todelivery_todetail"
-    var items : [ProductoDC] = []
+    var items : [ProductDC] = []
     var item : Int = -1
     
     private let reuse_identifier = "cvc_product"

@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 import AVKit
 
-class ItemOrderDC  : NSObject {
+class ItemOrderDC: NSObject {
     private var _idItemPedido: Int64 = 0
     private var _SKU: String = ""
     private var _name : String = ""
@@ -33,12 +33,10 @@ class ItemOrderDC  : NSObject {
         self._description = jsonOrder["Descripcion"].string ?? self._description
     }
     
-    
     var idItemPedido : Int64 {
         set { _idItemPedido = newValue }
         get { return _idItemPedido }
     }
-    
     
     var SKU : String {
         set { _SKU = newValue }
@@ -59,6 +57,7 @@ class ItemOrderDC  : NSObject {
         set { _price = newValue }
         get { return _price }
     }
+    
     var totalPrice : Double {
         set { _totalPrice = newValue }
         get { return _totalPrice }

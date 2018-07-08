@@ -6,12 +6,9 @@
 //  Copyright © 2018 Paolo Rossi. All rights reserved.
 //
 
-
 import Foundation
 
 class PreferencesMethods {
-    
-    
     static func getSmallBoxFromOptions() -> SmallBoxDC? {
         let defaults = UserDefaults.standard
         let data = defaults.data(forKey: "smallBoxData")
@@ -32,8 +29,6 @@ class PreferencesMethods {
         let defaults = UserDefaults.standard
         defaults.set(nil, forKey: "smallBoxData")
     }
-    
-    
     
     static func getAccessTokenFromOptions() -> String? {
         let defaults = UserDefaults.standard
@@ -57,7 +52,6 @@ class PreferencesMethods {
         
     }
     
-    
     static func getIdFromOptions() -> UInt64? {
         let defaults = UserDefaults.standard
         let data = defaults.data(forKey: "idUser")
@@ -77,7 +71,6 @@ class PreferencesMethods {
     static func deleteIdFromOptions() {
         let defaults = UserDefaults.standard
         defaults.set(nil, forKey: "idUser")
-        
     }
     
     static func saveFirstTime() {

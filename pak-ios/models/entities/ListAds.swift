@@ -11,12 +11,11 @@ import SwiftyJSON
 
 class ListAds  : NSObject {
     private var _listAds: [Ads] = []
-
     
     override init() {
     }
     
-    init(_ jsonListAds: JSON){
+    init(_ jsonListAds: JSON) {
         super.init()
         for (_, subJson) in jsonListAds["Anuncios"]{
             let _Ad = Ads(subJson);
@@ -28,5 +27,4 @@ class ListAds  : NSObject {
         set { _listAds = newValue }
         get { return _listAds }
     }
-    
 }

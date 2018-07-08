@@ -16,14 +16,11 @@ import Agrume
 import PlayerKit
 
 class InitialController : UIViewController , UITableViewDataSource, UITableViewDelegate, NVActivityIndicatorViewable {
-    
     private let segue_identifier = "segue_splash_login"
-    
-    
-    @IBOutlet weak var tv_publicity: UITableView!
-    
     private let reuse_question = "tvc_publicity_image"
     private let reuse_placeholder = "tvc_placeholder"
+    
+    @IBOutlet weak var tv_publicity: UITableView!
     
     private var allItems : [Ads] = []
     
@@ -37,7 +34,7 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
         super.didReceiveMemoryWarning()
     }
     
-    func setElements(){
+    func setElements() {
         self.tv_publicity.delegate = self
         self.tv_publicity.dataSource = self
         self.getAds()
@@ -65,24 +62,19 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TVCPublicityImage
         if self.allItems.item(at: indexPath.row)?.type == "V" { // Videos
-           
-          
-            
-            let videoURL = URL(string: (allItems.item(at: indexPath.row)?.archive)!)
+           let videoURL = URL(string: (allItems.item(at: indexPath.row)?.archive)!)
             let player = AVPlayer(url: videoURL!)
             let videoPlayer = AVPlayerViewController()
             videoPlayer.player = player
             present(videoPlayer,animated:true,completion:{
                     player.play()
                 }
-           
             )
         } else { // Images
             let agrume = Agrume(image: (cell.iv_publicity_image?.image)!, background: .colored(.black))
             agrume.show(from: self)
         }
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(250.0)
@@ -121,7 +113,4 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
             self.stopAnimating()
         }
     }
-    
 }
-
-

@@ -10,17 +10,16 @@ import Foundation
 import SwiftyJSON
 
 class DiscountDC : NSObject ,NSCoding {
-
     private var _percentage : Double = 0.0
     private var _caducityDate : String = ""
     private var _status : String = ""
     private var _detail : String = ""
     private var _detailName : String = ""
     
-    override init(){
+    override init() {
     }
     
-    init(_ jsonDiscount: JSON){
+    init(_ jsonDiscount: JSON) {
         super.init()
         self._percentage = jsonDiscount["Porcentaje"].double ?? self._percentage
         self._caducityDate = jsonDiscount["FechaCaducidad"].string ?? self._caducityDate
@@ -29,17 +28,14 @@ class DiscountDC : NSObject ,NSCoding {
         self._detailName = jsonDiscount["NombreMotivo"].string ?? self._detailName
     }
     
-    required init(coder decoder: NSCoder) {         // PREFERENCES
+    required init(coder decoder: NSCoder) {
         super.init()
         self._percentage = decoder.decodeObject(forKey: "Porcentaje") as? Double ?? self._percentage
         self._caducityDate = decoder.decodeObject(forKey: "FechaCaducidad") as? String ?? self._caducityDate
         self._status = decoder.decodeObject(forKey: "Estado") as? String ?? self._status
         self._detail = decoder.decodeObject(forKey: "Motivo") as? String ?? self._detail
         self._detailName = decoder.decodeObject(forKey: "NombreMotivo") as? String ?? self._detailName
-       
-        
     }
-    
     
     func encode(with coder: NSCoder) {//
         coder.encode(_percentage, forKey: "Porcentaje")
@@ -47,10 +43,9 @@ class DiscountDC : NSObject ,NSCoding {
         coder.encode(_status, forKey: "Estado")
         coder.encode(_detail, forKey: "Motivo")
         coder.encode(_detailName, forKey: "NombreMotivo")
-       
     }
     
-    var percentage :Double{
+    var percentage :Double {
         set { _percentage = newValue }
         get { return _percentage }
     }
@@ -74,5 +69,4 @@ class DiscountDC : NSObject ,NSCoding {
         set { _detailName = newValue }
         get { return _detailName }
     }
-    
 }

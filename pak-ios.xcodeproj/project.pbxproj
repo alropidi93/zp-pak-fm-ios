@@ -53,8 +53,8 @@
 		7094FE9D20B2B14100511297 /*  FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094FE9C20B2B14100511297 /*  FavouriteController.swift */; };
 		7094FE9F20B2B25900511297 /* CVCFavouriteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094FE9E20B2B25900511297 /* CVCFavouriteItem.swift */; };
 		7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7097EC6220A5FBEB008E1C9E /* CVCCategory.swift */; };
-		7097EC6520A60FA2008E1C9E /* CatagoriesDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7097EC6420A60FA2008E1C9E /* CatagoriesDC.swift */; };
-		709A334420AE0FC1003AB207 /* ProductoDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709A334320AE0FC1003AB207 /* ProductoDC.swift */; };
+		7097EC6520A60FA2008E1C9E /* CategoriesDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7097EC6420A60FA2008E1C9E /* CategoriesDC.swift */; };
+		709A334420AE0FC1003AB207 /* ProductDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709A334320AE0FC1003AB207 /* ProductDC.swift */; };
 		709D48F520EB0E2000B990DE /* CVCDetailOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D48F420EB0E2000B990DE /* CVCDetailOrder.swift */; };
 		709D48F720EB12AD00B990DE /* DetailOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D48F620EB12AD00B990DE /* DetailOrderController.swift */; };
 		709D48F920EB54FD00B990DE /* PakAlertCancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D48F820EB54FD00B990DE /* PakAlertCancel.swift */; };
@@ -82,7 +82,7 @@
 		70D525A520915B91004EB51E /* UtilMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A420915B91004EB51E /* UtilMethods.swift */; };
 		70D525A820915C58004EB51E /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A720915C58004EB51E /* Urls.swift */; };
 		70D525AA20915C6A004EB51E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A920915C6A004EB51E /* Constants.swift */; };
-		70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525AB209163E9004EB51E /* AlomoMethods.swift */; };
+		70D525AC209163E9004EB51E /* AlamoMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525AB209163E9004EB51E /* AlamoMethods.swift */; };
 		70D5F0ED209B78A400EE673B /* OutMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0EC209B78A400EE673B /* OutMainController.swift */; };
 		70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0EE209B7A4300EE673B /* InitialController.swift */; };
 		70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0F0209B7AA700EE673B /* StoreController.swift */; };
@@ -145,8 +145,8 @@
 		7094FE9C20B2B14100511297 /*  FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " FavouriteController.swift"; sourceTree = "<group>"; };
 		7094FE9E20B2B25900511297 /* CVCFavouriteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCFavouriteItem.swift; sourceTree = "<group>"; };
 		7097EC6220A5FBEB008E1C9E /* CVCCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCCategory.swift; sourceTree = "<group>"; };
-		7097EC6420A60FA2008E1C9E /* CatagoriesDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoriesDC.swift; sourceTree = "<group>"; };
-		709A334320AE0FC1003AB207 /* ProductoDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoDC.swift; sourceTree = "<group>"; };
+		7097EC6420A60FA2008E1C9E /* CategoriesDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDC.swift; sourceTree = "<group>"; };
+		709A334320AE0FC1003AB207 /* ProductDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDC.swift; sourceTree = "<group>"; };
 		709D48F420EB0E2000B990DE /* CVCDetailOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCDetailOrder.swift; sourceTree = "<group>"; };
 		709D48F620EB12AD00B990DE /* DetailOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrderController.swift; sourceTree = "<group>"; };
 		709D48F820EB54FD00B990DE /* PakAlertCancel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCancel.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		70D525A420915B91004EB51E /* UtilMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilMethods.swift; sourceTree = "<group>"; };
 		70D525A720915C58004EB51E /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		70D525A920915C6A004EB51E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		70D525AB209163E9004EB51E /* AlomoMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlomoMethods.swift; sourceTree = "<group>"; };
+		70D525AB209163E9004EB51E /* AlamoMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoMethods.swift; sourceTree = "<group>"; };
 		70D5F0EC209B78A400EE673B /* OutMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutMainController.swift; sourceTree = "<group>"; };
 		70D5F0EE209B7A4300EE673B /* InitialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialController.swift; sourceTree = "<group>"; };
 		70D5F0F0209B7AA700EE673B /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
@@ -358,7 +358,7 @@
 				70A3BE35208F7F97008C972C /* PreferencesMethods.swift */,
 				70D5259F20915709004EB51E /* AlarmMethods.swift */,
 				70D525A420915B91004EB51E /* UtilMethods.swift */,
-				70D525AB209163E9004EB51E /* AlomoMethods.swift */,
+				70D525AB209163E9004EB51E /* AlamoMethods.swift */,
 			);
 			path = methods;
 			sourceTree = "<group>";
@@ -442,7 +442,7 @@
 		70A3BE37208F7FE9008C972C /* entities */ = {
 			isa = PBXGroup;
 			children = (
-				70B88D0F20DD5AD100D97816 /* modelAsView */,
+				70B88D0F20DD5AD100D97816 /* views */,
 				70A3BE38208F8003008C972C /* UserDC.swift */,
 				70DF102A208FE8E200EDB1FA /* DistrictDC.swift */,
 				70F54C9620901210003175AA /* SmallBoxDC.swift */,
@@ -450,8 +450,8 @@
 				70F54C9A2090176B003175AA /* DiscountDC.swift */,
 				70C9ED1E209D140D0096B656 /* ListAds.swift */,
 				70C9ED20209D14460096B656 /* Ads.swift */,
-				7097EC6420A60FA2008E1C9E /* CatagoriesDC.swift */,
-				709A334320AE0FC1003AB207 /* ProductoDC.swift */,
+				7097EC6420A60FA2008E1C9E /* CategoriesDC.swift */,
+				709A334320AE0FC1003AB207 /* ProductDC.swift */,
 				70242A9720D914E600F89299 /* ListDC.swift */,
 				708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */,
 				708AC99B20E039E2004BD8FD /* DistributionHour.swift */,
@@ -470,12 +470,12 @@
 			path = "side menu";
 			sourceTree = "<group>";
 		};
-		70B88D0F20DD5AD100D97816 /* modelAsView */ = {
+		70B88D0F20DD5AD100D97816 /* views */ = {
 			isa = PBXGroup;
 			children = (
 				70B88D1020DD5AE300D97816 /* CheckOut.swift */,
 			);
-			path = modelAsView;
+			path = views;
 			sourceTree = "<group>";
 		};
 		70D5259E20913FA1004EB51E /* authentication */ = {
@@ -740,7 +740,7 @@
 				70242A9A20D937B600F89299 /* PageObservation.swift in Sources */,
 				7050F22C20E5BBD3001DFF10 /* ConstantsModels.swift in Sources */,
 				709D48F720EB12AD00B990DE /* DetailOrderController.swift in Sources */,
-				70D525AC209163E9004EB51E /* AlomoMethods.swift in Sources */,
+				70D525AC209163E9004EB51E /* AlamoMethods.swift in Sources */,
 				7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */,
 				70C6D13B20E988B100560D7C /* CVCToDeliver.swift in Sources */,
 				70A4254520CDC31A005B00AC /* ProductsDetailController.swift in Sources */,
@@ -765,7 +765,7 @@
 				709D48F520EB0E2000B990DE /* CVCDetailOrder.swift in Sources */,
 				700C7C7720D88BFF000FD7E5 /* SubCategoriesController.swift in Sources */,
 				70A3BE39208F8003008C972C /* UserDC.swift in Sources */,
-				709A334420AE0FC1003AB207 /* ProductoDC.swift in Sources */,
+				709A334420AE0FC1003AB207 /* ProductDC.swift in Sources */,
 				7053BB7F20E729C900C5A277 /* BadgedExtension.swift in Sources */,
 				70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */,
 				707B8F6520B4F3E600FC7848 /* CVCSmallBoxItem.swift in Sources */,
@@ -790,7 +790,7 @@
 				70D525A020915709004EB51E /* AlarmMethods.swift in Sources */,
 				70B88D1120DD5AE300D97816 /* CheckOut.swift in Sources */,
 				70D525A520915B91004EB51E /* UtilMethods.swift in Sources */,
-				7097EC6520A60FA2008E1C9E /* CatagoriesDC.swift in Sources */,
+				7097EC6520A60FA2008E1C9E /* CategoriesDC.swift in Sources */,
 				70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */,
 				705677E320E80C36007AFD71 /* TVCListProducts.swift in Sources */,
 				7050F22A20E2F9CB001DFF10 /* CVCSmallBoxPayment.swift in Sources */,

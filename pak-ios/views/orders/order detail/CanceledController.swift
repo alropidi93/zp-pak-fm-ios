@@ -17,8 +17,8 @@ import Agrume
 import PlayerKit
 
 class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICollectionViewDelegate, UICollectionViewDataSource {
-    
     @IBOutlet weak var cv_cancel: UICollectionView!
+
     let filtre : Int = 1
     var items : [OrderDC] = []
     let segue_identifier = "segue_cancel_todetail"
@@ -29,16 +29,14 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func setElements(){
+    func setElements() {
         self.ToDeliver()
-        
         self.cv_cancel.delegate = self
         self.cv_cancel.dataSource = self
     }
@@ -73,16 +71,12 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.item = Int(items[indexPath.item].number)
         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
-        
-        
     }
+    
     func ToDeliver() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
-        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
-                                   "Estado": "A" ,
-                                   "FiltroMeses" : self.filtre
-        ]
+        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "Estado": "A" , "FiltroMeses" : self.filtre ]
         
         Alamofire.request(URLs.ListOrders, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -114,6 +108,7 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
             self.stopAnimating()
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segue_identifier {
             if let vc = segue.destination as? DetailOrderController {

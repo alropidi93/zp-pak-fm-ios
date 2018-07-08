@@ -18,7 +18,6 @@ import SideMenu
 
 class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable{
     @IBOutlet weak var emptyImg: UIView!
-    
     @IBOutlet weak var b_buying: UIButton!
     @IBOutlet weak var dwb_pak_button_detail_white_arrow_down: UIImageView!
     @IBOutlet weak var v_head: UIView!
@@ -38,6 +37,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     private var deliveryCost : Double = 0.0
     private var subTotal : Double = 0.0
     private var discount : Double = 0.0
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -73,18 +73,15 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     
     @objc func textFieldEditingDidChangeEnd(sender: UITextField!) {
         if sender.text?.isEmpty == false {
-            
             let cant = UInt64(sender.text!)!
             modifyItemSmallBox(items[sender.tag],cant)
-            
-            }
+        }
     }
     
-    func modifyItemSmallBox(_ itemProduct:ItemSmallBoxDC , _ cant : UInt64){
-        
+    func modifyItemSmallBox(_ itemProduct:ItemSmallBoxDC , _ cant : UInt64) {
         let params : Parameters = [ "IdProducto": itemProduct.idProduct,
-                       "Cantidad":cant,
-                       "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
+                                    "Cantidad":cant,
+                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         Alamofire.request(URLs.ModifySmallBox , method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -113,9 +110,8 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
             self.stopAnimating()
         }
     }
- 
     
-    func setElements(){
+    func setElements() {
         self.cv_item_list.delegate = self
         self.cv_item_list.dataSource = self
         getGUID()
@@ -124,7 +120,6 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     func showOrHidenItems(){
         if items.count > 0 {
             self.emptyImg.isHidden = true
-            
             self.b_buying.isHidden = false
             self.dwb_pak_button_detail_white_arrow_down.isHidden = false
             self.v_head.isHidden = false
@@ -142,7 +137,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
-    func setSubTotal(){
+    func setSubTotal() {
         self.subTotal = 0
         for element in self.items {
             self.subTotal = self.subTotal + (element.price * Double(element.cant))
@@ -194,7 +189,6 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
             self.stopAnimating()
         }
     }
-
     
     func getDataDelivery() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
@@ -240,8 +234,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         
     }
     
-    func customAlertPayment(){
-        
+    func customAlertPayment() {
         let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "alert_payment") as! AlertViewPayment
         customAlert.definesPresentationContext = true
         customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
@@ -250,9 +243,9 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         self.present(customAlert, animated: true, completion: nil)
     }
     
-    func navBarLabelWithImg(){
+    func navBarLabelWithImg() {
         self.navigationController?.navigationBar.shadowImage = UIImage()
-
+        
         let navView = UIView()
         let label = UILabel()
         label.text = "  Mi cajita"
@@ -270,3 +263,4 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         navView.sizeToFit()
     }
 }
+

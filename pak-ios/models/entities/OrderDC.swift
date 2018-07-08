@@ -81,22 +81,23 @@ class OrderDC  : NSObject {
         
         self._deliveryCost = jsonOrder["CostoDelivery"].double ?? self._deliveryCost
         self._dateHourMaxAnulation = jsonOrder["FechaHoraMaximaAnulacion"].string ?? self._dateHourMaxAnulation
-        
     }
-    
     
     var number : Int64 {
         set { _number = newValue }
         get { return _number }
     }
+    
     var address : String {
         set { _address = newValue }
         get { return _address }
     }
+    
     var district : DistrictDC? {
         set { _district = newValue }
         get { return _district }
     }
+    
     var reference : String {
         set { _reference = newValue }
         get { return _reference }
@@ -141,6 +142,7 @@ class OrderDC  : NSObject {
         set { _email = newValue }
         get { return _email }
     }
+    
     var score : Int64 {
         set { _score = newValue }
         get { return _score }
@@ -155,10 +157,12 @@ class OrderDC  : NSObject {
         set { _total = newValue }
         get { return _total }
     }
+    
     var dateOfDelivery : String {
         set { _dateOfDelivery = newValue }
         get { return _dateOfDelivery }
     }
+    
     var distributionHour : DistributionHour? {
         set { _distributionHour = newValue }
         get { return _distributionHour }
@@ -173,27 +177,29 @@ class OrderDC  : NSObject {
         set { _dateToRecive = newValue }
         get { return _dateToRecive }
     }
+    
     var dateRecive : String {
         set { _dateRecive = newValue }
         get { return _dateRecive }
     }
+    
     var dateCancel : String {
         set { _dateCancel = newValue }
         get { return _dateCancel }
     }
+    
     var deliveryCost : Double {
         set { _deliveryCost = newValue }
         get { return _deliveryCost }
     }
+    
     var items : [ItemOrderDC] {
         set { _items = newValue }
         get { return _items }
     }
+    
     var dateHourMaxAnulation : String {
         set { _dateHourMaxAnulation = newValue }
         get { return _dateHourMaxAnulation }
     }
-    
-    
-    
 }

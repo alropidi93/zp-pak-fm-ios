@@ -24,7 +24,7 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
     private let segue_category_detail = "segue_category_detail"
     
     private var isIndexOf : Int = -1
-
+    
     //#MARK: Common methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,19 +40,19 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
         self.cv_categories.dataSource = self
         getCategories()
     }
-
+    
     //#MARK: Collectionview methods and select event
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCCategory
         cell.l_name_category.text = self.items[indexPath.item].name
         UtilMethods.setImage(imageview: cell.iv_category, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let id_item = items[indexPath.item].idCategory
         getCategories(Int(id_item))
@@ -65,7 +65,7 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
         let itemWidth = (collectionView.bounds.size.width - marginsAndInsets).rounded(.down)
         return CGSize(width: itemWidth, height: 200)
     }
-
+    
     func getCategories(_ selectedId :Int = -1) {
         self.isIndexOf = selectedId
         let user = ConstantsModels.static_user
@@ -79,7 +79,7 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
         } else if user == nil && selectedId != -1 {
             params = [ "IdCategoria": selectedId]
         } else { params = [ : ] }
-            
+        
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         Alamofire.request(URLs.GetCategories, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
@@ -146,14 +146,8 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
             vc.items = selectedItems
         }else if segue.identifier == self.segue_category_detail {
             let vcpl = segue.destination as! ProductsListControllers
-//            if selectedItems.count > 0{
-//                let categoriesDC = CategoriesDC()
-//                categoriesDC.name = "Todos"
-//                vcpl.items.append(categoriesDC)
-//                vcpl.items.append(contentsOf : selectedItems)
-//            }else {
-                vcpl.items = selectedItems
-//            }
+            vcpl.items = selectedItems
         }
     }
 }
+

@@ -36,12 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UNUserNotificationCenter.current().delegate = self
             
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
+            UNUserNotificationCenter.current().requestAuthorization( options: authOptions, completionHandler: {_, _ in })
         } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
         }
         application.registerForRemoteNotifications()
@@ -51,20 +48,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-    func applicationWillResignActive(_ application: UIApplication) {
-       }
+    
+    func applicationWillResignActive(_ application: UIApplication) { }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-       }
+    func applicationDidEnterBackground(_ application: UIApplication) { }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        }
+    func applicationWillEnterForeground(_ application: UIApplication) { }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        }
+    func applicationDidBecomeActive(_ application: UIApplication) { }
 
-    func applicationWillTerminate(_ application: UIApplication) {
-       }
+    func applicationWillTerminate(_ application: UIApplication) { }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         if let messageID = userInfo[AppDelegate.gcmMessageIDKey] {
@@ -72,8 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print(userInfo)
     }
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let messageID = userInfo[AppDelegate.gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
@@ -83,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         completionHandler(UIBackgroundFetchResult.newData)
     }
+    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
@@ -91,20 +85,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("APNs token retrieved: \(deviceToken)")
     }
 }
+
+
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
-    
     // Receive displayed notifications for iOS 10 devices.
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         if let messageID = userInfo[AppDelegate.gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
         // Print full message.
         print(userInfo)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "url_from_notification"), object: nil, userInfo: userInfo)
@@ -112,9 +104,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         completionHandler([.alert])
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         // Print message ID.
         if let messageID = userInfo[AppDelegate.gcmMessageIDKey] {
@@ -123,6 +113,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         completionHandler()
     }
 }
+
 // [END ios_10_message_handling]
 extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
@@ -145,6 +136,7 @@ extension AppDelegate : MessagingDelegate {
                 print("Connection error")
                 return
             }
+            
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 pakUser?.accessToken = fcmToken
@@ -165,4 +157,3 @@ extension AppDelegate : MessagingDelegate {
     }
     // [END ios_10_data_message]
 }
-

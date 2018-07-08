@@ -16,18 +16,17 @@ import FacebookLogin
 import SwiftHash
 import SideMenu
 
-
 class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     private let segue_about = "segue_about"
     private let segue_favorites = "segue_favorites"
     private let segue_discounts = "segue_discounts"
     private let segue_edit = "segue_editar"
     private let segue_order = "segue_order"
+    
     @IBOutlet weak var b_name: UIButton!
     
     @IBAction func ba_name(_ sender: Any) {
         self.performSegue(withIdentifier: self.segue_edit, sender: self)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +35,6 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     }
     
     @IBAction func logueOut(_ sender: Any) {
-       
         ConstantsModels.static_user = nil
         self.getGUID()
         dismiss(animated: true, completion: nil)
@@ -68,7 +66,6 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     @IBAction func aboutPak(_ sender: Any) {
         self.performSegue(withIdentifier: (self.segue_about), sender: self)
     }
-    
     
     func getGUID() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)

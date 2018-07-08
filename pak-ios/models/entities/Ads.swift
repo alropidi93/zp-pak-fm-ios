@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import AVKit
 
-class Ads  : NSObject  {
+class Ads: NSObject {
     // Core definition
     private var _idAd: Int64 = 0
     private var _type: String = ""
@@ -22,7 +22,7 @@ class Ads  : NSObject  {
     override init() {
     }
     
-    init(_ jsonAds: JSON){
+    init(_ jsonAds: JSON) {
         super.init()
         self._idAd = jsonAds["IdAnuncio"].int64 ?? self._idAd
        
@@ -43,7 +43,6 @@ class Ads  : NSObject  {
             }
         }
     }
-    
     
     var idAd : Int64 {
         set { _idAd = newValue }

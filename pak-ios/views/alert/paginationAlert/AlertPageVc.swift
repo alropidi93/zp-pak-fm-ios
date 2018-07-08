@@ -12,7 +12,7 @@ import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
 
-class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate ,NVActivityIndicatorViewable {
+class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActivityIndicatorViewable {
     var controllers = [UIViewController]()
     var nowPage = 0
     

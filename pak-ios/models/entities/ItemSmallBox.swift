@@ -18,11 +18,10 @@ class ItemSmallBoxDC : NSObject ,NSCoding{
     private var _description: String = ""
     private var _price: Double = 0.0
 
-    override init(){
-        
+    override init() {
     }
     
-    init(_ jsonItemSmallBoxDC: JSON){
+    init(_ jsonItemSmallBoxDC: JSON) {
         super.init()
         self._idProduct = jsonItemSmallBoxDC["IdProducto"].uInt64 ?? self._idProduct
         self._cant = jsonItemSmallBoxDC["Cantidad"].uInt64 ?? self._cant
@@ -34,7 +33,7 @@ class ItemSmallBoxDC : NSObject ,NSCoding{
     }
     
     
-    required init(coder decoder: NSCoder) {         // PREFERENCES
+    required init(coder decoder: NSCoder) {
         super.init()
         self._idProduct = decoder.decodeObject(forKey: "IdProducto") as? UInt64 ?? self._idProduct
         self._cant = decoder.decodeObject(forKey: "Cantidad") as? UInt64 ?? self._cant
@@ -43,11 +42,9 @@ class ItemSmallBoxDC : NSObject ,NSCoding{
         self._name = decoder.decodeObject(forKey: "Nombre") as? String ?? self._name
         self._description = decoder.decodeObject(forKey: "Descripcion") as? String ?? self._description
         self._price = decoder.decodeObject(forKey: "Precio") as? Double ?? self._price
-
     }
     
-    
-    func encode(with coder: NSCoder) {//
+    func encode(with coder: NSCoder) {
         coder.encode(_idProduct, forKey: "IdProducto")
         coder.encode(_cant, forKey: "Cantidad")
         coder.encode(_img, forKey: "Imagen")
@@ -57,7 +54,6 @@ class ItemSmallBoxDC : NSObject ,NSCoding{
         coder.encode(_price, forKey: "Precio")
     }
     
-
     var idProduct : UInt64 {
         set { _idProduct = newValue }
         get { return _idProduct }

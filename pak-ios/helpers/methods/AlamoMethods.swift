@@ -29,7 +29,6 @@ class AlamoMethods {
     
     private static func templateError(title: String, message: String, uiViewController: UIViewController){
         let alertManager = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
         let holderView = alertManager.view.subviews.first
         let contentView = holderView?.subviews.first
         for subview in (contentView?.subviews)! {
@@ -45,3 +44,4 @@ class AlamoMethods {
         })
     }
 }
+

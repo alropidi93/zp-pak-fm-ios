@@ -19,8 +19,6 @@ class DataDeliveryDC  : NSObject {
     private var _timeMaxAnulation : Int64 = 0
     
     // Utility extras
-    
-    
     override init() {
     }
     
@@ -37,21 +35,23 @@ class DataDeliveryDC  : NSObject {
         self._deliveryCost = jsonDataDelivery["Distritos"].double ?? self._deliveryCost
         self._minAmount = jsonDataDelivery["Nombre"].double ?? self._minAmount
         self._timeMaxAnulation = jsonDataDelivery["Orden"].int64 ?? self._timeMaxAnulation
-        
-        
     }
+    
     var district : [DistrictDC] {
         set { _district = newValue }
         get { return _district }
     }
+    
     var hoursString : [String] {
         set { _hoursString = newValue }
         get { return _hoursString }
     }
+    
     var hours : [DistributionHour] {
         set { _hours = newValue }
         get { return _hours }
     }
+    
     var deliveryCost : Double {
         set { _deliveryCost = newValue }
         get { return _deliveryCost }
@@ -66,8 +66,4 @@ class DataDeliveryDC  : NSObject {
         set { _timeMaxAnulation = newValue }
         get { return _timeMaxAnulation }
     }
- 
-    
-    
-    
 }
