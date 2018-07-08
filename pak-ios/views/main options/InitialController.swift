@@ -15,12 +15,12 @@ import NVActivityIndicatorView
 import Agrume
 import PlayerKit
 
-class InitialController : UIViewController , UITableViewDataSource, UITableViewDelegate, NVActivityIndicatorViewable {
+class InitialController : UIViewController , UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NVActivityIndicatorViewable {
     private let segue_identifier = "segue_splash_login"
-    private let reuse_question = "tvc_publicity_image"
-    private let reuse_placeholder = "tvc_placeholder"
+    private let reuse_advertisement = "cvc_advertisement"
+    private let reuse_placeholder = "cvc_placeholder"
     
-    @IBOutlet weak var tv_publicity: UITableView!
+    @IBOutlet weak var cv_advertisement: UICollectionView!
     
     private var allItems : [Ads] = []
     
@@ -35,49 +35,53 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
     }
     
     func setElements() {
-        self.tv_publicity.delegate = self
-        self.tv_publicity.dataSource = self
+        self.cv_advertisement.delegate = self
+        self.cv_advertisement.dataSource = self
         self.getAds()
     }
     
     // #MARK: Tableview controller
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.allItems.count == 0 ? (1) : (self.allItems.count)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if self.allItems.count == 0 {
-            return tableView.dequeueReusableCell(withIdentifier: self.reuse_placeholder, for: indexPath as IndexPath) as! TVCPlaceholder
+            return collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_placeholder, for: indexPath) as! CVCPlaceholder
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_question, for: indexPath as IndexPath) as! TVCPublicityImage
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_advertisement, for: indexPath) as! CVCAdvertisement
         if self.allItems[indexPath.row].type == "V" { // Videos
-            cell.iv_publicity_image?.image = self.allItems[indexPath.row].thumbnail
+            cell.advertisement_image?.image = self.allItems[indexPath.row].thumbnail
         } else { // Images
-            UtilMethods.setImage(imageview: cell.iv_publicity_image!, imageurl: self.allItems[indexPath.row].archive, placeholderurl: "dwb_pak_button_info")
+            UtilMethods.setImage(imageview: cell.advertisement_image!, imageurl: self.allItems[indexPath.row].archive, placeholderurl: "dwb_pak_button_info")
         }
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! TVCPublicityImage
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CVCAdvertisement
         if self.allItems.item(at: indexPath.row)?.type == "V" { // Videos
-           let videoURL = URL(string: (allItems.item(at: indexPath.row)?.archive)!)
+            let videoURL = URL(string: (allItems.item(at: indexPath.row)?.archive)!)
             let player = AVPlayer(url: videoURL!)
             let videoPlayer = AVPlayerViewController()
             videoPlayer.player = player
             present(videoPlayer,animated:true,completion:{
-                    player.play()
-                }
+                player.play()
+            }
             )
         } else { // Images
-            let agrume = Agrume(image: (cell.iv_publicity_image?.image)!, background: .colored(.black))
+            let agrume = Agrume(image: (cell.advertisement_image?.image)!, background: .colored(.black))
             agrume.show(from: self)
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(250.0)
+    //Perfectly fit collection (all screens)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right
+        let itemWidth = (collectionView.bounds.size.width - marginsAndInsets).rounded(.down)
+        return CGSize(width: itemWidth, height: 250)
     }
     
     // #MARK: Get data from web services
@@ -99,7 +103,7 @@ class InitialController : UIViewController , UITableViewDataSource, UITableViewD
                             let ads  = Ads(element)
                             self.allItems.append(ads)
                         }
-                        self.tv_publicity.reloadData()
+                        self.cv_advertisement.reloadData()
                     }
                 }
             } else {
