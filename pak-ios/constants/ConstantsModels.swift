@@ -7,7 +7,9 @@
 //
 
 import Foundation
+
+// Needs to be revised (wtf)
 class ConstantsModels {
-    static var UserStatic : UserDC? = nil
-    static var CountItem : Int = 0 
+    static var static_user : UserDC? = nil
+    static var count_item : Int = 0 
 }

@@ -129,7 +129,7 @@ extension AppDelegate : MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("FCM Token: \(fcmToken)")
         
-        let pakUser = ConstantsModels.UserStatic
+        let pakUser = ConstantsModels.static_user
         if pakUser == nil {
             return
         }
@@ -148,7 +148,7 @@ extension AppDelegate : MessagingDelegate {
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 pakUser?.accessToken = fcmToken
-                ConstantsModels.UserStatic = pakUser!
+                ConstantsModels.static_user = pakUser!
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)

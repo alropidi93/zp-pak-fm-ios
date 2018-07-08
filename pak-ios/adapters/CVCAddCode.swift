@@ -10,10 +10,7 @@ import Foundation
 import UIKit
 
 class CVCAddCode : UICollectionViewCell {
-
     @IBOutlet weak var l_date_discount: UILabel!
     @IBOutlet weak var l_motive: UILabel!
     @IBOutlet weak var l_discount_percent: UILabel!
-    
-    
 }

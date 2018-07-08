@@ -48,7 +48,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
        
-        let params: Parameters = [ "Username": ConstantsModels.UserStatic?.userName as Any,
+        let params: Parameters = [ "Username": ConstantsModels.static_user?.userName as Any,
                                    "Password": MD5(self.tf_password.text!) ,
                                    "NuevoPassword": MD5(self.tf_newPassword.text!) ,
                                    "RepetirPassword": MD5(self.tf_repassword.text!) ,

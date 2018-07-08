@@ -9,7 +9,6 @@
 import Foundation
 
 class Constants {
-    
     //#MARK:PUBLIC KEYS
     static let CULQI_KEY : String = "pk_test_Fn37UeqKL5dE0rE2"
     

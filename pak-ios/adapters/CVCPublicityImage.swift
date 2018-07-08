@@ -10,10 +10,7 @@ import Foundation
 import UIKit
 
 class TVCPublicityImage : UITableViewCell {
-
-    
     @IBOutlet weak var iv_publicity: UIImageView!
-    
     
     var iv_publicity_image : UIImageView? {
         get { return iv_publicity }

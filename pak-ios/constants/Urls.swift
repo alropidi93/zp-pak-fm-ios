@@ -24,7 +24,6 @@ struct URLs {
     static let MultimediaCategoriasURL = "http://pakadmin.zp.com.pe/Images/Categorias/"
     static let MultimediaProductosURL = "http://pakadmin.zp.com.pe/Images/Products/"
 
-    
     static var refreshToken: String { //POST
         return BaseURL + "client/refreshtoken"
     }
@@ -32,9 +31,11 @@ struct URLs {
     static var login: String { //POST
         return BaseURL + "AuthService.svc/Login"
     }
+    
     static var loginAccessToken: String { //POST
         return BaseURL + "AuthService.svc/LoginAccessToken"
     }
+    
     static var LoginGo: String { //POST
         return BaseURL + "AuthService.svc/LoginGoogle"
     }
@@ -50,28 +51,29 @@ struct URLs {
     static var SignUp: String { //Post
         return BaseURL + "AuthService.svc/RegistrarUsuario"
     }
+    
     static var PasswordModify: String {// POST
         return BaseURL + "AuthService.svc/ModificarPassword"
     }
+    
     static var RecoveryPassword: String {// POST
         return BaseURL + "AuthService.svc/RestablecerPassword"
     }
+    
     static var ModifyAccount: String {// POST
         return BaseURL + "AuthService.svc/ModificarCuenta"
     }
-    
-    
     
     //Culqi
     static var CulqiValidation:String {//POST
         return "https://checkout.culqi.com/tokens"
     }
     
-    
     // CAJITA
     static var GetGUID: String { //POST
         return BaseURL + "OrderService.svc/ObtenerCajita"
     }
+    
     static var AddItemABox: String { //POST
         return BaseURL + "OrderService.svc/AgregarItemCajita"
     }
@@ -79,22 +81,28 @@ struct URLs {
     static var ModifySmallBox: String { //POST
         return BaseURL + "OrderService.svc/ModificarItemCajita"
     }
+    
     static var DataDelivery: String { //POST
         return BaseURL + "OrderService.svc/ObtenerDataDelivery"
     }
+    
     static var Payment: String { //POST
         return BaseURL + "OrderService.svc/RealizarCheckout"
     }
+    
     static var ListOrders: String { //POST
         return BaseURL + "OrderService.svc/ListarPedidos"
     }
+    
     static var GerOrder: String { //POST
         return BaseURL + "OrderService.svc/ObtenerPedido"
     }
+    
     //ANUNCIOS
     static var GetAds: String { //GET
         return BaseURL + "AdService.svc/ListarAnuncios"
     }
+    
     //STORE
     static var GetCategories: String { //GET
         return BaseURL + "CatalogService.svc/listarCategorias"
@@ -103,20 +111,21 @@ struct URLs {
     static var SearchProduct: String { //POST
         return BaseURL + "CatalogService.svc/BuscarProductos"
     }
+    
     //Customer
     static var AddOrEliminiteFavoritie: String { //POST
         return BaseURL + "CustomerService.svc/AgregarQuitarFavorito"
     }
+    
     static var ListFavoritie: String { //POST
         return BaseURL + "CustomerService.svc/ListarFavoritos"
     }
+    
     static var RegisterInvitationCode: String { //POST
         return BaseURL + "CustomerService.svc/RegistrarCodigoInvitacion"
     }
+    
     static var ListDiscount: String { //POST
         return BaseURL + "CustomerService.svc/ListarDescuentos"
     }
-    
-    
-    
 }

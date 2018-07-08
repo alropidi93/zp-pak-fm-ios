@@ -100,10 +100,10 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     func addOrDeleteFavortie(_ product : ProductoDC, _ index : Int){
         
-        let user = ConstantsModels.UserStatic
+        let user = ConstantsModels.static_user
         var params : Parameters
         if user != nil  {
-            let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
+            let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
             params =  [ "IdUsuario": idUser,
               "IdProducto": product.idProduct,
               ]
@@ -171,8 +171,8 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                         let snackbar = TTGSnackbar(message: "Se agrego " + String(self.cant) + "el producto", duration: .middle)
                         snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                         snackbar.show()
-                        ConstantsModels.CountItem = ConstantsModels.CountItem + 1
-                        self.notificationButton.badge = "\(ConstantsModels.CountItem) "
+                        ConstantsModels.count_item = ConstantsModels.count_item + 1
+                        self.notificationButton.badge = "\(ConstantsModels.count_item) "
 
                         self.cv_search.reloadData()
                         
@@ -192,10 +192,10 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     func getProducts() {
         
-        let user = ConstantsModels.UserStatic
+        let user = ConstantsModels.static_user
         var params : Parameters
         if user != nil  {
-            let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
+            let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
             params = [ "IdUsuario": idUser,
             "Search": self.text]
         } else {
@@ -250,7 +250,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
         notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
         notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
-        notificationButton.badge = "\(ConstantsModels.CountItem) "
+        notificationButton.badge = "\(ConstantsModels.count_item) "
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
     }

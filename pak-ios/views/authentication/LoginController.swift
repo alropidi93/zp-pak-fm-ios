@@ -109,7 +109,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                     if jsonResult["Msg"] == "OK"{
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
-                        ConstantsModels.UserStatic = userDC
+                        ConstantsModels.static_user = userDC
                         PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
                         PreferencesMethods.saveIdToOptions(userDC.idUser)
@@ -209,7 +209,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                         
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
-                        ConstantsModels.UserStatic = userDC
+                        ConstantsModels.static_user = userDC
                         PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
                         PreferencesMethods.saveIdToOptions(userDC.idUser)
@@ -282,7 +282,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
 
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
-                        ConstantsModels.UserStatic = userDC
+                        ConstantsModels.static_user = userDC
                         PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
                         PreferencesMethods.saveIdToOptions(userDC.idUser)

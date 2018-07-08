@@ -232,7 +232,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     }
     
     @IBAction func ba_buying(_ sender: Any) {
-        if ConstantsModels.UserStatic != nil {
+        if ConstantsModels.static_user != nil {
             self.getDataDelivery()
         }else{
             self.performSegue(withIdentifier: self.segue_identification , sender: self)

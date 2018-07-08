@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class PakAlertReady : UIViewController {
-    var registerDelegate : PakAlertRegisterDelegate? = nil
+    var registerDelegate : AlertRegisterDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()

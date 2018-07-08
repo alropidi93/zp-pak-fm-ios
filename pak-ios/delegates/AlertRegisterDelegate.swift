@@ -1,5 +1,5 @@
 //
-//  PakAlertRegister.swift
+//  AlertRegister.swift
 //  pak-ios
 //
 //  Created by Paolo Rossi on 6/14/18.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol PakAlertRegisterDelegate {
+protocol AlertRegisterDelegate {
     func okButtonTapped()
 }

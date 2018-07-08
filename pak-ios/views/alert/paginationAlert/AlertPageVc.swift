@@ -181,7 +181,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate ,NVActiv
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         let headersHttp: HTTPHeaders = ["Content-Type" : "application/json; charset=utf-8",
                                     "Authorization": "Bearer " + Constants.CULQI_KEY ]
-        let params: Parameters = [ "email" : ConstantsModels.UserStatic!.userName ?? "",
+        let params: Parameters = [ "email" : ConstantsModels.static_user!.userName ?? "",
                                    "card_number": self.numTarjeta,
                                    "public_key":Constants.CULQI_KEY,
                                    "cvv": self.ccv,

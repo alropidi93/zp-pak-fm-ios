@@ -14,7 +14,7 @@
         @IBOutlet weak var nslc_outer_height: NSLayoutConstraint!
         @IBOutlet weak var nslc_inner_height: NSLayoutConstraint!
         
-        var codeInvitationDelegate : PakAlertCodeInvitationDelegate? = nil
+        var codeInvitationDelegate : AlertCodeInvitationDelegate? = nil
 
         override func viewDidLoad() {
             super.viewDidLoad()

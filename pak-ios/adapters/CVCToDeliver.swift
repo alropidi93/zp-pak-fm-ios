@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 class CVCToDeliver :UICollectionViewCell {
     @IBOutlet weak var l_m_reception: UILabel!
-    
     @IBOutlet weak var l_m_recive: UILabel!
     @IBOutlet weak var l_d_toreception: UILabel!
     @IBOutlet weak var l_d_recive: UILabel!

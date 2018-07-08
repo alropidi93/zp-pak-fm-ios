@@ -83,7 +83,7 @@ extension UIViewController : UISearchBarDelegate {
         notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
         notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
         notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
-        notificationButton.badge = "\(ConstantsModels.CountItem) "
+        notificationButton.badge = "\(ConstantsModels.count_item) "
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
     }
@@ -100,7 +100,7 @@ extension UIViewController : UISearchBarDelegate {
     }
     
     @objc func didPressLeftButton (_ sender: Any) {
-        if ConstantsModels.UserStatic != nil {
+        if ConstantsModels.static_user != nil {
             self.performSegue(withIdentifier: "segue_side_menu_in" , sender: self)
             SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "InMenuNavigationController") as? UISideMenuNavigationController
         } else {

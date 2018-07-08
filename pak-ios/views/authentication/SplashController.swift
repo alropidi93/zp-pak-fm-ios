@@ -81,7 +81,7 @@ class SplashController: UIViewController {
                     if jsonResult["Msg"] == "OK"{
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
-                        ConstantsModels.UserStatic = userDC // aqui se guarda pero staticamente
+                        ConstantsModels.static_user = userDC // aqui se guarda pero staticamente
                         PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
                     } else {
@@ -112,14 +112,14 @@ class SplashController: UIViewController {
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    let obtenerCajita = SmallBoxDC(jsonResult)
-                    PreferencesMethods.saveSmallBoxToOptions(obtenerCajita)
-                    ConstantsModels.CountItem = obtenerCajita.items.count
+                    let small_box = SmallBoxDC(jsonResult)
+                    PreferencesMethods.saveSmallBoxToOptions(small_box)
+                    ConstantsModels.count_item = small_box.items.count
                 }
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
+                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
                 } else {
                     AlamoMethods.defaultError(self)
                 }

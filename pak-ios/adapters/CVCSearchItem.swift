@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class CVCSearchItem : UICollectionViewCell {
-        
     @IBOutlet weak var iv_item_photo: UIImageView!
     @IBOutlet weak var l_Item_name: UILabel!
     @IBOutlet weak var l_price_unity: UILabel!

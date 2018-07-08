@@ -1,5 +1,5 @@
 //
-//  PakAlertCodeInvitationDelegate.swift
+//  AlertCodeInvitationDelegate.swift
 //  pak-ios
 //
 //  Created by Paolo Rossi on 5/29/18.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol PakAlertCodeInvitationDelegate {
+protocol AlertCodeInvitationDelegate {
     func okButtonTapped(_ textFieldValue: String)
 }

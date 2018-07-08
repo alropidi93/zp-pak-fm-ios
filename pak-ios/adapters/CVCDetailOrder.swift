@@ -8,12 +8,10 @@
 
 import Foundation
 import UIKit
-class CVCDetailOrder : UICollectionViewCell
-{
+class CVCDetailOrder : UICollectionViewCell {
     @IBOutlet weak var iv_product: UIImageView!
     @IBOutlet weak var l_name: UILabel!
     @IBOutlet weak var l_price: UILabel!
     @IBOutlet weak var l_mount_total_item: UILabel!
     @IBOutlet weak var l_cant: UILabel!
-    
 }

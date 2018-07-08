@@ -50,7 +50,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     func setElements(){
         fullKeyboardSupport()
         getDistrict()
-        tf_data_reciver.text = ConstantsModels.UserStatic?.names
+        tf_data_reciver.text = ConstantsModels.static_user?.names
         self.tf_district.inputView = UIView()
         let tap_district = UITapGestureRecognizer(target: self, action: #selector(self.tapDistrict(_:)))
         self.tf_district.addGestureRecognizer(tap_district)

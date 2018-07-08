@@ -1,5 +1,5 @@
 //
-//  PakAlertPayment.swift
+//  AlertPayment.swift
 //  pak-ios
 //
 //  Created by Paolo Rossi on 6/3/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PakAlertPaymentDelegate {
+protocol AlertPaymentDelegate {
     func goNextPage(position : Int)
 }
 

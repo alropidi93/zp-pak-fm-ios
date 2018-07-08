@@ -1,5 +1,5 @@
 //
-//  RootCategoryController.swift
+//  SubCategoryController.swift
 //  pak-ios
 //
 //  Created by Paolo Rossi on 6/18/18.
@@ -13,7 +13,7 @@ import Alamofire
 import AVKit
 import NVActivityIndicatorView
 
-class RootCategoriesController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout {
+class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var cv_categories: UICollectionView!
     
     private let reuse_identifier = "cvc_category"
@@ -57,6 +57,8 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
         getCategories(Int(id_item))
     }
     
+    
+    
     //Perfectly fit collection (all screens)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -67,13 +69,13 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
     
     func getCategories(_ selectedId :Int = -1) {
         self.isIndexOf = selectedId
-        let user = ConstantsModels.UserStatic
+        let user = ConstantsModels.static_user
         var params : Parameters
         if user != nil  && selectedId == -1 {
-            let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
+            let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
             params = [ "IdUsuario": idUser]
         } else if user != nil && selectedId != -1 {
-            let idUser  :UInt64 = (ConstantsModels.UserStatic?.idUser)!
+            let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
             params = [ "IdUsuario": idUser, "IdCategoria": selectedId]
         } else if user == nil && selectedId != -1 {
             params = [ "IdCategoria": selectedId]
@@ -134,9 +136,9 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segue_category_sub_category {
-            let vc = segue.destination as! SubCategoriesController
+            let vc = segue.destination as! RootCategoriesController
             vc.items = selectedItems
-        }else if segue.identifier == self.segue_category_detail {
+        } else if segue.identifier == self.segue_category_detail {
             let vcpl = segue.destination as! ProductsListControllers
             if selectedItems.count > 0{
                 let categoriesDC = CategoriesDC()
@@ -147,8 +149,5 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
                 vcpl.items = selectedItems
             }
         }
-        
     }
-    
-    
 }

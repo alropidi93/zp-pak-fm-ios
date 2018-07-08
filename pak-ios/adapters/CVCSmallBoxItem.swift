@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class CVCSmallBoxItem : UICollectionViewCell {
-
     @IBOutlet weak var iv_product: UIImageView!
     @IBOutlet weak var l_name: UILabel!
     @IBOutlet weak var tf_count_item: UITextField!

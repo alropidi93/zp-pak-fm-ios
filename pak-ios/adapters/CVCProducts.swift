@@ -9,6 +9,5 @@
 import Foundation
 import UIKit
 class CVCProducts : UICollectionViewCell {
-    
     @IBOutlet weak var i_product: UIImageView!
 }
