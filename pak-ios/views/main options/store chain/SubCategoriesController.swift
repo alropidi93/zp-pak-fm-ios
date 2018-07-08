@@ -48,6 +48,7 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCCategory
         cell.l_name_category.text = self.items[indexPath.item].name
+        UtilMethods.addGradientColor(cell.v_category_name_background)
         UtilMethods.setImage(imageview: cell.iv_category, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
         return cell
     }
@@ -56,8 +57,6 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
         let id_item = items[indexPath.item].idCategory
         getCategories(Int(id_item))
     }
-    
-    
     
     //Perfectly fit collection (all screens)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

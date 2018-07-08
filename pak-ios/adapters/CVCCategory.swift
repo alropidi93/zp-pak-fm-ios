@@ -12,4 +12,5 @@ import UIKit
 class CVCCategory : UICollectionViewCell {
     @IBOutlet weak var l_name_category: UILabel!
     @IBOutlet weak var iv_category: UIImageView!
+    @IBOutlet weak var v_category_name_background: UIView!
 }

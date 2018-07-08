@@ -55,6 +55,16 @@ class UtilMethods {
         refreshControl.tintColor = UtilMethods.hexStringToUIColor(hex: Constants.GOLD)
         refreshControl.attributedTitle = NSAttributedString(string: "Refrescando", attributes: nil)
     }
+
+    /** #MARK: [UI] Gradient methods */
+    static func addGradientColor(_ view : UIView, initialColor: UIColor = UIColor.clear, endColor: UIColor = UIColor.lightGray) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [initialColor.cgColor, endColor.cgColor]
+        view.layer.addSublayer(gradientLayer)
+    }
     
     /** #MARK: [Date] Date methods */
     static func dateIsToday(_ date : Date) -> Bool {
