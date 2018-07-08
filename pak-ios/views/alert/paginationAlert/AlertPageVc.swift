@@ -65,22 +65,20 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         }
         return VCArr[nowPage - 1]
     }
-  
+    
     
     func goNextPage(forwardTo position: Int) {
-       
         switch position {
         case 1:
             if (validateFirstController() == true){
                 let viewController = self.VCArr[position]
                 setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
-                self.pageNow = self.pageNow + 1 
+                self.pageNow = self.pageNow + 1
             }
             else {
-                //crear alerta 
+                //crear alerta
                 print("1")
             }
-            
         case 2:
             if validateSecondController() == true{
                 let viewController = self.VCArr[position]
@@ -88,23 +86,23 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                 self.pageNow = self.pageNow + 1
             }else{
                 print("2")
-
             }
         case 3:
-             validateThirdController()
+            validateThirdController()
         case 4:
             validatePayController()
         default:
             return
         }
     }
-   
-    func validateFirstController()  -> Bool{
+    
+    func validateFirstController()  -> Bool {
         if checkOut.address != "" && checkOut.district != 0 && checkOut.reference != "" && checkOut.recipentName != "" && checkOut.hourlySale != "" && checkOut.date != "" {
             return true
         }
         return false
     }
+    
     func validateSecondController() -> Bool {
         if boletaOrFactura == 1{
             if checkOut.ruc != "" && checkOut.businessName != "" && checkOut.fiscalAddress != "" {
@@ -113,44 +111,26 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                 return false
             }
         }else {
-                return true
+            return true
         }
     }
     
-    func validateThirdController()  {
+    func validateThirdController() {
         validateCulqi()
     }
-    func validatePayController()  {
+    
+    func validatePayController() {
         payment()
-       
     }
-    func payment(){
+    
+    func payment() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         var params: Parameters = [:]
         if boletaOrFactura == 0 {
-            params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" ,
-                                       "Direccion" : checkOut.address,
-                                       "IdDistrito" : checkOut.district,
-                                       "Referencia" : checkOut.reference,
-                                       "TipoFacturacion" : "B",
-                                       "NombreDestinatario": checkOut.recipentName,
-                                       "FechaEntrega":checkOut.date,
-                                       "VentanaHoraria":checkOut.hourlySale,
-                                       "Token":checkOut.token]
+            params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" , "Direccion" : checkOut.address, "IdDistrito" : checkOut.district, "Referencia" : checkOut.reference, "TipoFacturacion" : "B", "NombreDestinatario": checkOut.recipentName, "FechaEntrega":checkOut.date, "VentanaHoraria":checkOut.hourlySale, "Token":checkOut.token]
             
-        }else if boletaOrFactura == 1 {
-            params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" ,
-                                       "Direccion" : checkOut.address,
-                                       "IdDistrito" : checkOut.district,
-                                       "Referencia" : checkOut.reference,
-                                       "TipoFacturacion" : "F",
-                                       "RUC" : checkOut.ruc,
-                                       "RazonSocial" : checkOut.businessName ,
-                                       "DireccionFiscal" : checkOut.fiscalAddress,
-                                       "NombreDestinatario": checkOut.recipentName,
-                                       "FechaEntrega":checkOut.date,
-                                       "VentanaHoraria":checkOut.hourlySale,
-                                       "Token":checkOut.token]
+        } else if boletaOrFactura == 1 {
+            params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" , "Direccion" : checkOut.address, "IdDistrito" : checkOut.district, "Referencia" : checkOut.reference, "TipoFacturacion" : "F", "RUC" : checkOut.ruc, "RazonSocial" : checkOut.businessName , "DireccionFiscal" : checkOut.fiscalAddress, "NombreDestinatario": checkOut.recipentName, "FechaEntrega":checkOut.date, "VentanaHoraria":checkOut.hourlySale, "Token":checkOut.token]
         }
         
         Alamofire.request(URLs.Payment, method: .post, parameters: params ,encoding: JSONEncoding.default).responseJSON { response in
@@ -165,29 +145,19 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                     let jsonResult = JSON(jsonResponse)
                     print(jsonResult["Msg"])
                     self.stopAnimating()
-
+                    
                 }
             } else {
                 AlamoMethods.defaultError(self)
             }
         }
         self.stopAnimating()
-
-    
     }
     
-    func validateCulqi()  {
-        
+    func validateCulqi() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        let headersHttp: HTTPHeaders = ["Content-Type" : "application/json; charset=utf-8",
-                                    "Authorization": "Bearer " + Constants.CULQI_KEY ]
-        let params: Parameters = [ "email" : ConstantsModels.static_user!.userName ?? "",
-                                   "card_number": self.numTarjeta,
-                                   "public_key":Constants.CULQI_KEY,
-                                   "cvv": self.ccv,
-                                   "expiration_year": self.expiredDateYYYY ,
-                                   "expiration_month":expiredDateMM,
-                                   "fingerprint": 89]
+        let headersHttp: HTTPHeaders = ["Content-Type" : "application/json; charset=utf-8", "Authorization": "Bearer " + Constants.CULQI_KEY ]
+        let params: Parameters = [ "email" : ConstantsModels.static_user!.userName , "card_number": self.numTarjeta, "public_key":Constants.CULQI_KEY, "cvv": self.ccv, "expiration_year": self.expiredDateYYYY, "expiration_month":expiredDateMM, "fingerprint": 89]
         
         Alamofire.request(URLs.CulqiValidation, method: .post, parameters: params ,encoding: JSONEncoding.default, headers: headersHttp).responseJSON { response in
             if response.response == nil {
@@ -195,6 +165,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                 self.stopAnimating()
                 return
             }
+            
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
@@ -210,15 +181,12 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                         AlarmMethods.errorWarning(message: jsonResult["merchant_message"].string!, uiViewController: self)
                         print("3")
                         self.stopAnimating()
-
                     }
                 }
             } else {
                 print("3")
-
                 AlamoMethods.defaultError(self)
-   
             }
-       }
+        }
     }
 }

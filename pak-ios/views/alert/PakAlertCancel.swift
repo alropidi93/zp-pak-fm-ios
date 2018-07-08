@@ -16,9 +16,8 @@ import FacebookCore
 import FacebookLogin
 import SwiftHash
 import SideMenu
-class PakAlertCancel: UIViewController  ,NVActivityIndicatorViewable{
 
+class PakAlertCancel: UIViewController  ,NVActivityIndicatorViewable{
     @IBOutlet weak var b_confirm: UIButton!
     @IBOutlet weak var b_cancel: UIButton!
-    
 }

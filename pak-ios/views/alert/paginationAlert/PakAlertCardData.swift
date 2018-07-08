@@ -15,7 +15,9 @@ class PakAlertCardData : UIViewController, PageObservation{
     @IBOutlet weak var tf_card_number: UITextField!
     @IBOutlet weak var tf_expired_date: UITextField!
     @IBOutlet weak var tf_ccv: UITextField!
+    
     var date = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
@@ -24,7 +26,8 @@ class PakAlertCardData : UIViewController, PageObservation{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    func setElements(){
+    
+    func setElements() {
         tf_titular.addTarget(self, action: #selector(textfieldDidChangeTitular), for: .editingChanged)
         tf_card_number.addTarget(self, action: #selector(textfieldDidChangecard_number), for: .editingChanged)
         
@@ -34,12 +37,13 @@ class PakAlertCardData : UIViewController, PageObservation{
         self.tf_expired_date.addGestureRecognizer(tap_date)
         
         tf_ccv.addTarget(self, action: #selector(textfieldDidChangeccv), for: .editingChanged)
-
     }
-    @objc func textfieldDidChangeTitular(sender: UITextField!){
+    
+    @objc func textfieldDidChangeTitular(sender: UITextField!) {
         parentPageViewController.titular = sender.text!
     }
-    @objc func textfieldDidChangecard_number(sender: UITextField!){
+    
+    @objc func textfieldDidChangecard_number(sender: UITextField!) {
         parentPageViewController.numTarjeta = sender.text!
     }
     
@@ -55,18 +59,16 @@ class PakAlertCardData : UIViewController, PageObservation{
         self.present(alert, animated: true, completion: nil)
     }
     
-    @objc func textfieldDidChangeccv(sender: UITextField!){
+    @objc func textfieldDidChangeccv(sender: UITextField!) {
         parentPageViewController.ccv = sender.text!
     }
     
-    
     @IBAction func b_close(_ sender: Any) {
-          self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
-    
     
     func getParentPageViewController(parentRef: AlertPageVc) {
         parentPageViewController = parentRef
     }
-
 }
+

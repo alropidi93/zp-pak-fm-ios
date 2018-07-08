@@ -12,20 +12,20 @@ import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
 class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDelegate , UICollectionViewDataSource , NVActivityIndicatorViewable{
-    
     var parentPageViewController: AlertPageVc!
     private let reuse_identifier_box = "cvc_smallBox_item_Payment"
-
+    
     @IBOutlet weak var l_mount_subt: UILabel!
     @IBOutlet weak var l_total_mount: UILabel!
     @IBOutlet weak var l_mount_delivery: UILabel!
     @IBOutlet weak var l_mount_discount: UILabel!
     @IBOutlet weak var cv_item_list: UICollectionView!
     private var items : [ItemSmallBoxDC] = []
-
+    
     private var subTotal : Double = 0.0
     private var deliveryCost : Double = 0.0
     private var discount : Double = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
@@ -33,9 +33,9 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    
     }
-    func setElements(){
+    
+    func setElements() {
         self.cv_item_list.delegate = self
         self.cv_item_list.dataSource = self
         getGUID()
@@ -55,19 +55,16 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
         cell.l_count_item.text = String(self.items[indexPath.item].cant)
         let stringValue = "S./"
         cell.l_mount_total_item.text = stringValue + String(Double(self.items[indexPath.item].cant) * self.items[indexPath.item].price)
-        
-       
         return cell
     }
     
-    func setSubTotal(){
+    func setSubTotal() {
         self.subTotal = 0
         for element in self.items {
             self.subTotal = self.subTotal + (element.price * Double(element.cant))
         }
         self.l_mount_subt.text = "S/" + String(self.subTotal)
         self.l_total_mount.text = "S/" + String((self.subTotal + self.deliveryCost) * (100 - discount)/100 )
-        
     }
     
     func getGUID() {
@@ -99,7 +96,6 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
                     }
                     self.setSubTotal()
                     self.cv_item_list.reloadData()
-                    
                 }
             } else {
                 if let jsonResponse = response.result.value {
@@ -117,3 +113,4 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
         self.dismiss(animated: false, completion: nil)
     }
 }
+

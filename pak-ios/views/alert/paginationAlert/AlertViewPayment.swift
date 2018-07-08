@@ -14,32 +14,30 @@ import SwiftyJSON
 import NVActivityIndicatorView
 class AlertViewPayment : UIViewController ,NVActivityIndicatorViewable {
     @IBOutlet weak var b_next: UIButton!
-    var page : Int = -1
     @IBOutlet weak var uv_pv_payments: UIView!
+    
+    var page : Int = -1
     var dataDelivery : DataDeliveryDC? = nil
 
     private var embeddedViewController : AlertPageVc!
     
-    
     @IBAction func b_next(_ sender: Any) {
         self.page = self.embeddedViewController.pageNow
         self.embeddedViewController.goNextPage(forwardTo: page)
-        if page == 4
-        {
+        if page == 4 {
             b_next.setTitle("Pagar", for: .normal)
         }
     }
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setElements()
-        
     }
-    func setElements(){
-        
+    
+    func setElements() {
         self.embeddedViewController.dataDelivery = self.dataDelivery
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -55,7 +53,4 @@ class AlertViewPayment : UIViewController ,NVActivityIndicatorViewable {
             self.embeddedViewController = vc
         }
     }
-    
-    
-    
 }

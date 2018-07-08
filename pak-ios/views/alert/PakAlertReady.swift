@@ -11,7 +11,7 @@ import UIKit
 
 class PakAlertReady : UIViewController {
     var registerDelegate : AlertRegisterDelegate? = nil
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,12 +24,10 @@ class PakAlertReady : UIViewController {
         super.viewDidLayoutSubviews()
         view.layoutIfNeeded()
     }
-  
+    
     @IBAction func b_accept(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
         registerDelegate?.okButtonTapped()
-
     }
-    
-    
 }
+

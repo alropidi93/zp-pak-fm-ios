@@ -23,8 +23,8 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -38,20 +38,14 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
         self.dismiss(animated: false, completion: nil)
     }
     
-    
-    
     @IBAction func b_modifyPassword(_ sender: Any) {
-        
         modifyPassword()
     }
-    func modifyPassword(){
+    
+    func modifyPassword() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
-       
-        let params: Parameters = [ "Username": ConstantsModels.static_user?.userName as Any,
-                                   "Password": MD5(self.tf_password.text!) ,
-                                   "NuevoPassword": MD5(self.tf_newPassword.text!) ,
-                                   "RepetirPassword": MD5(self.tf_repassword.text!) ,
+        let params: Parameters = [ "Username": ConstantsModels.static_user?.userName as Any, "Password": MD5(self.tf_password.text!) , "NuevoPassword": MD5(self.tf_newPassword.text!), "RepetirPassword": MD5(self.tf_repassword.text!) ,
                                    ]
         Alamofire.request(URLs.PasswordModify, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -64,7 +58,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                      //make a pop up sucess
+                        //make a pop up sucess
                     } else {
                         self.stopAnimating()
                         if let jsonResponse = response.result.value {
@@ -87,4 +81,3 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
         }
     }
 }
-

@@ -49,6 +49,8 @@
 		708AC99A20E01AEF004BD8FD /* DataDeliveryDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */; };
 		708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC99B20E039E2004BD8FD /* DistributionHour.swift */; };
 		7090A2EA20AB75DA00EF9F6D /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7090A2E920AB75DA00EF9F6D /* NotificationCenterExtension.swift */; };
+		7094747320F19ECC0035EADD /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094747220F19ECC0035EADD /* DateExtension.swift */; };
+		7094747520F19EEA0035EADD /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094747420F19EEA0035EADD /* UITextFieldExtension.swift */; };
 		7094FE9A20B2A30F00511297 /* SmallBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094FE9920B2A30F00511297 /* SmallBoxController.swift */; };
 		7094FE9D20B2B14100511297 /*  FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094FE9C20B2B14100511297 /*  FavouriteController.swift */; };
 		7094FE9F20B2B25900511297 /* CVCFavouriteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094FE9E20B2B25900511297 /* CVCFavouriteItem.swift */; };
@@ -141,6 +143,8 @@
 		708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDeliveryDC.swift; sourceTree = "<group>"; };
 		708AC99B20E039E2004BD8FD /* DistributionHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionHour.swift; sourceTree = "<group>"; };
 		7090A2E920AB75DA00EF9F6D /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
+		7094747220F19ECC0035EADD /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		7094747420F19EEA0035EADD /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		7094FE9920B2A30F00511297 /* SmallBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBoxController.swift; sourceTree = "<group>"; };
 		7094FE9C20B2B14100511297 /*  FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " FavouriteController.swift"; sourceTree = "<group>"; };
 		7094FE9E20B2B25900511297 /* CVCFavouriteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCFavouriteItem.swift; sourceTree = "<group>"; };
@@ -348,6 +352,8 @@
 				701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */,
 				7090A2E920AB75DA00EF9F6D /* NotificationCenterExtension.swift */,
 				7053BB7E20E729C900C5A277 /* BadgedExtension.swift */,
+				7094747220F19ECC0035EADD /* DateExtension.swift */,
+				7094747420F19EEA0035EADD /* UITextFieldExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -779,10 +785,12 @@
 				70F54C9720901210003175AA /* SmallBoxDC.swift in Sources */,
 				70C9ED24209D33BC0096B656 /* TVCPlaceholder.swift in Sources */,
 				70D525A820915C58004EB51E /* Urls.swift in Sources */,
+				7094747520F19EEA0035EADD /* UITextFieldExtension.swift in Sources */,
 				7043B0B320BC86FB00CC31D0 /* DiscountsController.swift in Sources */,
 				7053BB7D20E70CF100C5A277 /* CanceledController.swift in Sources */,
 				7007930D20D2256A00DE70CA /* PakAlertReady.swift in Sources */,
 				7028135720C4509300DD5443 /* PakAlertSummary.swift in Sources */,
+				7094747320F19ECC0035EADD /* DateExtension.swift in Sources */,
 				70D5F0ED209B78A400EE673B /* OutMainController.swift in Sources */,
 				701D2878207EAD01007AD7AC /* AppDelegate.swift in Sources */,
 				70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */,

@@ -47,7 +47,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         super.didReceiveMemoryWarning()
     }
 
-    func setElements(){
+    func setElements() {
         fullKeyboardSupport()
         getDistrict()
         tf_data_reciver.text = ConstantsModels.static_user?.names
@@ -69,13 +69,16 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         tf_reference.addTarget(self, action: #selector(textfieldDidChangereference), for: .editingChanged)
         tf_data_reciver.addTarget(self, action: #selector(textfieldDidChangereciver), for: .editingChanged)
     }
-    @objc func textfieldDidChangedirection(sender: UITextField!){
+    
+    @objc func textfieldDidChangedirection(sender: UITextField!) {
         parentPageViewController.checkOut.address = sender.text!
     }
-    @objc func textfieldDidChangereference(sender: UITextField!){
+    
+    @objc func textfieldDidChangereference(sender: UITextField!) {
         parentPageViewController.checkOut.reference = sender.text!
     }
-    @objc func textfieldDidChangereciver(sender: UITextField!){
+    
+    @objc func textfieldDidChangereciver(sender: UITextField!) {
         parentPageViewController.checkOut.recipentName = sender.text!
     }
 
@@ -83,12 +86,12 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         let hour = Calendar.current.component(.hour, from: Date())
         var hours : [String] = []
         if tf_date.text != "" {
-            if hour > 18 && tf_date.text == Date().tomorrow.toString(dateFormat: "dd-MMM-yyyy"){
+            if hour > 18 && tf_date.text == Date().tomorrow.toString(dateFormat: "dd-MMM-yyyy") {
                 let elem = self.parentPageViewController.dataDelivery?.hours[2]
                 varHours.append("N")
                 let distributionHour  = (elem?.iniHour)! + " - " + (elem?.endHour)!
                 hours.append(distributionHour)
-            }else{
+            } else {
                 for elem in (self.parentPageViewController.dataDelivery?.hours)! {
                     let distributionHour  = elem.iniHour + " - " + elem.endHour
                     hours.append(distributionHour)
@@ -96,7 +99,6 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
                 self.varHours.append("D")
                 self.varHours.append("T")
                 self.varHours.append("N")
-
             }
         }else {
             return
@@ -116,9 +118,9 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
             }
         }
         alert.addAction(title: "OK", style: .cancel)
-        
         self.present(alert, animated: true, completion: nil)
     }
+    
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
         let alert = UIAlertController(style: .actionSheet, title: "Fecha")
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: nil ) { date in
@@ -129,8 +131,8 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: nil)
         self.present(alert, animated: true, completion: nil)
     }
+    
     @objc func tapDistrict(_ sender: UITapGestureRecognizer) -> Void {
-        
         let alert = UIAlertController(style: .actionSheet, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
@@ -140,29 +142,26 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
                 UIView.animate(withDuration: 1) {
                     self.tf_district.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
                     self.parentPageViewController.checkOut.district = Int64(self.listDistrict[index.row].idDistrict)
-                    
                 }
             }
         }
         alert.addAction(title: "OK", style: .cancel)
-        
         self.present(alert, animated: true, completion: nil)
     }
    
-    
     func getParentPageViewController(parentRef: AlertPageVc) {
         parentPageViewController = parentRef
     }
     
-    func getDistrict(){
+    func getDistrict() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        
         Alamofire.request(URLs.ListDistrict, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
                 self.stopAnimating()
                 return
             }
+            
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
@@ -174,7 +173,6 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
                         self.districts.append(district.name)
                         self.listDistrict.append(DistrictDC(element))
                     }
-                    
                 }
             } else {
                 if let jsonResponse = response.result.value {
@@ -186,40 +184,5 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
             }
             self.stopAnimating()
         }
-    }
-    
-}
-extension Date {
-    var yesterday: Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
-    }
-    var tomorrow: Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
-    }
-    var noon: Date {
-        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
-    }
-    var month: Int {
-        return Calendar.current.component(.month,  from: self)
-    }
-    var isLastDayOfMonth: Bool {
-        return tomorrow.month != month
-    }
-    func toString(dateFormat format : String) -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        return dateFormatter.string(from : self)
-    }
-}
-extension UITextField {
-    func setBottomBorder() {
-        self.borderStyle = .none
-        self.layer.backgroundColor = UIColor.white.cgColor
-        
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        self.layer.shadowOpacity = 1.0
-        self.layer.shadowRadius = 0.0
     }
 }

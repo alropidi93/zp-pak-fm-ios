@@ -67,5 +67,5 @@ class ProductDC: NSObject {
     var favourite : Bool {
         set { _favourite = newValue }
         get { return _favourite }
-    }∂
+    }
 }

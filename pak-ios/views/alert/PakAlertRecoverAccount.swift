@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 import SwiftyJSON
 import UIKit
 import Alamofire
@@ -16,15 +15,14 @@ import FacebookCore
 import FacebookLogin
 import SwiftHash
 import SideMenu
+
 class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
-    
-    
     @IBOutlet weak var tf_code_invitation: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -34,7 +32,6 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
         view.layoutIfNeeded()
     }
     
- 
     @IBAction func b_close(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
@@ -47,10 +44,7 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
     
     func restartPassword(_ email : String){
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        
-        
-        let params: Parameters = [ "Email": email                               
-                                   ]
+        let params: Parameters = [ "Email": email ]
         Alamofire.request(URLs.RecoveryPassword, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -61,7 +55,7 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    if jsonResult["Msg"] == "OK"{
+                    if jsonResult["Msg"] == "OK" {
                         //make a pop up sucess
                     } else {
                         self.stopAnimating()
@@ -84,5 +78,5 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
             self.stopAnimating()
         }
     }
-    
 }
+
