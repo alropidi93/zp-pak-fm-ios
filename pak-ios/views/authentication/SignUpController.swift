@@ -318,7 +318,9 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                         self.alertDialog(uiViewController: self)
-                        
+                        let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
+                        let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                        print(string)
                         self.stopAnimating()
                         
                     }else {
