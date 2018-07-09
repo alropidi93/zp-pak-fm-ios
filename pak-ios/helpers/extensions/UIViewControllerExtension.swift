@@ -59,6 +59,7 @@ extension UIViewController : UISearchBarDelegate {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
     }
     
+    /* #MARK: This element lets you find some stuff from the current list */
     func customizeNavigationBarWithSearch() {
         self.navigationController?.navigationBar.topItem?.title = " "
         var btnsMenu : [UIBarButtonItem] = []
@@ -66,7 +67,7 @@ extension UIViewController : UISearchBarDelegate {
         btnsMenu.append(btnMenu)
         self.navigationItem.leftBarButtonItems = btnsMenu
         
-        var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
+        var searchBar: UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
         searchBar = UISearchBar()
         searchBar.sizeToFit()
         searchBar.placeholder = Constants.PLACEHOLDERSB
@@ -84,7 +85,7 @@ extension UIViewController : UISearchBarDelegate {
     }
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let outMainController = self as? OutMainController {
+        if let outMainController = self as? MainController {
             outMainController.searchWord = searchBar.text!
             outMainController.performSegue(withIdentifier: outMainController.segue_identifier, sender: self)
         }

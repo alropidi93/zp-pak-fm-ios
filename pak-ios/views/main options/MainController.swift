@@ -12,7 +12,7 @@ import Tabman
 import Pageboy
 import SideMenu
 
-class OutMainController : TabmanViewController, PageboyViewControllerDataSource {
+class MainController : TabmanViewController, PageboyViewControllerDataSource {
     let segue_identifier : String = "segue_search_view"
     
     var searchWord : String = ""

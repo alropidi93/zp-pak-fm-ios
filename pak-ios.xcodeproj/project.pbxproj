@@ -85,7 +85,7 @@
 		70D525A820915C58004EB51E /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A720915C58004EB51E /* Urls.swift */; };
 		70D525AA20915C6A004EB51E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525A920915C6A004EB51E /* Constants.swift */; };
 		70D525AC209163E9004EB51E /* AlamoMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D525AB209163E9004EB51E /* AlamoMethods.swift */; };
-		70D5F0ED209B78A400EE673B /* OutMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0EC209B78A400EE673B /* OutMainController.swift */; };
+		70D5F0ED209B78A400EE673B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0EC209B78A400EE673B /* MainController.swift */; };
 		70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0EE209B7A4300EE673B /* InitialController.swift */; };
 		70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5F0F0209B7AA700EE673B /* StoreController.swift */; };
 		70D6D2EC20BDAEF4006BDC19 /* AlertCodeInvitationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6D2EB20BDAEF4006BDC19 /* AlertCodeInvitationDelegate.swift */; };
@@ -179,7 +179,7 @@
 		70D525A720915C58004EB51E /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		70D525A920915C6A004EB51E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		70D525AB209163E9004EB51E /* AlamoMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoMethods.swift; sourceTree = "<group>"; };
-		70D5F0EC209B78A400EE673B /* OutMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutMainController.swift; sourceTree = "<group>"; };
+		70D5F0EC209B78A400EE673B /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		70D5F0EE209B7A4300EE673B /* InitialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialController.swift; sourceTree = "<group>"; };
 		70D5F0F0209B7AA700EE673B /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
 		70D6D2EB20BDAEF4006BDC19 /* AlertCodeInvitationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCodeInvitationDelegate.swift; sourceTree = "<group>"; };
@@ -504,8 +504,8 @@
 		70D5F0EB209B787F00EE673B /* main options */ = {
 			isa = PBXGroup;
 			children = (
+				70D5F0EC209B78A400EE673B /* MainController.swift */,
 				70D5F0EE209B7A4300EE673B /* InitialController.swift */,
-				70D5F0EC209B78A400EE673B /* OutMainController.swift */,
 				70D5F0F0209B7AA700EE673B /* StoreController.swift */,
 				70242A9120D8FE6C00F89299 /* store chain */,
 			);
@@ -782,7 +782,7 @@
 				7007930D20D2256A00DE70CA /* PakAlertReady.swift in Sources */,
 				7028135720C4509300DD5443 /* PakAlertSummary.swift in Sources */,
 				7094747320F19ECC0035EADD /* DateExtension.swift in Sources */,
-				70D5F0ED209B78A400EE673B /* OutMainController.swift in Sources */,
+				70D5F0ED209B78A400EE673B /* MainController.swift in Sources */,
 				701D2878207EAD01007AD7AC /* AppDelegate.swift in Sources */,
 				70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */,
 				703C1C3820C83D3400488E16 /* AlertViewPayment.swift in Sources */,
@@ -963,6 +963,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LB6PGNF3Z4;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -988,6 +989,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LB6PGNF3Z4;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

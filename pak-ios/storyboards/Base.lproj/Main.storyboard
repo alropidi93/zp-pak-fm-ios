@@ -1063,10 +1063,10 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
             </objects>
             <point key="canvasLocation" x="2350" y="995"/>
         </scene>
-        <!--Menu-->
+        <!--Main-->
         <scene sceneID="Drn-bI-Pwk">
             <objects>
-                <viewController id="mRr-ug-7Gy" userLabel="Menu" customClass="OutMainController" customModule="pak_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Main" id="mRr-ug-7Gy" userLabel="Main" customClass="MainController" customModule="pak_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="STS-mE-mq8"/>
                         <viewControllerLayoutGuide type="bottom" id="P33-Ie-Zpy"/>
@@ -1820,7 +1820,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFD-Dw-3cr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5248.8000000000002" y="1307.4962518740631"/>
+            <point key="canvasLocation" x="5145" y="1152"/>
         </scene>
         <!--Alert message-->
         <scene sceneID="t8L-eq-rcn">
@@ -2582,7 +2582,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WdC-rB-exB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5952.8000000000002" y="-389.05547226386807"/>
+            <point key="canvasLocation" x="5953" y="-636"/>
         </scene>
         <!--Orders Controller-->
         <scene sceneID="IJh-l5-ySn">
@@ -4012,7 +4012,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGu-2c-KLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5952.8000000000002" y="484.40779610194909"/>
+            <point key="canvasLocation" x="5953" y="143"/>
         </scene>
         <!--Publicity-->
         <scene sceneID="lTx-4w-lfQ">
@@ -6477,7 +6477,7 @@ EMKhTGlzdG8hA
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="06P-hH-vzg" userLabel="cv_categories">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0Sm-WP-ISl">
                                     <size key="itemSize" width="375" height="166"/>
@@ -6546,28 +6546,42 @@ EMKhTGlzdG8hA
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-md-c6R">
+                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KOA-3z-bnR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dJL-md-c6R" firstAttribute="top" secondItem="EpR-Jb-pSK" secondAttribute="bottom" id="2Bu-i4-1lJ"/>
+                            <constraint firstItem="06P-hH-vzg" firstAttribute="top" secondItem="dJL-md-c6R" secondAttribute="bottom" id="3C3-6k-g32"/>
                             <constraint firstItem="VIH-TK-7Xc" firstAttribute="top" secondItem="p0G-IW-33R" secondAttribute="bottom" id="74y-z1-nNh"/>
                             <constraint firstItem="VIH-TK-7Xc" firstAttribute="top" secondItem="06P-hH-vzg" secondAttribute="bottom" id="Cwi-6q-9m2"/>
                             <constraint firstAttribute="trailing" secondItem="06P-hH-vzg" secondAttribute="trailing" id="GQQ-Tm-z6W"/>
                             <constraint firstItem="p0G-IW-33R" firstAttribute="leading" secondItem="o86-6F-DJL" secondAttribute="leading" id="eKo-mj-BIc"/>
                             <constraint firstItem="p0G-IW-33R" firstAttribute="trailing" secondItem="o86-6F-DJL" secondAttribute="trailing" id="hon-Qh-9vP"/>
+                            <constraint firstItem="dJL-md-c6R" firstAttribute="leading" secondItem="o86-6F-DJL" secondAttribute="leading" id="leQ-cs-YN6"/>
                             <constraint firstItem="06P-hH-vzg" firstAttribute="leading" secondItem="o86-6F-DJL" secondAttribute="leading" id="ru2-e7-H5O"/>
                             <constraint firstItem="p0G-IW-33R" firstAttribute="top" secondItem="o86-6F-DJL" secondAttribute="top" id="tnK-oc-ie3"/>
-                            <constraint firstItem="06P-hH-vzg" firstAttribute="top" secondItem="o86-6F-DJL" secondAttribute="top" id="wBS-Cf-TGn"/>
+                            <constraint firstAttribute="trailing" secondItem="dJL-md-c6R" secondAttribute="trailing" id="v65-NQ-CPs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cv_categories" destination="06P-hH-vzg" id="o4V-tB-iNi"/>
+                        <outlet property="l_selected_category_title" destination="dJL-md-c6R" id="YhR-gE-LYY"/>
                         <segue destination="bP3-WA-TIi" kind="show" identifier="segue_category_detail" id="Mj0-oe-INs"/>
                         <segue destination="me3-Yw-72p" kind="show" identifier="segue_category_sub_category" id="IRs-eD-v5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BWk-VJ-Lyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7126" y="2293"/>
+            <point key="canvasLocation" x="7125.6000000000004" y="2292.5037481259374"/>
         </scene>
         <!--Root Categories Controller-->
         <scene sceneID="w25-TB-2LG">
@@ -6585,7 +6599,7 @@ EMKhTGlzdG8hA
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="052-nJ-vHi" userLabel="cv_categories">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="EfW-RD-Qme">
                                     <size key="itemSize" width="375" height="166"/>
@@ -6654,28 +6668,42 @@ EMKhTGlzdG8hA
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEb-Ky-v9n" userLabel="l_title">
+                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Qtz-3I-0GA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="052-nJ-vHi" firstAttribute="top" secondItem="bFD-vh-qvI" secondAttribute="top" id="45g-Hm-p5P"/>
                             <constraint firstItem="e54-dJ-DqX" firstAttribute="top" secondItem="052-nJ-vHi" secondAttribute="bottom" id="5Tm-eP-Zx8"/>
                             <constraint firstItem="GD6-BK-xA4" firstAttribute="trailing" secondItem="bFD-vh-qvI" secondAttribute="trailing" id="IhK-9k-0QF"/>
+                            <constraint firstItem="052-nJ-vHi" firstAttribute="top" secondItem="SEb-Ky-v9n" secondAttribute="bottom" id="U6B-Dx-f0v"/>
+                            <constraint firstAttribute="trailing" secondItem="SEb-Ky-v9n" secondAttribute="trailing" id="VfT-we-zee"/>
                             <constraint firstAttribute="trailing" secondItem="052-nJ-vHi" secondAttribute="trailing" id="bEA-qE-gZ3"/>
                             <constraint firstItem="GD6-BK-xA4" firstAttribute="leading" secondItem="bFD-vh-qvI" secondAttribute="leading" id="cmm-A5-u1j"/>
                             <constraint firstItem="052-nJ-vHi" firstAttribute="leading" secondItem="bFD-vh-qvI" secondAttribute="leading" id="ltC-d4-JyJ"/>
                             <constraint firstItem="GD6-BK-xA4" firstAttribute="top" secondItem="bFD-vh-qvI" secondAttribute="top" id="mfs-WS-CUL"/>
                             <constraint firstItem="e54-dJ-DqX" firstAttribute="top" secondItem="GD6-BK-xA4" secondAttribute="bottom" id="oZl-2A-pKr"/>
+                            <constraint firstItem="SEb-Ky-v9n" firstAttribute="top" secondItem="zch-EQ-pPs" secondAttribute="bottom" id="uhz-Xd-8iF"/>
+                            <constraint firstItem="SEb-Ky-v9n" firstAttribute="leading" secondItem="bFD-vh-qvI" secondAttribute="leading" id="wIn-fA-OTX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cv_categories" destination="052-nJ-vHi" id="eLJ-Bg-sej"/>
+                        <outlet property="l_selected_category_title" destination="SEb-Ky-v9n" id="MO0-C7-BuH"/>
                         <segue destination="bP3-WA-TIi" kind="show" identifier="segue_category_detail" id="bmc-MF-fkN"/>
                         <segue destination="i23-Et-q9a" kind="show" identifier="segue_category_sub_category" id="0wQ-9P-YXB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ln3-tL-wMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7126" y="1539"/>
+            <point key="canvasLocation" x="7125.6000000000004" y="1538.6806596701651"/>
         </scene>
         <!--Order deliveried-->
         <scene sceneID="G8I-yq-IwD">
@@ -7082,13 +7110,14 @@ EMKhTGlzdG8hA
         <image name="dwb_pak_usericon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="IRs-eD-v5w"/>
         <segue reference="0wQ-9P-YXB"/>
         <segue reference="e49-xG-mKz"/>
-        <segue reference="cBN-SR-qJl"/>
+        <segue reference="yG2-np-1bB"/>
         <segue reference="RzB-aK-gvt"/>
-        <segue reference="bmc-MF-fkN"/>
-        <segue reference="YD1-6P-6T7"/>
-        <segue reference="k7V-In-QB3"/>
+        <segue reference="Mj0-oe-INs"/>
+        <segue reference="uIi-HV-Eb2"/>
+        <segue reference="rHo-he-4zp"/>
         <segue reference="kk5-HE-cyu"/>
         <segue reference="AdC-De-agH"/>
     </inferredMetricsTieBreakers>

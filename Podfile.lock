@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - Agrume (5.0.3):
+  - Agrume (5.1.0):
     - SwiftyGif
   - AKMediaViewer (1.0.8):
     - ASBPlayerScrubbing (~> 0.1)
@@ -221,7 +221,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  Agrume: ac7753b6b502a53f6ecc49313061df988d4728d0
+  Agrume: 97f80b07ddfb2e86fd678e2acd6d71022e045849
   AKMediaViewer: 356d179edf335efcfb72eaf4efd67095c56548d7
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   ASBPlayerScrubbing: 0fc5e76aad6fdbcf14380734fb7f2c127cd28b66
@@ -264,6 +264,6 @@ SPEC CHECKSUMS:
   Tabman: e867a8e3fc72a30cc694aca51a2b331070f5e3ba
   TTGSnackbar: a66e929fd17d662152ec0964990a86e966310edb
 
-PODFILE CHECKSUM: 7bf649304d4d457eae7de15556b143918c48fb12
+PODFILE CHECKSUM: 32ed404723a03ea47fbf3897b3da4fcaa3cebf6c
 
 COCOAPODS: 1.5.0

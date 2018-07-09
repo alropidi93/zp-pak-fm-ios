@@ -15,6 +15,7 @@ import NVActivityIndicatorView
 
 class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var cv_categories: UICollectionView!
+    @IBOutlet weak var l_selected_category_title: UILabel!
     
     private let reuse_identifier = "cvc_category"
     var items : [CategoriesDC] = []
@@ -36,6 +37,8 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     }
     
     func setElements() {
+        self.customizeNavigationBarWithSearch()
+        
         self.cv_categories.delegate = self
         self.cv_categories.dataSource = self
     }
