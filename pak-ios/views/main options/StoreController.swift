@@ -150,7 +150,7 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
             vc.selected_title = self.selected_title
         }else if segue.identifier == self.segue_category_detail {
             let vcpl = segue.destination as! ProductsPerCategoryController
-            vcpl.items = selectedItems
+            vcpl.categories = selectedItems
         }
     }
 }

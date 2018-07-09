@@ -155,10 +155,10 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
             if selectedItems.count > 0{
                 let categoriesDC = CategoriesDC()
                 categoriesDC.name = "Todos"
-                vcpl.items.append(categoriesDC)
-                vcpl.items.append(contentsOf : selectedItems)
+                vcpl.categories.append(categoriesDC)
+                vcpl.categories.append(contentsOf : selectedItems)
             }else {
-                vcpl.items = selectedItems
+                vcpl.categories = selectedItems
             }
         } else if segue.identifier == self.segue_search_view {
             if let vc = segue.destination as? SearchView {

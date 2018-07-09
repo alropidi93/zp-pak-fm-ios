@@ -27,11 +27,12 @@ class CategoriesDC  : NSObject  {
         self._name = jsonCategory["Nombre"].string ?? self._name
         self._img = jsonCategory["Imagen"].string ?? self._img
         
-        for (_, subJson) in jsonCategory["Listas"]{
+        for (_, subJson) in jsonCategory["Listas"] {
             let _item = ProductsPerCategory(subJson);
             self._list.append(_item)
         }
-        for (_, subJson) in jsonCategory["Items"]{
+        
+        for (_, subJson) in jsonCategory["Items"] {
             let _item = CategoriesDC(subJson);
             self._category.append(_item)
         }
@@ -46,10 +47,12 @@ class CategoriesDC  : NSObject  {
         set { _name = newValue }
         get { return _name }
     }
+    
     var img : String {
         set { _img = newValue }
         get { return URLs.MultimediaCategoriasURL + _img }
     }
+    
     var list : [ProductsPerCategory] {
         set { _list = newValue }
         get { return _list }

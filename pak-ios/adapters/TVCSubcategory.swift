@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
-    @IBOutlet weak var cv_list_products: UICollectionView!
+    @IBOutlet weak var cv_products: UICollectionView!
     @IBOutlet weak var l_name_brand: UILabel!
     
     //    let segue_identifier = "segue_todelivery_todetail"
@@ -25,8 +25,8 @@ class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionVi
     }
    
     func setElements() {
-        self.cv_list_products.delegate = self
-        self.cv_list_products.dataSource = self
+        self.cv_products.delegate = self
+        self.cv_products.dataSource = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
