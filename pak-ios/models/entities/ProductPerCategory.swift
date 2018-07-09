@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import AVKit
 
-class ProductsPerCategory  : NSObject {
+class ProductPerCategory  : NSObject {
     private var _idList: Int64 = 0
     private var _name: String = ""
     private var _sort : Int64 = 0

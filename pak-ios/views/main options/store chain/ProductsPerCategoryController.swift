@@ -14,7 +14,6 @@ import UIKit
 import Alamofire
 
 class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource  {
-    
     var categories : [CategoriesDC] = []
     
     private let reuse_category_identifier = "cvc_category_name"
@@ -58,27 +57,25 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         self.tv_sub_categories.reloadData()
     }
     
+    /* Complex view methods*/
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.selected_category_index == 0 {
             return self.categories.count
         } else {
             return 1
         }
-
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_list_product_identifier, for: indexPath as IndexPath) as! TVCSubcategory
         if self.selected_category_index == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_list_product_identifier, for: indexPath as IndexPath) as! TVCSubcategory
             cell.l_name_brand.text = self.categories[indexPath.item].name
-            //cell.items = self.categories[indexPath.item].list
-            return cell
+            cell.items = self.categories[indexPath.item].list
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_list_product_identifier, for: indexPath as IndexPath) as! TVCSubcategory
             cell.l_name_brand.text = self.categories[self.selected_category_index].name
-            //cell.items = self.categories[indexPath.item].list
-            return cell
+            cell.items = self.categories[self.selected_category_index].list
         }
+        cell.cv_products.reloadData()
+        return cell
     }
 }
-

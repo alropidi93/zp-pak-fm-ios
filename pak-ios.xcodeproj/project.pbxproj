@@ -22,7 +22,7 @@
 		701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2896207EC5D6007AD7AC /* UIViewExtension.swift */; };
 		701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */; };
 		70242A9420D8FEF000F89299 /* ProductsPerCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9320D8FEF000F89299 /* ProductsPerCategoryController.swift */; };
-		70242A9820D914E600F89299 /* ProductsPerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9720D914E600F89299 /* ProductsPerCategory.swift */; };
+		70242A9820D914E600F89299 /* ProductPerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9720D914E600F89299 /* ProductPerCategory.swift */; };
 		70242A9A20D937B600F89299 /* PageObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9920D937B600F89299 /* PageObservation.swift */; };
 		7028134F20C396F500DD5443 /* AlertPageVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028134E20C396F500DD5443 /* AlertPageVc.swift */; };
 		7028135120C44F8900DD5443 /* PakAlertSendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028135020C44F8900DD5443 /* PakAlertSendData.swift */; };
@@ -116,7 +116,7 @@
 		701D2896207EC5D6007AD7AC /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		70242A9320D8FEF000F89299 /* ProductsPerCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPerCategoryController.swift; sourceTree = "<group>"; };
-		70242A9720D914E600F89299 /* ProductsPerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPerCategory.swift; sourceTree = "<group>"; };
+		70242A9720D914E600F89299 /* ProductPerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPerCategory.swift; sourceTree = "<group>"; };
 		70242A9920D937B600F89299 /* PageObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageObservation.swift; sourceTree = "<group>"; };
 		7028134E20C396F500DD5443 /* AlertPageVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPageVc.swift; sourceTree = "<group>"; };
 		7028135020C44F8900DD5443 /* PakAlertSendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertSendData.swift; sourceTree = "<group>"; };
@@ -276,9 +276,9 @@
 				70C6D13C20E988CE00560D7C /* CVCCancel.swift */,
 				70C6D13E20E9893F00560D7C /* CVCDeliver.swift */,
 				709D48F420EB0E2000B990DE /* CVCDetailOrder.swift */,
+				7094747620F1AB530035EADD /* CVCPlaceholder.swift */,
 				70C9ED23209D33BC0096B656 /* TVCPlaceholder.swift */,
 				705677E220E80C36007AFD71 /* TVCSubcategory.swift */,
-				7094747620F1AB530035EADD /* CVCPlaceholder.swift */,
 			);
 			path = adapters;
 			sourceTree = "<group>";
@@ -450,7 +450,7 @@
 				70C9ED20209D14460096B656 /* Ads.swift */,
 				7097EC6420A60FA2008E1C9E /* CategoriesDC.swift */,
 				709A334320AE0FC1003AB207 /* ProductDC.swift */,
-				70242A9720D914E600F89299 /* ProductsPerCategory.swift */,
+				70242A9720D914E600F89299 /* ProductPerCategory.swift */,
 				708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */,
 				708AC99B20E039E2004BD8FD /* DistributionHour.swift */,
 				70C6D14020E9D29000560D7C /* OrderDC.swift */,
@@ -757,7 +757,7 @@
 				7028135320C44FF700DD5443 /* PakAlertFacturation.swift in Sources */,
 				7007931320D2B26000DE70CA /* PakAlertRecoverAccount.swift in Sources */,
 				709D48F920EB54FD00B990DE /* PakAlertCancel.swift in Sources */,
-				70242A9820D914E600F89299 /* ProductsPerCategory.swift in Sources */,
+				70242A9820D914E600F89299 /* ProductPerCategory.swift in Sources */,
 				708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */,
 				709D48F520EB0E2000B990DE /* CVCDetailOrder.swift in Sources */,
 				700C7C7720D88BFF000FD7E5 /* SubCategoriesController.swift in Sources */,
