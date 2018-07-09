@@ -59,8 +59,8 @@ extension UIViewController : UISearchBarDelegate {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
     }
     
-    /* #MARK: This element lets you find some stuff from the current list */
-    func customizeNavigationBarWithSearch() {
+    /* #MARK: This element lets you find some stuff from the total offered products */
+    func navigationBarWithSearchAndMenu() {
         self.navigationController?.navigationBar.topItem?.title = " "
         var btnsMenu : [UIBarButtonItem] = []
         let btnMenu = UIBarButtonItem(image: UIImage(named: "dwb_pak_menu_button"), style: .plain, target: self, action: #selector(didPressLeftButton))
@@ -84,10 +84,38 @@ extension UIViewController : UISearchBarDelegate {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
     }
     
+    /* #MARK: Variation of the previous one that permits you back navigation */
+    func navigationBarWithSearch() {
+        self.navigationController?.navigationBar.topItem?.title = " "
+        
+        var searchBar: UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        searchBar.placeholder = Constants.PLACEHOLDERSB
+        searchBar.delegate = self
+        self.navigationItem.titleView = searchBar
+        
+        let notificationButton = SSBadgeButton()
+        notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
+        notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+        notificationButton.badge = "\(ConstantsModels.count_item) "
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+    }
+    
+    
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let outMainController = self as? MainController {
             outMainController.searchWord = searchBar.text!
             outMainController.performSegue(withIdentifier: outMainController.segue_identifier, sender: self)
+        } else if let outMainController = self as? SubCategoriesController {
+            outMainController.searchWord = searchBar.text!
+            outMainController.performSegue(withIdentifier: outMainController.segue_search_view, sender: self)
+        } else if let outMainController = self as? RootCategoriesController {
+            outMainController.searchWord = searchBar.text!
+            outMainController.performSegue(withIdentifier: outMainController.segue_search_view, sender: self)
         }
     }
 

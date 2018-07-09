@@ -24,6 +24,7 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
     private let segue_category_detail = "segue_category_detail"
     
     private var isIndexOf : Int = -1
+    private var selected_title : String = ""
     
     //#MARK: Common methods
     override func viewDidLoad() {
@@ -56,6 +57,7 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let id_item = items[indexPath.item].idCategory
+        self.selected_title = items[indexPath.item].name
         getCategories(Int(id_item))
     }
     
@@ -145,6 +147,7 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
         if segue.identifier == self.segue_category_sub_category {
             let vc = segue.destination as! SubCategoriesController
             vc.items = selectedItems
+            vc.selected_title = self.selected_title
         }else if segue.identifier == self.segue_category_detail {
             let vcpl = segue.destination as! ProductsListControllers
             vcpl.items = selectedItems

@@ -18,27 +18,37 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var l_selected_category_title: UILabel!
     
     private let reuse_identifier = "cvc_category"
+    
     var items : [CategoriesDC] = []
     private var selectedItems : [CategoriesDC] = []
     
     private let segue_category_sub_category = "segue_category_sub_category"
     private let segue_category_detail = "segue_category_detail"
+    let segue_search_view = "segue_search_view"
     
     private var isIndexOf : Int = -1
-    
+    var selected_title : String = ""
+    private var selected_sub_title : String = ""
+    var searchWord : String = ""
+
     //#MARK: Common methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationBarWithSearch()
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func setElements() {
-        self.customizeNavigationBarWithSearch()
-        
+    func setElements() {        
+        self.l_selected_category_title.text = selected_title
         self.cv_categories.delegate = self
         self.cv_categories.dataSource = self
     }
@@ -58,6 +68,7 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let id_item = items[indexPath.item].idCategory
+        self.selected_sub_title = items[indexPath.item].name
         getCategories(Int(id_item))
     }
     
@@ -140,6 +151,7 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
         if segue.identifier == self.segue_category_sub_category {
             let vc = segue.destination as! RootCategoriesController
             vc.items = selectedItems
+            vc.selected_title = self.selected_sub_title
         } else if segue.identifier == self.segue_category_detail {
             let vcpl = segue.destination as! ProductsListControllers
             if selectedItems.count > 0{
@@ -149,6 +161,10 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
                 vcpl.items.append(contentsOf : selectedItems)
             }else {
                 vcpl.items = selectedItems
+            }
+        } else if segue.identifier == self.segue_search_view {
+            if let vc = segue.destination as? SearchView {
+                vc.text = self.searchWord
             }
         }
     }
