@@ -149,17 +149,13 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
         if segue.identifier == self.segue_category_sub_category {
             let vc = segue.destination as! SubCategoriesController
             vc.items = selectedItems
+            self.selectedItems = []
+
             vc.selected_title = self.selected_sub_title
         }else if segue.identifier == self.segue_category_detail {
             let vcpl = segue.destination as! ProductsPerCategoryController
-            if selectedItems.count > 0{
-                let categoriesDC = CategoriesDC()
-                categoriesDC.name = "Todos"
-                vcpl.categories.append(categoriesDC)
-                vcpl.categories.append(contentsOf : selectedItems)
-            }else {
-                vcpl.categories = selectedItems
-            }
+            vcpl.categories = selectedItems
+            self.selectedItems = []
         } else if segue.identifier == self.segue_search_view {
             if let vc = segue.destination as? SearchView {
                 vc.text = self.searchWord

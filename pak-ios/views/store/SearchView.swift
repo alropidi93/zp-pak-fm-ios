@@ -65,7 +65,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCSearchItem
         cell.l_Item_name.text = self.items[indexPath.item].name
-        cell.l_price_unity.text = "\(self.items[indexPath.item].price)"
+        cell.l_price_unity.text = "S/" + "\(self.items[indexPath.item].price)"
         UtilMethods.setImage(imageview: cell.iv_item_photo, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
         
         

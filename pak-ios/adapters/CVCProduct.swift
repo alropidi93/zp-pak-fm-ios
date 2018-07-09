@@ -9,5 +9,10 @@
 import Foundation
 import UIKit
 class CVCProduct : UICollectionViewCell {
-    @IBOutlet weak var iv_product: UIImageView!
+
+    @IBOutlet var iv_item_photo: UIImageView!
+    @IBOutlet var l_item_name: UILabel!
+    @IBOutlet var l_price_unity: UILabel!
+    @IBOutlet var b_add_item: UIButton!
+    @IBOutlet var b_favorites: UIButton!
 }

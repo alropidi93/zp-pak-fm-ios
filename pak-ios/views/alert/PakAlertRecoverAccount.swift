@@ -56,7 +56,11 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK" {
-                        //make a pop up sucess
+                        self.alertDialog(uiViewController: self)
+
+                        self.dismiss(animated: false, completion: nil)
+
+
                     } else {
                         self.stopAnimating()
                         if let jsonResponse = response.result.value {
@@ -78,5 +82,15 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
             self.stopAnimating()
         }
     }
+    
+   
+        func alertDialog(uiViewController: UIViewController) {
+            let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_success_pass") as! PakAlertSuccessPass
+            pakAlert.definesPresentationContext = true
+            pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            uiViewController.present(pakAlert, animated: true, completion: nil)
+        }
+  
 }
 

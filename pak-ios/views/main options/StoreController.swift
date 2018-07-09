@@ -147,6 +147,8 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
         if segue.identifier == self.segue_category_sub_category {
             let vc = segue.destination as! SubCategoriesController
             vc.items = selectedItems
+            self.selectedItems = []
+
             vc.selected_title = self.selected_title
         }else if segue.identifier == self.segue_category_detail {
             let vcpl = segue.destination as! ProductsPerCategoryController

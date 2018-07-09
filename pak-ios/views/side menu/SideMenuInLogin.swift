@@ -36,6 +36,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     
     @IBAction func logueOut(_ sender: Any) {
         ConstantsModels.static_user = nil
+        PreferencesMethods.deleteAccessTokenFromOptions()
         self.getGUID()
         dismiss(animated: true, completion: nil)
     }

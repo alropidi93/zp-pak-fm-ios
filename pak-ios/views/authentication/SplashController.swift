@@ -24,7 +24,7 @@ class SplashController: UIViewController {
     @IBOutlet weak var iv_logo: UIImageView!
     
     // Local variables
-    private var animation_parts: [UIImage] = [UIImage(named: "dwb-pak-splash-1")!, UIImage(named: "dwb-pak-splash-2")!, UIImage(named: "dwb-pak-splash-3")!, UIImage(named: "dwb-pak-splash-4")!, UIImage(named: "dwb-pak-splash-5")!]
+    private var animation_parts: [UIImage] = [ UIImage(named: "dwb-pak-splash-2")!, UIImage(named: "dwb-pak-splash-3")!, UIImage(named: "dwb-pak-splash-4")!, UIImage(named: "dwb-pak-splash-5")!,UIImage(named: "dwb-pak-logo-name")!]
     
     // Common functions
     override func viewDidLoad() {
@@ -66,7 +66,9 @@ class SplashController: UIViewController {
             return
         }
         
-        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? "" , "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID, "FCMToken" : "" ]
+        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
+                                   "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? "" ,
+                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID, "FCMToken" : "" ]
         
         Alamofire.request(URLs.loginAccessToken, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {

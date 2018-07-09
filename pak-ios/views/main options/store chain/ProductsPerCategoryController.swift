@@ -7,15 +7,23 @@
 //
 
 import Foundation
-import Tabman
-import Pageboy
-import SideMenu
+import SwiftyJSON
 import UIKit
 import Alamofire
+import NVActivityIndicatorView
+import FacebookCore
+import FacebookLogin
+import SwiftHash
+import SideMenu
+import GoogleSignIn
+import TTGSnackbar
 
-class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource  {
+class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource , SendDetailProductDelegate ,NVActivityIndicatorViewable  {
     var categories : [CategoriesDC] = []
     
+    var cant : Int = 0
+    let segue_identifier : String = "segue_product_detail"
+
     private let reuse_category_identifier = "cvc_category_name"
     private let reuse_list_product_identifier = "tvc_list_products"
     
@@ -23,6 +31,8 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     @IBOutlet weak var tv_sub_categories: UITableView!
     
     private var selected_category_index : Int = 0
+    
+    private var itemProduct : ProductDC? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,23 +69,70 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     
     /* Complex view methods*/
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.selected_category_index == 0 {
-            return self.categories.count
-        } else {
-            return 1
-        }
+//        if self.selected_category_index == 0 {
+            return self.categories[self.selected_category_index].list.count
+//        } else {
+//            return 1
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_list_product_identifier, for: indexPath as IndexPath) as! TVCSubcategory
-        if self.selected_category_index == 0 {
-            cell.l_name_brand.text = self.categories[indexPath.item].name
-            cell.items = self.categories[indexPath.item].list
-        } else {
-            cell.l_name_brand.text = self.categories[self.selected_category_index].name
-            cell.items = self.categories[self.selected_category_index].list
-        }
+        
+        cell.l_name_brand.text = self.categories[self.selected_category_index].list[indexPath.item].name
+        cell.items = self.categories[self.selected_category_index].list[indexPath.item].product
+        cell.detailProductDelegate = self
         cell.cv_products.reloadData()
         return cell
+    }
+    
+    func okButtonTapped(_ product : ProductDC){
+        self.itemProduct = product
+        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
+
+    }
+    
+    
+  
+    
+    func addProduct(_ product : ProductDC) {
+        let params: Parameters = [ "IdProducto": product.idProduct, "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID, "Cantidad": 1]
+        print(product.idProduct)
+        Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                
+                return
+            }
+            let statusCode = response.response!.statusCode
+            
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Msg"] == "OK"{
+                        self.cant += 1
+                        let snackbar = TTGSnackbar(message: "Se agrego " + String(self.cant) + "el producto", duration: .middle)
+                        snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
+                        snackbar.show()
+                        ConstantsModels.count_item = ConstantsModels.count_item + 1
+                    }
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.segue_identifier {
+            if let pdc = segue.destination as? ProductsDetailController {
+                pdc.item = self.itemProduct
+            }
+        }
     }
 }

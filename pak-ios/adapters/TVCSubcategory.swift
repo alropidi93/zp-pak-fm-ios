@@ -13,8 +13,10 @@ class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var cv_products: UICollectionView!
     @IBOutlet weak var l_name_brand: UILabel!
     
-    //    let segue_identifier = "segue_todelivery_todetail"
-    var items : [ProductPerCategory] = []
+    var detailProductDelegate : SendDetailProductDelegate? = nil
+
+    
+    var items : [ProductDC] = []
     var item : Int = -1
     
     private let reuse_identifier = "cvc_product"
@@ -26,13 +28,33 @@ class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5//self.items.count
+        return self.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCProduct
-        //not well connected. Sayonara Freeddy
-        UtilMethods.setImage(imageview: cell.iv_product, imageurl: "https://www.petdarling.com/articulos/wp-content/uploads/2016/03/dingos.jpg", placeholderurl: "dwb-pak-logo")
+        UtilMethods.setImage(imageview: cell.iv_item_photo, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
+        cell.l_item_name.text = self.items[indexPath.item].name
+        cell.l_price_unity.text = "S/" + "\(self.items[indexPath.item].price)"
+        cell.b_add_item.tag = indexPath.row
+        cell.b_add_item.addTarget(self, action: #selector(buttonAdd), for: .touchUpInside)
+        cell.b_favorites.tag = indexPath.row
+//        cell.b_favorites.addTarget(self, action: #selector(buttonFavorite), for: .touchUpInside)
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       detailProductDelegate?.okButtonTapped(self.items[indexPath.item])
+    }
+    
+    @objc func buttonAdd(sender: UIButton!) {
+        let product : ProductDC = items[sender.tag]
+        detailProductDelegate?.addProduct(product)
+    }
+    
+//    @objc func buttonFavorite(sender: UIButton!) {
+//        let product : ProductDC = items[sender.tag]
+//        addOrDeleteFavortie(product,sender.tag)
+//    }
+    
+    
 }

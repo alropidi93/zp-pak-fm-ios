@@ -170,9 +170,17 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                         userDC.userName = value.dictionaryValue!["email"] as! String
                         //"photo_url": user.profile.imageURL(withDimension: 100) ?? "",
                         userDC.birthDate = UtilMethods.dateSplit(value.dictionaryValue!["birthday"] as! String)
-                        print("ASFJPSFASFHASHFJOSAFJOSA======")
+                        print("HOLASDALSDKÑASD111111111")
+
+                        print(PreferencesMethods.getSmallBoxFromOptions()!.GUID)
+                        print("HOLASDALSDKÑASD")
+                        
+                        print(accessToken.appId)
+                        print(accessToken.authenticationToken)
+                        print(accessToken.userId)
                         print(value.dictionaryValue!["id"] as! String)
-                        print("ASFJPSFASFHASHFJOSAFJOSA======")
+                        print("HOLASDALSDKÑASD22222")
+
                         userDC.facebookID = value.dictionaryValue!["id"] as! String
                         self.validateFacebook(userDC)
                         loginManager.logOut()

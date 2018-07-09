@@ -21,14 +21,7 @@ extension UIViewController : UISearchBarDelegate {
         view.endEditing(true)
     }
     
-    func customizeNavigationBar( ) {
-        self.navigationController?.navigationBar.topItem?.title = " "
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        var btnsMenu : [UIBarButtonItem] = []
-        let btnMenu = UIBarButtonItem(image: UIImage(named: "dwb_pak_menu_button"), style: .plain, target: self, action: #selector(didPressLeftButton))
-        btnsMenu.append(btnMenu)
-        self.navigationItem.leftBarButtonItems = btnsMenu
-    }
+    
  
     func customizeNavigationBarFavourite( ) {
         self.navigationController?.navigationBar.shadowImage = UIImage()
