@@ -13,10 +13,10 @@ import SideMenu
 import UIKit
 import Alamofire
 
-class ProductsListControllers : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource  {
+class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource  {
    
     var items : [CategoriesDC] = []
-    var itemsPorducto : [ListDC] = []
+    var itemsPorducto : [ProductsPerCategory] = []
    
     private let reuse_category_identifier = "cvc_category_name"
     private let reuse_list_product_identifier = "tvc_list_products"
@@ -47,7 +47,7 @@ class ProductsListControllers : UIViewController, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_category_identifier, for: indexPath) as! CVCNameCategory
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_category_identifier, for: indexPath) as! CVCCategoryName
             cell.l_name.text = self.items[indexPath.item].name
             return cell
     }
@@ -57,7 +57,7 @@ class ProductsListControllers : UIViewController, UICollectionViewDelegate, UICo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_list_product_identifier, for: indexPath as IndexPath) as! TVCListProducts
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_list_product_identifier, for: indexPath as IndexPath) as! TVCSubcategory
         cell.l_name_brand.text = self.itemsPorducto[indexPath.item].name
         cell.items = self.itemsPorducto[indexPath.item].product
         return cell

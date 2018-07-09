@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TVCListProducts : UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var cv_list_products: UICollectionView!
     @IBOutlet weak var l_name_brand: UILabel!
     
@@ -34,8 +34,8 @@ class TVCListProducts : UITableViewCell, UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCProducts
-        UtilMethods.setImage(imageview: cell.i_product, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCProduct
+        UtilMethods.setImage(imageview: cell.iv_product, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
         return cell
     }
 }

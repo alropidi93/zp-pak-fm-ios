@@ -8,6 +8,6 @@
 
 import Foundation
 import UIKit
-class CVCNameCategory : UICollectionViewCell {
+class CVCCategoryName : UICollectionViewCell {
     @IBOutlet weak var l_name: UILabel!
 }

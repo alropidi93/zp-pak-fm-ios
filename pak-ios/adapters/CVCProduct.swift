@@ -8,6 +8,6 @@
 
 import Foundation
 import UIKit
-class CVCProducts : UICollectionViewCell {
-    @IBOutlet weak var i_product: UIImageView!
+class CVCProduct : UICollectionViewCell {
+    @IBOutlet weak var iv_product: UIImageView!
 }

@@ -10,11 +10,11 @@ import Foundation
 import SwiftyJSON
 import AVKit
 
-class ListDC  : NSObject {
+class ProductsPerCategory  : NSObject {
     private var _idList: Int64 = 0
     private var _name: String = ""
     private var _sort : Int64 = 0
-    private var _idCatgory : Int64 = 0
+    private var _idCategory : Int64 = 0
     private var _product : [ProductDC] = []
     
     // Utility extras
@@ -26,7 +26,7 @@ class ListDC  : NSObject {
         self._idList = jsonList["IdLista"].int64 ?? self._idList
         self._name = jsonList["Nombre"].string ?? self._name
         self._sort = jsonList["Orden"].int64 ?? self._sort
-        self._idCatgory = jsonList["IdCategoria"].int64 ?? self._idCatgory
+        self._idCategory = jsonList["IdCategoria"].int64 ?? self._idCategory
 
         for (_, subJson) in jsonList["Productos"] {
             let _item = ProductDC(subJson);
@@ -50,8 +50,8 @@ class ListDC  : NSObject {
     }
     
     var idCategory : Int64 {
-        set { _idCatgory = newValue }
-        get { return _idCatgory }
+        set { _idCategory = newValue }
+        get { return _idCategory }
     }
     
     var product : [ProductDC] {

@@ -15,7 +15,7 @@ class CategoriesDC  : NSObject  {
     private var _idCategory: Int64 = 0
     private var _name: String = ""
     private var _img : String = ""
-    private var _list : [ListDC] = []
+    private var _list : [ProductsPerCategory] = []
     private var _category : [CategoriesDC] = []
 
     override init() {
@@ -28,7 +28,7 @@ class CategoriesDC  : NSObject  {
         self._img = jsonCategory["Imagen"].string ?? self._img
         
         for (_, subJson) in jsonCategory["Listas"]{
-            let _item = ListDC(subJson);
+            let _item = ProductsPerCategory(subJson);
             self._list.append(_item)
         }
         for (_, subJson) in jsonCategory["Items"]{
@@ -50,7 +50,7 @@ class CategoriesDC  : NSObject  {
         set { _img = newValue }
         get { return URLs.MultimediaCategoriasURL + _img }
     }
-    var list : [ListDC] {
+    var list : [ProductsPerCategory] {
         set { _list = newValue }
         get { return _list }
     }

@@ -21,8 +21,8 @@
 		701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701D2880207EAD06007AD7AC /* LaunchScreen.storyboard */; };
 		701D2897207EC5D6007AD7AC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2896207EC5D6007AD7AC /* UIViewExtension.swift */; };
 		701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */; };
-		70242A9420D8FEF000F89299 /* ProductsListControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9320D8FEF000F89299 /* ProductsListControllers.swift */; };
-		70242A9820D914E600F89299 /* ListDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9720D914E600F89299 /* ListDC.swift */; };
+		70242A9420D8FEF000F89299 /* ProductsPerCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9320D8FEF000F89299 /* ProductsPerCategoryController.swift */; };
+		70242A9820D914E600F89299 /* ProductsPerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9720D914E600F89299 /* ProductsPerCategory.swift */; };
 		70242A9A20D937B600F89299 /* PageObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70242A9920D937B600F89299 /* PageObservation.swift */; };
 		7028134F20C396F500DD5443 /* AlertPageVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028134E20C396F500DD5443 /* AlertPageVc.swift */; };
 		7028135120C44F8900DD5443 /* PakAlertSendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028135020C44F8900DD5443 /* PakAlertSendData.swift */; };
@@ -42,9 +42,9 @@
 		7053BB7B20E70CE400C5A277 /* DeliverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7A20E70CE400C5A277 /* DeliverController.swift */; };
 		7053BB7D20E70CF100C5A277 /* CanceledController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7C20E70CF100C5A277 /* CanceledController.swift */; };
 		7053BB7F20E729C900C5A277 /* BadgedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7E20E729C900C5A277 /* BadgedExtension.swift */; };
-		705677E120E8027D007AFD71 /* CVCNameCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705677E020E8027D007AFD71 /* CVCNameCategory.swift */; };
-		705677E320E80C36007AFD71 /* TVCListProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705677E220E80C36007AFD71 /* TVCListProducts.swift */; };
-		705677E520E80C45007AFD71 /* CVCProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705677E420E80C45007AFD71 /* CVCProducts.swift */; };
+		705677E120E8027D007AFD71 /* CVCCategoryName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705677E020E8027D007AFD71 /* CVCCategoryName.swift */; };
+		705677E320E80C36007AFD71 /* TVCSubcategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705677E220E80C36007AFD71 /* TVCSubcategory.swift */; };
+		705677E520E80C45007AFD71 /* CVCProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705677E420E80C45007AFD71 /* CVCProduct.swift */; };
 		707B8F6520B4F3E600FC7848 /* CVCSmallBoxItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */; };
 		708AC99A20E01AEF004BD8FD /* DataDeliveryDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */; };
 		708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC99B20E039E2004BD8FD /* DistributionHour.swift */; };
@@ -115,8 +115,8 @@
 		701D2889207EAD1F007AD7AC /* pak-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pak-ios.entitlements"; sourceTree = "<group>"; };
 		701D2896207EC5D6007AD7AC /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		70242A9320D8FEF000F89299 /* ProductsListControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListControllers.swift; sourceTree = "<group>"; };
-		70242A9720D914E600F89299 /* ListDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDC.swift; sourceTree = "<group>"; };
+		70242A9320D8FEF000F89299 /* ProductsPerCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPerCategoryController.swift; sourceTree = "<group>"; };
+		70242A9720D914E600F89299 /* ProductsPerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPerCategory.swift; sourceTree = "<group>"; };
 		70242A9920D937B600F89299 /* PageObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageObservation.swift; sourceTree = "<group>"; };
 		7028134E20C396F500DD5443 /* AlertPageVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPageVc.swift; sourceTree = "<group>"; };
 		7028135020C44F8900DD5443 /* PakAlertSendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertSendData.swift; sourceTree = "<group>"; };
@@ -136,9 +136,9 @@
 		7053BB7A20E70CE400C5A277 /* DeliverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverController.swift; sourceTree = "<group>"; };
 		7053BB7C20E70CF100C5A277 /* CanceledController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanceledController.swift; sourceTree = "<group>"; };
 		7053BB7E20E729C900C5A277 /* BadgedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgedExtension.swift; sourceTree = "<group>"; };
-		705677E020E8027D007AFD71 /* CVCNameCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCNameCategory.swift; sourceTree = "<group>"; };
-		705677E220E80C36007AFD71 /* TVCListProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCListProducts.swift; sourceTree = "<group>"; };
-		705677E420E80C45007AFD71 /* CVCProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCProducts.swift; sourceTree = "<group>"; };
+		705677E020E8027D007AFD71 /* CVCCategoryName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCCategoryName.swift; sourceTree = "<group>"; };
+		705677E220E80C36007AFD71 /* TVCSubcategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCSubcategory.swift; sourceTree = "<group>"; };
+		705677E420E80C45007AFD71 /* CVCProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCProduct.swift; sourceTree = "<group>"; };
 		707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCSmallBoxItem.swift; sourceTree = "<group>"; };
 		708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDeliveryDC.swift; sourceTree = "<group>"; };
 		708AC99B20E039E2004BD8FD /* DistributionHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionHour.swift; sourceTree = "<group>"; };
@@ -270,14 +270,14 @@
 				707B8F6420B4F3E600FC7848 /* CVCSmallBoxItem.swift */,
 				702DCB3320D6D65000702D18 /* CVCAddCode.swift */,
 				7050F22920E2F9CB001DFF10 /* CVCSmallBoxPayment.swift */,
-				705677E020E8027D007AFD71 /* CVCNameCategory.swift */,
-				705677E420E80C45007AFD71 /* CVCProducts.swift */,
+				705677E020E8027D007AFD71 /* CVCCategoryName.swift */,
+				705677E420E80C45007AFD71 /* CVCProduct.swift */,
 				70C6D13A20E988B100560D7C /* CVCToDeliver.swift */,
 				70C6D13C20E988CE00560D7C /* CVCCancel.swift */,
 				70C6D13E20E9893F00560D7C /* CVCDeliver.swift */,
 				709D48F420EB0E2000B990DE /* CVCDetailOrder.swift */,
 				70C9ED23209D33BC0096B656 /* TVCPlaceholder.swift */,
-				705677E220E80C36007AFD71 /* TVCListProducts.swift */,
+				705677E220E80C36007AFD71 /* TVCSubcategory.swift */,
 				7094747620F1AB530035EADD /* CVCPlaceholder.swift */,
 			);
 			path = adapters;
@@ -374,7 +374,7 @@
 			children = (
 				700C7C7620D88BFF000FD7E5 /* SubCategoriesController.swift */,
 				700C7C7820D89534000FD7E5 /* RootCategoriesController.swift */,
-				70242A9320D8FEF000F89299 /* ProductsListControllers.swift */,
+				70242A9320D8FEF000F89299 /* ProductsPerCategoryController.swift */,
 			);
 			path = "store chain";
 			sourceTree = "<group>";
@@ -450,7 +450,7 @@
 				70C9ED20209D14460096B656 /* Ads.swift */,
 				7097EC6420A60FA2008E1C9E /* CategoriesDC.swift */,
 				709A334320AE0FC1003AB207 /* ProductDC.swift */,
-				70242A9720D914E600F89299 /* ListDC.swift */,
+				70242A9720D914E600F89299 /* ProductsPerCategory.swift */,
 				708AC99920E01AEF004BD8FD /* DataDeliveryDC.swift */,
 				708AC99B20E039E2004BD8FD /* DistributionHour.swift */,
 				70C6D14020E9D29000560D7C /* OrderDC.swift */,
@@ -747,7 +747,7 @@
 				70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */,
 				70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */,
 				70D525AA20915C6A004EB51E /* Constants.swift in Sources */,
-				705677E520E80C45007AFD71 /* CVCProducts.swift in Sources */,
+				705677E520E80C45007AFD71 /* CVCProduct.swift in Sources */,
 				70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */,
 				701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */,
 				70D6D2EC20BDAEF4006BDC19 /* AlertCodeInvitationDelegate.swift in Sources */,
@@ -757,7 +757,7 @@
 				7028135320C44FF700DD5443 /* PakAlertFacturation.swift in Sources */,
 				7007931320D2B26000DE70CA /* PakAlertRecoverAccount.swift in Sources */,
 				709D48F920EB54FD00B990DE /* PakAlertCancel.swift in Sources */,
-				70242A9820D914E600F89299 /* ListDC.swift in Sources */,
+				70242A9820D914E600F89299 /* ProductsPerCategory.swift in Sources */,
 				708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */,
 				709D48F520EB0E2000B990DE /* CVCDetailOrder.swift in Sources */,
 				700C7C7720D88BFF000FD7E5 /* SubCategoriesController.swift in Sources */,
@@ -791,14 +791,14 @@
 				70D525A520915B91004EB51E /* UtilMethods.swift in Sources */,
 				7097EC6520A60FA2008E1C9E /* CategoriesDC.swift in Sources */,
 				70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */,
-				705677E320E80C36007AFD71 /* TVCListProducts.swift in Sources */,
+				705677E320E80C36007AFD71 /* TVCSubcategory.swift in Sources */,
 				7050F22A20E2F9CB001DFF10 /* CVCSmallBoxPayment.swift in Sources */,
 				70D525A32091590C004EB51E /* PakAlert.swift in Sources */,
 				7028134F20C396F500DD5443 /* AlertPageVc.swift in Sources */,
 				7053BB7B20E70CE400C5A277 /* DeliverController.swift in Sources */,
 				7007930F20D22F8700DE70CA /* AlertRegisterDelegate.swift in Sources */,
 				708AC99A20E01AEF004BD8FD /* DataDeliveryDC.swift in Sources */,
-				705677E120E8027D007AFD71 /* CVCNameCategory.swift in Sources */,
+				705677E120E8027D007AFD71 /* CVCCategoryName.swift in Sources */,
 				7043B0B520BCF28200CC31D0 /* PakAlertCodeInvitation.swift in Sources */,
 				70C6D13D20E988CE00560D7C /* CVCCancel.swift in Sources */,
 				7053BB7620E6FCE100C5A277 /* OrdersController.swift in Sources */,
@@ -807,7 +807,7 @@
 				7028135120C44F8900DD5443 /* PakAlertSendData.swift in Sources */,
 				702DCB3420D6D65000702D18 /* CVCAddCode.swift in Sources */,
 				70A3BE36208F7F97008C972C /* PreferencesMethods.swift in Sources */,
-				70242A9420D8FEF000F89299 /* ProductsListControllers.swift in Sources */,
+				70242A9420D8FEF000F89299 /* ProductsPerCategoryController.swift in Sources */,
 				7094747720F1AB530035EADD /* CVCPlaceholder.swift in Sources */,
 				70C6D14120E9D29000560D7C /* OrderDC.swift in Sources */,
 				7053BB7920E70CD900C5A277 /* ToDeliverController.swift in Sources */,
