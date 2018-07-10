@@ -11,6 +11,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--End Box Controller-->
+        <scene sceneID="fn0-zl-b2X">
+            <objects>
+                <viewController id="cIw-HZ-f58" customClass="EndBoxController" customModule="pak_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3bB-o6-I4Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="r00-Aw-dHB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jbJ-kd-EG5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb-pak-splash-5" translatesAutoresizingMaskIntoConstraints="NO" id="kFY-N9-pCY">
+                                <rect key="frame" x="115" y="271" width="145" height="125"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kFY-N9-pCY" firstAttribute="leading" secondItem="jbJ-kd-EG5" secondAttribute="leadingMargin" constant="99" id="6Sr-RK-3aB"/>
+                            <constraint firstItem="kFY-N9-pCY" firstAttribute="centerY" secondItem="jbJ-kd-EG5" secondAttribute="centerY" id="G2R-6h-uPe"/>
+                            <constraint firstItem="kFY-N9-pCY" firstAttribute="top" secondItem="3bB-o6-I4Z" secondAttribute="bottom" constant="251" id="aVj-Fw-9f7"/>
+                            <constraint firstItem="kFY-N9-pCY" firstAttribute="centerX" secondItem="jbJ-kd-EG5" secondAttribute="centerX" id="i8m-ra-oiG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="iv_logo_end" destination="kFY-N9-pCY" id="SZE-F0-AL7"/>
+                        <segue destination="H84-IG-3ag" kind="show" identifier="segue_splash_close" id="6iO-7K-Th3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b61-jX-THE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-615" y="-845"/>
+        </scene>
         <!--Splash-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -3937,7 +3970,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdL-6Z-nZ6" userLabel="tf_count_item">
-                                                    <rect key="frame" x="238" y="30" width="25" height="30"/>
+                                                    <rect key="frame" x="232" y="30" width="35" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -3954,8 +3987,8 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     <color key="textColor" white="0.0" alpha="0.68219866070000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4k-Ae-se0" userLabel="l_mount_total_item">
-                                                    <rect key="frame" x="303" y="36" width="43.5" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Monto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4k-Ae-se0" userLabel="l_mount_total_item">
+                                                    <rect key="frame" x="292" y="36" width="55" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3964,11 +3997,11 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         </view>
                                         <constraints>
                                             <constraint firstItem="tLP-RV-7YZ" firstAttribute="leading" secondItem="e3D-dI-f12" secondAttribute="trailing" constant="10" id="2gJ-sP-Dk8"/>
-                                            <constraint firstItem="L4k-Ae-se0" firstAttribute="leading" secondItem="cdL-6Z-nZ6" secondAttribute="trailing" constant="40" id="41u-Nl-q8l"/>
-                                            <constraint firstItem="cdL-6Z-nZ6" firstAttribute="leading" secondItem="On5-tK-GG7" secondAttribute="leading" constant="238" id="4ae-Pd-bEC"/>
+                                            <constraint firstItem="cdL-6Z-nZ6" firstAttribute="leading" secondItem="On5-tK-GG7" secondAttribute="leading" constant="232" id="4ae-Pd-bEC"/>
                                             <constraint firstItem="OhB-S1-5D6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e3D-dI-f12" secondAttribute="trailing" symbolic="YES" id="DOe-Z6-ztg"/>
                                             <constraint firstItem="tLP-RV-7YZ" firstAttribute="top" secondItem="On5-tK-GG7" secondAttribute="topMargin" constant="15" id="Fib-a4-Vki"/>
                                             <constraint firstItem="e3D-dI-f12" firstAttribute="centerY" secondItem="On5-tK-GG7" secondAttribute="centerY" id="Kih-0M-6DV"/>
+                                            <constraint firstAttribute="trailing" secondItem="cdL-6Z-nZ6" secondAttribute="trailing" constant="108" id="VN4-t6-uHs"/>
                                             <constraint firstAttribute="trailing" secondItem="OhB-S1-5D6" secondAttribute="trailing" constant="209.5" id="aIC-s7-TPv"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="L4k-Ae-se0" secondAttribute="trailing" constant="20" id="bTK-I6-UE6"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="OhB-S1-5D6" secondAttribute="bottom" constant="15" id="cpq-g0-tFJ"/>
@@ -4096,11 +4129,12 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <outlet property="v_head" destination="UzA-vd-2f9" id="cBz-jX-JGB"/>
                         <outlet property="v_total" destination="Sag-4z-YcS" id="6PE-n1-RVi"/>
                         <segue destination="Bhp-gm-e4g" kind="show" identifier="segue_buy_loguin" id="AdC-De-agH"/>
+                        <segue destination="cIw-HZ-f58" kind="show" identifier="segue_box_close" id="O9Z-gi-Pb4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGu-2c-KLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7081" y="-181"/>
+            <point key="canvasLocation" x="7080.8000000000002" y="-181.25937031484258"/>
         </scene>
         <!--Publicity-->
         <scene sceneID="lTx-4w-lfQ">
@@ -5792,6 +5826,9 @@ EMKhTGlzdG8hA
                                         <state key="normal" title="Último mes  ▼">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="b_search:" destination="kXO-Vf-QEM" eventType="touchUpInside" id="uh5-o4-u0L"/>
+                                        </connections>
                                     </button>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="5Ps-mX-IyJ">
                                         <rect key="frame" x="49" y="0.0" width="25" height="15"/>
@@ -6042,6 +6079,9 @@ EMKhTGlzdG8hA
                                         <state key="normal" title="Último mes  ▼">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="b_search:" destination="11d-tI-vhn" eventType="touchUpInside" id="I2R-FK-4ue"/>
+                                        </connections>
                                     </button>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="ciB-3w-py2">
                                         <rect key="frame" x="175" y="0.0" width="25" height="15"/>
@@ -6820,6 +6860,9 @@ EMKhTGlzdG8hA
                                         <state key="normal" title="Último mes  ▼">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="b_search:" destination="wBZ-0U-hdk" eventType="touchUpInside" id="zN0-NV-OSO"/>
+                                        </connections>
                                     </button>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="rYr-jL-fst">
                                         <rect key="frame" x="175" y="0.0" width="25" height="15"/>
@@ -7318,6 +7361,7 @@ EMKhTGlzdG8hA
     <resources>
         <image name="dwb-pak-logo-name" width="483" height="362"/>
         <image name="dwb-pak-splash-2" width="134" height="117"/>
+        <image name="dwb-pak-splash-5" width="134" height="117"/>
         <image name="dwb_cancel_order" width="13" height="13"/>
         <image name="dwb_pak_add_Item" width="33" height="19"/>
         <image name="dwb_pak_background_loby" width="163" height="290"/>
@@ -7342,14 +7386,14 @@ EMKhTGlzdG8hA
     <inferredMetricsTieBreakers>
         <segue reference="0wQ-9P-YXB"/>
         <segue reference="e49-xG-mKz"/>
-        <segue reference="OS7-IV-a8p"/>
+        <segue reference="Nge-8z-UM6"/>
         <segue reference="RzB-aK-gvt"/>
         <segue reference="2h9-cx-RAU"/>
-        <segue reference="MHy-C4-6QB"/>
-        <segue reference="bmc-MF-fkN"/>
+        <segue reference="OCU-k9-bKY"/>
+        <segue reference="Mj0-oe-INs"/>
         <segue reference="oBi-e6-wfk"/>
         <segue reference="1vM-Rq-4HF"/>
-        <segue reference="kk5-HE-cyu"/>
+        <segue reference="692-lH-5Bg"/>
         <segue reference="AdC-De-agH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

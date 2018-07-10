@@ -13,6 +13,7 @@ import SwiftyJSON
 import NVActivityIndicatorView
 
 class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActivityIndicatorViewable {
+    var finishBoxDelegate : FinishBoxDelegate? = nil
     var controllers = [UIViewController]()
     var nowPage = 0
     
@@ -88,6 +89,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                 print("2")
             }
         case 3:
+         
             validateThirdController()
         case 4:
             validatePayController()
@@ -120,6 +122,8 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     }
     
     func validatePayController() {
+       
+        
         payment()
     }
     
@@ -143,9 +147,12 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    print(jsonResult["Msg"])
-                    self.stopAnimating()
+                    if jsonResult["Msg"] == "OK"{
+                        self.dismiss(animated: false, completion: nil)
                     
+                        self.finishBoxDelegate?.okButtonTapped()
+                        self.stopAnimating()
+                    }
                 }
             } else {
                 AlamoMethods.defaultError(self)
@@ -153,6 +160,8 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         }
         self.stopAnimating()
     }
+    
+    
     
     func validateCulqi() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)

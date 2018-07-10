@@ -15,7 +15,8 @@ import NVActivityIndicatorView
 class AlertViewPayment : UIViewController ,NVActivityIndicatorViewable {
     @IBOutlet weak var b_next: UIButton!
     @IBOutlet weak var uv_pv_payments: UIView!
-    
+    var finishBoxDelegate : FinishBoxDelegate? = nil
+
     var page : Int = -1
     var dataDelivery : DataDeliveryDC? = nil
 
@@ -35,6 +36,7 @@ class AlertViewPayment : UIViewController ,NVActivityIndicatorViewable {
     }
     
     func setElements() {
+        self.embeddedViewController.finishBoxDelegate = self.finishBoxDelegate
         self.embeddedViewController.dataDelivery = self.dataDelivery
     }
     

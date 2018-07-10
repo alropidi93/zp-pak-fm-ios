@@ -16,7 +16,7 @@ import FacebookLogin
 import SwiftHash
 import SideMenu
 
-class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable{
+class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable,FinishBoxDelegate{
     @IBOutlet weak var emptyImg: UIView!
     @IBOutlet weak var b_buying: UIButton!
     @IBOutlet weak var dwb_pak_button_detail_white_arrow_down: UIImageView!
@@ -30,7 +30,8 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var l_mount_discount: UILabel!
     
     private let reuse_identifier_box = "cvc_smallBox_item"
-    
+    let segue_identifier = "segue_box_close"
+
     private let segue_identification = "segue_buy_loguin"
     private var items : [ItemSmallBoxDC] = []
     private var dataDelivery : DataDeliveryDC? = nil
@@ -240,8 +241,17 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         customAlert.dataDelivery = self.dataDelivery
+        customAlert.finishBoxDelegate = self
         self.present(customAlert, animated: true, completion: nil)
     }
+    
+    
+    func okButtonTapped() {
+
+        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
+
+    }
+    
     
     func navBarLabelWithImg() {
         self.navigationController?.navigationBar.shadowImage = UIImage()

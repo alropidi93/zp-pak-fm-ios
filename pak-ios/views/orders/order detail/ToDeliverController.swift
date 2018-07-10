@@ -41,6 +41,8 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
         self.cv_to_delivery.dataSource = self
     }
     
+    @IBAction func b_search(_ sender: Any) {
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count

@@ -40,6 +40,8 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
         self.cv_cancel.delegate = self
         self.cv_cancel.dataSource = self
     }
+    @IBAction func b_search(_ sender: Any) {
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

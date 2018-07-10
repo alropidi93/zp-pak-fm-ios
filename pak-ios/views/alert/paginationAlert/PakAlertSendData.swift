@@ -49,7 +49,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
 
     func setElements() {
         fullKeyboardSupport()
-        getDistrict()
+        getDataDelivery()
         tf_data_reciver.text = ConstantsModels.static_user?.names
         self.tf_district.inputView = UIView()
         let tap_district = UITapGestureRecognizer(target: self, action: #selector(self.tapDistrict(_:)))
@@ -158,31 +158,37 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         parentPageViewController = parentRef
     }
     
-    func getDistrict() {
+    func getDataDelivery() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        Alamofire.request(URLs.ListDistrict, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
+        let params: Parameters = ["GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
+        print(PreferencesMethods.getSmallBoxFromOptions()!.GUID)
+        Alamofire.request(URLs.DataDelivery, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
                 self.stopAnimating()
                 return
             }
-            
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    
-                    self.districts = []
-                    for ( _ , element) in jsonResult["Distritos"] {
-                        let district = DistrictDC(element)
-                        self.districts.append(district.name)
-                        self.listDistrict.append(DistrictDC(element))
+                    if jsonResult["Data"] == true {
+                        let dataDelivery  = DataDeliveryDC(jsonResult)
+                        for district in dataDelivery.district{
+                            self.districts.append(district.name)
+                            self.listDistrict.append(district)
+                        }
+                        
+                    }else{
+                        let jsonResult = JSON(jsonResponse)
+                        print(jsonResult["MontoMinimo"])
+                        AlarmMethods.errorWarning(message: "El monto mínimo para el pedido es de S/ " + jsonResult["MontoMinimo"].stringValue + " (sin incluir costo de delivery).", uiViewController: self)
                     }
                 }
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
+                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
                 } else {
                     AlamoMethods.defaultError(self)
                 }
@@ -190,4 +196,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
             self.stopAnimating()
         }
     }
+    
+    
+    
 }
