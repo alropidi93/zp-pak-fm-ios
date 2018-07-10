@@ -83,7 +83,12 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     }
 
     @objc func tapHours(_ sender: UITapGestureRecognizer) -> Void {
-        let hour = Calendar.current.component(.hour, from: Date())
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(identifier: "America/Lima")!
+        
+        let hour = calendar.component(.hour, from: Date())
+
+        print(hour)
         var hours : [String] = []
         if tf_date.text != "" {
             if hour > 18 && tf_date.text == Date().tomorrow.toString(dateFormat: "dd-MMM-yyyy") {
@@ -123,7 +128,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
         let alert = UIAlertController(style: .actionSheet, title: "Fecha")
-        alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: nil ) { date in
+        alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: Date().nextMonth ) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_date.text = UtilMethods.formatDate(date)
             self.parentPageViewController.checkOut.date = date.toString(dateFormat: "dd/MM/YYYY")

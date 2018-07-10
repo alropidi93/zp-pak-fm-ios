@@ -24,9 +24,13 @@ extension Date {
     var isLastDayOfMonth: Bool {
         return tomorrow.month != month
     }
+    var nextMonth: Date {
+         return Calendar.current.date(byAdding: .day, value: 30, to: noon)!
+    }
     func toString(dateFormat format : String) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US") as Locale?
         return dateFormatter.string(from : self)
     }
 }

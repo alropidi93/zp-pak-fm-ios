@@ -22,6 +22,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
     @IBOutlet weak var v_add_code: UIView!
     @IBOutlet weak var v_code_show: UIView!
     @IBOutlet weak var cv_discount_list: UICollectionView!
+    @IBOutlet weak var b_add_invitation: UIButton!
     
     private var items : [DiscountDC] = []
     
