@@ -14,6 +14,7 @@ import AVKit
 import NVActivityIndicatorView
 import Agrume
 import PlayerKit
+import RLBAlertsPickers
 
 class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var cv_to_delivery: UICollectionView!
@@ -42,6 +43,24 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     }
     
     @IBAction func b_search(_ sender: Any) {
+        self.tapGenre()
+    }
+    
+    func tapGenre() -> Void {
+        let pickerData = [Constants.MALE,Constants.FEMALE]
+        let alert = UIAlertController(style: .actionSheet, title: "Genero")
+        let pickerViewValues: [[String]] = [pickerData]
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+     
+        alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 1) {
+                    print(pickerViewValues.item(at: index.column)?.item(at: index.row))
+                }
+            }
+        }
+        alert.addAction(title: "OK", style: .cancel)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

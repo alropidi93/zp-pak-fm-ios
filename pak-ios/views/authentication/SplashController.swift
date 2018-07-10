@@ -59,7 +59,6 @@ class SplashController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    // Custom functions
     func loginUser() {
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             getGUID()
