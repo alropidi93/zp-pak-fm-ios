@@ -15,8 +15,9 @@ import FacebookCore
 import FacebookLogin
 import SwiftHash
 import SideMenu
+import SwipeCellKit
 
-class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable,FinishBoxDelegate{
+class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable,FinishBoxDelegate,SwipeCollectionViewCellDelegate{
     @IBOutlet weak var emptyImg: UIView!
     @IBOutlet weak var b_buying: UIButton!
     @IBOutlet weak var dwb_pak_button_detail_white_arrow_down: UIImageView!
@@ -56,9 +57,21 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
-    
+    func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            self.deleteItem(self.items[indexPath.row], indexPath.row)
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete")
+        
+        return [deleteAction]
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier_box, for: indexPath) as! CVCSmallBoxItem
+        cell.delegate = self
         cell.l_name.text = self.items[indexPath.item].name
         cell.tf_count_item.text = String(self.items[indexPath.item].cant)
         cell.tf_count_item.backgroundColor = UIColor.lightGray
@@ -78,6 +91,41 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
             modifyItemSmallBox(items[sender.tag],cant)
         }
     }
+    
+    func deleteItem(_ itemProduct:ItemSmallBoxDC , _ pos : Int ) {
+        let params : Parameters = [ "IdProducto": itemProduct.idProduct,
+                                    
+                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        Alamofire.request(URLs.DeleteItem , method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Msg"] == "OK"{
+                        self.items.remove(at: pos)
+                        self.setSubTotal()
+                    }
+                    self.cv_item_list.reloadData()
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+            self.stopAnimating()
+        }
+    }
+    
+    
     
     func modifyItemSmallBox(_ itemProduct:ItemSmallBoxDC , _ cant : UInt64) {
         let params : Parameters = [ "IdProducto": itemProduct.idProduct,
@@ -140,8 +188,10 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     
     func setSubTotal() {
         self.subTotal = 0
+        ConstantsModels.count_item = 0
         for element in self.items {
             self.subTotal = self.subTotal + (element.price * Double(element.cant))
+            ConstantsModels.count_item = ConstantsModels.count_item + Int(element.cant)
         }
         self.l_mount_subt.text = "S/" + String(self.subTotal)
         self.l_mount_total.text = "S/" + String(self.subTotal + self.deliveryCost )

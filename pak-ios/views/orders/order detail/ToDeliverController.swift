@@ -21,8 +21,9 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     
     private let segue_identifier = "segue_todelivery_todetail"
     private let reuse_identifier = "cvc_todelivery"
+    @IBOutlet weak var b_filtre: UIButton!
     
-    let filtre : Int = 1
+    var filtre : Int = 1
     var items : [OrderDC] = []
     var item : Int = -1
     
@@ -43,11 +44,11 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     }
     
     @IBAction func b_search(_ sender: Any) {
-        self.tapGenre()
+        self.tapFiltre()
     }
     
-    func tapGenre() -> Void {
-        let pickerData = [Constants.MALE,Constants.FEMALE]
+    func tapFiltre() -> Void {
+        let pickerData = ["Ultimo mes","Ultimo 3 meses","Ultimo 6 meses"]
         let alert = UIAlertController(style: .actionSheet, title: "Genero")
         let pickerViewValues: [[String]] = [pickerData]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
@@ -55,7 +56,15 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
-                    print(pickerViewValues.item(at: index.column)?.item(at: index.row))
+                    if index.row == 0{
+                        self.filtre = 1
+                    }else if index.row == 1{
+                        self.filtre = 3
+                    }else if index.row == 2 {
+                        self.filtre = 6
+                    }
+                    self.b_filtre.setTitle(pickerViewValues.item(at: index.column)?.item(at: index.row), for: .normal)
+                    self.ToDeliver()
                 }
             }
         }

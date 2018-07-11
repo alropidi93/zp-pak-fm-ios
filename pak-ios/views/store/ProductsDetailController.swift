@@ -124,6 +124,10 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
+                        let snackbar = TTGSnackbar(message: "Se agrego " + self.tf_cant_add_item.text! + "del producto", duration: .middle)
+                        snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
+                        snackbar.show()
+                        ConstantsModels.count_item = ConstantsModels.count_item + Int(self.tf_cant_add_item.text!)!
                     }
                 }
             } else {

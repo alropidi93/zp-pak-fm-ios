@@ -98,6 +98,10 @@ struct URLs {
         return BaseURL + "OrderService.svc/ObtenerPedido"
     }
     
+    static var DeleteItem: String { //POST
+        return BaseURL + "OrderService.svc/EliminarItemCajita"
+    }
+    
     //ANUNCIOS
     static var GetAds: String { //GET
         return BaseURL + "AdService.svc/ListarAnuncios"

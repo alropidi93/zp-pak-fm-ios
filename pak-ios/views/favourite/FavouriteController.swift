@@ -12,11 +12,13 @@ import Alamofire
 import NVActivityIndicatorView
 import SwiftHash
 import SideMenu
+import TTGSnackbar
 
 class FavouriteController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable {
     
     private let reuse_identifier = "cvc_favourite_item"
-    
+    var cant = 0
+
     
     @IBOutlet weak var cv_favorite: UICollectionView!
     
@@ -124,7 +126,10 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        //make a toast or something
+                        let snackbar = TTGSnackbar(message: "Se agrego " + String(self.cant) + "el producto", duration: .middle)
+                        snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
+                        snackbar.show()
+                        ConstantsModels.count_item = ConstantsModels.count_item + 1
                         self.cv_favorite.reloadData()
                     }
                 }

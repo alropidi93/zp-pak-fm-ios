@@ -39,7 +39,7 @@ class SplashController: UIViewController {
         self.iv_logo.animationDuration = 3
         self.iv_logo.startAnimating()
         
-        self.loginUser()
+        self.getGUID()
         
         if PreferencesMethods.isFirstTime() {
             PreferencesMethods.saveFirstTime()
@@ -60,14 +60,12 @@ class SplashController: UIViewController {
     }
     
     func loginUser() {
-        if PreferencesMethods.getSmallBoxFromOptions() == nil {
-            getGUID()
-            return
-        }
+       
         
         let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
                                    "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? "" ,
-                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID, "FCMToken" : "" ]
+                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID,
+                                   "FCMToken" : "" ]
         
         Alamofire.request(URLs.loginAccessToken, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -83,6 +81,7 @@ class SplashController: UIViewController {
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
                         ConstantsModels.static_user = userDC // aqui se guarda pero staticamente
+                        
                         PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
                     } else {
@@ -101,7 +100,12 @@ class SplashController: UIViewController {
     }
     
     func getGUID() {
-        let params: Parameters = ["GUID": PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? ""]
+        var params : Parameters
+        if PreferencesMethods.getSmallBoxFromOptions() == nil {
+            params = [ : ]
+        }else{
+            params = ["GUID": PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? ""]
+        }
         
         Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -115,7 +119,15 @@ class SplashController: UIViewController {
                     let jsonResult = JSON(jsonResponse)
                     let small_box = SmallBoxDC(jsonResult)
                     PreferencesMethods.saveSmallBoxToOptions(small_box)
-                    ConstantsModels.count_item = small_box.items.count
+                    for element in small_box.items{
+                        ConstantsModels.count_item = ConstantsModels.count_item + Int(element.cant)
+                    }
+                    self.loginUser()
+                    print("sadafasfsaf")
+                    print(PreferencesMethods.getSmallBoxFromOptions()?.GUID)
+                    
+                    print(ConstantsModels.count_item)
+                print("sadafasfsaasdasdasdasfasfsaff")
                 }
             } else {
                 if let jsonResponse = response.result.value {

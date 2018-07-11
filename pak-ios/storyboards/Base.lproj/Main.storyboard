@@ -2366,42 +2366,6 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-bm-Lxd" userLabel="v_add_code">
-                                <rect key="frame" x="0.0" y="20" width="375" height="547"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK1-zz-KBd" userLabel="b_add_invitation">
-                                        <rect key="frame" x="88" y="497" width="198" height="30"/>
-                                        <state key="normal" title="Ingresar código de invitación"/>
-                                        <connections>
-                                            <action selector="ba_add_invitation:" destination="U92-eC-NN0" eventType="touchUpInside" id="E1z-Kq-jC9"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_discounts" translatesAutoresizingMaskIntoConstraints="NO" id="lOY-vi-X7h" userLabel="v_discount">
-                                        <rect key="frame" x="149.5" y="186" width="76" height="76"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="76" id="VFF-X8-345"/>
-                                            <constraint firstAttribute="height" constant="76" id="ZCz-Ww-SPH"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No háy ningún cupón de descuento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-la-4pe" userLabel="l_announc_discount">
-                                        <rect key="frame" x="52" y="270" width="271" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.90080391479999999" green="0.90080391479999999" blue="0.90080391479999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="dK1-zz-KBd" secondAttribute="bottom" constant="20" id="440-XK-qCa"/>
-                                    <constraint firstItem="hvD-la-4pe" firstAttribute="centerX" secondItem="5JS-bm-Lxd" secondAttribute="centerX" id="8y0-Tn-wuM"/>
-                                    <constraint firstItem="dK1-zz-KBd" firstAttribute="centerX" secondItem="5JS-bm-Lxd" secondAttribute="centerX" id="PUv-ez-cnZ"/>
-                                    <constraint firstItem="hvD-la-4pe" firstAttribute="top" secondItem="lOY-vi-X7h" secondAttribute="bottom" constant="8" symbolic="YES" id="SyM-MT-oSO"/>
-                                    <constraint firstAttribute="trailing" secondItem="lOY-vi-X7h" secondAttribute="trailing" constant="149.5" id="TOS-NQ-58R"/>
-                                    <constraint firstItem="lOY-vi-X7h" firstAttribute="centerX" secondItem="5JS-bm-Lxd" secondAttribute="centerX" id="XRh-e2-qxQ"/>
-                                    <constraint firstItem="lOY-vi-X7h" firstAttribute="leading" secondItem="5JS-bm-Lxd" secondAttribute="leading" constant="149.5" id="oXu-AG-CT7"/>
-                                    <constraint firstItem="dK1-zz-KBd" firstAttribute="top" secondItem="hvD-la-4pe" secondAttribute="bottom" constant="206" id="uBR-a6-O4h"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-eN-6Y4" userLabel="v_own_code">
                                 <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <subviews>
@@ -2554,6 +2518,44 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                     <constraint firstItem="LWp-NL-keC" firstAttribute="top" secondItem="sYP-Io-EAz" secondAttribute="top" constant="10" id="yeQ-Yl-cB5"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-bm-Lxd" userLabel="v_add_code">
+                                <rect key="frame" x="0.0" y="20" width="375" height="547"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_discounts" translatesAutoresizingMaskIntoConstraints="NO" id="lOY-vi-X7h" userLabel="v_discount">
+                                        <rect key="frame" x="149.5" y="186" width="76" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="76" id="VFF-X8-345"/>
+                                            <constraint firstAttribute="height" constant="76" id="ZCz-Ww-SPH"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No háy ningún cupón de descuento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-la-4pe" userLabel="l_announc_discount">
+                                        <rect key="frame" x="52" y="270" width="271" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK1-zz-KBd" userLabel="b_add_invitation">
+                                        <rect key="frame" x="88" y="497" width="198" height="30"/>
+                                        <state key="normal" title="Ingresar código de invitación">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ba_add_invitation:" destination="U92-eC-NN0" eventType="touchUpInside" id="E1z-Kq-jC9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90080391479999999" green="0.90080391479999999" blue="0.90080391479999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dK1-zz-KBd" secondAttribute="bottom" constant="20" id="440-XK-qCa"/>
+                                    <constraint firstItem="hvD-la-4pe" firstAttribute="centerX" secondItem="5JS-bm-Lxd" secondAttribute="centerX" id="8y0-Tn-wuM"/>
+                                    <constraint firstItem="dK1-zz-KBd" firstAttribute="centerX" secondItem="5JS-bm-Lxd" secondAttribute="centerX" id="PUv-ez-cnZ"/>
+                                    <constraint firstItem="hvD-la-4pe" firstAttribute="top" secondItem="lOY-vi-X7h" secondAttribute="bottom" constant="8" symbolic="YES" id="SyM-MT-oSO"/>
+                                    <constraint firstAttribute="trailing" secondItem="lOY-vi-X7h" secondAttribute="trailing" constant="149.5" id="TOS-NQ-58R"/>
+                                    <constraint firstItem="lOY-vi-X7h" firstAttribute="centerX" secondItem="5JS-bm-Lxd" secondAttribute="centerX" id="XRh-e2-qxQ"/>
+                                    <constraint firstItem="lOY-vi-X7h" firstAttribute="leading" secondItem="5JS-bm-Lxd" secondAttribute="leading" constant="149.5" id="oXu-AG-CT7"/>
+                                    <constraint firstItem="dK1-zz-KBd" firstAttribute="top" secondItem="hvD-la-4pe" secondAttribute="bottom" constant="206" id="uBR-a6-O4h"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -2643,7 +2645,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yug-NV-1Ts" userLabel="b_favorites">
                                                     <rect key="frame" x="96" y="14" width="25" height="25"/>
-                                                    <state key="normal" image="dwb_pak_button_hearth_gray"/>
+                                                    <state key="normal" image="dwb_pak_button_hearth_red"/>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -6048,6 +6050,7 @@ EMKhTGlzdG8hA
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="b_filtre" destination="ZeM-yy-BQG" id="5TK-2Q-zYk"/>
                         <outlet property="cv_to_delivery" destination="zt1-PE-sSe" id="EKy-zl-Vbg"/>
                         <segue destination="vmF-8k-JTt" kind="show" identifier="segue_todelivery_todetail" id="IRN-db-nS4"/>
                     </connections>
@@ -6284,6 +6287,7 @@ EMKhTGlzdG8hA
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="b_filtre" destination="CKA-cd-SD7" id="Hvr-V8-PWC"/>
                         <outlet property="cv_delivery" destination="OKa-YL-zU6" id="Fel-Of-kNf"/>
                         <segue destination="vmF-8k-JTt" kind="show" identifier="segue_delivery_todetail" id="e49-xG-mKz"/>
                     </connections>
@@ -7065,6 +7069,7 @@ EMKhTGlzdG8hA
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="b_filtre" destination="wsl-HB-apQ" id="gjI-Nh-BxA"/>
                         <outlet property="cv_cancel" destination="Gej-je-Uqw" id="Vzb-cQ-AAA"/>
                         <segue destination="vmF-8k-JTt" kind="show" identifier="segue_cancel_todetail" id="STf-2A-NwN"/>
                     </connections>
@@ -7373,6 +7378,7 @@ EMKhTGlzdG8hA
         <image name="dwb_pak_button_discount" width="19" height="19"/>
         <image name="dwb_pak_button_favorites" width="21" height="18"/>
         <image name="dwb_pak_button_hearth_gray" width="19" height="16"/>
+        <image name="dwb_pak_button_hearth_red" width="29" height="24"/>
         <image name="dwb_pak_button_home" width="19" height="19"/>
         <image name="dwb_pak_button_info" width="19" height="19"/>
         <image name="dwb_pak_button_login_detail" width="21" height="42"/>
@@ -7385,8 +7391,8 @@ EMKhTGlzdG8hA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0wQ-9P-YXB"/>
-        <segue reference="e49-xG-mKz"/>
-        <segue reference="Nge-8z-UM6"/>
+        <segue reference="STf-2A-NwN"/>
+        <segue reference="OS7-IV-a8p"/>
         <segue reference="RzB-aK-gvt"/>
         <segue reference="2h9-cx-RAU"/>
         <segue reference="OCU-k9-bKY"/>

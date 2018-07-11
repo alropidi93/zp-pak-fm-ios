@@ -48,6 +48,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     }
 
     func setElements() {
+        parentPageViewController.checkOut.recipentName = (ConstantsModels.static_user?.names)!
         fullKeyboardSupport()
         getDataDelivery()
         tf_data_reciver.text = ConstantsModels.static_user?.names

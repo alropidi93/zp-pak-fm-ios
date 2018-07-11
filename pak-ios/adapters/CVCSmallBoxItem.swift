@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import SwipeCellKit
 
-class CVCSmallBoxItem : UICollectionViewCell {
+class CVCSmallBoxItem :   SwipeCollectionViewCell {
+    
     @IBOutlet weak var iv_product: UIImageView!
     @IBOutlet weak var l_name: UILabel!
     @IBOutlet weak var tf_count_item: UITextField!

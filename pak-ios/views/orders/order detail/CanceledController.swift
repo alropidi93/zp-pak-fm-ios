@@ -15,11 +15,13 @@ import AVKit
 import NVActivityIndicatorView
 import Agrume
 import PlayerKit
+import RLBAlertsPickers
 
 class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var cv_cancel: UICollectionView!
-
-    let filtre : Int = 1
+    @IBOutlet weak var b_filtre: UIButton!
+    
+    var filtre : Int = 1
     var items : [OrderDC] = []
     let segue_identifier = "segue_cancel_todetail"
 
@@ -41,6 +43,32 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
         self.cv_cancel.dataSource = self
     }
     @IBAction func b_search(_ sender: Any) {
+        self.tapFiltree()
+    }
+    
+    func tapFiltree() -> Void {
+        let pickerData = ["Ultimo mes","Ultimo 3 meses","Ultimo 6 meses"]
+        let alert = UIAlertController(style: .actionSheet, title: "Genero")
+        let pickerViewValues: [[String]] = [pickerData]
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        
+        alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 1) {
+                    if index.row == 0{
+                        self.filtre = 1
+                    }else if index.row == 1{
+                        self.filtre = 3
+                    }else if index.row == 2 {
+                        self.filtre = 6
+                    }
+                    self.ToDeliver()
+                    self.b_filtre.setTitle(pickerViewValues.item(at: index.column)?.item(at: index.row), for: .normal)
+                }
+            }
+        }
+        alert.addAction(title: "OK", style: .cancel)
+        self.present(alert, animated: true, completion: nil)
     }
     
     
