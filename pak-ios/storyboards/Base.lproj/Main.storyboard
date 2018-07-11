@@ -5976,44 +5976,36 @@ EMKhTGlzdG8hA
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dwb_cancel_order" translatesAutoresizingMaskIntoConstraints="NO" id="pIX-Dy-51O">
-                                                    <rect key="frame" x="318" y="99" width="25" height="25"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd3-n6-Jg5">
+                                                    <rect key="frame" x="284" y="105" width="65" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6h-P9-Gf0">
-                                                    <rect key="frame" x="250" y="103" width="57" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="Anular" image="dwb_cancel_order">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="bottomMargin" secondItem="ori-bh-WNf" secondAttribute="bottom" constant="12" id="1mW-5R-V8S"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="j6h-P9-Gf0" secondAttribute="trailing" symbolic="YES" id="2kI-sl-d40"/>
                                             <constraint firstItem="4OD-AV-djH" firstAttribute="centerX" secondItem="I2g-Dg-dN4" secondAttribute="centerX" id="49M-67-DTR"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ori-bh-WNf" secondAttribute="trailingMargin" id="4Ci-ac-TqA"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="4OD-AV-djH" secondAttribute="bottom" constant="27" id="7OH-Cy-MpC"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="j6h-P9-Gf0" secondAttribute="bottom" constant="12" id="8gz-NJ-ZNK"/>
                                             <constraint firstItem="U4J-dN-ChB" firstAttribute="leading" secondItem="4OD-AV-djH" secondAttribute="trailing" constant="68" id="BJn-aE-iAh"/>
                                             <constraint firstItem="4OD-AV-djH" firstAttribute="top" secondItem="G4A-wY-Rjy" secondAttribute="bottom" constant="3" id="BRd-OH-zLl"/>
                                             <constraint firstItem="4OD-AV-djH" firstAttribute="top" secondItem="G4A-wY-Rjy" secondAttribute="bottom" constant="3" id="G7I-iu-Yqs"/>
                                             <constraint firstItem="dEW-yL-sCy" firstAttribute="top" secondItem="1Ep-Ll-UY5" secondAttribute="topMargin" constant="12" id="GJx-1s-lue"/>
                                             <constraint firstItem="U4J-dN-ChB" firstAttribute="top" secondItem="dEW-yL-sCy" secondAttribute="bottom" constant="27" id="IbF-29-FXc"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="U4J-dN-ChB" secondAttribute="bottom" constant="41" id="Kg2-6N-7zq"/>
-                                            <constraint firstAttribute="trailing" secondItem="j6h-P9-Gf0" secondAttribute="trailing" constant="68" id="Lp3-jk-Pto"/>
                                             <constraint firstItem="omc-aY-hTU" firstAttribute="leading" secondItem="1Ep-Ll-UY5" secondAttribute="leadingMargin" constant="39" id="QR3-VC-Xoe"/>
                                             <constraint firstItem="wni-zH-hPI" firstAttribute="leading" secondItem="1Ep-Ll-UY5" secondAttribute="leadingMargin" constant="33" id="RwU-sm-IOC"/>
                                             <constraint firstItem="ori-bh-WNf" firstAttribute="leading" secondItem="1Ep-Ll-UY5" secondAttribute="leadingMargin" constant="47" id="Uij-p6-kSu"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="dEW-yL-sCy" secondAttribute="trailing" constant="34" id="Y6s-PT-Dn5"/>
-                                            <constraint firstItem="j6h-P9-Gf0" firstAttribute="leading" secondItem="1Ep-Ll-UY5" secondAttribute="leading" constant="250" id="ZMc-XH-Jjo"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="I2g-Dg-dN4" secondAttribute="bottom" constant="12" id="cy1-kw-D3k"/>
                                             <constraint firstItem="wni-zH-hPI" firstAttribute="top" secondItem="omc-aY-hTU" secondAttribute="bottom" constant="4" id="efq-lz-Ayc"/>
                                             <constraint firstItem="G4A-wY-Rjy" firstAttribute="top" secondItem="1Ep-Ll-UY5" secondAttribute="topMargin" constant="12" id="enS-Mo-xtT"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="omc-aY-hTU" secondAttribute="trailingMargin" id="gUr-iN-2zp"/>
                                             <constraint firstItem="omc-aY-hTU" firstAttribute="top" secondItem="1Ep-Ll-UY5" secondAttribute="topMargin" constant="12" id="jBo-xC-Q3c"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="wni-zH-hPI" secondAttribute="bottom" constant="26" id="jee-A7-6Jw"/>
-                                            <constraint firstItem="j6h-P9-Gf0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Ep-Ll-UY5" secondAttribute="leading" symbolic="YES" id="mhW-8Z-v1N"/>
                                             <constraint firstItem="I2g-Dg-dN4" firstAttribute="top" secondItem="G4A-wY-Rjy" secondAttribute="bottom" constant="62" id="mwQ-rw-cei"/>
                                             <constraint firstItem="4OD-AV-djH" firstAttribute="centerX" secondItem="G4A-wY-Rjy" secondAttribute="centerX" id="qTc-Pv-wcm"/>
                                             <constraint firstItem="wni-zH-hPI" firstAttribute="top" secondItem="omc-aY-hTU" secondAttribute="bottom" constant="4" id="xhc-UP-0vd"/>
@@ -6021,7 +6013,7 @@ EMKhTGlzdG8hA
                                             <constraint firstItem="4OD-AV-djH" firstAttribute="leading" secondItem="wni-zH-hPI" secondAttribute="trailing" constant="49" id="zoo-pF-dUX"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="l_cancel" destination="j6h-P9-Gf0" id="Bx4-gT-JOJ"/>
+                                            <outlet property="b_cancel" destination="Dd3-n6-Jg5" id="0cZ-ni-StY"/>
                                             <outlet property="l_d_recive" destination="59k-ni-EBP" id="Emb-TY-dr8"/>
                                             <outlet property="l_d_toreception" destination="gfl-3J-lRM" id="e1z-8Y-hZW"/>
                                             <outlet property="l_hour_reception" destination="ori-bh-WNf" id="ia6-Tk-E7N"/>
@@ -6029,7 +6021,6 @@ EMKhTGlzdG8hA
                                             <outlet property="l_m_reception" destination="2O8-sn-fi9" id="tbo-Pz-q6z"/>
                                             <outlet property="l_m_recive" destination="vWI-oK-0BP" id="thf-9h-3OK"/>
                                             <outlet property="l_total" destination="U4J-dN-ChB" id="zn1-fv-ahi"/>
-                                            <outlet property="ui_cancel" destination="pIX-Dy-51O" id="hKR-RC-jyx"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -7391,7 +7382,7 @@ EMKhTGlzdG8hA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0wQ-9P-YXB"/>
-        <segue reference="STf-2A-NwN"/>
+        <segue reference="IRN-db-nS4"/>
         <segue reference="OS7-IV-a8p"/>
         <segue reference="RzB-aK-gvt"/>
         <segue reference="2h9-cx-RAU"/>

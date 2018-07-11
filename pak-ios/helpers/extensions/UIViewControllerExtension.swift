@@ -72,6 +72,10 @@ extension UIViewController : UISearchBarDelegate {
         notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
         notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
         notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+        let smallbox :SmallBoxDC =  PreferencesMethods.getSmallBoxFromOptions()!
+        for element in 0..<smallbox.items.count{
+            ConstantsModels.count_item += Int(smallbox.items[element].cant)
+        }
         notificationButton.badge = "\(ConstantsModels.count_item) "
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)

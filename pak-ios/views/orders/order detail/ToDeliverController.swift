@@ -43,6 +43,8 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
         self.cv_to_delivery.dataSource = self
     }
     
+    
+    
     @IBAction func b_search(_ sender: Any) {
         self.tapFiltre()
     }
@@ -93,14 +95,14 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
-        print(Date().toString(dateFormat: "yyyy-MM-dd'T'HH:mm:ssZZZ"))
-        print(UtilMethods.stringToDate(self.items[indexPath.item].dateHourMaxAnulation).toString(dateFormat: "yyyy-MM-dd'T'HH:mm:ssZZZ"))
+       
         if Date() < UtilMethods.stringToDate(self.items[indexPath.item].dateHourMaxAnulation) {
-            cell.ui_cancel.isHidden = false
-            cell.l_cancel.isHidden = false
+            cell.b_cancel.isHidden = false
         }
         return cell
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.item = Int(items[indexPath.item].number)

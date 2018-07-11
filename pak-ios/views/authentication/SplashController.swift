@@ -29,6 +29,7 @@ class SplashController: UIViewController {
     // Common functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.getGUID()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,11 +40,7 @@ class SplashController: UIViewController {
         self.iv_logo.animationDuration = 3
         self.iv_logo.startAnimating()
         
-        self.getGUID()
         
-        if PreferencesMethods.isFirstTime() {
-            PreferencesMethods.saveFirstTime()
-        }
         
         // must be careful that the animation duration and this stuff remains equal
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -100,34 +97,33 @@ class SplashController: UIViewController {
     }
     
     func getGUID() {
+     
         var params : Parameters
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             params = [ : ]
         }else{
             params = ["GUID": PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? ""]
         }
-        
+
         Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
                 return
             }
-            
+
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     let small_box = SmallBoxDC(jsonResult)
                     PreferencesMethods.saveSmallBoxToOptions(small_box)
-                    for element in small_box.items{
-                        ConstantsModels.count_item = ConstantsModels.count_item + Int(element.cant)
-                    }
+                    
                     self.loginUser()
                     print("sadafasfsaf")
                     print(PreferencesMethods.getSmallBoxFromOptions()?.GUID)
-                    
+
                     print(ConstantsModels.count_item)
-                print("sadafasfsaasdasdasdasfasfsaff")
+                    print("sadafasfsaasdasdasdasfasfsaff")
                 }
             } else {
                 if let jsonResponse = response.result.value {
