@@ -73,6 +73,7 @@ extension UIViewController : UISearchBarDelegate {
         notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
         notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
         let smallbox :SmallBoxDC =  PreferencesMethods.getSmallBoxFromOptions()!
+        ConstantsModels.count_item = 0
         for element in 0..<smallbox.items.count{
             ConstantsModels.count_item += Int(smallbox.items[element].cant)
         }

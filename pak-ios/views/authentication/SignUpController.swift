@@ -167,7 +167,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
     }
     @IBAction func signUp(_ sender: Any) {
-        
+       
         
         if (self.tf_name.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El nombre no puede estar vacío", uiViewController: self)
@@ -281,7 +281,9 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             facebookid = (user?.facebookID)!
             googleid = (user?.googleID)!
         }
-        
+        print("holaaaaa")
+        print(user?.googleID)
+        print("holaaaaa213124124")
         let params: Parameters = [
             "Nombres": self.tf_name.text!,
             "Apellidos": self.tf_lastname.text!,

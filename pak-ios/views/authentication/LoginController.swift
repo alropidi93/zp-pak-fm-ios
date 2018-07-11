@@ -248,7 +248,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
             userDC.lastNames = user.profile.familyName
             userDC.userName = user.profile.email
 //            "photo_url": user.profile.imageURL(withDimension: 100) ?? "",
-            userDC.googleID = user.authentication.idToken
+            userDC.googleID = user.authentication.accessToken
             validateGoogle(userDC)
         } else {
             print("\(error.localizedDescription)")
