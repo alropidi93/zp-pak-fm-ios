@@ -4616,7 +4616,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <rect key="frame" x="0.0" y="315" width="166" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FcP-1s-FcI" userLabel="tf_date">
-                                                <rect key="frame" x="78.5" y="24" width="9" height="24"/>
+                                                <rect key="frame" x="26" y="24" width="115" height="24"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -4631,6 +4631,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="FcP-1s-FcI" firstAttribute="top" secondItem="Cet-MP-Wsv" secondAttribute="bottom" constant="8" symbolic="YES" id="Fpy-sD-E7w"/>
+                                            <constraint firstItem="FcP-1s-FcI" firstAttribute="leading" secondItem="gM1-yv-Yvs" secondAttribute="leading" constant="26" id="Hlp-4k-bWZ"/>
                                             <constraint firstAttribute="height" constant="50" id="ItU-Vs-OIf"/>
                                             <constraint firstItem="Cet-MP-Wsv" firstAttribute="centerX" secondItem="FcP-1s-FcI" secondAttribute="centerX" id="JnE-UY-YQE"/>
                                             <constraint firstItem="Cet-MP-Wsv" firstAttribute="centerX" secondItem="gM1-yv-Yvs" secondAttribute="centerX" id="McL-S0-2WQ"/>
@@ -4642,7 +4643,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <rect key="frame" x="166" y="315" width="169" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kd8-Lk-EaK" userLabel="tf_hours">
-                                                <rect key="frame" x="78.5" y="24" width="9" height="24"/>
+                                                <rect key="frame" x="26" y="24" width="115" height="24"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -4660,8 +4661,9 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             <constraint firstItem="4Rb-ce-5h6" firstAttribute="top" secondItem="BOC-rF-bdH" secondAttribute="top" id="93x-wt-qO6"/>
                                             <constraint firstItem="4Rb-ce-5h6" firstAttribute="leading" secondItem="BOC-rF-bdH" secondAttribute="leading" constant="26" id="A5x-V1-iUW"/>
                                             <constraint firstItem="4Rb-ce-5h6" firstAttribute="centerX" secondItem="kd8-Lk-EaK" secondAttribute="centerX" id="L5K-Jx-Law"/>
-                                            <constraint firstItem="kd8-Lk-EaK" firstAttribute="top" secondItem="4Rb-ce-5h6" secondAttribute="bottom" constant="8" symbolic="YES" id="Vcd-Pt-URM"/>
+                                            <constraint firstAttribute="trailing" secondItem="kd8-Lk-EaK" secondAttribute="trailing" constant="28" id="QOa-qZ-Jo1"/>
                                             <constraint firstAttribute="height" constant="50" id="ZOW-BK-tsm"/>
+                                            <constraint firstItem="kd8-Lk-EaK" firstAttribute="top" secondItem="4Rb-ce-5h6" secondAttribute="bottom" constant="8" id="bz8-SF-r22"/>
                                         </constraints>
                                     </view>
                                 </subviews>

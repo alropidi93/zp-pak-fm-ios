@@ -95,7 +95,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
-       
+        
         if Date() < UtilMethods.stringToDate(self.items[indexPath.item].dateHourMaxAnulation) {
             cell.b_cancel.isHidden = false
             cell.b_cancel.tag = indexPath.row

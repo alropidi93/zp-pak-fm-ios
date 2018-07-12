@@ -13,6 +13,7 @@ import Alamofire
 import NVActivityIndicatorView
 import FacebookCore
 import FacebookLogin
+import FBSDKCoreKit
 import SwiftHash
 import SideMenu
 import GoogleSignIn
@@ -171,8 +172,9 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                         //"photo_url": user.profile.imageURL(withDimension: 100) ?? "",
                         //print(value.dictionaryValue!["birthday"])
                         //userDC.birthDate = UtilMethods.dateSplit(value.dictionaryValue!["birthday"] as! String)
-                        //userDC.facebookID = value.dictionaryValue!["id"] as! String
-                        userDC.facebookID = accessToken.userId!
+                        userDC.facebookID = value.dictionaryValue!["id"] as! String
+//                        userDC.facebookID = FBSDKAccessToken.current().tokenString
+                        print(FBSDKAccessToken.current().tokenString)
                         self.validateFacebook(userDC)
                         loginManager.logOut()
                     case .failed(let error):
@@ -187,7 +189,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         
-        let params: Parameters = [ "AccessToken": userDC.facebookID,
+        let params: Parameters = [ "AccessToken": FBSDKAccessToken.current().tokenString,
                                    //                                   "FCMToken": InstanceID.instanceID().token() ?? "No token",
             "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
         ]
@@ -248,19 +250,31 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
             userDC.lastNames = user.profile.familyName
             userDC.userName = user.profile.email
 //            "photo_url": user.profile.imageURL(withDimension: 100) ?? "",
-            userDC.googleID = user.authentication.accessToken
-            validateGoogle(userDC)
+            userDC.googleID = user.authentication.idToken
+            var token : String = user.userID
+            print(user.authentication.idToken)
+            print("asdasf")
+            print(user.authentication.accessToken)
+            print("asdasfasdasfsaf")
+            print(user.userID)
+            print("asdasfasdasfsafsafasfagasf")
+            
+  
+
+
+
+            validateGoogle(userDC , token)
         } else {
             print("\(error.localizedDescription)")
         }
         self.stopAnimating()
     }
     
-    func validateGoogle (_ userDC : UserDC){
+    func validateGoogle (_ userDC : UserDC, _ token : String){
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         
-        let params: Parameters = [ "AccessToken": userDC.googleID,
+        let params: Parameters = [ "AccessToken": token,
 //                                   "FCMToken": InstanceID.instanceID().token() ?? "No token",
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
         ]

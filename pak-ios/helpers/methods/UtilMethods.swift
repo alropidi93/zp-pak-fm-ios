@@ -222,6 +222,8 @@ class UtilMethods {
     static func stringToDate(_ data : String ) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy-HH:mm:ss"
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US") as Locale?
+
         return dateFormatter.date(from : data)!
     }
     

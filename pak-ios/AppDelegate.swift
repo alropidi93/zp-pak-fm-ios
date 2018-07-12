@@ -1,4 +1,4 @@
-//
+ //
 //  AppDelegate.swift
 //  pak-ios
 //
@@ -14,6 +14,7 @@ import SwiftyJSON
 import Fabric
 import IQKeyboardManagerSwift
 import GoogleSignIn
+import FirebaseMessaging
 
 
 @UIApplicationMain

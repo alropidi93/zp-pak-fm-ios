@@ -169,6 +169,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     @IBAction func signUp(_ sender: Any) {
        
         
+        
         if (self.tf_name.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El nombre no puede estar vacío", uiViewController: self)
             return
