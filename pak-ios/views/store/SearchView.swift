@@ -87,6 +87,8 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
+    
+    
     @objc func connected(_ sender:AnyObject) {
         self.item = items[sender.view.tag]
         print("you tap image number : \(sender.view.tag)")

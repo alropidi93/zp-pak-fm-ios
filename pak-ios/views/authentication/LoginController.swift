@@ -169,10 +169,10 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                         userDC.lastNames = value.dictionaryValue!["last_name"] as! String
                         userDC.userName = value.dictionaryValue!["email"] as! String
                         //"photo_url": user.profile.imageURL(withDimension: 100) ?? "",
-                        userDC.birthDate = UtilMethods.dateSplit(value.dictionaryValue!["birthday"] as! String)
-                      
-
-                        userDC.facebookID = value.dictionaryValue!["id"] as! String
+                        //print(value.dictionaryValue!["birthday"])
+                        //userDC.birthDate = UtilMethods.dateSplit(value.dictionaryValue!["birthday"] as! String)
+                        //userDC.facebookID = value.dictionaryValue!["id"] as! String
+                        userDC.facebookID = accessToken.userId!
                         self.validateFacebook(userDC)
                         loginManager.logOut()
                     case .failed(let error):

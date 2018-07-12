@@ -81,8 +81,6 @@ class SplashController: UIViewController {
                         
                         PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
-                    } else {
-                        self.getGUID()
                     }
                 }
             } else {
@@ -97,7 +95,6 @@ class SplashController: UIViewController {
     }
     
     func getGUID() {
-     
         var params : Parameters
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             params = [ : ]
@@ -119,11 +116,7 @@ class SplashController: UIViewController {
                     PreferencesMethods.saveSmallBoxToOptions(small_box)
                     
                     self.loginUser()
-                    print("sadafasfsaf")
-                    print(PreferencesMethods.getSmallBoxFromOptions()?.GUID)
-
-                    print(ConstantsModels.count_item)
-                    print("sadafasfsaasdasdasdasfasfsaff")
+                 
                 }
             } else {
                 if let jsonResponse = response.result.value {

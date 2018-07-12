@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F43ABBE20F6FA47002F38D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F43ABBD20F6FA46002F38D4 /* GoogleService-Info.plist */; };
 		0FA28D7920F46E9500888298 /* FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA28D7820F46E9500888298 /* FavouriteController.swift */; };
 		1215FBF620F545B400E8879C /* EndBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF520F545B400E8879C /* EndBoxController.swift */; };
 		1215FBF820F54D1B00E8879C /* FinishBoxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */; };
-		12223A5320F040AA003B00D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12223A5220F040A9003B00D8 /* GoogleService-Info.plist */; };
 		12A47DD220F3CEC600CD98FB /* TVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD020F3CEC500CD98FB /* TVCPlaceholder.swift */; };
 		12A47DD320F3CEC600CD98FB /* CVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD120F3CEC500CD98FB /* CVCPlaceholder.swift */; };
 		12A47DD520F3DD7700CD98FB /* SendDetailProductDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */; };
@@ -102,10 +102,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F43ABBD20F6FA46002F38D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FA28D7820F46E9500888298 /* FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteController.swift; sourceTree = "<group>"; };
 		1215FBF520F545B400E8879C /* EndBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndBoxController.swift; sourceTree = "<group>"; };
 		1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishBoxDelegate.swift; sourceTree = "<group>"; };
-		12223A5220F040A9003B00D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12A47DD020F3CEC500CD98FB /* TVCPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCPlaceholder.swift; sourceTree = "<group>"; };
 		12A47DD120F3CEC500CD98FB /* CVCPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCPlaceholder.swift; sourceTree = "<group>"; };
 		12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDetailProductDelegate.swift; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 				7015913220E6E8CD006A7509 /* bridging */,
 				701D2889207EAD1F007AD7AC /* pak-ios.entitlements */,
 				701D2883207EAD06007AD7AC /* Info.plist */,
-				12223A5220F040A9003B00D8 /* GoogleService-Info.plist */,
+				0F43ABBD20F6FA46002F38D4 /* GoogleService-Info.plist */,
 				701D2877207EAD01007AD7AC /* AppDelegate.swift */,
 				701D287E207EAD06007AD7AC /* Assets.xcassets */,
 				701D288A207EB3F1007AD7AC /* adapters */,
@@ -617,7 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */,
-				12223A5320F040AA003B00D8 /* GoogleService-Info.plist in Resources */,
+				0F43ABBE20F6FA47002F38D4 /* GoogleService-Info.plist in Resources */,
 				701D287F207EAD06007AD7AC /* Assets.xcassets in Resources */,
 				701D287D207EAD01007AD7AC /* Main.storyboard in Resources */,
 			);
@@ -990,14 +990,14 @@
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8T7Y68JUC9;
+				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarketo;
+				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pak-ios/New Group/pak-ios-Bridging-Header.h";
@@ -1016,14 +1016,14 @@
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8T7Y68JUC9;
+				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarketo;
+				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pak-ios/New Group/pak-ios-Bridging-Header.h";

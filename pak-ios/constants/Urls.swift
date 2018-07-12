@@ -101,7 +101,9 @@ struct URLs {
     static var DeleteItem: String { //POST
         return BaseURL + "OrderService.svc/EliminarItemCajita"
     }
-    
+    static var CancelOrder: String { //POST
+        return BaseURL + "OrderService.svc/AnularPedido"
+    }
     //ANUNCIOS
     static var GetAds: String { //GET
         return BaseURL + "AdService.svc/ListarAnuncios"

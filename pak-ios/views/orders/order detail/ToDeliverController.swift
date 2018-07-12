@@ -98,11 +98,48 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
        
         if Date() < UtilMethods.stringToDate(self.items[indexPath.item].dateHourMaxAnulation) {
             cell.b_cancel.isHidden = false
+            cell.b_cancel.tag = indexPath.row
+            cell.b_cancel.addTarget(self, action: #selector(cancelOrderFunc), for: .touchUpInside)
         }
         return cell
     }
     
+    @objc func cancelOrderFunc(sender: UIButton!) {
+        let order : OrderDC = items[sender.tag]
+        cancelOrder(Int(order.number) , sender.tag)
+    }
     
+    func cancelOrder(_ idItem : Int ,_ pos : Int) {
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        
+        let params: Parameters = [ "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? 0, "Numero": idItem]
+        
+        Alamofire.request(URLs.CancelOrder, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlamoMethods.connectionError(uiViewController: self)
+                self.stopAnimating()
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Msg"] == "OK"{
+                        self.items.remove(at: pos)
+                        self.cv_to_delivery.reloadData()
+                    }
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+            self.stopAnimating()
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.item = Int(items[indexPath.item].number)
