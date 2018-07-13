@@ -31,6 +31,16 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let isRegisteredForRemoteNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
+        if isRegisteredForRemoteNotifications {
+            print("yes")
+        } else {
+            print("no")
+            
+        }
+        print("asfjdsfbalsdbfasldñfnadslñfnasdñlf")
+        setObserversNot()
         setElements()
         setObservers()
     }
@@ -98,4 +108,16 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
             }
         }
     }
+    func setObserversNot() {
+        NotificationCenter.default.addObserver(self, selector: #selector(qualifyStaffFromNotification), name: NSNotification.Name(rawValue: "pedido_entregado"), object: nil)
+        
+    }
+    
+    @objc func qualifyStaffFromNotification(_ notification: NSNotification) {
+        print("asd")
+    }
+    
+    
+    
+
 }

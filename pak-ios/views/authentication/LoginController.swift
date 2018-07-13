@@ -17,6 +17,7 @@ import FBSDKCoreKit
 import SwiftHash
 import SideMenu
 import GoogleSignIn
+import Firebase
 class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInDelegate, GIDSignInUIDelegate{
     
     
@@ -94,9 +95,10 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         }
         let params: Parameters = [ "Username": self.tf_email.text!,
                                    "Password": MD5(self.tf_password.text!) ,
-                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
+                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID,
+                                   "FCMToken" : InstanceID.instanceID().token() ?? "No token"
                                    ]
-        
+        print(InstanceID.instanceID().token())
         Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)

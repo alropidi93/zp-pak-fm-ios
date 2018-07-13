@@ -15,6 +15,7 @@ import FacebookCore
 import FacebookLogin
 import SwiftHash
 import SideMenu
+import Firebase
 
 class SplashController: UIViewController {
     // Segues
@@ -62,7 +63,7 @@ class SplashController: UIViewController {
         let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
                                    "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? "" ,
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID,
-                                   "FCMToken" : "" ]
+                                   "FCMToken" : InstanceID.instanceID().token() ?? "No token" ]
         
         Alamofire.request(URLs.loginAccessToken, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {

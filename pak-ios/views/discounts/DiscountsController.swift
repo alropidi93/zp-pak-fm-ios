@@ -42,6 +42,9 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
     func setElements() {
         self.getListDiscount()
         l_code.text = ConstantsModels.static_user?.codeInvitation
+        if !(ConstantsModels.static_user?.applicableInvitationCode)!{
+            b_add_invitation.isHidden = false
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -34,16 +34,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
+            
             UNUserNotificationCenter.current().delegate = self
             
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization( options: authOptions, completionHandler: {_, _ in })
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
         } else {
             let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
         }
+
         application.registerForRemoteNotifications()
-        
 
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
 
@@ -83,7 +86,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("APNs token retrieved: \(deviceToken)")
+        Messaging.messaging().apnsToken = deviceToken
+
+        print("APNs token retrieved : \(deviceToken)")
     }
 }
 
@@ -100,7 +105,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
         // Print full message.
         print(userInfo)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "url_from_notification"), object: nil, userInfo: userInfo)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "pedido_entregado"), object: nil, userInfo: userInfo)
         // Change this to your preferred presentation option
         completionHandler([.alert])
     }
@@ -153,8 +158,33 @@ extension AppDelegate : MessagingDelegate {
         }
     }
     
+    
+    
+    //<string name="notification_order_coming_title">¡Hola #!</string>
+    //<string name="notification_order_coming">Mañana llegará tu PAK entre las #.</string>
+    //<string name="notification_order_coming_popup">Recuerda que mañana te estaremos enviando tu pedido entre el horario de #.</string>
+    //<string name="notification_order_delivered_title">¡Has recibido tu cajita!</string>
+    //<string name="notification_order_delivered">Ayúdanos a mejorar calificando el servicio.</string>
+    //<string name="notification_order_delivered_popup">¿Qué te pareció el servicio?</string>
+    
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("Received data message: \(remoteMessage.appData)")
+        if remoteMessage.appData[AnyHashable("tipo")] as! String == "pedido_proximo" {
+            print("holi")
+        }else if remoteMessage.appData[AnyHashable("tipo")] as! String == "pedido_entregado"{
+            print("hola2")
+        }
+        let content = UNMutableNotificationContent()
+        content.title = "¡Has recibido tu cajita!"
+        content.subtitle = "Ayúdanos a mejorar calificando el servicio."
+        content.badge = 1
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
+
+    
+    
+    
     // [END ios_10_data_message]
 }

@@ -19,7 +19,7 @@ class EndBoxController: UIViewController {
     // Segues
     @IBOutlet var iv_logo_end: UIImageView!
     private let splash_identifier = "segue_splash_close"
-    private var animation_parts: [UIImage] = [ UIImage(named: "dwb-pak-logo-name")! , UIImage(named: "dwb-pak-splash-5")! , UIImage(named: "dwb-pak-splash-4")!, UIImage(named: "dwb-pak-splash-3")!,UIImage(named: "dwb-pak-splash-2")!,UIImage(named: "dwb-pak-splash-1")!]
+    private var animation_parts: [UIImage] = [ UIImage(named: "dwb-pak-logo-name")!  , UIImage(named: "dwb-pak-splash-4")!, UIImage(named: "dwb-pak-splash-3")!,UIImage(named: "dwb-pak-splash-2")!,UIImage(named: "dwb-pak-splash-1")!]
     
     // Common functions
     override func viewDidLoad() {
