@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F5FC83D20F8A530005ED047 /* PakAlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FC83C20F8A530005ED047 /* PakAlertNotification.swift */; };
 		0FA28D7920F46E9500888298 /* FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA28D7820F46E9500888298 /* FavouriteController.swift */; };
 		0FA5EA6C20F841AA00FD7372 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FA5EA6B20F841AA00FD7372 /* GoogleService-Info.plist */; };
 		1215FBF620F545B400E8879C /* EndBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF520F545B400E8879C /* EndBoxController.swift */; };
@@ -102,6 +103,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F5FC83C20F8A530005ED047 /* PakAlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertNotification.swift; sourceTree = "<group>"; };
 		0FA28D7820F46E9500888298 /* FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteController.swift; sourceTree = "<group>"; };
 		0FA5EA6B20F841AA00FD7372 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1215FBF520F545B400E8879C /* EndBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndBoxController.swift; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				7007931220D2B26000DE70CA /* PakAlertRecoverAccount.swift */,
 				709D48F820EB54FD00B990DE /* PakAlertCancel.swift */,
 				12A47DD620F3EF5600CD98FB /* PakAlertSuccessPass.swift */,
+				0F5FC83C20F8A530005ED047 /* PakAlertNotification.swift */,
 			);
 			path = alert;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F5FC83D20F8A530005ED047 /* PakAlertNotification.swift in Sources */,
 				70B623F020AA1BDD001738C3 /* SideMenuInLogin.swift in Sources */,
 				12A47DD220F3CEC600CD98FB /* TVCPlaceholder.swift in Sources */,
 				70C6D13F20E9893F00560D7C /* CVCDeliver.swift in Sources */,

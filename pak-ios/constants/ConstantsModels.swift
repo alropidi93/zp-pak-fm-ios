@@ -11,5 +11,6 @@ import Foundation
 // Needs to be revised (wtf)
 class ConstantsModels {
     static var static_user : UserDC? = nil
-    static var count_item : Int = 0 
+    static var count_item : Int = 0
+    static var numberBox : Int = 0
 }

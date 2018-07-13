@@ -45,11 +45,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
         }
-
         application.registerForRemoteNotifications()
-
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
 
+        let meowAction = UNNotificationAction(identifier: "calificar", title: "Calificar", options: [])
+        
+        let category = UNNotificationCategory(identifier: "myCategoryName", actions: [meowAction], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
+        
+        
         return true
     }
     
@@ -116,6 +121,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[AppDelegate.gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
+        if response.actionIdentifier == "calificar" {
+            NotificationCenter.default.post(name: .viewNotification, object: nil, userInfo: nil)
+        }
+        
         completionHandler()
     }
 }
@@ -165,24 +174,19 @@ extension AppDelegate : MessagingDelegate {
         if remoteMessage.appData[AnyHashable("tipo")] as! String == "pedido_proximo" {
             print("holi")
         }else if remoteMessage.appData[AnyHashable("tipo")] as! String == "pedido_entregado"{
-            print("hola2")
+            let content = UNMutableNotificationContent()
+            content.title = "¡Has recibido tu cajita!"
+            content.subtitle = "Ayúdanos a mejorar calificando el servicio."
+            content.badge = 1
+            content.categoryIdentifier = "myCategoryName"
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            let numberString : String = (remoteMessage.appData[AnyHashable("numero")] as! String)
+            let numberInt : Int = Int(numberString)!
+            ConstantsModels.numberBox = numberInt
         }
-        let content = UNMutableNotificationContent()
-        content.title = "¡Has recibido tu cajita!"
-        content.subtitle = "Ayúdanos a mejorar calificando el servicio."
-        content.badge = 1
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
-      
         
-        let meowAction = UNNotificationAction(identifier: "meow", title: "Meow", options: [])
-        let pizzaAction = UNNotificationAction(identifier: "pizza", title: "Pizza?", options: [])
-        
-        let category = UNNotificationCategory(identifier: "myCategoryName", actions: [meowAction, pizzaAction], intentIdentifiers: [], options: [])
-        
-        
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        UNUserNotificationCenter.current().setNotificationCategories([category])
 
     }
 

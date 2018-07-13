@@ -11,5 +11,7 @@ import Foundation
 extension Notification.Name {
     static let viewInit = Notification.Name(rawValue: "to_initial")    
     static let viewStore = Notification.Name(rawValue: "to_store")
+    static let viewNotification = Notification.Name(rawValue: "to_notification")
+
 }
 

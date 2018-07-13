@@ -104,6 +104,9 @@ struct URLs {
     static var CancelOrder: String { //POST
         return BaseURL + "OrderService.svc/AnularPedido"
     }
+    static var CalificationOrder: String { //POST
+        return BaseURL + "OrderService.svc/CalificarPedido"
+    }
     //ANUNCIOS
     static var GetAds: String { //GET
         return BaseURL + "AdService.svc/ListarAnuncios"

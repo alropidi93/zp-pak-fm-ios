@@ -39,7 +39,6 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
             print("no")
             
         }
-        print("asfjdsfbalsdbfasldñfnadslñfnasdñlf")
         setObserversNot()
         setElements()
         setObservers()
@@ -63,6 +62,20 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(viewInitial), name: .viewInit, object: nil)
         notificationCenter.addObserver(self, selector: #selector(viewStore), name: .viewStore, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(pakAlertNotification), name: .viewNotification, object: nil)
+
+    }
+    
+    @objc func pakAlertNotification(_ notification: NSNotification) {
+       alertDialog(uiViewController: self)
+        
+    }
+    func alertDialog(uiViewController: UIViewController) {
+        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_notification") as! PakAlertNotification
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        uiViewController.present(pakAlert, animated: true, completion: nil)
     }
     
     @objc func viewInitial(_ notification: NSNotification) {
