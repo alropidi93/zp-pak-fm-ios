@@ -160,13 +160,6 @@ extension AppDelegate : MessagingDelegate {
     
     
     
-    //<string name="notification_order_coming_title">¡Hola #!</string>
-    //<string name="notification_order_coming">Mañana llegará tu PAK entre las #.</string>
-    //<string name="notification_order_coming_popup">Recuerda que mañana te estaremos enviando tu pedido entre el horario de #.</string>
-    //<string name="notification_order_delivered_title">¡Has recibido tu cajita!</string>
-    //<string name="notification_order_delivered">Ayúdanos a mejorar calificando el servicio.</string>
-    //<string name="notification_order_delivered_popup">¿Qué te pareció el servicio?</string>
-    
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("Received data message: \(remoteMessage.appData)")
         if remoteMessage.appData[AnyHashable("tipo")] as! String == "pedido_proximo" {
@@ -180,11 +173,19 @@ extension AppDelegate : MessagingDelegate {
         content.badge = 1
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+      
+        
+        let meowAction = UNNotificationAction(identifier: "meow", title: "Meow", options: [])
+        let pizzaAction = UNNotificationAction(identifier: "pizza", title: "Pizza?", options: [])
+        
+        let category = UNNotificationCategory(identifier: "myCategoryName", actions: [meowAction, pizzaAction], intentIdentifiers: [], options: [])
+        
+        
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+
     }
 
-    
-    
     
     // [END ios_10_data_message]
 }
