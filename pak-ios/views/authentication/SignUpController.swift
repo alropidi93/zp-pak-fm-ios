@@ -282,9 +282,6 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             facebookid = (user?.facebookID)!
             googleid = (user?.googleID)!
         }
-        print("holaaaaa")
-        print(user?.googleID)
-        print("holaaaaa213124124")
         let params: Parameters = [
             "Nombres": self.tf_name.text!,
             "Apellidos": self.tf_lastname.text!,
@@ -299,8 +296,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             "GUID" : GUID,
             "FacebookID": facebookid,
             "GoogleID": googleid,
-
-//            "FCMTOKEN": InstanceID.instanceID().token() ?? "No token",
+            "FCMToken": InstanceID.instanceID().token() ?? "No token",
             ]
 
         let data = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)

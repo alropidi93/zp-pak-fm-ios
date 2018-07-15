@@ -10,6 +10,9 @@
 		0F5FC83D20F8A530005ED047 /* PakAlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FC83C20F8A530005ED047 /* PakAlertNotification.swift */; };
 		0FA28D7920F46E9500888298 /* FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA28D7820F46E9500888298 /* FavouriteController.swift */; };
 		0FA5EA6C20F841AA00FD7372 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FA5EA6B20F841AA00FD7372 /* GoogleService-Info.plist */; };
+		0FF64A1320FB66DA00164AF5 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF64A1020FB666C00164AF5 /* MyriadPro-Bold.otf */; };
+		0FF64A1420FB66DE00164AF5 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF64A1120FB667200164AF5 /* OpenSans-Light.ttf */; };
+		0FF64A1520FB66E100164AF5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF64A1220FB667700164AF5 /* OpenSans-Regular.ttf */; };
 		1215FBF620F545B400E8879C /* EndBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF520F545B400E8879C /* EndBoxController.swift */; };
 		1215FBF820F54D1B00E8879C /* FinishBoxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */; };
 		12A47DD220F3CEC600CD98FB /* TVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD020F3CEC500CD98FB /* TVCPlaceholder.swift */; };
@@ -106,6 +109,9 @@
 		0F5FC83C20F8A530005ED047 /* PakAlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertNotification.swift; sourceTree = "<group>"; };
 		0FA28D7820F46E9500888298 /* FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteController.swift; sourceTree = "<group>"; };
 		0FA5EA6B20F841AA00FD7372 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0FF64A1020FB666C00164AF5 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
+		0FF64A1120FB667200164AF5 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		0FF64A1220FB667700164AF5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		1215FBF520F545B400E8879C /* EndBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndBoxController.swift; sourceTree = "<group>"; };
 		1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishBoxDelegate.swift; sourceTree = "<group>"; };
 		12A47DD020F3CEC500CD98FB /* TVCPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCPlaceholder.swift; sourceTree = "<group>"; };
@@ -224,6 +230,16 @@
 			path = favourite;
 			sourceTree = "<group>";
 		};
+		0FF64A0F20FB664800164AF5 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0FF64A1020FB666C00164AF5 /* MyriadPro-Bold.otf */,
+				0FF64A1120FB667200164AF5 /* OpenSans-Light.ttf */,
+				0FF64A1220FB667700164AF5 /* OpenSans-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		69F60DEB280FAAD142EFE835 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +279,7 @@
 		701D2876207EAD01007AD7AC /* pak-ios */ = {
 			isa = PBXGroup;
 			children = (
+				0FF64A0F20FB664800164AF5 /* fonts */,
 				7015913220E6E8CD006A7509 /* bridging */,
 				701D2889207EAD1F007AD7AC /* pak-ios.entitlements */,
 				701D2883207EAD06007AD7AC /* Info.plist */,
@@ -619,8 +636,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF64A1420FB66DE00164AF5 /* OpenSans-Light.ttf in Resources */,
 				701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */,
 				0FA5EA6C20F841AA00FD7372 /* GoogleService-Info.plist in Resources */,
+				0FF64A1520FB66E100164AF5 /* OpenSans-Regular.ttf in Resources */,
+				0FF64A1320FB66DA00164AF5 /* MyriadPro-Bold.otf in Resources */,
 				701D287F207EAD06007AD7AC /* Assets.xcassets in Resources */,
 				701D287D207EAD01007AD7AC /* Main.storyboard in Resources */,
 			);
@@ -997,6 +1017,7 @@
 				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1023,6 +1044,7 @@
 				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

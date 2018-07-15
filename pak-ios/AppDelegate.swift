@@ -11,7 +11,6 @@ import Firebase
 import UserNotifications
 import Alamofire
 import SwiftyJSON
-import Fabric
 import IQKeyboardManagerSwift
 import GoogleSignIn
 import FirebaseMessaging

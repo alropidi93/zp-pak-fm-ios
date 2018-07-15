@@ -33,8 +33,10 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
-                    let jsonResult = JSON(jsonResponse)
+                    let _ = JSON(jsonResponse)
                     ConstantsModels.numberBox = 0
+                    self.dismiss(animated: false, completion: nil)
+
                 }
             } else {
                 if let jsonResponse = response.result.value {

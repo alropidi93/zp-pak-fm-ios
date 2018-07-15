@@ -192,7 +192,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         
         
         let params: Parameters = [ "AccessToken": FBSDKAccessToken.current().tokenString,
-                                   //                                   "FCMToken": InstanceID.instanceID().token() ?? "No token",
+                                    "FCMToken": InstanceID.instanceID().token() ?? "No token",
             "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
         ]
         Alamofire.request(URLs.LoginFb, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
@@ -245,6 +245,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         
         
     }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
             let userDC : UserDC = UserDC()
@@ -252,19 +253,8 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
             userDC.lastNames = user.profile.familyName
             userDC.userName = user.profile.email
 //            "photo_url": user.profile.imageURL(withDimension: 100) ?? "",
-            userDC.googleID = user.authentication.idToken
-            var token : String = user.userID
-            print(user.authentication.idToken)
-            print("asdasf")
-            print(user.authentication.accessToken)
-            print("asdasfasdasfsaf")
-            print(user.userID)
-            print("asdasfasdasfsafsafasfagasf")
-            
-  
-
-
-
+            userDC.googleID = user.userID
+            let token : String = user.authentication.idToken
             validateGoogle(userDC , token)
         } else {
             print("\(error.localizedDescription)")
@@ -276,8 +266,8 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         
-        let params: Parameters = [ "AccessToken": token,
-//                                   "FCMToken": InstanceID.instanceID().token() ?? "No token",
+        let params: Parameters = [ "AccessToken": userDC.googleID,
+                                   "FCMToken": InstanceID.instanceID().token() ?? "No token",
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
         ]
         Alamofire.request(URLs.LoginGo, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
