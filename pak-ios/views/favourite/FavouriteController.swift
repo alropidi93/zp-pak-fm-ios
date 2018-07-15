@@ -40,7 +40,10 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
     func setElements(){
         self.cv_favorite.delegate = self
         self.cv_favorite.dataSource = self
-        
+        let bgImage = UIImageView();
+        bgImage.image = UIImage(named: "dwb_pak_background_loby")
+        bgImage.contentMode = .scaleToFill
+        self.cv_favorite.backgroundView = bgImage
         getFavourite()
     }
     

@@ -81,7 +81,7 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     let smallBox  = SmallBoxDC(jsonResult)
-                    self.l_mount_delivery.text = "S/." + String (smallBox.costDelivery)
+                    self.l_mount_delivery.text = "S/" + String (smallBox.costDelivery)
                     self.deliveryCost = smallBox.costDelivery
                     if smallBox.discount != nil {
                         self.l_mount_discount.text = String(format: "%.2f",(smallBox.discount?.percentage)!) + "%"

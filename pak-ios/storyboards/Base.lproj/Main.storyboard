@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -156,7 +157,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iT-k7-eXJ" userLabel="b_login_with_facebook">
                                                 <rect key="frame" x="0.0" y="0.0" width="239" height="40"/>
-                                                <color key="backgroundColor" red="0.18393224477767944" green="0.29081875085830688" blue="0.70748764276504517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="facebookColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="xJU-DN-kdM"/>
                                                 </constraints>
@@ -1197,7 +1198,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             <rect key="frame" x="0.0" y="0.0" width="373" height="212"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5wH-Zs-3Sr" userLabel="iv_advertisement">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5wH-Zs-3Sr" userLabel="iv_advertisement">
                                                     <rect key="frame" x="0.0" y="0.0" width="373" height="212"/>
                                                 </imageView>
                                             </subviews>
@@ -2583,6 +2584,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <outlet property="l_code" destination="mb4-Wh-DeD" id="7BZ-hJ-kMs"/>
                         <outlet property="v_add_code" destination="5JS-bm-Lxd" id="lcY-xj-lAb"/>
                         <outlet property="v_code_show" destination="sYP-Io-EAz" id="Q3b-3z-4TU"/>
+                        <segue destination="lW2-ZZ-xBL" kind="show" identifier="segue_discoutn_box" id="b0L-2z-q1G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmu-KL-dXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2724,7 +2726,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Mj-y1-sZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7081" y="-1850"/>
+            <point key="canvasLocation" x="7999" y="-1863"/>
         </scene>
         <!--Code Invitation-->
         <scene sceneID="lmX-hx-CUw">
@@ -4137,7 +4139,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGu-2c-KLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7080.8000000000002" y="-181.25937031484258"/>
+            <point key="canvasLocation" x="7967" y="-382"/>
         </scene>
         <!--Publicity-->
         <scene sceneID="lTx-4w-lfQ">
@@ -7557,16 +7559,18 @@ EMKhSGFzIHJlY2liaWRvIHR1IGNhaml0YSE
         <image name="dwb_pak_empty_box" width="74" height="57"/>
         <image name="dwb_pak_usericon" width="30" height="30"/>
         <image name="dwb_zp_logo" width="75" height="54"/>
+        <namedColor name="facebookColor">
+            <color red="0.12941176470588237" green="0.38039215686274508" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eWD-Wl-ASh"/>
-        <segue reference="0wQ-9P-YXB"/>
+        <segue reference="4If-JT-tFy"/>
         <segue reference="IRN-db-nS4"/>
-        <segue reference="OS7-IV-a8p"/>
+        <segue reference="b0L-2z-q1G"/>
         <segue reference="xVe-nE-p4w"/>
         <segue reference="2h9-cx-RAU"/>
         <segue reference="OCU-k9-bKY"/>
-        <segue reference="Mj0-oe-INs"/>
+        <segue reference="qbC-4W-Evn"/>
         <segue reference="oBi-e6-wfk"/>
         <segue reference="1vM-Rq-4HF"/>
         <segue reference="dfd-t0-Qql"/>

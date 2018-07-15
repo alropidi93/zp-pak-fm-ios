@@ -60,7 +60,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+        let deleteAction = SwipeAction(style: .destructive, title: "Eliminar") { action, indexPath in
             self.deleteItem(self.items[indexPath.row], indexPath.row)
         }
         

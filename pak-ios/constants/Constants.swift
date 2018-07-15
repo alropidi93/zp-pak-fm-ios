@@ -35,6 +35,23 @@ class Constants {
     static let LIGHT_ORANGE_RED : String = "FF762F"
     static let DEEP_ORANGE_RED : String = "F15D34"
     
+    
+    // COLORS PAK
+    
+    static let white :String = "#ffffff"
+    static let green :String = "#81d34c"
+    static let darkGray :String = "#222222"
+    static let gray :String = "#6d6d6d"
+    static let lightGray :String = "#eaeaea"
+    static let red :String = "#ff5f5f"
+    static let black :String = "#000000"
+    static let black50 :String = "#99000000"
+    static let black80 :String = "#cc000000"
+    static let facebook_blue :String = "#2161ad"
+    static let google_red :String = "#dd5858"
+    
+    
+    
     //#MARK : Genre
     static let MALE : String = "Masculino"
     static let FEMALE : String = "Femenino"

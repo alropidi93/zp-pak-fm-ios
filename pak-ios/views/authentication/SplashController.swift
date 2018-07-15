@@ -38,13 +38,13 @@ class SplashController: UIViewController {
         
         self.iv_logo.animationImages = self.animation_parts
         self.iv_logo.animationRepeatCount = 1
-        self.iv_logo.animationDuration = 3
+        self.iv_logo.animationDuration = 1
         self.iv_logo.startAnimating()
         
         
         
         // must be careful that the animation duration and this stuff remains equal
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             OperationQueue.main.addOperation {
                 [weak self] in
                 while (self?.iv_logo.isAnimating)! {} //we wait until is finished

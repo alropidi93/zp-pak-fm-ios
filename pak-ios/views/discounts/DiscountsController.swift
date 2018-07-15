@@ -32,6 +32,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.customizeNavigationBarDiscount()
         setElements()
     }
     
@@ -163,5 +164,50 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
             }
             self.stopAnimating()
         }
+    }
+    
+    
+    func customizeNavigationBarDiscount( ) {
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        let navView = UIView()
+        let label = UILabel()
+        label.text = "  Mis descuentos"
+        label.sizeToFit()
+        label.center = navView.center
+        label.textAlignment = NSTextAlignment.center
+        let image = UIImageView()
+        image.image = UIImage(named: "dwb_pak_button_favorites")
+        let imageAspect = image.image!.size.width/image.image!.size.height
+        image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
+        image.contentMode = UIViewContentMode.scaleAspectFit
+        navView.addSubview(label)
+        navView.addSubview(image)
+        self.navigationItem.titleView = navView
+        navView.sizeToFit()
+        
+        let notificationButton = SSBadgeButton()
+        notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
+        notificationButton.addTarget(self, action: #selector(didPressRightButtonToBox), for: .touchUpInside)
+        
+        
+        let smallbox :SmallBoxDC =  PreferencesMethods.getSmallBoxFromOptions()!
+        ConstantsModels.count_item = 0
+        for element in 0..<smallbox.items.count{
+            ConstantsModels.count_item += Int(smallbox.items[element].cant)
+        }
+        if ConstantsModels.count_item == 0 {
+            return
+        }else {
+            notificationButton.badge = "\(ConstantsModels.count_item) "
+        }
+       
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+    }
+    @objc func didPressRightButtonToBox(_ sender: Any){
+        self.performSegue(withIdentifier: "segue_discoutn_box" , sender: self)
     }
 }
