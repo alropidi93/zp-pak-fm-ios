@@ -19,6 +19,16 @@ class AlarmMethods {
         uiViewController.present(pakAlert, animated: true, completion: nil)
     }
     
+    
+    static func ReadyCustom(message: String, uiViewController: UIViewController) {
+        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_custom_ready") as! PakAlertCustomReady
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        pakAlert.message = message
+        uiViewController.present(pakAlert, animated: true, completion: nil)
+    }
+    
     static func finishWarning(title: String, message: String, handler: (()->())?, uiViewController: UIViewController) {
         let alertManager = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in handler!() })

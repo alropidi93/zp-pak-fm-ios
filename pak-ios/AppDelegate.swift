@@ -171,7 +171,19 @@ extension AppDelegate : MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("Received data message: \(remoteMessage.appData)")
         if remoteMessage.appData[AnyHashable("tipo")] as! String == "pedido_proximo" {
-            print("holi")
+            let content = UNMutableNotificationContent()
+            let horario : String = (remoteMessage.appData[AnyHashable("horaInicio")] as! String) + " - " + (remoteMessage.appData[AnyHashable("horaFin")] as! String)
+            content.title = "¡Hola" + (remoteMessage.appData[AnyHashable("cliente")] as! String) + "!"
+            content.subtitle = "Mañana llegará tu PAK entre las" + horario + "."
+            content.badge = 1
+            content.categoryIdentifier = "myCategoryName"
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+           
+            
+            
+            
         }else if remoteMessage.appData[AnyHashable("tipo")] as! String == "pedido_entregado"{
             let content = UNMutableNotificationContent()
             content.title = "¡Has recibido tu cajita!"

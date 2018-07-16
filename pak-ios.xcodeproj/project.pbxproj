@@ -15,6 +15,7 @@
 		0FF64A1520FB66E100164AF5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF64A1220FB667700164AF5 /* OpenSans-Regular.ttf */; };
 		1215FBF620F545B400E8879C /* EndBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF520F545B400E8879C /* EndBoxController.swift */; };
 		1215FBF820F54D1B00E8879C /* FinishBoxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */; };
+		1278368920FD482400F67F84 /* PakAlertCustomReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278368820FD482400F67F84 /* PakAlertCustomReady.swift */; };
 		12A47DD220F3CEC600CD98FB /* TVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD020F3CEC500CD98FB /* TVCPlaceholder.swift */; };
 		12A47DD320F3CEC600CD98FB /* CVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD120F3CEC500CD98FB /* CVCPlaceholder.swift */; };
 		12A47DD520F3DD7700CD98FB /* SendDetailProductDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */; };
@@ -114,6 +115,7 @@
 		0FF64A1220FB667700164AF5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		1215FBF520F545B400E8879C /* EndBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndBoxController.swift; sourceTree = "<group>"; };
 		1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishBoxDelegate.swift; sourceTree = "<group>"; };
+		1278368820FD482400F67F84 /* PakAlertCustomReady.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCustomReady.swift; sourceTree = "<group>"; };
 		12A47DD020F3CEC500CD98FB /* TVCPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCPlaceholder.swift; sourceTree = "<group>"; };
 		12A47DD120F3CEC500CD98FB /* CVCPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCPlaceholder.swift; sourceTree = "<group>"; };
 		12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDetailProductDelegate.swift; sourceTree = "<group>"; };
@@ -531,6 +533,7 @@
 		70D525A1209158E4004EB51E /* alert */ = {
 			isa = PBXGroup;
 			children = (
+				1278368820FD482400F67F84 /* PakAlertCustomReady.swift */,
 				7028134D20C3963300DD5443 /* paginationAlert */,
 				70D525A22091590C004EB51E /* PakAlert.swift */,
 				7007930C20D2256A00DE70CA /* PakAlertReady.swift */,
@@ -853,6 +856,7 @@
 				7043B0B520BCF28200CC31D0 /* PakAlertCodeInvitation.swift in Sources */,
 				70C6D13D20E988CE00560D7C /* CVCCancel.swift in Sources */,
 				7053BB7620E6FCE100C5A277 /* OrdersController.swift in Sources */,
+				1278368920FD482400F67F84 /* PakAlertCustomReady.swift in Sources */,
 				70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */,
 				7010444F20AE38D900EFFC9B /* CVCSearchItem.swift in Sources */,
 				7028135120C44F8900DD5443 /* PakAlertSendData.swift in Sources */,
@@ -1014,15 +1018,15 @@
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LB6PGNF3Z4;
+				DEVELOPMENT_TEAM = 8T7Y68JUC9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarket;
+				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarketo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pak-ios/New Group/pak-ios-Bridging-Header.h";
@@ -1041,15 +1045,15 @@
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LB6PGNF3Z4;
+				DEVELOPMENT_TEAM = 8T7Y68JUC9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarket;
+				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarketo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pak-ios/New Group/pak-ios-Bridging-Header.h";

@@ -29,7 +29,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
     
     private var date : Int = -1
     private var posDistrict: Int = -1
-    
+    private var idDistric : UInt64  = 0
     
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
@@ -74,6 +74,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
         tf_phone.text = ConstantsModels.static_user?.telephone
         tf_address.text = ConstantsModels.static_user?.address
         tf_district.text = ConstantsModels.static_user?.district?.name
+        self.idDistric = (ConstantsModels.static_user?.district?.idDistrict)!
         tf_email.text = ConstantsModels.static_user?.userName
     }
     
@@ -233,11 +234,14 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
     func register(_ GUID: String){
         var genre : String = "-"
         if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
+        if posDistrict != -1 {
+            self.idDistric =  self.listDistrict[self.posDistrict].idDistrict
+        }
         
         let params: Parameters = [
             "Email": self.tf_email.text!,
             "Direccion": self.tf_address.text!,
-            "IdDistrito": self.listDistrict[self.posDistrict].idDistrict,
+            "IdDistrito": self.idDistric,
             "Telefono": self.tf_phone.text!,
             "Sexo": genre,
             "FechaNacimiento":UtilMethods.dateToSlash(self.tf_birthday.text!),

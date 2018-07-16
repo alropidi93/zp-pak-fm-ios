@@ -238,10 +238,11 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
     
     @IBAction func loginWithGoogle(_ sender: Any) {
-        GIDSignIn.sharedInstance().signOut()
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        GIDSignIn.sharedInstance().shouldFetchBasicProfile = true
-        GIDSignIn.sharedInstance().signIn()
+        AlarmMethods.ReadyCustom(message: "HOLA WORLD ACA ESTY", uiViewController: self)
+        //        GIDSignIn.sharedInstance().signOut()
+//        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+//        GIDSignIn.sharedInstance().shouldFetchBasicProfile = true
+//        GIDSignIn.sharedInstance().signIn()
         
         
     }

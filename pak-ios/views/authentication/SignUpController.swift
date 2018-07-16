@@ -276,11 +276,17 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     func register(_ GUID: String){
         var genre : String = "-"
         if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
-        var facebookid : String = ""
-        var googleid:String = ""
+        var facebookid : String?
+        var googleid:String? 
         if user != nil{
             facebookid = (user?.facebookID)!
             googleid = (user?.googleID)!
+            if googleid == "" {
+                googleid = nil
+            }
+            if facebookid == "" {
+                facebookid = nil
+            }
         }
         let params: Parameters = [
             "Nombres": self.tf_name.text!,
