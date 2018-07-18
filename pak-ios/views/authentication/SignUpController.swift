@@ -172,7 +172,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         
         
         if (self.tf_name.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "El nombre no puede estar vacío", uiViewController: self)
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
             return
         } else if self.tf_name.text?.count > 50 {
             AlarmMethods.errorWarning(message: "El nombre no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
@@ -180,7 +180,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
 
         if (self.tf_lastname.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "El apellido no puede estar vacío", uiViewController: self)
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
             return
         } else if self.tf_lastname.text?.count > 50 {
             AlarmMethods.errorWarning(message: "El apellido no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
@@ -188,7 +188,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
 
         if (self.tf_email.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "El email no puede estar vacío", uiViewController: self)
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
             return
         } else if self.tf_email.text?.count > 50 {
             AlarmMethods.errorWarning(message: "El email no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
@@ -199,7 +199,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
 
         if (self.tf_address.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "La dirección no puede estar vacío", uiViewController: self)
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
             return
         } else if self.tf_address.text?.count > 50 {
             AlarmMethods.errorWarning(message: "La dirección no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
@@ -207,7 +207,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
 
         if (self.tf_district.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "El distrito no puede estar vacío", uiViewController: self)
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
             return
         } else if self.tf_district.text?.count > 50 {
             AlarmMethods.errorWarning(message: "El distrito no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
@@ -215,7 +215,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
 
         if (self.tf_phone.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "El teléfono no puede estar vacío", uiViewController: self)
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
             return
         } else if self.tf_phone.text?.count > 40 {
             AlarmMethods.errorWarning(message: "El teléfono no puede tener una extensión mayor a 40 caracteres", uiViewController: self)
@@ -226,7 +226,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
 
         if (self.tf_password.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "La contraseña no puede estar vacía", uiViewController: self)
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
             return
         } else if self.tf_password.text?.count > 50 {
             AlarmMethods.errorWarning(message: "La contraseña no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
@@ -234,7 +234,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
 
         if (self.tf_repassword.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "La contraseña no puede estar vacía", uiViewController: self)
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
             return
         } else if self.tf_repassword.text?.count > 50 {
             AlarmMethods.errorWarning(message: "La contraseña no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
@@ -242,7 +242,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
 
         if (self.tf_genre.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "El sexo no puede estar vacía", uiViewController: self)
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
             return
         } else if self.tf_genre.text?.count > 50 {
             AlarmMethods.errorWarning(message: "El sexo  no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
