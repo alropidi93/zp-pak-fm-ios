@@ -100,7 +100,8 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         print(product.idProduct)
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
-                AlamoMethods.connectionError(uiViewController: self)
+                AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+
                 
                 return
             }

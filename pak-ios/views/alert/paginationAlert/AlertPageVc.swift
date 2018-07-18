@@ -139,7 +139,8 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         
         Alamofire.request(URLs.Payment, method: .post, parameters: params ,encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
-                AlamoMethods.connectionError(uiViewController: self)
+                AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+
                 self.stopAnimating()
                 return
             }
@@ -170,7 +171,8 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         
         Alamofire.request(URLs.CulqiValidation, method: .post, parameters: params ,encoding: JSONEncoding.default, headers: headersHttp).responseJSON { response in
             if response.response == nil {
-                AlamoMethods.connectionError(uiViewController: self)
+                AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+
                 self.stopAnimating()
                 return
             }
