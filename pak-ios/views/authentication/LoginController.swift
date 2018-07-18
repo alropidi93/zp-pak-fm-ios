@@ -98,7 +98,6 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID,
                                    "FCMToken" : InstanceID.instanceID().token() ?? "No token"
                                    ]
-        print(InstanceID.instanceID().token())
         Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlamoMethods.connectionError(uiViewController: self)
@@ -133,12 +132,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                     }
                 }
             } else {
-                if let jsonResponse = response.result.value {
-                    let jsonResult = JSON(jsonResponse)
-                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
-                } else {
-                    AlamoMethods.defaultError(self)
-                }
+                AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
             }
             self.stopAnimating()
         }
@@ -238,11 +232,10 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
     
     @IBAction func loginWithGoogle(_ sender: Any) {
-        AlarmMethods.ReadyCustom(message: "HOLA WORLD ACA ESTY", uiViewController: self)
-        //        GIDSignIn.sharedInstance().signOut()
-//        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-//        GIDSignIn.sharedInstance().shouldFetchBasicProfile = true
-//        GIDSignIn.sharedInstance().signIn()
+                GIDSignIn.sharedInstance().signOut()
+        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        GIDSignIn.sharedInstance().shouldFetchBasicProfile = true
+        GIDSignIn.sharedInstance().signIn()
         
         
     }

@@ -12,8 +12,10 @@ class PakAlertCustomReady : UIViewController {
     
     @IBOutlet var tv_message: UITextView!
     
-    var message : String? = nil
+    @IBOutlet var tv_title: UILabel!
     
+    var message : String? = nil
+    var title_message : String? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
@@ -29,6 +31,7 @@ class PakAlertCustomReady : UIViewController {
     }
     
     func setElements(){
+        self.tv_title.text = title_message
         self.tv_message.text = message
     }
     @IBAction func b_accept(_ sender: Any) {

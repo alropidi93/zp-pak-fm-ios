@@ -20,12 +20,13 @@ class AlarmMethods {
     }
     
     
-    static func ReadyCustom(message: String, uiViewController: UIViewController) {
+    static func ReadyCustom(message: String ,title_message : String, uiViewController: UIViewController) {
         let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_custom_ready") as! PakAlertCustomReady
         pakAlert.definesPresentationContext = true
         pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         pakAlert.message = message
+        pakAlert.title_message = title_message
         uiViewController.present(pakAlert, animated: true, completion: nil)
     }
     
