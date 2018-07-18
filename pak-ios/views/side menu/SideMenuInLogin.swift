@@ -15,6 +15,8 @@ import FacebookCore
 import FacebookLogin
 import SwiftHash
 import SideMenu
+import GoogleSignIn
+
 
 class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     private let segue_about = "segue_about"
@@ -25,13 +27,30 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     
     @IBOutlet weak var b_name: UIButton!
     
+    @IBOutlet weak var iv_user: UIImageView!
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+ 
     @IBAction func ba_name(_ sender: Any) {
         self.performSegue(withIdentifier: self.segue_edit, sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let user : UserDC = ConstantsModels.static_user!
+        
+        if user.googleID != "" {
+           
+
+            UtilMethods.setImage(imageview: iv_user, imageurl: "" , placeholderurl: "dwb_pak_button_info")
+        }else if user.facebookID != "" {
+            UtilMethods.setImage(imageview: iv_user, imageurl: "https://graph.facebook.com/v3.0/" + user.facebookID + "/picture?type=normal"  , placeholderurl: "dwb_pak_button_info")
+        }
         self.b_name.setTitle(ConstantsModels.static_user?.names, for : .normal)
+        
     }
     
     @IBAction func logueOut(_ sender: Any) {

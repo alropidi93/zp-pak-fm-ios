@@ -50,6 +50,7 @@ class PakAlertCardData : UIViewController, PageObservation{
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
         let alert = UIAlertController(style: .actionSheet, title: "Fecha")
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: nil ) { date in
+            
             self.date = UtilMethods.intFromDate(date)
             self.tf_expired_date.text = UtilMethods.formatDateMY(date)
             self.parentPageViewController.expiredDateMM = UtilMethods.DateToString(UtilMethods.formatDateMY(date).components(separatedBy: "-")[0])

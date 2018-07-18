@@ -37,9 +37,25 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
     }
     
     @IBAction func b_restartPassword(_ sender: Any) {
-        if tf_code_invitation.text != nil {
-            self.restartPassword(tf_code_invitation.text!)
+        if (self.tf_code_invitation.text?.isEmpty)! {
+            AlarmMethods.errorWarning(message: "El email no puede estar vacío", uiViewController: self)
+            return
+        } else if (self.tf_code_invitation.text?.count)! > 50 {
+            AlarmMethods.errorWarning(message: "El email no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
+            return
+        } else if !isValidEmail(testStr: tf_code_invitation.text!){
+            AlarmMethods.errorWarning(message: "No es un correo valido", uiViewController: self)
+            return
         }
+            self.restartPassword(tf_code_invitation.text!)
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
     }
     
     func restartPassword(_ email : String){
