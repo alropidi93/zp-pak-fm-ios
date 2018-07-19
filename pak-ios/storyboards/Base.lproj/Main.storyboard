@@ -7566,12 +7566,32 @@ EMKhTGlzdG8hA
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dwb_ic_box" translatesAutoresizingMaskIntoConstraints="NO" id="6s9-Zf-H9u">
-                                <rect key="frame" x="127" y="268" width="66" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFK-LH-n6a">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_ic_box" translatesAutoresizingMaskIntoConstraints="NO" id="fwm-3s-WAc">
+                                        <rect key="frame" x="146" y="270" width="29" height="29"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="fwm-3s-WAc" firstAttribute="centerY" secondItem="cFK-LH-n6a" secondAttribute="centerY" id="5YW-W8-9cJ"/>
+                                    <constraint firstItem="fwm-3s-WAc" firstAttribute="centerX" secondItem="cFK-LH-n6a" secondAttribute="centerX" id="OAf-J5-amf"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_ic_box" translatesAutoresizingMaskIntoConstraints="NO" id="6s9-Zf-H9u">
+                                <rect key="frame" x="146" y="270" width="29" height="29"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="cFK-LH-n6a" firstAttribute="bottom" secondItem="yfP-qq-uqE" secondAttribute="top" id="4B4-xx-raa"/>
+                            <constraint firstItem="6s9-Zf-H9u" firstAttribute="centerX" secondItem="d8j-zw-MO5" secondAttribute="centerX" id="PD0-hR-A3L"/>
+                            <constraint firstItem="cFK-LH-n6a" firstAttribute="leading" secondItem="d8j-zw-MO5" secondAttribute="leading" id="ZhD-5B-aFT"/>
+                            <constraint firstItem="cFK-LH-n6a" firstAttribute="centerY" secondItem="6s9-Zf-H9u" secondAttribute="centerY" id="dbn-eg-0RL"/>
+                            <constraint firstItem="cFK-LH-n6a" firstAttribute="centerX" secondItem="6s9-Zf-H9u" secondAttribute="centerX" id="frk-7x-TkD"/>
+                            <constraint firstItem="6s9-Zf-H9u" firstAttribute="centerY" secondItem="d8j-zw-MO5" secondAttribute="centerY" id="gNq-IJ-Pp0"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="iv_loader_image" destination="6s9-Zf-H9u" id="Tzg-Fy-zBJ"/>

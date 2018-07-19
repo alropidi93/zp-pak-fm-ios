@@ -88,7 +88,9 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
   
     func loginUser() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+
+        //        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
 
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             getGUID()
@@ -118,10 +120,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
                         PreferencesMethods.saveIdToOptions(userDC.idUser)
                       
-//                        let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
-//                        let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-//                        print(string ?? "")
-                        self.stopAnimating()
+//                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
                     } else {
                         self.stopAnimating()

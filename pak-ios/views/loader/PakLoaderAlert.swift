@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 class PakLoaderAlert : UIViewController {
 
  
@@ -19,6 +20,12 @@ class PakLoaderAlert : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        iv_loader_image.transform = CGAffineTransform(rotationAngle: <#T##CGFloat#>)
+       
+        self.iv_loader_image.animationRepeatCount = 1
+        self.iv_loader_image.animationDuration = 1.0
+        self.iv_loader_image.startAnimating()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +40,8 @@ class PakLoaderAlert : UIViewController {
     
     func stopLoader()
     {
-        
+        self.dismiss(animated: false, completion: nil)
+
     }
     
     
