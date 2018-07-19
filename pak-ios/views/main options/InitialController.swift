@@ -86,12 +86,12 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
     
     // #MARK: Get data from web services
     func getAds() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         Alamofire.request(URLs.GetAds, method: .get , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -115,7 +115,9 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+            print("HOLA")
+
+            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
 }

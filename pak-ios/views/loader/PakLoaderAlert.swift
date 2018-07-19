@@ -21,13 +21,7 @@ class PakLoaderAlert : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIView.animate(withDuration: 2, animations: {
-            self.iv_loader_image.transform = CGAffineTransform(rotationAngle: (15))
-
-        }){_ in
-            UIView.animateKeyframes(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat], animations: {
-                self.iv_loader_image.transform = CGAffineTransform(rotationAngle: (45))
-            })}
+        
         
         
         
@@ -35,6 +29,14 @@ class PakLoaderAlert : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            self.iv_loader_image.transform = CGAffineTransform(rotationAngle: (-45))
+            
+        }){_ in
+            UIView.animateKeyframes(withDuration: 1.0, delay: 0.25, options: [.autoreverse, .repeat], animations: {
+                self.iv_loader_image.transform = CGAffineTransform(rotationAngle: (45))
+            })}
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,7 +47,8 @@ class PakLoaderAlert : UIViewController {
     
     func stopLoader()
     {
-        self.dismiss(animated: false, completion: nil)
+        UIView.animateKeyframes(withDuration: <#T##TimeInterval#>, delay: <#T##TimeInterval#>, options: <#T##UIViewKeyframeAnimationOptions#>, animations: <#T##() -> Void#>, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
+        self.dismiss(animated: true, completion: nil)
 
     }
     

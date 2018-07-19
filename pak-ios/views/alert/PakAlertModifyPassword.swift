@@ -43,7 +43,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
     }
     
     func modifyPassword() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         let params: Parameters = [ "Username": ConstantsModels.static_user?.userName as Any, "Password": MD5(self.tf_password.text!) , "NuevoPassword": MD5(self.tf_newPassword.text!), "RepetirPassword": MD5(self.tf_repassword.text!) ,
                                    ]
@@ -51,7 +51,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -61,7 +61,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
                     if jsonResult["Msg"] == "OK"{
                         //make a pop up sucess
                     } else {
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
                             AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
@@ -78,7 +78,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
 }

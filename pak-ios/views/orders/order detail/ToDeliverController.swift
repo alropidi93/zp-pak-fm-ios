@@ -110,7 +110,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     }
     
     func cancelOrder(_ idItem : Int ,_ pos : Int) {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         let params: Parameters = [ "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? 0, "Numero": idItem]
         
@@ -118,7 +118,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -138,7 +138,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     
@@ -148,7 +148,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     }
     
     func ToDeliver() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "Estado": "P" , "FiltroMeses" : self.filtre]
         
@@ -156,7 +156,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -180,7 +180,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     

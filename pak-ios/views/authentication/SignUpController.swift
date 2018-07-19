@@ -134,13 +134,13 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     
     
     func getDistrict(){
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         Alamofire.request(URLs.ListDistrict, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -164,7 +164,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     @IBAction func signUp(_ sender: Any) {
@@ -309,14 +309,14 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         let data = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
                                 let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
                                 print(string ?? "")
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
 
         
         Alamofire.request(URLs.SignUp, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if !(response.response != nil) {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -328,11 +328,11 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                         let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
                         let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
                         print(string)
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         
                     }else {
                         print(jsonResult["exMessage"])
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
                             AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
@@ -342,7 +342,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                     }
                 }
             } else {
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)

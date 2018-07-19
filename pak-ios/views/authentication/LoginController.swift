@@ -59,13 +59,13 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
     
     func getGUID() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         let params: Parameters = [:]
         Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -83,14 +83,13 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
   
     func loginUser() {
         LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
 
-        //        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
 
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             getGUID()
@@ -105,7 +104,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -120,10 +119,10 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
                         PreferencesMethods.saveIdToOptions(userDC.idUser)
                       
-//                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
-//                        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
+                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
                     } else {
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
                             AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
@@ -135,7 +134,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
             } else {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     
@@ -150,7 +149,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
             case .cancelled:
                 AlarmMethods.errorWarning(message: "Tal vez aun no has instalado facebook para el celular?", uiViewController: self)
             case .success( _, _, let accessToken):
-                self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+                LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
                 let request = GraphRequest(graphPath: "me", parameters: ["fields":"id,email,first_name,last_name,birthday"], accessToken: accessToken, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
                 request.start { (response, result) in
                     switch result {
@@ -161,21 +160,19 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
 //                            "imageurl": "https://graph.facebook.com/\(value.dictionaryValue!["id"] ?? -1)/picture?type=large"
 //                        ]
                         
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         let userDC : UserDC = UserDC()
                         userDC.names = value.dictionaryValue!["first_name"] as! String
                         userDC.lastNames = value.dictionaryValue!["last_name"] as! String
                         userDC.userName = value.dictionaryValue!["email"] as! String
-                        //"photo_url": user.profile.imageURL(withDimension: 100) ?? "",
-                        //print(value.dictionaryValue!["birthday"])
-                        //userDC.birthDate = UtilMethods.dateSplit(value.dictionaryValue!["birthday"] as! String)
+                        
                         userDC.facebookID = value.dictionaryValue!["id"] as! String
-//                        userDC.facebookID = FBSDKAccessToken.current().tokenString
+//
                         print(FBSDKAccessToken.current().tokenString)
                         self.validateFacebook(userDC)
                         loginManager.logOut()
                     case .failed(let error):
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         AlarmMethods.errorWarning(message: "No se pudo obtener la información: \(error.localizedDescription)", uiViewController: self)
                     }
                 }
@@ -183,8 +180,8 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         }
     }
     func validateFacebook(_ userDC : UserDC){
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+
         
         let params: Parameters = [ "AccessToken": FBSDKAccessToken.current().tokenString,
                                     "FCMToken": InstanceID.instanceID().token() ?? "No token",
@@ -194,7 +191,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -213,10 +210,10 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
                         PreferencesMethods.saveIdToOptions(userDC.idUser)
                         
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
                     } else {
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         self.user = userDC
                         self.performSegue(withIdentifier: self.signup_identifier, sender: self)
                     }
@@ -229,13 +226,13 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     
     @IBAction func loginWithGoogle(_ sender: Any) {
                 GIDSignIn.sharedInstance().signOut()
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         GIDSignIn.sharedInstance().shouldFetchBasicProfile = true
         GIDSignIn.sharedInstance().signIn()
         
@@ -255,13 +252,13 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         } else {
             print("\(error.localizedDescription)")
         }
-        self.stopAnimating()
+                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
     }
     
     func validateGoogle (_ userDC : UserDC, _ token : String){
         
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+
         
         let params: Parameters = [ "AccessToken": userDC.googleID,
                                    "FCMToken": InstanceID.instanceID().token() ?? "No token",
@@ -271,7 +268,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -290,10 +287,10 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
                         PreferencesMethods.saveIdToOptions(userDC.idUser)
                         
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
                     } else {
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         self.user = userDC
                         self.performSegue(withIdentifier: self.signup_identifier, sender: self)
                     }
@@ -306,7 +303,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     

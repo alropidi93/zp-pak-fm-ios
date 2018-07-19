@@ -128,7 +128,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     }
     
     func payment() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         var params: Parameters = [:]
         if boletaOrFactura == 0 {
             params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" , "Direccion" : checkOut.address, "IdDistrito" : checkOut.district, "Referencia" : checkOut.reference, "TipoFacturacion" : "B", "NombreDestinatario": checkOut.recipentName, "FechaEntrega":checkOut.date, "VentanaHoraria":checkOut.hourlySale, "Token":checkOut.token]
@@ -141,7 +141,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -152,20 +152,20 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                         self.dismiss(animated: false, completion: nil)
                     
                         self.finishBoxDelegate?.okButtonTapped()
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                     }
                 }
             } else {
                 AlamoMethods.defaultError(self)
             }
         }
-        self.stopAnimating()
+                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
     }
     
     
     
     func validateCulqi() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         let headersHttp: HTTPHeaders = ["Content-Type" : "application/json; charset=utf-8", "Authorization": "Bearer " + Constants.CULQI_KEY ]
         let params: Parameters = [ "email" : ConstantsModels.static_user!.userName , "card_number": self.numTarjeta, "public_key":Constants.CULQI_KEY, "cvv": self.ccv, "expiration_year": self.expiredDateYYYY, "expiration_month":expiredDateMM, "fingerprint": 89]
         
@@ -173,7 +173,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             
@@ -187,11 +187,11 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                         let viewController = self.VCArr[3]
                         self.setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
                         self.pageNow = self.pageNow + 1
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                     }else{
                         AlarmMethods.errorWarning(message: jsonResult["merchant_message"].string!, uiViewController: self)
                         print("3")
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                     }
                 }
             } else {

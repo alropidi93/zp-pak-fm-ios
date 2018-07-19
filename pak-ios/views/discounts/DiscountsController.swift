@@ -86,13 +86,13 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
         params = [ "IdUsuario": idUser,
                    "CodigoInvitacion": codeInvitation]
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         Alamofire.request(URLs.RegisterInvitationCode, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -114,7 +114,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     
@@ -128,13 +128,13 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
         params = [ "IdUsuario": idUser,
         ]
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         Alamofire.request(URLs.ListDiscount, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -164,7 +164,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     

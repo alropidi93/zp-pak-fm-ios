@@ -78,12 +78,12 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
             return
         }
         
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+
         Alamofire.request(URLs.AddOrEliminiteFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
-                self.stopAnimating()
+                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -103,7 +103,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     @objc func buttonAdd(sender: UIButton!) {
@@ -116,13 +116,13 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                                    "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID,
                                    "Cantidad": 1]
         
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -145,7 +145,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     
@@ -156,14 +156,14 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         params = [ "IdUsuario": idUser]
         print("holaaa")
         
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+
         Alamofire.request(URLs.ListFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -187,7 +187,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     
