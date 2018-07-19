@@ -25,28 +25,28 @@ class SplashController: UIViewController {
     // Visual variables
     @IBOutlet weak var iv_logo: UIImageView!
     
-    // Local variables
+
+//     Local variables
     private var animation_parts: [UIImage] = [ UIImage(named: "dwb-pak-splash-1")!,UIImage(named: "dwb-pak-splash-2")!, UIImage(named: "dwb-pak-splash-3")!, UIImage(named: "dwb-pak-splash-4")!, UIImage(named: "dwb-pak-splash-5")!]
-    
-    // Common functions
+
+//     Common functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.getGUID()
-        print(self.iv_logo.frame.origin.y)
         UIView.animate(withDuration: 0.25, animations: {
             self.iv_logo.frame.origin.y -= 127
         }){_ in
             UIView.animateKeyframes(withDuration: 0.25, delay: 0.25, options: [], animations: {
                 self.iv_logo.frame.origin.y -= 0
             },completion: {(finished: Bool) in
-                
+
                 self.iv_logo.image = self.animation_parts.last
                 self.iv_logo.animationImages = self.animation_parts
                 self.iv_logo.animationRepeatCount = 1
                 self.iv_logo.animationDuration = 1.0
                 self.iv_logo.startAnimating()
-                
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     OperationQueue.main.addOperation {
                         [weak self] in
@@ -60,7 +60,7 @@ class SplashController: UIViewController {
                             UIView.animateKeyframes(withDuration: 1, delay: 0.25, options: [], animations: {
                                 self?.iv_letter_logo.frame.origin.x -= 20
                                 self?.iv_logo.frame.origin.x -= 20
-                                
+
                             },completion: {(finished: Bool) in
                                 self?.performSegue(withIdentifier: (self?.splash_identifier)!, sender: self)
                             })

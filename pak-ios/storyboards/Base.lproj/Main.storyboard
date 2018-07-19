@@ -534,7 +534,6 @@
         <!--Register-->
         <scene sceneID="hjZ-Xj-j8G">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QLn-wc-3H5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Eg3-Le-Ybv" userLabel="Register" customClass="SignUpController" customModule="pak_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pXL-FB-5fu"/>
@@ -1066,6 +1065,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <segue destination="H84-IG-3ag" kind="show" identifier="segue_register_main" id="kk5-HE-cyu"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QLn-wc-3H5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="70.3125" y="1238.556338028169"/>
         </scene>
@@ -7553,6 +7553,24 @@ EMKhTGlzdG8hA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYH-dY-bf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7065" y="1972"/>
+        </scene>
+        <!--Alert message-->
+        <scene sceneID="eAq-Ft-D7A">
+            <objects>
+                <viewController storyboardIdentifier="vc_loader_custom" title="vc_loader_custom" id="KXo-qM-oi7" userLabel="Alert message" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YIX-rn-nlb"/>
+                        <viewControllerLayoutGuide type="bottom" id="yfP-qq-uqE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d8j-zw-MO5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbK-td-sVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7890" y="1200"/>
         </scene>
     </scenes>
     <resources>

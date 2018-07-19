@@ -260,6 +260,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
     
     func validateGoogle (_ userDC : UserDC, _ token : String){
+        
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
         
