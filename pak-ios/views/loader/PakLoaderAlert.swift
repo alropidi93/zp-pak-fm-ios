@@ -20,11 +20,16 @@ class PakLoaderAlert : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        iv_loader_image.transform = CGAffineTransform(rotationAngle: <#T##CGFloat#>)
-       
-        self.iv_loader_image.animationRepeatCount = 1
-        self.iv_loader_image.animationDuration = 1.0
-        self.iv_loader_image.startAnimating()
+        
+        UIView.animate(withDuration: 2, animations: {
+            self.iv_loader_image.transform = CGAffineTransform(rotationAngle: (15))
+
+        }){_ in
+            UIView.animateKeyframes(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat], animations: {
+                self.iv_loader_image.transform = CGAffineTransform(rotationAngle: (45))
+            })}
+        
+        
         
     }
     

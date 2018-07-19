@@ -16,6 +16,7 @@
 		1215FBF620F545B400E8879C /* EndBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF520F545B400E8879C /* EndBoxController.swift */; };
 		1215FBF820F54D1B00E8879C /* FinishBoxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */; };
 		1278368920FD482400F67F84 /* PakAlertCustomReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278368820FD482400F67F84 /* PakAlertCustomReady.swift */; };
+		1282FF5A210132B60017CF2D /* RoundedCornerViewGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1282FF59210132B60017CF2D /* RoundedCornerViewGreen.swift */; };
 		12A47DD220F3CEC600CD98FB /* TVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD020F3CEC500CD98FB /* TVCPlaceholder.swift */; };
 		12A47DD320F3CEC600CD98FB /* CVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD120F3CEC500CD98FB /* CVCPlaceholder.swift */; };
 		12A47DD520F3DD7700CD98FB /* SendDetailProductDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */; };
@@ -118,6 +119,7 @@
 		1215FBF520F545B400E8879C /* EndBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndBoxController.swift; sourceTree = "<group>"; };
 		1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishBoxDelegate.swift; sourceTree = "<group>"; };
 		1278368820FD482400F67F84 /* PakAlertCustomReady.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCustomReady.swift; sourceTree = "<group>"; };
+		1282FF59210132B60017CF2D /* RoundedCornerViewGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerViewGreen.swift; sourceTree = "<group>"; };
 		12A47DD020F3CEC500CD98FB /* TVCPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCPlaceholder.swift; sourceTree = "<group>"; };
 		12A47DD120F3CEC500CD98FB /* CVCPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCPlaceholder.swift; sourceTree = "<group>"; };
 		12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDetailProductDelegate.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				7053BB7E20E729C900C5A277 /* BadgedExtension.swift */,
 				7094747220F19ECC0035EADD /* DateExtension.swift */,
 				7094747420F19EEA0035EADD /* UITextFieldExtension.swift */,
+				1282FF59210132B60017CF2D /* RoundedCornerViewGreen.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -804,6 +807,7 @@
 				7050F22C20E5BBD3001DFF10 /* ConstantsModels.swift in Sources */,
 				709D48F720EB12AD00B990DE /* DetailOrderController.swift in Sources */,
 				70D525AC209163E9004EB51E /* AlamoMethods.swift in Sources */,
+				1282FF5A210132B60017CF2D /* RoundedCornerViewGreen.swift in Sources */,
 				7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */,
 				70C6D13B20E988B100560D7C /* CVCToDeliver.swift in Sources */,
 				70A4254520CDC31A005B00AC /* ProductsDetailController.swift in Sources */,
