@@ -20,6 +20,8 @@
 		12A47DD320F3CEC600CD98FB /* CVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD120F3CEC500CD98FB /* CVCPlaceholder.swift */; };
 		12A47DD520F3DD7700CD98FB /* SendDetailProductDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */; };
 		12A47DD720F3EF5600CD98FB /* PakAlertSuccessPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD620F3EF5600CD98FB /* PakAlertSuccessPass.swift */; };
+		5E54D3152100FC1D00BA3240 /* LoaderMethodsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */; };
+		5E54D3172100FC8100BA3240 /* PakLoaderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */; };
 		7007930D20D2256A00DE70CA /* PakAlertReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007930C20D2256A00DE70CA /* PakAlertReady.swift */; };
 		7007930F20D22F8700DE70CA /* AlertRegisterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007930E20D22F8700DE70CA /* AlertRegisterDelegate.swift */; };
 		7007931120D2438200DE70CA /* PakAlertModifyPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007931020D2438200DE70CA /* PakAlertModifyPassword.swift */; };
@@ -120,6 +122,8 @@
 		12A47DD120F3CEC500CD98FB /* CVCPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCPlaceholder.swift; sourceTree = "<group>"; };
 		12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDetailProductDelegate.swift; sourceTree = "<group>"; };
 		12A47DD620F3EF5600CD98FB /* PakAlertSuccessPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertSuccessPass.swift; sourceTree = "<group>"; };
+		5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderMethodsCustom.swift; sourceTree = "<group>"; };
+		5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakLoaderAlert.swift; sourceTree = "<group>"; };
 		7007930C20D2256A00DE70CA /* PakAlertReady.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertReady.swift; sourceTree = "<group>"; };
 		7007930E20D22F8700DE70CA /* AlertRegisterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRegisterDelegate.swift; sourceTree = "<group>"; };
 		7007931020D2438200DE70CA /* PakAlertModifyPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertModifyPassword.swift; sourceTree = "<group>"; };
@@ -240,6 +244,14 @@
 				0FF64A1220FB667700164AF5 /* OpenSans-Regular.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		5E54D3182100FD5500BA3240 /* loader */ = {
+			isa = PBXGroup;
+			children = (
+				5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */,
+			);
+			path = loader;
 			sourceTree = "<group>";
 		};
 		69F60DEB280FAAD142EFE835 /* Pods */ = {
@@ -374,6 +386,7 @@
 		701D2892207EB51C007AD7AC /* views */ = {
 			isa = PBXGroup;
 			children = (
+				5E54D3182100FD5500BA3240 /* loader */,
 				0FA28D7720F46E6300888298 /* favourite */,
 				70B623EC20A9ED34001738C3 /* side menu */,
 				70D5259E20913FA1004EB51E /* authentication */,
@@ -407,6 +420,7 @@
 				70D5259F20915709004EB51E /* AlarmMethods.swift */,
 				70D525A420915B91004EB51E /* UtilMethods.swift */,
 				70D525AB209163E9004EB51E /* AlamoMethods.swift */,
+				5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */,
 			);
 			path = methods;
 			sourceTree = "<group>";
@@ -801,6 +815,7 @@
 				705677E520E80C45007AFD71 /* CVCProduct.swift in Sources */,
 				70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */,
 				701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */,
+				5E54D3172100FC8100BA3240 /* PakLoaderAlert.swift in Sources */,
 				70D6D2EC20BDAEF4006BDC19 /* AlertCodeInvitationDelegate.swift in Sources */,
 				700C7C7920D89534000FD7E5 /* RootCategoriesController.swift in Sources */,
 				703BA2CC20ACF2EE00AC9597 /* SearchView.swift in Sources */,
@@ -839,6 +854,7 @@
 				70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */,
 				703C1C3820C83D3400488E16 /* AlertViewPayment.swift in Sources */,
 				70D525A020915709004EB51E /* AlarmMethods.swift in Sources */,
+				5E54D3152100FC1D00BA3240 /* LoaderMethodsCustom.swift in Sources */,
 				70B88D1120DD5AE300D97816 /* CheckOut.swift in Sources */,
 				70D525A520915B91004EB51E /* UtilMethods.swift in Sources */,
 				7097EC6520A60FA2008E1C9E /* CategoriesDC.swift in Sources */,

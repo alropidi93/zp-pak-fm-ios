@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class AlarmMethods {
+   
     static func errorWarning(message: String, uiViewController: UIViewController) {
         let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_alert") as! PakAlert
         pakAlert.definesPresentationContext = true
