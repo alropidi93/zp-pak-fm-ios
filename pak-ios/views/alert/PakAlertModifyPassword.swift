@@ -39,6 +39,28 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
     }
     
     @IBAction func b_modifyPassword(_ sender: Any) {
+        print(tf_newPassword.text?.count)
+        if (self.tf_password.text?.isEmpty)! {
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            return
+        }else if (self.tf_newPassword.text?.isEmpty)! {
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            return
+        }else if (self.tf_repassword.text?.isEmpty)! {
+            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            return
+        }else if (self.tf_newPassword.text?.count)! < 6 {
+            AlarmMethods.errorWarning(message: "La contraseña debe tener 6 caracteres como minimo.", uiViewController: self)
+            return
+        }else if( self.tf_newPassword.text! != self.tf_repassword.text!){
+            AlarmMethods.errorWarning(message: "los passwords son diferentes", uiViewController: self)
+            return
+        }else if (self.tf_password.text! == self.tf_newPassword.text!){
+            AlarmMethods.errorWarning(message: "La nueva contraseña debe ser distinta a la contraseña actual.", uiViewController: self)
+
+        }
+        
+        
         modifyPassword()
     }
     
@@ -59,7 +81,10 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        //make a pop up sucess
+                        
+                        AlarmMethods.ReadyCustom(message: "Tu contraseña ha sido actualizada correctamente", title_message: "¡Listo!", uiViewController: self)
+                        
+
                     } else {
                         self.stopAnimating()
                         if let jsonResponse = response.result.value {
@@ -72,10 +97,8 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
                 }
             } else {
                 if let jsonResponse = response.result.value {
-                    let jsonResult = JSON(jsonResponse)
-                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
-                } else {
-                    AlamoMethods.defaultError(self)
+                    let _ = JSON(jsonResponse)
+                   AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
                 }
             }
             self.stopAnimating()

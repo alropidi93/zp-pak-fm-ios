@@ -41,6 +41,10 @@ class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UIC
         
         self.cv_delivery.delegate = self
         self.cv_delivery.dataSource = self
+        let bgImage = UIImageView();
+        bgImage.image = UIImage(named: "dwb_pak_background_loby")
+        bgImage.contentMode = .scaleToFill
+        self.cv_delivery.backgroundView = bgImage
     }
     
     @IBAction func b_search(_ sender: Any) {

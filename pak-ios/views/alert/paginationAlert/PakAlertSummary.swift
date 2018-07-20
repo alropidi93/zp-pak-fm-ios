@@ -19,11 +19,13 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
     @IBOutlet weak var l_total_mount: UILabel!
     @IBOutlet weak var l_mount_delivery: UILabel!
     @IBOutlet weak var l_mount_discount: UILabel!
+    @IBOutlet weak var l_discount: UILabel!
     @IBOutlet weak var cv_item_list: UICollectionView!
     private var items : [ItemSmallBoxDC] = []
     
     private var subTotal : Double = 0.0
     private var deliveryCost : Double = 0.0
+    private var discountPercent : Double = 0.0
     private var discount : Double = 0.0
     
     override func viewDidLoad() {
@@ -53,7 +55,7 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier_box, for: indexPath) as! CVCSmallBoxPayment
         cell.l_name.text = self.items[indexPath.item].name
         cell.l_count_item.text = String(self.items[indexPath.item].cant)
-        let stringValue = "S./"
+        let stringValue = "S/"
         cell.l_mount_total_item.text = stringValue + String(Double(self.items[indexPath.item].cant) * self.items[indexPath.item].price)
         return cell
     }
@@ -63,8 +65,10 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
         for element in self.items {
             self.subTotal = self.subTotal + (element.price * Double(element.cant))
         }
+        self.discount = self.subTotal * (self.discountPercent / 100 )
         self.l_mount_subt.text = "S/" + String(self.subTotal)
-        self.l_total_mount.text = "S/" + String((self.subTotal + self.deliveryCost) * (100 - discount)/100 )
+        self.l_total_mount.text = "S/" + String(self.subTotal + self.deliveryCost - self.discount)
+        self.l_mount_discount.text = "S/" + String(format: "%.2f", self.discount)
     }
     
     func getGUID() {
@@ -85,8 +89,8 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
                     self.l_mount_delivery.text = "S/" + String (smallBox.costDelivery)
                     self.deliveryCost = smallBox.costDelivery
                     if smallBox.discount != nil {
-                        self.l_mount_discount.text = String(format: "%.2f",(smallBox.discount?.percentage)!) + "%"
-                        self.discount = (smallBox.discount?.percentage)!
+                         self.l_discount.text = "Descuento (gracias a " + (smallBox.discount?.detailName)! + ")"
+                        self.discountPercent = (smallBox.discount?.percentage)!
                     }else {
                         self.l_mount_discount.text = "--"
                     }

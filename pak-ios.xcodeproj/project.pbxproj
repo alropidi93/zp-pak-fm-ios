@@ -84,6 +84,8 @@
 		70B623F020AA1BDD001738C3 /* SideMenuInLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */; };
 		70B88D1120DD5AE300D97816 /* CheckOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B88D1020DD5AE300D97816 /* CheckOut.swift */; };
 		70BF263A20D087EC002FD0F9 /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BF263920D087EC002FD0F9 /* EditController.swift */; };
+		70C5DBAE21022E6C0046C1F2 /* RoundedCornerViewRed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5DBAD21022E6C0046C1F2 /* RoundedCornerViewRed.swift */; };
+		70C5DBB0210230CD0046C1F2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5DBAF210230CD0046C1F2 /* UIColorExtension.swift */; };
 		70C6D13B20E988B100560D7C /* CVCToDeliver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6D13A20E988B100560D7C /* CVCToDeliver.swift */; };
 		70C6D13D20E988CE00560D7C /* CVCCancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6D13C20E988CE00560D7C /* CVCCancel.swift */; };
 		70C6D13F20E9893F00560D7C /* CVCDeliver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6D13E20E9893F00560D7C /* CVCDeliver.swift */; };
@@ -191,6 +193,8 @@
 		70B623EF20AA1BDD001738C3 /* SideMenuInLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuInLogin.swift; sourceTree = "<group>"; };
 		70B88D1020DD5AE300D97816 /* CheckOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOut.swift; sourceTree = "<group>"; };
 		70BF263920D087EC002FD0F9 /* EditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
+		70C5DBAD21022E6C0046C1F2 /* RoundedCornerViewRed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerViewRed.swift; sourceTree = "<group>"; };
+		70C5DBAF210230CD0046C1F2 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		70C6D13A20E988B100560D7C /* CVCToDeliver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCToDeliver.swift; sourceTree = "<group>"; };
 		70C6D13C20E988CE00560D7C /* CVCCancel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCCancel.swift; sourceTree = "<group>"; };
 		70C6D13E20E9893F00560D7C /* CVCDeliver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCDeliver.swift; sourceTree = "<group>"; };
@@ -412,6 +416,8 @@
 				7094747220F19ECC0035EADD /* DateExtension.swift */,
 				7094747420F19EEA0035EADD /* UITextFieldExtension.swift */,
 				1282FF59210132B60017CF2D /* RoundedCornerViewGreen.swift */,
+				70C5DBAD21022E6C0046C1F2 /* RoundedCornerViewRed.swift */,
+				70C5DBAF210230CD0046C1F2 /* UIColorExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -811,6 +817,7 @@
 				7097EC6320A5FBEB008E1C9E /* CVCCategory.swift in Sources */,
 				70C6D13B20E988B100560D7C /* CVCToDeliver.swift in Sources */,
 				70A4254520CDC31A005B00AC /* ProductsDetailController.swift in Sources */,
+				70C5DBAE21022E6C0046C1F2 /* RoundedCornerViewRed.swift in Sources */,
 				7090A2EA20AB75DA00EF9F6D /* NotificationCenterExtension.swift in Sources */,
 				7094FE9A20B2A30F00511297 /* SmallBoxController.swift in Sources */,
 				70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */,
@@ -834,6 +841,7 @@
 				709D48F520EB0E2000B990DE /* CVCDetailOrder.swift in Sources */,
 				700C7C7720D88BFF000FD7E5 /* SubCategoriesController.swift in Sources */,
 				70A3BE39208F8003008C972C /* UserDC.swift in Sources */,
+				70C5DBB0210230CD0046C1F2 /* UIColorExtension.swift in Sources */,
 				709A334420AE0FC1003AB207 /* ProductDC.swift in Sources */,
 				7053BB7F20E729C900C5A277 /* BadgedExtension.swift in Sources */,
 				70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */,
@@ -1038,7 +1046,7 @@
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8T7Y68JUC9;
+				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1046,7 +1054,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarketo;
+				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pak-ios/New Group/pak-ios-Bridging-Header.h";
@@ -1065,7 +1073,7 @@
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8T7Y68JUC9;
+				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1073,7 +1081,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarketo;
+				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pak-ios/New Group/pak-ios-Bridging-Header.h";

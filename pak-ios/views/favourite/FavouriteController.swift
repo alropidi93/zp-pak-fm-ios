@@ -54,7 +54,8 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCFavouriteItem
         cell.l_item_name.text = self.items[indexPath.item].name
-        cell.l_price_unity.text = "\(self.items[indexPath.item].price)"
+        cell.l_price_unity.text = "S/" + String(format : "%.2f",(self.items[indexPath.item].price))
+        
         UtilMethods.setImage(imageview: cell.iv_item_photo, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
         cell.b_add_item.tag = indexPath.row
         cell.b_add_item.addTarget(self, action: #selector(buttonAdd), for: .touchUpInside)

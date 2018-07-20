@@ -77,7 +77,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                 self.pageNow = self.pageNow + 1
             }
             else {
-                //crear alerta
+                 AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
                 print("1")
             }
         case 2:
@@ -86,11 +86,15 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                 setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
                 self.pageNow = self.pageNow + 1
             }else{
-                print("2")
+                AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
             }
         case 3:
-         
-            validateThirdController()
+            if validateTextTarjeta() == true {
+                validateThirdController()
+            }else{
+                AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
+            }
+            
         case 4:
             validatePayController()
         default:
@@ -99,9 +103,10 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     }
     
     func validateFirstController()  -> Bool {
-        if checkOut.address != "" && checkOut.district != 0 && checkOut.reference != "" && checkOut.recipentName != "" && checkOut.hourlySale != "" && checkOut.date != "" {
+        if checkOut.address != "" && checkOut.district != 0 && checkOut.recipentName != "" && checkOut.hourlySale != "" && checkOut.date != "" {
             return true
         }
+        AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
         return false
     }
     
@@ -110,11 +115,22 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
             if checkOut.ruc != "" && checkOut.businessName != "" && checkOut.fiscalAddress != "" {
                 return true
             }else {
+                AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
                 return false
             }
         }else {
+            
             return true
         }
+    }
+    
+  
+    func validateTextTarjeta() -> Bool {
+        if titular != "" && numTarjeta != "" && expiredDateMM != "" && expiredDateYYYY != "" && ccv != ""{
+            return true
+        }
+        AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
+        return false
     }
     
     func validateThirdController() {

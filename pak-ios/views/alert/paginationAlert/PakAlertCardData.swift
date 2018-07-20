@@ -71,5 +71,7 @@ class PakAlertCardData : UIViewController, PageObservation{
     func getParentPageViewController(parentRef: AlertPageVc) {
         parentPageViewController = parentRef
     }
+    
+    
 }
 

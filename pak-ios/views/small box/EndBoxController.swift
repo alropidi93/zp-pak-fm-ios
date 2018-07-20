@@ -57,6 +57,8 @@ class EndBoxController: UIViewController {
                                 
                                 self?.iv_logo_end.frame.origin.x += 400
                             },completion: {(finished: Bool) in
+                                
+
                                 self?.performSegue(withIdentifier: (self?.splash_identifier)!, sender: self)
                             })
                         }

@@ -299,7 +299,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             "Password": MD5(self.tf_password.text!),
             "RepetirPassword": MD5(self.tf_repassword.text!),
             "Sexo": genre,
-            "FechaNacimiento":UtilMethods.dateToSlash(self.tf_birthday.text!),
+            "FechaNacimiento":self.tf_birthday.text!,
             "GUID" : GUID,
             "FacebookID": facebookid,
             "GoogleID": googleid,

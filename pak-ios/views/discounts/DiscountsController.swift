@@ -15,7 +15,7 @@ import SwiftHash
 import SideMenu
 import TTGSnackbar
 
-class DiscountsController : UIViewController, NVActivityIndicatorViewable , AlertCodeInvitationDelegate {
+class DiscountsController : UIViewController, NVActivityIndicatorViewable , AlertCodeInvitationDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
     private let reuse_identifier = "cvc_discount_item"
     
     @IBOutlet weak var l_code: UILabel!
@@ -41,6 +41,8 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
     }
     
     func setElements() {
+        self.cv_discount_list.delegate = self
+        self.cv_discount_list.dataSource = self
         self.getListDiscount()
         l_code.text = ConstantsModels.static_user?.codeInvitation
         if !(ConstantsModels.static_user?.applicableInvitationCode)!{
@@ -175,11 +177,12 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         let navView = UIView()
         let label = UILabel()
         label.text = "  Mis descuentos"
+       
         label.sizeToFit()
         label.center = navView.center
         label.textAlignment = NSTextAlignment.center
         let image = UIImageView()
-        image.image = UIImage(named: "dwb_pak_button_favorites")
+        image.image = UIImage(named: "dwb_pak_button_discount")
         let imageAspect = image.image!.size.width/image.image!.size.height
         image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
         image.contentMode = UIViewContentMode.scaleAspectFit

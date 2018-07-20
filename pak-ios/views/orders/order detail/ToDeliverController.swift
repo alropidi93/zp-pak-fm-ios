@@ -41,6 +41,10 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
         
         self.cv_to_delivery.delegate = self
         self.cv_to_delivery.dataSource = self
+        let bgImage = UIImageView();
+        bgImage.image = UIImage(named: "dwb_pak_background_loby")
+        bgImage.contentMode = .scaleToFill
+        self.cv_to_delivery.backgroundView = bgImage
     }
     
     

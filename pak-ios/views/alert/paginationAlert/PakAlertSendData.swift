@@ -24,6 +24,9 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     @IBOutlet weak var tf_date: UITextField!
     @IBOutlet weak var tf_hours: UITextField!
     
+    @IBAction func b_info(_ sender: Any) {
+        AlarmMethods.ReadyCustom(message: "El reparto esta disponible en los distritos: Barranco, Miraflores, San Borja, San Isidro, Santiago de Surco, Surquillo.", title_message: "¡Listo!", uiViewController: self)
+    }
     var checkOut : CheckOut? = nil
     private var posDistrict: Int = -1
     
@@ -51,7 +54,12 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         parentPageViewController.checkOut.recipentName = (ConstantsModels.static_user?.names)!
         fullKeyboardSupport()
         getDataDelivery()
+        tf_direction.text = ConstantsModels.static_user?.address
+        self.parentPageViewController.checkOut.address = (ConstantsModels.static_user?.address)!
         tf_data_reciver.text = ConstantsModels.static_user?.names
+        
+       
+         self.parentPageViewController.checkOut.reference = ""
         self.tf_district.inputView = UIView()
         let tap_district = UITapGestureRecognizer(target: self, action: #selector(self.tapDistrict(_:)))
         self.tf_district.addGestureRecognizer(tap_district)
@@ -65,6 +73,9 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         self.tf_date.setBottomBorder()
         let tap_date = UITapGestureRecognizer(target: self, action: #selector(self.tapDate(_:)))
         self.tf_date.addGestureRecognizer(tap_date)
+        
+        
+        
         
         tf_direction.addTarget(self, action: #selector(textfieldDidChangedirection), for: .editingChanged)
         tf_reference.addTarget(self, action: #selector(textfieldDidChangereference), for: .editingChanged)
@@ -179,6 +190,19 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
                         for district in dataDelivery.district{
                             self.districts.append(district.name)
                             self.listDistrict.append(district)
+                            
+                            let idDistrict : UInt64 = (ConstantsModels.static_user?.district?.idDistrict)!
+                            print(idDistrict)
+                            let idListDistrict : UInt64 = district.idDistrict
+                            print(idListDistrict)
+
+                            if idListDistrict == idDistrict {
+                                self.tf_district.text = district.name
+                                self.parentPageViewController.checkOut.district = Int64(district.idDistrict)
+
+                            }
+                            
+                            
                         }
                         
                     }else{

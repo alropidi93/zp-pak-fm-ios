@@ -32,6 +32,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     
     private var selected_category_index : Int = 0
     
+    private var indexPathSelected : IndexPath?
     private var itemProduct : ProductDC? = nil
     
     override func viewDidLoad() {
@@ -58,12 +59,22 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_category_identifier, for: indexPath) as! CVCCategoryName
+        if indexPath.item == 0 {
+            cell.l_name.textColor = UIColor(named: "pak_green")
+            self.indexPathSelected = indexPath
+        }
         cell.l_name.text = self.categories[indexPath.item].name
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cellselected = collectionView.cellForItem(at: self.indexPathSelected!) as! CVCCategoryName
+        cellselected.l_name.textColor = UIColor(named: "pak_black")
+
+        let cell = collectionView.cellForItem(at: indexPath) as! CVCCategoryName
+        cell.l_name.textColor = UIColor(named: "pak_green")
         self.selected_category_index = indexPath.item
+        self.indexPathSelected = indexPath
         self.tv_sub_categories.reloadData()
     }
     

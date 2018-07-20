@@ -1,21 +1,21 @@
 //
-//  RoundedCornerViewGreen.swift
+//  RoundedCornerViewRed.swift
 //  pak-ios
 //
-//  Created by inf227al on 19/07/18.
+//  Created by Paolo Rossi on 7/20/18.
 //  Copyright © 2018 Paolo Rossi. All rights reserved.
 //
 
 import Foundation
 import UIKit
 @IBDesignable
-class RoundedCornerViewGreen: UIView
+class RoundedCornerViewRed: UIView
 {
     @IBInspectable var rectWidth:   CGFloat = 60
     @IBInspectable var rectHeight:  CGFloat = 60
     
-    @IBInspectable var rectBgColor:     UIColor = UIColor(rgb: 0x81D34C)
-    @IBInspectable var rectBorderColor: UIColor = UIColor(rgb: 0x81D34C)
+    @IBInspectable var rectBgColor:     UIColor = UIColor(rgb: 0xff5f5f)
+    @IBInspectable var rectBorderColor: UIColor = UIColor(rgb: 0xff5f5f)
     @IBInspectable var rectBorderWidth: CGFloat = 0.5
     @IBInspectable var rectCornerRadius:CGFloat = 11
         {
@@ -67,20 +67,4 @@ class RoundedCornerViewGreen: UIView
     
 }
 
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    
-    convenience init(rgb: Int) {
-        self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF
-        )
-    }
-}
+

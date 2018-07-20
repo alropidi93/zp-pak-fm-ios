@@ -77,7 +77,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCDetailOrder
         cell.l_name.text = self.items[indexPath.item].name
         cell.l_cant.text = String(self.items[indexPath.item].cant)
-        let stringValue = "S./"
+        let stringValue = "S/"
         cell.l_mount_total_item.text = stringValue + String(Double(self.items[indexPath.item].cant) * self.items[indexPath.item].price)
         cell.l_price.text = stringValue + String(self.items[indexPath.item].price)
         

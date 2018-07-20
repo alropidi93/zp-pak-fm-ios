@@ -71,6 +71,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
         tf_lastname.text = ConstantsModels.static_user?.lastNames
         tf_birthday.text = ConstantsModels.static_user?.birthDate
         tf_genre.text = ConstantsModels.static_user?.genere
+         if self.tf_genre.text! == "M"  { self.tf_genre.text = "Masculino" } else { self.tf_genre.text = "Femenino" }
         tf_phone.text = ConstantsModels.static_user?.telephone
         tf_address.text = ConstantsModels.static_user?.address
         tf_district.text = ConstantsModels.static_user?.district?.name
@@ -240,14 +241,13 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
         }
         
         let params: Parameters = [
+            "IdUsuario" : ConstantsModels.static_user?.idUser ?? 0,
             "Email": self.tf_email.text!,
             "Direccion": self.tf_address.text!,
             "IdDistrito": self.idDistric,
             "Telefono": self.tf_phone.text!,
             "Sexo": genre,
-            "FechaNacimiento":UtilMethods.dateToSlash(self.tf_birthday.text!),
-            "GUID" : GUID,
-           
+            "FechaNacimiento":self.tf_birthday.text!,
         ]
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
@@ -262,10 +262,10 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
+                    
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        //self.alertDialog(uiViewController: self)
-                        
+                       AlarmMethods.ReadyCustom(message: "Hemos actualizado tu información satisfactoriamente.", title_message: "¡Listo!", uiViewController: self)
                         self.stopAnimating()
                         
                     }else {

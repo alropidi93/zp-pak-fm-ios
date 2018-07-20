@@ -41,6 +41,10 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
         self.ToDeliver()
         self.cv_cancel.delegate = self
         self.cv_cancel.dataSource = self
+        let bgImage = UIImageView();
+        bgImage.image = UIImage(named: "dwb_pak_background_loby")
+        bgImage.contentMode = .scaleToFill
+        self.cv_cancel.backgroundView = bgImage
     }
     @IBAction func b_search(_ sender: Any) {
         self.tapFiltree()

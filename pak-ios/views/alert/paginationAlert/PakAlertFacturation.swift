@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class PakAlertFacturacion : UIViewController,PageObservation{
+class PakAlertFacturacion : UIViewController,PageObservation,UITextFieldDelegate{
     @IBOutlet weak var dwb_pak_factura: UIImageView!
     @IBOutlet weak var sv_facture_data: UIStackView!
     @IBOutlet weak var tf_announcement_fac: UITextView!
@@ -31,6 +31,7 @@ class PakAlertFacturacion : UIViewController,PageObservation{
 
     func setElements() {
         tf_ruc.addTarget(self, action: #selector(textfieldDidChangeRuc), for: .editingChanged)
+        self.tf_ruc.delegate = self
         tf_socialRazon.addTarget(self, action: #selector(textfieldDidChangesocialRazon), for: .editingChanged)
         tf_fiscal_direcction.addTarget(self, action: #selector(textfieldDidChangefiscal_direcction), for: .editingChanged)
     }
@@ -81,5 +82,14 @@ class PakAlertFacturacion : UIViewController,PageObservation{
 
     @IBAction func b_close(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 11
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
     }
 }

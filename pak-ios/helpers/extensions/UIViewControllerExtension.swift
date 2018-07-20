@@ -45,7 +45,7 @@ extension UIViewController : UISearchBarDelegate {
         let notificationButton = SSBadgeButton()
         notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
         notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
         notificationButton.badge = "\(PreferencesMethods.getSmallBoxFromOptions()?.items.count ?? 0) "
         
@@ -70,7 +70,7 @@ extension UIViewController : UISearchBarDelegate {
         let notificationButton = SSBadgeButton()
         notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
         notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
         
         let smallbox :SmallBoxDC =  PreferencesMethods.getSmallBoxFromOptions()!
@@ -98,7 +98,7 @@ extension UIViewController : UISearchBarDelegate {
         let notificationButton = SSBadgeButton()
         notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
         notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
         notificationButton.badge = "\(ConstantsModels.count_item) "
         

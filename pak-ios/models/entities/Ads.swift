@@ -37,7 +37,7 @@ class Ads: NSObject {
             let time = CMTimeMake(1, 2)
             let img = try? assetImgGenerate.copyCGImage(at: time, actualTime: nil)
             if img == nil {
-                self._thumbnail = UIImage(named: "pak-logo-name")
+                self._thumbnail = UIImage(named: "")
             } else {
                 self._thumbnail  = UIImage(cgImage: img!)
             }

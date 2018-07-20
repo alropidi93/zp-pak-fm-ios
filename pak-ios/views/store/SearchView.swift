@@ -39,7 +39,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.l_search_word.text = self.text
+        self.l_search_word.text = "\"" + self.text + "\""
         setElements()
     }
     
@@ -70,7 +70,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         
         
         if self.items[indexPath.item].favourite == true {
-            cell.b_favorites.setImage(UIImage(named: "dwb_pak_button_hearth_red"), for: .normal)
+            cell.b_favorites.setImage(UIImage(named: "dwb-ic_favorite_on"), for: .normal)
         }else {
             cell.b_favorites.setImage(UIImage(named: "dwb_pak_button_hearth_gray"), for: .normal)
         }
@@ -169,12 +169,22 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        self.cant += 1
-                        let snackbar = TTGSnackbar(message: "Se agrego " + String(self.cant) + "el producto", duration: .middle)
-                        snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
-                        snackbar.show()
-                        ConstantsModels.count_item = ConstantsModels.count_item + 1
-                        self.notificationButton.badge = "\(ConstantsModels.count_item) "
+                        if self.cant == 1 {
+                            self.cant += 1
+                            let snackbar = TTGSnackbar(message: "Has agregado un" + product.name, duration: .middle)
+                            snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
+                            snackbar.show()
+                            ConstantsModels.count_item = ConstantsModels.count_item + 1
+                            self.notificationButton.badge = "\(ConstantsModels.count_item) "
+                        }else {
+                            self.cant += 1
+                            let snackbar = TTGSnackbar(message: "Has agregado " + String(self.cant) + "de" + product.name, duration: .middle)
+                            snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
+                            snackbar.show()
+                            ConstantsModels.count_item = ConstantsModels.count_item + 1
+                            self.notificationButton.badge = "\(ConstantsModels.count_item) "
+                        }
+                      
                         self.cv_search.reloadData()
                     }
                 }
@@ -242,7 +252,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     func customizeNavigationBarSearch( ) {
-        self.navigationController?.navigationBar.topItem?.title = "Resultados de busqueda"
+        self.navigationController?.navigationBar.topItem?.title = "Resultados de búsqueda"
         self.navigationController?.navigationBar.shadowImage = UIImage()
         notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
