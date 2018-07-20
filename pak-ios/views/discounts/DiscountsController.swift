@@ -86,7 +86,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
         params = [ "IdUsuario": idUser,
                    "CodigoInvitacion": codeInvitation]
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+        
         
         Alamofire.request(URLs.RegisterInvitationCode, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -128,7 +128,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
         params = [ "IdUsuario": idUser,
         ]
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+        
         
         Alamofire.request(URLs.ListDiscount, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {

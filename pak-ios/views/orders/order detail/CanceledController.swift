@@ -104,7 +104,7 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
     }
     
     func ToDeliver() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+     
         
         let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "Estado": "A" , "FiltroMeses" : self.filtre ]
         

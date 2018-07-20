@@ -86,7 +86,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     }
     
     func getOrder() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+       
         
         let params: Parameters = [ "Numero": itemId ]
         

@@ -59,7 +59,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
     
     func getGUID() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+        
         let params: Parameters = [:]
         Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -154,13 +154,9 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                 request.start { (response, result) in
                     switch result {
                     case .success(let value):
-//                        let params: Parameters = [
-//                            "name": value.dictionaryValue!["name"] ?? "",
-//                            "email": value.dictionaryValue!["email"] ?? "",
-//                            "imageurl": "https://graph.facebook.com/\(value.dictionaryValue!["id"] ?? -1)/picture?type=large"
-//                        ]
+//
                         
-                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         let userDC : UserDC = UserDC()
                         userDC.names = value.dictionaryValue!["first_name"] as! String
                         userDC.lastNames = value.dictionaryValue!["last_name"] as! String
@@ -180,7 +176,6 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         }
     }
     func validateFacebook(_ userDC : UserDC){
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
 
         
         let params: Parameters = [ "AccessToken": FBSDKAccessToken.current().tokenString,
@@ -257,7 +252,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     
     func validateGoogle (_ userDC : UserDC, _ token : String){
         
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+       
 
         
         let params: Parameters = [ "AccessToken": userDC.googleID,

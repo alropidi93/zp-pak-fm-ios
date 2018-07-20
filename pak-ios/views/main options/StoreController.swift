@@ -83,7 +83,7 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
             params = [ "IdCategoria": selectedId]
         } else { params = [ : ] }
         
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+       
         
         Alamofire.request(URLs.GetCategories, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {

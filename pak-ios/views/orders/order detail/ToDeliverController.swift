@@ -110,7 +110,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     }
     
     func cancelOrder(_ idItem : Int ,_ pos : Int) {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+       
         
         let params: Parameters = [ "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? 0, "Numero": idItem]
         
@@ -148,7 +148,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     }
     
     func ToDeliver() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+        
         
         let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "Estado": "P" , "FiltroMeses" : self.filtre]
         

@@ -59,7 +59,6 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
     }
     
     func restartPassword(_ email : String){
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         let params: Parameters = [ "Email": email ]
         Alamofire.request(URLs.RecoveryPassword, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {

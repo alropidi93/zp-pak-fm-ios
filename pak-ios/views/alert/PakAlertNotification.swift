@@ -21,7 +21,6 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
     }
     
     func calification() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         let params: Parameters = ["Numero": ConstantsModels.numberBox,
                                   "Calificacion": val]
         Alamofire.request(URLs.CalificationOrder, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in

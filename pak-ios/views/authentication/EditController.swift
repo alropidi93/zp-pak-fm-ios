@@ -129,7 +129,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
     }
     
     func getDistrict(){
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+       
         
         Alamofire.request(URLs.ListDistrict, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -249,7 +249,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
             "GUID" : GUID,
            
         ]
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+       
         
         
         Alamofire.request(URLs.ModifyAccount, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in

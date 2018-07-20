@@ -88,7 +88,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     }
     
     func getGUID() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+        
         let params: Parameters = [:]
         Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {

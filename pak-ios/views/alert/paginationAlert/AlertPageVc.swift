@@ -165,7 +165,6 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     
     
     func validateCulqi() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         let headersHttp: HTTPHeaders = ["Content-Type" : "application/json; charset=utf-8", "Authorization": "Bearer " + Constants.CULQI_KEY ]
         let params: Parameters = [ "email" : ConstantsModels.static_user!.userName , "card_number": self.numTarjeta, "public_key":Constants.CULQI_KEY, "cvv": self.ccv, "expiration_year": self.expiredDateYYYY, "expiration_month":expiredDateMM, "fingerprint": 89]
         

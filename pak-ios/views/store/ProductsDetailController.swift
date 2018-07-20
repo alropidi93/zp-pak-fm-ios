@@ -68,7 +68,6 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
             return
         }
         
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         Alamofire.request(URLs.AddOrEliminiteFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -112,7 +111,6 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     
     func addProduct() {
         let params: Parameters = [ "IdProducto": item?.idProduct as Any, "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID, "Cantidad": Int(tf_cant_add_item.text!)!]
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {

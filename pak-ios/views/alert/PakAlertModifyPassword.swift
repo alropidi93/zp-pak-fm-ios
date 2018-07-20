@@ -43,7 +43,6 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
     }
     
     func modifyPassword() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         let params: Parameters = [ "Username": ConstantsModels.static_user?.userName as Any, "Password": MD5(self.tf_password.text!) , "NuevoPassword": MD5(self.tf_newPassword.text!), "RepetirPassword": MD5(self.tf_repassword.text!) ,
                                    ]

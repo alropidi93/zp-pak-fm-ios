@@ -106,7 +106,7 @@ self.b_filtre.setTitle(pickerViewValues.item(at: index.column)?.item(at: index.r
     }
     
     func ToDeliver() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+       
         
         let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "Estado": "E" , "FiltroMeses" : self.filtre ]
         

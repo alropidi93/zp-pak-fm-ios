@@ -68,7 +68,6 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
     }
     
     func getGUID() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         let params: Parameters = ["GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
         Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {

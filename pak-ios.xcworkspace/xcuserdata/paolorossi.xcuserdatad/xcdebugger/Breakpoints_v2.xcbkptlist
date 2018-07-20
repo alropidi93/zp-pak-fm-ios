@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pak-ios/views/authentication/LoginController.swift"
-            timestampString = "552714248.575417"
+            timestampString = "553753059.2400351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "validateFacebook(_:)"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "loginWithGoogle(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pak-ios/views/main options/store chain/RootCategoriesController.swift"
-            timestampString = "552818602.705547"
+            timestampString = "553753059.240117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"

@@ -160,7 +160,6 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     }
     
     func getDataDelivery() {
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         let params: Parameters = ["GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
         print(PreferencesMethods.getSmallBoxFromOptions()!.GUID)
         Alamofire.request(URLs.DataDelivery, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in

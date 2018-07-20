@@ -112,7 +112,6 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         } else {
             return
         }
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         Alamofire.request(URLs.AddOrEliminiteFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -199,7 +198,6 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         } else {
             params = [ "Search": self.text ]
         }
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         
         Alamofire.request(URLs.SearchProduct, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {

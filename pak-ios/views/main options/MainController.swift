@@ -28,7 +28,7 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
         super.viewWillAppear(animated)
         self.navigationBarWithSearchAndMenu()
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

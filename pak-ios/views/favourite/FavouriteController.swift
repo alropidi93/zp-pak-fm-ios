@@ -78,7 +78,6 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
             return
         }
         
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
 
         Alamofire.request(URLs.AddOrEliminiteFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -116,7 +115,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                                    "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID,
                                    "Cantidad": 1]
         
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+        
 
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -156,7 +155,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         params = [ "IdUsuario": idUser]
         print("holaaa")
         
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+       
 
         Alamofire.request(URLs.ListFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             

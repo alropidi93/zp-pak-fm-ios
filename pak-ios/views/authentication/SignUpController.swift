@@ -134,7 +134,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     
     
     func getDistrict(){
-        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
+       
         
         Alamofire.request(URLs.ListDistrict, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
