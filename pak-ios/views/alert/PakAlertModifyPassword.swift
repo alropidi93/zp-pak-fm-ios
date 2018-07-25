@@ -53,7 +53,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
             AlarmMethods.errorWarning(message: "La contraseña debe tener 6 caracteres como minimo.", uiViewController: self)
             return
         }else if( self.tf_newPassword.text! != self.tf_repassword.text!){
-            AlarmMethods.errorWarning(message: "los passwords son diferentes", uiViewController: self)
+            AlarmMethods.errorWarning(message: "Las contraseñas no coinciden.", uiViewController: self)
             return
         }else if (self.tf_password.text! == self.tf_newPassword.text!){
             AlarmMethods.errorWarning(message: "La nueva contraseña debe ser distinta a la contraseña actual.", uiViewController: self)
@@ -71,7 +71,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
                                    ]
         Alamofire.request(URLs.PasswordModify, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
-                AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
                 self.stopAnimating()
                 return
@@ -98,7 +98,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
             } else {
                 if let jsonResponse = response.result.value {
                     let _ = JSON(jsonResponse)
-                   AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+                   AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
                 }
             }
             self.stopAnimating()

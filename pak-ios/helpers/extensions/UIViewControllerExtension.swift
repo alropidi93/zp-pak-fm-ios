@@ -60,10 +60,18 @@ extension UIViewController : UISearchBarDelegate {
         btnsMenu.append(btnMenu)
         self.navigationItem.leftBarButtonItems = btnsMenu
         
+       
+        
         var searchBar: UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
         searchBar = UISearchBar()
         searchBar.sizeToFit()
         searchBar.placeholder = Constants.PLACEHOLDERSB
+        
+        let textFieldInsideSearchBarLabel = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBarLabel?.font = UIFont(name: "OpenSans-Light", size: 15)
+        
+     
+        
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar
         

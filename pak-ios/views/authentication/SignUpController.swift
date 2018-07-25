@@ -40,6 +40,8 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+      
     }
     
     override func viewDidLoad() {
@@ -138,7 +140,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         
         Alamofire.request(URLs.ListDistrict, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
-                AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
                 self.stopAnimating()
                 return
@@ -172,92 +174,96 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         
         
         if (self.tf_name.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_name.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "El nombre no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El nombre no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
 
         if (self.tf_lastname.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_lastname.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "El apellido no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El apellido no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
 
         if (self.tf_email.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_email.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "El email no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El email no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         } else if !isValidEmail(testStr: tf_email.text!){
-            AlarmMethods.errorWarning(message: "No es un correo valido", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "No es un correo valido", title_message: "¡Oops!", uiViewController: self)
             return
         }
 
         if (self.tf_address.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_address.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "La dirección no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "La dirección no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
 
         if (self.tf_district.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_district.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "El distrito no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El distrito no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
 
         if (self.tf_phone.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_phone.text?.count > 40 {
-            AlarmMethods.errorWarning(message: "El teléfono no puede tener una extensión mayor a 40 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El teléfono no puede tener una extensión mayor a 40 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_phone.text?.count < 7 {
-            AlarmMethods.errorWarning(message: "El teléfono no puede tener una extensión menor a 7 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El teléfono no puede tener una extensión menor a 7 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
 
         if (self.tf_password.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_password.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "La contraseña no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "La contraseña no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
+            return
+        }else if self.tf_repassword.text?.count < 6 {
+            AlarmMethods.ReadyCustom(message: "La contraseña debe tener 6 caracteres como minimo.", title_message: "¡Oops!", uiViewController: self)
             return
         }
-
         if (self.tf_repassword.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_repassword.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "La contraseña no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "La contraseña no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
+            return
+        }else if self.tf_repassword.text?.count < 6 {
+            AlarmMethods.ReadyCustom(message: "La contraseña debe tener 6 caracteres como minimo.", title_message: "¡Oops!", uiViewController: self)
             return
         }
-
         if (self.tf_genre.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "Debes completar todos los campos.", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_genre.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "El sexo  no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El sexo  no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
 
         if (self.tf_birthday.text?.isEmpty)! {
-            AlarmMethods.errorWarning(message: "El cumpleaños no puede estar vacío", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El cumpleaños no puede estar vacío", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_birthday.text?.count > 30 {
-            AlarmMethods.errorWarning(message: "El cumpleaños no puede tener una extensión mayor a 30 caracteres", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El cumpleaños no puede tener una extensión mayor a 30 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
         if( self.tf_password.text! != self.tf_repassword.text!){
-            AlarmMethods.errorWarning(message: "los passwords son diferentes", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Las contraseñas no coinciden.", title_message: "¡Oops!", uiViewController: self)
             return
         }
 
@@ -314,7 +320,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         
         Alamofire.request(URLs.SignUp, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if !(response.response != nil) {
-                AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
                 self.stopAnimating()
                 return
@@ -327,7 +333,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                         self.alertDialog(uiViewController: self)
                         let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
                         let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-                        print(string)
+                        self.user = nil
                         self.stopAnimating()
                         
                     }else {

@@ -48,6 +48,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
             UtilMethods.setImage(imageview: iv_user, imageurl: "" , placeholderurl: "dwb_pak_button_info")
         }else if user.facebookID != "" {
             UtilMethods.setImage(imageview: iv_user, imageurl: "https://graph.facebook.com/v3.0/" + user.facebookID + "/picture?type=normal"  , placeholderurl: "dwb_pak_button_info")
+            UtilMethods.roundImage(imageview: iv_user)
         }
         self.b_name.setTitle(ConstantsModels.static_user?.names, for : .normal)
         
@@ -92,7 +93,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
         let params: Parameters = [:]
         Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
-                AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
                 self.stopAnimating()
                 return

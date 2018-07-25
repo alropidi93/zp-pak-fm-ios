@@ -55,8 +55,8 @@ class SSBadgeButton: UIButton {
         badgeLabel.textAlignment = .center
         let badgeSize = badgeLabel.frame.size
         
-        let height = max(18, Double(badgeSize.height) + 5.0)
-        let width = max(height, Double(badgeSize.width) + 10.0)
+        let height = max(18, Double(badgeSize.height) + 3.0)
+        let width = max(height, Double(badgeSize.width) + 3.0)
         
         var vertical: Double?, horizontal: Double?
         if let badgeInset = self.badgeEdgeInsets {

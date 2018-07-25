@@ -94,10 +94,10 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
             appearance.indicator.color = UtilMethods.hexStringToUIColor(hex: Constants.GREEN_PAK)
             
             appearance.layout.itemDistribution = .centered
-            appearance.state.color = UIColor.lightGray
-            appearance.state.selectedColor = UIColor.black
+            appearance.state.color = UIColor(rgb: 0x6D6D6D)
+            appearance.state.selectedColor = UIColor(rgb: 0x81D34C)
             appearance.layout.edgeInset = 0.0
-            appearance.text.font = UIFont(name: "HelveticaNeue", size: 15)
+            appearance.text.font = UIFont(name: "OpenSans-Light", size: 15)
         })
     }
     

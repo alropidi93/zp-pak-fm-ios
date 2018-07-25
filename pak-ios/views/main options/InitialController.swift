@@ -54,7 +54,7 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
         if self.allItems[indexPath.row].type == "V" { // Videos
             cell.advertisement_image?.image = self.allItems[indexPath.row].thumbnail
         } else { // Images
-            UtilMethods.setImage(imageview: cell.advertisement_image!, imageurl: self.allItems[indexPath.row].archive, placeholderurl: "dwb_pak_button_info")
+            UtilMethods.setImage(imageview: cell.advertisement_image!, imageurl: self.allItems[indexPath.row].archive, placeholderurl: "")
         }
         return cell
     }
@@ -89,7 +89,7 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         Alamofire.request(URLs.GetAds, method: .get , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
-                AlarmMethods.ReadyCustom(message: "Ocurrío un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
                 self.stopAnimating()
                 return
