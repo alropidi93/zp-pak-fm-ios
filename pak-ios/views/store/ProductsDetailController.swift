@@ -106,7 +106,7 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
         if self.item?.favourite == true {
             b_add_favoritie.setImage(UIImage(named: "dwb_pak_button_hearth_red"), for: .normal)
         }else {
-            b_add_favoritie.setImage(UIImage(named: "dwb_pak_button_hearth_gray"), for: .normal)
+            b_add_favoritie.setImage(UIImage(named: "dwb_ic_favorite_off_large"), for: .normal)
         }
     }
     

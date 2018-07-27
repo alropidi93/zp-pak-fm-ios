@@ -53,6 +53,7 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_advertisement, for: indexPath) as! CVCAdvertisement
         if self.allItems[indexPath.row].type == "V" { // Videos
             cell.advertisement_image?.image = self.allItems[indexPath.row].thumbnail
+            cell.iv_play.isHidden = false
         } else { // Images
             UtilMethods.setImage(imageview: cell.advertisement_image!, imageurl: self.allItems[indexPath.row].archive, placeholderurl: "")
         }

@@ -112,9 +112,12 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     
     func validateSecondController() -> Bool {
         if boletaOrFactura == 1{
-            if checkOut.ruc != "" && checkOut.businessName != "" && checkOut.fiscalAddress != "" {
+            if checkOut.ruc != "" && checkOut.businessName != "" && checkOut.fiscalAddress != "" && checkOut.ruc.count == 11{
                 return true
-            }else {
+            }else if checkOut.ruc.count != 11{
+                AlarmMethods.ReadyCustom(message: "El número de RUC debe tener 11 digitos.", title_message: "¡Oops!", uiViewController: self)
+                return false
+            } else {
                 AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
                 return false
             }

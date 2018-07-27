@@ -74,7 +74,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         cell.delegate = self
         cell.l_name.text = self.items[indexPath.item].name
         cell.tf_count_item.text = String(self.items[indexPath.item].cant)
-        cell.tf_count_item.backgroundColor = UIColor.lightGray
+//        cell.tf_count_item.backgroundColor = UIColor.lightGray
         cell.tf_count_item.tag = indexPath.row
         cell.tf_count_item .addTarget(self, action: #selector(textFieldEditingDidChangeEnd), for: UIControlEvents.editingDidEnd)
         let stringValue = "S/"
@@ -197,7 +197,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
             ConstantsModels.count_item = ConstantsModels.count_item + Int(element.cant)
         }
         self.discount = self.subTotal * (self.discountPercent / 100 )
-        self.l_mount_subt.text = "S/" + String(self.subTotal)
+        self.l_mount_subt.text = "S/" + String(format: "%.2f",self.subTotal)
         self.l_mount_total.text = "S/" + String(self.subTotal + self.deliveryCost - self.discount)
         self.l_mount_discount.text = "S/" + String(format: "%.2f", self.discount)
     }
@@ -268,7 +268,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                     }else{
                         let jsonResult = JSON(jsonResponse)
                         print(jsonResult["MontoMinimo"])
-                        AlarmMethods.errorWarning(message: "El monto mínimo para el pedido es de S/ " + jsonResult["MontoMinimo"].stringValue + " (sin incluir costo de delivery).", uiViewController: self)
+                        AlarmMethods.ReadyCustom(message: "El monto mínimo para el pedido es de S/ " + String(format: "%.2f",jsonResult["MontoMinimo"].doubleValue) + " (sin incluir costo de delivery).", title_message: "¡Oops!", uiViewController: self)
                     }
                 }
             } else {

@@ -24,7 +24,6 @@ extension UIViewController : UISearchBarDelegate {
     
  
     func customizeNavigationBarFavourite( ) {
-        self.navigationController?.navigationBar.shadowImage = UIImage()
 
         let navView = UIView()
         let label = UILabel()

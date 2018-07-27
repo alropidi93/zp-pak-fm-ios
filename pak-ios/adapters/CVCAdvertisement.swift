@@ -12,6 +12,7 @@ import UIKit
 class CVCAdvertisement : UICollectionViewCell {
     @IBOutlet weak var iv_advertisement: UIImageView!
     
+    @IBOutlet weak var iv_play: UIImageView!
     var advertisement_image : UIImageView? {
         get { return iv_advertisement }
     }

@@ -25,7 +25,17 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     @IBOutlet weak var tf_hours: UITextField!
     
     @IBAction func b_info(_ sender: Any) {
-        AlarmMethods.ReadyCustom(message: "El reparto esta disponible en los distritos: Barranco, Miraflores, San Borja, San Isidro, Santiago de Surco, Surquillo.", title_message: "¡Listo!", uiViewController: self)
+        var districtsString : String  = ""
+        var cont : Int = 0
+        for item in self.districts {
+            cont = cont + 1
+            if (cont != self.districts.count) {
+                districtsString = districtsString + item + ", "
+            }else {
+                districtsString = districtsString + item + "."
+            }
+        }
+        AlarmMethods.ReadyCustom(message: "El reparto esta disponible en los distritos: " + districtsString, title_message: "¡Listo!", uiViewController: self)
     }
     var checkOut : CheckOut? = nil
     private var posDistrict: Int = -1
