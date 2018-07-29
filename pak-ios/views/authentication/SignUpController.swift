@@ -367,7 +367,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     func okButtonTapped(){
         dismiss(animated: true, completion: nil)
 //        self.navigationController?.dismiss(animated: true,completion: nil)
-        _ = navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

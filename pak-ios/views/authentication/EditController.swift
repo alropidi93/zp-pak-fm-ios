@@ -266,6 +266,15 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                        AlarmMethods.ReadyCustom(message: "Hemos actualizado tu información satisfactoriamente.", title_message: "¡Listo!", uiViewController: self)
+                        ConstantsModels.static_user?.userName = self.tf_email.text!
+                        ConstantsModels.static_user?.address = self.tf_address.text!
+                        ConstantsModels.static_user?.district = self.listDistrict[self.posDistrict]
+                        ConstantsModels.static_user?.telephone = self.tf_phone.text!
+                        var genre : String = "-"
+                        if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
+                        ConstantsModels.static_user?.genere = genre
+                        ConstantsModels.static_user?.birthDate = self.tf_birthday.text!
+                        
                         self.stopAnimating()
                         
                     }else {

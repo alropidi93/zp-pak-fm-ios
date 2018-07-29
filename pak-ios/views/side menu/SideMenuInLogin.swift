@@ -23,6 +23,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     private let segue_favorites = "segue_favorites"
     private let segue_discounts = "segue_discounts"
     private let segue_edit = "segue_editar"
+    private let segue_editFbGo = "segue_editarFbGo"
     private let segue_order = "segue_order"
     
     @IBOutlet weak var b_name: UIButton!
@@ -35,7 +36,12 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     }
  
     @IBAction func ba_name(_ sender: Any) {
-        self.performSegue(withIdentifier: self.segue_edit, sender: self)
+        if (ConstantsModels.static_user?.googleID != nil) || (ConstantsModels.static_user?.googleID != nil){
+            self.performSegue(withIdentifier: self.segue_editFbGo, sender: self)
+        }else {
+            self.performSegue(withIdentifier: self.segue_edit, sender: self)
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,9 +49,14 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
         let user : UserDC = ConstantsModels.static_user!
         
         if user.googleID != "" {
-           
-
-            UtilMethods.setImage(imageview: iv_user, imageurl: "" , placeholderurl: "dwb_pak_button_info")
+            if (GIDSignIn.sharedInstance().currentUser != nil) {
+                
+                let imageUrl = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400).absoluteString
+                let url  = NSURL(string: imageUrl) as! URL
+                let data = NSData(contentsOf: url)                
+                self.iv_user.image = UIImage(data: data as! Data)
+                
+            }
         }else if user.facebookID != "" {
             UtilMethods.setImage(imageview: iv_user, imageurl: "https://graph.facebook.com/v3.0/" + user.facebookID + "/picture?type=normal"  , placeholderurl: "dwb_pak_button_info")
             UtilMethods.roundImage(imageview: iv_user)
@@ -54,6 +65,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
         
     }
     
+   
     @IBAction func logueOut(_ sender: Any) {
         ConstantsModels.static_user = nil
         PreferencesMethods.deleteAccessTokenFromOptions()

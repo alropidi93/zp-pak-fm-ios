@@ -16,6 +16,7 @@ import FacebookLogin
 import SwiftHash
 import SideMenu
 import TTGSnackbar
+
 class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable {
     let segue_identifier : String = "segue_product_detail"
     private let reuse_identifier = "cvc_search_item"

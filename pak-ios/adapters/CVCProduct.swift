@@ -15,4 +15,6 @@ class CVCProduct : UICollectionViewCell {
     @IBOutlet var l_price_unity: UILabel!
     @IBOutlet var b_add_item: UIButton!
     @IBOutlet var b_favorites: UIButton!
+    @IBOutlet weak var iv_start: UIImageView!
+    @IBOutlet weak var iv_end: UIImageView!
 }

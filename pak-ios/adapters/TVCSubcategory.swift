@@ -7,9 +7,17 @@
 //
 
 import Foundation
+import SwiftyJSON
 import UIKit
+import Alamofire
+import NVActivityIndicatorView
+import FacebookCore
+import FacebookLogin
+import SwiftHash
+import SideMenu
+import TTGSnackbar
 
-class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource ,NVActivityIndicatorViewable{
     @IBOutlet weak var cv_products: UICollectionView!
     @IBOutlet weak var l_name_brand: UILabel!
     
@@ -39,7 +47,12 @@ class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionVi
         cell.b_add_item.tag = indexPath.row
         cell.b_add_item.addTarget(self, action: #selector(buttonAdd), for: .touchUpInside)
         cell.b_favorites.tag = indexPath.row
-//        cell.b_favorites.addTarget(self, action: #selector(buttonFavorite), for: .touchUpInside)
+        if indexPath.item == 0{
+            cell.iv_start.isHidden = false
+        }else if indexPath.item == items.count - 1  {
+            cell.iv_end.isHidden = false
+        }
+        cell.b_favorites.addTarget(self, action: #selector(buttonFavorite), for: .touchUpInside)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -51,10 +64,54 @@ class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionVi
         detailProductDelegate?.addProduct(product)
     }
     
-//    @objc func buttonFavorite(sender: UIButton!) {
-//        let product : ProductDC = items[sender.tag]
-//        addOrDeleteFavortie(product,sender.tag)
-//    }
+    @objc func buttonFavorite(sender: UIButton!) {
+        let product : ProductDC = items[sender.tag]
+        addOrDeleteFavortie(product,sender.tag)
+    }
     
+    func addOrDeleteFavortie(_ product : ProductDC, _ index : Int) {
+        let user = ConstantsModels.static_user
+        var params : Parameters
+        if user != nil  {
+            let idUser  :UInt64 = (ConstantsModels.static_user?.idUser)!
+            params =  [ "IdUsuario": idUser,
+                        "IdProducto": product.idProduct,
+            ]
+        } else {
+            return
+        }
+     
+        
+        Alamofire.request(URLs.AddOrEliminiteFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+               // AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+                
+                return
+            }
+            let statusCode = response.response!.statusCode
+            
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Msg"] == "OK"{
+                        if self.items[index].favourite == true{
+                            self.items[index].favourite = false
+                        } else {
+                            self.items[index].favourite = true
+                        }
+                        let indexPath = IndexPath(item: index, section: 0)
+                        self.cv_products.reloadItems(at: [indexPath])
+                    }
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                 //   AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                   // AlamoMethods.defaultError(self)
+                }
+            }
+        }
+    }
     
 }

@@ -41,9 +41,15 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         
-     
+        var yourAttributes : [NSAttributedStringKey : Any] = [
+            NSAttributedStringKey.font : UIFont(name: "OpenSans-Light", size: 15),
+            NSAttributedStringKey.foregroundColor : UIColor(rgb: 0xEAEAEA),//EAEAEA
+            NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
+        ]
+        let attributeString = NSMutableAttributedString(string: "Olvidé mi contraseña",
+                                                        attributes: yourAttributes)
+        b_forgot_password.setAttributedTitle(attributeString, for: .normal)
         
-  
         fullKeyboardSupport()
     }
     
@@ -162,12 +168,6 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                 request.start { (response, result) in
                     switch result {
                     case .success(let value):
-//                        let params: Parameters = [
-//                            "name": value.dictionaryValue!["name"] ?? "",
-//                            "email": value.dictionaryValue!["email"] ?? "",
-//                            "imageurl": "https://graph.facebook.com/\(value.dictionaryValue!["id"] ?? -1)/picture?type=large"
-//                        ]
-                        
                         self.stopAnimating()
                         let userDC : UserDC = UserDC()
                         userDC.names = value.dictionaryValue!["first_name"] as! String
@@ -225,7 +225,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                     } else {
                         self.stopAnimating()
                         self.user = userDC
-                        self.performSegue(withIdentifier: self.signup_identifier, sender: self)
+                        self.performSegue(withIdentifier: self.signup_identifier_go_fb, sender: self)
                     }
                 }
             } else {
@@ -302,7 +302,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                     } else {
                         self.stopAnimating()
                         self.user = userDC
-                        self.performSegue(withIdentifier: self.signup_identifier, sender: self)
+                        self.performSegue(withIdentifier: self.signup_identifier_go_fb, sender: self)
                     }
                 }
             } else {
