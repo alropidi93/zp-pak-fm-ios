@@ -197,4 +197,44 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    func customizeNavigationBarFavourite( ) {
+        
+        let navView = UIView()
+        let label = UILabel()
+        label.font = UIFont(name: "OpenSans-Light", size: 25)
+        
+        label.text = "  Mis Favoritos"
+        label.sizeToFit()
+        label.center = navView.center
+        label.textAlignment = NSTextAlignment.center
+        let image = UIImageView()
+        image.image = UIImage(named: "dwb_pak_button_favorites")
+        let imageAspect = image.image!.size.width/image.image!.size.height
+        image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
+        image.contentMode = UIViewContentMode.scaleAspectFit
+        navView.addSubview(label)
+        navView.addSubview(image)
+        self.navigationItem.titleView = navView
+        navView.sizeToFit()
+        
+        let notificationButton = SSBadgeButton()
+        notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
+        notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+        
+        let smallbox :SmallBoxDC =  PreferencesMethods.getSmallBoxFromOptions()!
+        ConstantsModels.count_item = 0
+        for element in 0..<smallbox.items.count{
+            ConstantsModels.count_item += Int(smallbox.items[element].cant)
+        }
+        notificationButton.badge = "\(ConstantsModels.count_item) "
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+    }
+    
+    @objc func didPressRightButtonBox(_ sender: Any){
+        self.performSegue(withIdentifier: "segue_small_order_box" , sender: self)
+    }
+    
 }

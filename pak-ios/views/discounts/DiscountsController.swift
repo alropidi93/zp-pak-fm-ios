@@ -45,8 +45,14 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         self.cv_discount_list.dataSource = self
         self.getListDiscount()
         l_code.text = ConstantsModels.static_user?.codeInvitation
-        if !(ConstantsModels.static_user?.applicableInvitationCode)!{
+        print(ConstantsModels.static_user?.applicableInvitationCode)
+        if (ConstantsModels.static_user?.applicableInvitationCode)!{
             b_add_invitation.isHidden = false
+            b_add_invitation.isEnabled = true
+        }else {
+            b_add_invitation.isHidden = true
+            b_add_invitation.isEnabled = false
+
         }
     }
     

@@ -205,6 +205,12 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                 return
             }
             let statusCode = response.response!.statusCode
+
+            let data = try! JSONSerialization.data(withJSONObject: response.result.value, options: .prettyPrinted)
+            let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+            print(string)
+            
+            
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
@@ -258,6 +264,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
 //            "photo_url": user.profile.imageURL(withDimension: 100) ?? "",
             userDC.googleID = user.userID
             let token : String = user.authentication.idToken
+            //InstanceID.instanceID().token() ?? "No token"
             validateGoogle(userDC , token)
         } else {
             print("\(error.localizedDescription)")
@@ -265,13 +272,13 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         self.stopAnimating()
     }
     
-    func validateGoogle (_ userDC : UserDC, _ token : String){
+    func validateGoogle (_ userDC : UserDC, _ tokenvalue : String){
         
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+
         
-        
-        let params: Parameters = [ "AccessToken": userDC.googleID,
-                                   "FCMToken": InstanceID.instanceID().token() ?? "No token",
+        let params: Parameters = [ "AccessToken": tokenvalue,
+                                   "FCMToken": InstanceID.instanceID().token() ?? "no token",
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
         ]
         Alamofire.request(URLs.LoginGo, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
@@ -281,6 +288,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                 self.stopAnimating()
                 return
             }
+            
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
@@ -338,7 +346,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.signup_identifier_go_fb {
-            if let vc = segue.destination as? SignUpController {
+            if let vc = segue.destination as? SignUpGoFbController {
                 vc.user = self.user
             }
         }

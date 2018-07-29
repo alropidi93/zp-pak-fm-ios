@@ -104,6 +104,9 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
             cell.b_cancel.isHidden = false
             cell.b_cancel.tag = indexPath.row
             cell.b_cancel.addTarget(self, action: #selector(cancelOrderFunc), for: .touchUpInside)
+        }else {
+            cell.b_cancel.isHidden = true
+            cell.b_cancel.isEnabled = false
         }
         return cell
     }
@@ -164,6 +167,13 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
                 return
             }
             let statusCode = response.response!.statusCode
+            let data = try! JSONSerialization.data(withJSONObject: response.result.value, options: .prettyPrinted)
+            let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+            print("hola")
+            
+            print(string)
+            print("hola")
+            
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)

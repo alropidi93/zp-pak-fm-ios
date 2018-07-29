@@ -52,7 +52,7 @@ class UserDC : NSObject, NSCoding {
         }
         
         self._codeInvitation = jsonUser["CodigoInvitacion"].string ?? self._codeInvitation
-        self._applicableInvitationCode = jsonUser["CodigoInvitaticionAplicable"].bool ?? self._applicableInvitationCode
+        self._applicableInvitationCode = jsonUser["CodigoInvitacionAplicable"].bool ?? self._applicableInvitationCode
         self._accessToken = jsonUser["AccessToken"].string ?? self._userName
         
         if !(jsonUser["Cajita"].null != nil){
@@ -93,7 +93,7 @@ class UserDC : NSObject, NSCoding {
         coder.encode(_address,forKey: "Direccion")
         coder.encode(_telephone, forKey: "Telefono")
         coder.encode(_district, forKey: "Distrito")
-        coder.encode(_codeInvitation, forKey: "CodigoInvitacion")
+        coder.encode(_codeInvitation, forKey: "CodigoInvitacionAplicable")
         coder.encode(_accessToken, forKey: "AccessToken")
         coder.encode(_smallBox, forKey: "Cajita")
         coder.encode(_valid, forKey: "valid")

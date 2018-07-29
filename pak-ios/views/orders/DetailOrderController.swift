@@ -64,9 +64,11 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
             l_delivery.text = order?.dateCancel
         }
         
-        l_subtotal.text = "\(String(describing: order?.subTotal ?? 0))"
-        l_delivery_cost.text = "\(String(describing: order?.deliveryCost ?? 0))"
-        l_total.text = "\(String(describing: order?.total ?? 0))"
+        l_subtotal.text = "S/" + String(format : "%.2f",(order?.subTotal)!)
+        
+        l_delivery_cost.text = "S/" + String(format : "%.2f",(order?.deliveryCost)!)
+        l_total.text = "S/" + String(format : "%.2f",(order?.total)!)
+ 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -78,9 +80,11 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         cell.l_name.text = self.items[indexPath.item].name
         cell.l_cant.text = String(self.items[indexPath.item].cant)
         let stringValue = "S/"
-        cell.l_mount_total_item.text = stringValue + String(Double(self.items[indexPath.item].cant) * self.items[indexPath.item].price)
-        cell.l_price.text = stringValue + String(self.items[indexPath.item].price)
         
+        cell.l_mount_total_item.text = stringValue + String(format : "%.2f",(Double(self.items[indexPath.item].cant) * self.items[indexPath.item].price))
+        
+        cell.l_price.text = stringValue + String(format : "%.2f",(self.items[indexPath.item].price))
+
         UtilMethods.setImage(imageview: cell.iv_product, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
         return cell
     }

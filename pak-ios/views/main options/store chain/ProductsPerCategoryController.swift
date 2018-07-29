@@ -37,6 +37,8 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
         setElements()
     }
     
@@ -51,6 +53,11 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         self.tv_sub_categories.delegate = self
         self.tv_sub_categories.dataSource = self
         self.tv_sub_categories.separatorStyle = .none
+        
+        let bgImage = UIImageView();
+        bgImage.image = UIImage(named: "dwb_pak_background_loby")
+        bgImage.contentMode = .scaleAspectFill
+        self.tv_sub_categories.backgroundView = bgImage
     }
     
     //This is the controller for the category level (the product level is in each cell

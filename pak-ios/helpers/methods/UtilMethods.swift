@@ -57,7 +57,7 @@ class UtilMethods {
     }
 
     /** #MARK: [UI] Gradient methods */
-    static func addGradientColor(_ view : UIView, initialColor: UIColor = UIColor.clear, endColor: UIColor = UIColor.lightGray) {
+    static func addGradientColor(_ view : UIView, initialColor: UIColor = UIColor.clear, endColor: UIColor = UIColor(rgb: 0x00000)) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)

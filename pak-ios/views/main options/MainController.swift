@@ -23,7 +23,6 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "vc_store")
     ]
     
-    /* #MARK: Default methods */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationBarWithSearchAndMenu()
@@ -130,6 +129,7 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
         print("asd")
     }
     
+   
     
     
 

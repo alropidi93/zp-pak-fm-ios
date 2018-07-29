@@ -111,6 +111,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
+                        ConstantsModels.count_item = ConstantsModels.count_item - self.items.count
                         self.items.remove(at: pos)
                         self.setSubTotal()
                     }
