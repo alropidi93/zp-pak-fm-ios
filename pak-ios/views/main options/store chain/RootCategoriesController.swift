@@ -157,12 +157,15 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
     
     func createAll(){
         itemsAll.name = "Todos"
-        for itemI in self.items{
+        for itemI in self.selectedItems{
+            print(itemI.name)
             for itemJ in itemI.list{
+                print(itemJ.name)
+
                 itemsAll.list.append(itemJ)
             }
         }
-        items.insert(itemsAll, at: 0)
+        selectedItems.insert(itemsAll, at: 0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

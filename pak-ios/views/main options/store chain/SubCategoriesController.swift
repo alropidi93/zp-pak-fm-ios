@@ -158,13 +158,14 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     }
     
     func createAll(){
+        itemsAll.list = []
         itemsAll.name = "Todos"
-        for itemI in self.items{
+        for itemI in self.selectedItems{
             for itemJ in itemI.list{
                 itemsAll.list.append(itemJ)
             }
         }
-        items.insert(itemsAll, at: 0)
+        selectedItems.insert(itemsAll, at: 0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -172,7 +173,6 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
             let vc = segue.destination as! RootCategoriesController
             vc.items = selectedItems
             self.selectedItems = []
-
             vc.selected_title = self.selected_sub_title
         } else if segue.identifier == self.segue_category_detail {
             let vcpl = segue.destination as! ProductsPerCategoryController
