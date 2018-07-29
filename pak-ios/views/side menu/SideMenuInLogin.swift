@@ -33,14 +33,14 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
  
     @IBAction func ba_name(_ sender: Any) {
-        if (ConstantsModels.static_user?.googleID != nil) || (ConstantsModels.static_user?.googleID != nil){
+        if (ConstantsModels.static_user?.googleID != nil) || (ConstantsModels.static_user?.facebookID != nil){
             self.performSegue(withIdentifier: self.segue_editFbGo, sender: self)
         }else {
             self.performSegue(withIdentifier: self.segue_edit, sender: self)
-            
         }
     }
     

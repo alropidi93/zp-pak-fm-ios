@@ -38,13 +38,14 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.setElements()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
         
     }
     
@@ -53,6 +54,7 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable{
     }
     
     func setElements(){
+        print("hola")
         setInfoUser()
         getDistrict()
         

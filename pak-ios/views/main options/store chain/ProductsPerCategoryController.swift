@@ -50,6 +50,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         
         self.tv_sub_categories.delegate = self
         self.tv_sub_categories.dataSource = self
+        self.tv_sub_categories.separatorStyle = .none
     }
     
     //This is the controller for the category level (the product level is in each cell

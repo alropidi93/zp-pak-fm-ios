@@ -42,7 +42,8 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
      
     }
     

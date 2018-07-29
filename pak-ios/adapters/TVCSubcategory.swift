@@ -43,14 +43,28 @@ class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCProduct
         UtilMethods.setImage(imageview: cell.iv_item_photo, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
         cell.l_item_name.text = self.items[indexPath.item].name
+       
         cell.l_price_unity.text = "S/" + String(format : "%.2f",(self.items[indexPath.item].price))
         cell.b_add_item.tag = indexPath.row
         cell.b_add_item.addTarget(self, action: #selector(buttonAdd), for: .touchUpInside)
         cell.b_favorites.tag = indexPath.row
-        if indexPath.item == 0{
+        
+        if self.items[indexPath.item].favourite == true {
+            cell.b_favorites.setImage(UIImage(named: "dwb-ic_favorite_on"), for: .normal)
+        }else {
+            cell.b_favorites.setImage(UIImage(named: "dwb_pak_button_hearth_gray"), for: .normal)
+        }
+        
+        
+        if indexPath.row == 0{
             cell.iv_start.isHidden = false
-        }else if indexPath.item == items.count - 1  {
+            cell.iv_end.isHidden = true
+        }else if indexPath.row == items.count - 1  {
+            cell.iv_start.isHidden = true
             cell.iv_end.isHidden = false
+        }else {
+            cell.iv_end.isHidden = true
+            cell.iv_start.isHidden = true
         }
         cell.b_favorites.addTarget(self, action: #selector(buttonFavorite), for: .touchUpInside)
         return cell
