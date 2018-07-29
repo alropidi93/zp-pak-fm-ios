@@ -16,7 +16,7 @@ class RoundedCornerViewGreen: UIView
     
     @IBInspectable var rectBgColor:     UIColor = UIColor(rgb: 0x81D34C)
     @IBInspectable var rectBorderColor: UIColor = UIColor(rgb: 0x81D34C)
-    @IBInspectable var rectBorderWidth: CGFloat = 0.5
+    @IBInspectable var rectBorderWidth: CGFloat = 1
     @IBInspectable var rectCornerRadius:CGFloat = 11
         {
         didSet { print("cornerRadius was set here")

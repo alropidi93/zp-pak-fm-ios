@@ -108,6 +108,8 @@
 		70F54C9720901210003175AA /* SmallBoxDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C9620901210003175AA /* SmallBoxDC.swift */; };
 		70F54C992090174F003175AA /* ItemSmallBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C982090174F003175AA /* ItemSmallBox.swift */; };
 		70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F54C9A2090176B003175AA /* DiscountDC.swift */; };
+		BE5E26C8210D52520008FF3F /* SignUpGoFbController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E26C7210D52520008FF3F /* SignUpGoFbController.swift */; };
+		BE5E26CA210D56410008FF3F /* EditFbGoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E26C9210D56410008FF3F /* EditFbGoController.swift */; };
 		D1E5D6AEBC3FD1CB1719C7BD /* Pods_pak_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88304DAD4411D9662A2FB6BA /* Pods_pak_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -219,6 +221,8 @@
 		70F54C9A2090176B003175AA /* DiscountDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountDC.swift; sourceTree = "<group>"; };
 		88304DAD4411D9662A2FB6BA /* Pods_pak_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pak_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD2BD39AD4E1893A86FD9E3 /* Pods-pak-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pak-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		BE5E26C7210D52520008FF3F /* SignUpGoFbController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpGoFbController.swift; sourceTree = "<group>"; };
+		BE5E26C9210D56410008FF3F /* EditFbGoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFbGoController.swift; sourceTree = "<group>"; };
 		E2970712E726CC2B47C49753 /* Pods-pak-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pak-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-pak-ios/Pods-pak-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -549,6 +553,8 @@
 				70A3BE31208F7C08008C972C /* SignUpController.swift */,
 				70A3BE33208F7C1B008C972C /* SplashController.swift */,
 				70BF263920D087EC002FD0F9 /* EditController.swift */,
+				BE5E26C7210D52520008FF3F /* SignUpGoFbController.swift */,
+				BE5E26C9210D56410008FF3F /* EditFbGoController.swift */,
 			);
 			path = authentication;
 			sourceTree = "<group>";
@@ -843,6 +849,7 @@
 				70A3BE39208F8003008C972C /* UserDC.swift in Sources */,
 				70C5DBB0210230CD0046C1F2 /* UIColorExtension.swift in Sources */,
 				709A334420AE0FC1003AB207 /* ProductDC.swift in Sources */,
+				BE5E26C8210D52520008FF3F /* SignUpGoFbController.swift in Sources */,
 				7053BB7F20E729C900C5A277 /* BadgedExtension.swift in Sources */,
 				70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */,
 				707B8F6520B4F3E600FC7848 /* CVCSmallBoxItem.swift in Sources */,
@@ -862,6 +869,7 @@
 				7028135720C4509300DD5443 /* PakAlertSummary.swift in Sources */,
 				7094747320F19ECC0035EADD /* DateExtension.swift in Sources */,
 				70D5F0ED209B78A400EE673B /* MainController.swift in Sources */,
+				BE5E26CA210D56410008FF3F /* EditFbGoController.swift in Sources */,
 				701D2878207EAD01007AD7AC /* AppDelegate.swift in Sources */,
 				70DF102B208FE8E200EDB1FA /* DistrictDC.swift in Sources */,
 				703C1C3820C83D3400488E16 /* AlertViewPayment.swift in Sources */,

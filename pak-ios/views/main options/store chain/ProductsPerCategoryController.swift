@@ -123,7 +123,11 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                         self.cant += 1
-                        let snackbar = TTGSnackbar(message: "Se agrego " + String(self.cant) + "el producto", duration: .middle)
+                        var snackbar = TTGSnackbar(message: "Has agregado 1 " + product.name , duration: .middle)
+
+                        if self.cant > 0 {
+                            snackbar = TTGSnackbar(message: "Has agregado " + String(self.cant) + " unidades de " + product.name, duration: .middle)
+                        }
                         snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                         snackbar.show()
                         ConstantsModels.count_item = ConstantsModels.count_item + 1

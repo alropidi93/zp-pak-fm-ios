@@ -23,6 +23,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     
     let segue_identifier = "segue_login_main"
     let signup_identifier = "segue_login_signup"
+    let signup_identifier_go_fb = "segue_login_signup_fb_go"
     var user : UserDC? = nil
     @IBOutlet weak var tf_email: UITextField!
     @IBOutlet weak var tf_password: UITextField!
@@ -336,7 +337,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == self.signup_identifier {
+        if segue.identifier == self.signup_identifier_go_fb {
             if let vc = segue.destination as? SignUpController {
                 vc.user = self.user
             }

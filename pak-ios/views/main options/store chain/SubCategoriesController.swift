@@ -22,6 +22,13 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     var items : [CategoriesDC] = []
     private var selectedItems : [CategoriesDC] = []
     
+    /*holiwiw ¡ =)*/
+    
+    var itemsAll : CategoriesDC  = CategoriesDC()
+    
+    
+    /*holiwiw chau ¡ =)*/
+    
     private let segue_category_sub_category = "segue_category_sub_category"
     private let segue_category_detail = "segue_category_detail"
     let segue_search_view = "segue_search_view"
@@ -132,6 +139,8 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
                                 let category  = CategoriesDC(element)
                                 self.selectedItems.append(category)
                             }
+                            self.createAll()
+
                             self.performSegue(withIdentifier: self.segue_category_detail, sender: self)
                         }
                     }
@@ -146,6 +155,16 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
             }
             self.stopAnimating()
         }
+    }
+    
+    func createAll(){
+        itemsAll.name = "Todos"
+        for itemI in self.items{
+            for itemJ in itemI.list{
+                itemsAll.list.append(itemJ)
+            }
+        }
+        items.insert(itemsAll, at: 0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
