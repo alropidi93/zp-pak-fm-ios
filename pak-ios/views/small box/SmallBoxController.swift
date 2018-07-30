@@ -317,6 +317,8 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         
         let navView = UIView()
         let label = UILabel()
+        label.font = UIFont(name: "OpenSans-Light", size: 25)
+
         label.text = "  Mi cajita"
         label.sizeToFit()
         label.center = navView.center

@@ -55,7 +55,7 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     }
     
     func setElements() {        
-        self.l_selected_category_title.text = "\"" + selected_title + "\""
+        self.l_selected_category_title.text =  selected_title 
         self.cv_categories.delegate = self
         self.cv_categories.dataSource = self
     }

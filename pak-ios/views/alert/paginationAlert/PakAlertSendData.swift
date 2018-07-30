@@ -75,12 +75,10 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         self.tf_district.addGestureRecognizer(tap_district)
         
         self.tf_hours.inputView = UIView()
-        self.tf_hours.setBottomBorder()
         let tap_hours = UITapGestureRecognizer(target: self, action: #selector(self.tapHours(_:)))
         self.tf_hours.addGestureRecognizer(tap_hours)
         
         self.tf_date.inputView = UIView()
-        self.tf_date.setBottomBorder()
         let tap_date = UITapGestureRecognizer(target: self, action: #selector(self.tapDate(_:)))
         self.tf_date.addGestureRecognizer(tap_date)
         
@@ -235,4 +233,4 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     
     
     
-}
+} 

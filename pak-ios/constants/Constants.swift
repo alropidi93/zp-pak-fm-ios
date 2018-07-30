@@ -45,7 +45,9 @@ class Constants {
     //SEARCHBAR
     static let PLACEHOLDERSB : String = "Buscar producto"
     //
-    static let MOTIVE : String = "Gracias a la invitación de "
+    static let MOTIVEI: String = "Por invitar a "
+    static let MOTIVEV: String = "Gracias a la invitación de "
+
     static let REGISTER : String = "Te has registrado con éxito. Te hemos enviado un correo electónico para poder activar tu cuenta."
 }
 

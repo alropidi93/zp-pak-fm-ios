@@ -17,5 +17,7 @@ class CVCToDeliver :UICollectionViewCell {
     @IBOutlet weak var l_hour_recive: UILabel!
     @IBOutlet weak var l_total: UILabel!
     @IBOutlet var b_cancel: UIButton!
+    @IBOutlet weak var l_anular: UILabel!
+    
     
 }

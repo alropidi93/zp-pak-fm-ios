@@ -23,6 +23,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     
     var cant : Int = 0
     let segue_identifier : String = "segue_product_detail"
+    let segue_search_view = "segue_search_view"
 
     private let reuse_category_identifier = "cvc_category_name"
     private let reuse_list_product_identifier = "tvc_list_products"
@@ -35,8 +36,12 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     private var indexPathSelected : IndexPath?
     private var itemProduct : ProductDC? = nil
     
+    var searchWord : String = ""
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationBarWithSearch()
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
         setElements()
@@ -111,9 +116,6 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
 
     }
     
-    
-  
-    
     func addProduct(_ product : ProductDC) {
         let params: Parameters = [ "IdProducto": product.idProduct, "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID, "Cantidad": 1]
         print(product.idProduct)
@@ -156,6 +158,10 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         if segue.identifier == self.segue_identifier {
             if let pdc = segue.destination as? ProductsDetailController {
                 pdc.item = self.itemProduct
+            }
+        }else if segue.identifier == self.segue_search_view {
+            if let vc = segue.destination as? SearchView {
+                vc.text = self.searchWord
             }
         }
     }

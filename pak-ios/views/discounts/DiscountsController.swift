@@ -45,7 +45,6 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         self.cv_discount_list.dataSource = self
         self.getListDiscount()
         l_code.text = ConstantsModels.static_user?.codeInvitation
-        print(ConstantsModels.static_user?.applicableInvitationCode)
         if (ConstantsModels.static_user?.applicableInvitationCode)!{
             b_add_invitation.isHidden = false
             b_add_invitation.isEnabled = true
@@ -63,7 +62,11 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCAddCode
         cell.l_date_discount.text = self.items[indexPath.item].caducityDate
-        cell.l_motive.text = Constants.MOTIVE + self.items[indexPath.item].detail
+        if self.items[indexPath.item].detail == "I" {
+            cell.l_motive.text = Constants.MOTIVEV + self.items[indexPath.item].detailName
+        }else if self.items[indexPath.item].detail == "V" {
+            cell.l_motive.text = Constants.MOTIVEI + self.items[indexPath.item].detailName
+        }
         cell.l_discount_percent.text = String(self.items[indexPath.item].percentage) + " %"
         return cell
     }
@@ -146,6 +149,9 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
                 return
             }
             let statusCode = response.response!.statusCode
+            let data = try! JSONSerialization.data(withJSONObject: response.result.value, options: .prettyPrinted)
+            let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+            print(string)
             if statusCode == 200 {
                 
                 if let jsonResponse = response.result.value {
@@ -182,6 +188,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         
         let navView = UIView()
         let label = UILabel()
+        label.font = UIFont(name: "OpenSans-Light", size: 25)
         label.text = "  Mis descuentos"
        
         label.sizeToFit()

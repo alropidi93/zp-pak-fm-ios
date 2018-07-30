@@ -93,7 +93,7 @@ class UserDC : NSObject, NSCoding {
         coder.encode(_address,forKey: "Direccion")
         coder.encode(_telephone, forKey: "Telefono")
         coder.encode(_district, forKey: "Distrito")
-        coder.encode(_codeInvitation, forKey: "CodigoInvitacionAplicable")
+        coder.encode(_codeInvitation, forKey: "CodigoInvitacionAplicablef")
         coder.encode(_accessToken, forKey: "AccessToken")
         coder.encode(_smallBox, forKey: "Cajita")
         coder.encode(_valid, forKey: "valid")

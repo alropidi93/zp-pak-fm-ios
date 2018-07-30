@@ -253,6 +253,23 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     func customizeNavigationBarSearch( ) {
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
+        let navView = UIView()
+        let label = UILabel()
+        label.font = UIFont(name: "OpenSans-Light", size: 20)
+        label.textColor = UIColor(rgb: 0x81D34C)
+        label.text = "Resultados de busqueda"
+        label.sizeToFit()
+        label.center = navView.center
+        label.textAlignment = NSTextAlignment.center
+        navView.addSubview(label)
+        self.navigationItem.titleView = navView
+        navView.sizeToFit()
+        
+        
+        
+        
         notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
         notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)

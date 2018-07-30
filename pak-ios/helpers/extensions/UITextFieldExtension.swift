@@ -20,4 +20,7 @@ extension UITextField {
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0
     }
+    func clearBottomBorder(){
+        self.borderStyle = .none
+    }
 }

@@ -14,6 +14,7 @@ import AVKit
 import NVActivityIndicatorView
 
 class RootCategoriesController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout {
+    
     @IBOutlet weak var cv_categories: UICollectionView!
     @IBOutlet weak var l_selected_category_title: UILabel!
     
@@ -53,7 +54,7 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
     }
     
     func setElements() {        
-        self.l_selected_category_title.text = "\"" + selected_title + "\""
+        self.l_selected_category_title.text = selected_title
         self.cv_categories.delegate = self
         self.cv_categories.dataSource = self
     }

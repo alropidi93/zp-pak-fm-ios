@@ -22,6 +22,8 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     private let segue_identifier = "segue_todelivery_todetail"
     private let reuse_identifier = "cvc_todelivery"
     @IBOutlet weak var b_filtre: UIButton!
+  
+    
     
     var filtre : Int = 1
     var items : [OrderDC] = []
@@ -101,10 +103,12 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
         
         if Date() < UtilMethods.stringToDate(self.items[indexPath.item].dateHourMaxAnulation) {
+            cell.l_anular.isHidden = false
             cell.b_cancel.isHidden = false
             cell.b_cancel.tag = indexPath.row
             cell.b_cancel.addTarget(self, action: #selector(cancelOrderFunc), for: .touchUpInside)
         }else {
+            cell.l_anular.isHidden = true
             cell.b_cancel.isHidden = true
             cell.b_cancel.isEnabled = false
         }

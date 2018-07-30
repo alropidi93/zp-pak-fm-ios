@@ -16,10 +16,13 @@ class PakAlertCardData : UIViewController, PageObservation{
     @IBOutlet weak var tf_expired_date: UITextField!
     @IBOutlet weak var tf_ccv: UITextField!
     
+    let datePicker = UIDatePicker()
+
     var date = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //showDatePicker()
         setElements()
     }
     
@@ -32,7 +35,6 @@ class PakAlertCardData : UIViewController, PageObservation{
         tf_card_number.addTarget(self, action: #selector(textfieldDidChangecard_number), for: .editingChanged)
         
         self.tf_expired_date.inputView = UIView()
-        self.tf_expired_date.setBottomBorder()
         let tap_date = UITapGestureRecognizer(target: self, action: #selector(self.tapDate(_:)))
         self.tf_expired_date.addGestureRecognizer(tap_date)
         
@@ -71,7 +73,37 @@ class PakAlertCardData : UIViewController, PageObservation{
     func getParentPageViewController(parentRef: AlertPageVc) {
         parentPageViewController = parentRef
     }
+    /*
+    func showDatePicker(){
+        //Formate Date
+        datePicker.datePickerMode = .date
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        tf_expired_date.inputAccessoryView = toolbar
+        tf_expired_date.inputView = datePicker
+        
+    }
     
+    @objc func donedatePicker(){
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/yyyy"
+        tf_expired_date.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
     
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }*/
 }
+    
+
 

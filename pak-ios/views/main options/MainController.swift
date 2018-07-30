@@ -120,6 +120,7 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
             }
         }
     }
+    
     func setObserversNot() {
         NotificationCenter.default.addObserver(self, selector: #selector(qualifyStaffFromNotification), name: NSNotification.Name(rawValue: "pedido_entregado"), object: nil)
         
