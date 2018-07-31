@@ -15,12 +15,15 @@ import FacebookLogin
 import SwiftHash
 import SideMenu
 
-class EndBoxController: UIViewController {
+class EndBoxController: UIViewController,AlertEndBoxDelegate {
+    
+    
     // Segues
     @IBOutlet var iv_logo_end: UIImageView!
     private let splash_identifier = "segue_splash_close"
     private var animation_parts: [UIImage] = [ UIImage(named: "dwb-pak-splash-5")!, UIImage(named: "dwb-pak-splash-4")!, UIImage(named: "dwb-pak-splash-3")!,UIImage(named: "dwb-pak-splash-2")!,UIImage(named: "dwb-pak-splash-1")!]
-    
+    var alertEndBoxDelegate : AlertEndBoxDelegate? = nil
+
     // Common functions
     override func viewDidLoad() {
         
@@ -33,10 +36,10 @@ class EndBoxController: UIViewController {
         
         
         UIView.animate(withDuration: 1, animations: {
-            self.iv_logo_end.frame.origin.x += 200
+            self.iv_logo_end.frame.origin.x -= 0
         }){_ in
             UIView.animateKeyframes(withDuration: 1, delay: 0.25, options: [], animations: {
-                self.iv_logo_end.frame.origin.x -= 0
+                self.iv_logo_end.frame.origin.x -= 400
             },completion: {(finished: Bool) in
                 
                 self.iv_logo_end.image = self.animation_parts.last
@@ -58,8 +61,8 @@ class EndBoxController: UIViewController {
                                 self?.iv_logo_end.frame.origin.x += 400
                             },completion: {(finished: Bool) in
                                 
-
-                                self?.performSegue(withIdentifier: (self?.splash_identifier)!, sender: self)
+                                self?.alertDialog(uiViewController: self!)
+                                
                             })
                         }
                     }
@@ -68,11 +71,22 @@ class EndBoxController: UIViewController {
         }
     }
     
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
-    
+    func alertDialog(uiViewController: UIViewController) {
+        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_end_box") as! PakAlertEndBox
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        pakAlert.alertEndBoxDelegate = self
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        uiViewController.present(pakAlert, animated: true, completion: nil)
+    }
+    func okButtonTapped() {
+        self.performSegue(withIdentifier: (self.splash_identifier), sender: self)
+    }
     
 }

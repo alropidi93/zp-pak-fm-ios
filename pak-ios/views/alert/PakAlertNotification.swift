@@ -16,6 +16,7 @@ import NVActivityIndicatorView
 class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
     var number : Int = 0
     var val : Int = 0
+    
     @IBAction func b_accept(_ sender: Any) {
         self.calification()
     }
@@ -26,6 +27,30 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
     @IBOutlet weak var b_s_4: UIButton!
     @IBOutlet weak var b_s_5: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.b_s_1.contentVerticalAlignment = UIControlContentVerticalAlignment.fill
+        self.b_s_2.contentVerticalAlignment = UIControlContentVerticalAlignment.fill
+        self.b_s_3.contentVerticalAlignment = UIControlContentVerticalAlignment.fill
+        self.b_s_4.contentVerticalAlignment = UIControlContentVerticalAlignment.fill
+        self.b_s_5.contentVerticalAlignment = UIControlContentVerticalAlignment.fill
+        
+        self.b_s_1.contentHorizontalAlignment = UIControlContentHorizontalAlignment.fill
+        self.b_s_2.contentHorizontalAlignment = UIControlContentHorizontalAlignment.fill
+        self.b_s_3.contentHorizontalAlignment = UIControlContentHorizontalAlignment.fill
+        self.b_s_4.contentHorizontalAlignment = UIControlContentHorizontalAlignment.fill
+        self.b_s_5.contentHorizontalAlignment = UIControlContentHorizontalAlignment.fill
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.layoutIfNeeded()
+    }
 //    dwb_estrella_gray
 //    dwb_estrella_yellow
 //    b_favorites.setImage(UIImage(named: "dwb-ic_favorite_on"), for: .normal)

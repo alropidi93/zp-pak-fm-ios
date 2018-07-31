@@ -43,6 +43,12 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
         getGUID()
     }
     
+    @IBAction func b_back(_ sender: Any) {
+        parentPageViewController.goBackPage()
+
+    }
+    
+    
     func getParentPageViewController(parentRef: AlertPageVc) {
         parentPageViewController = parentRef
     }

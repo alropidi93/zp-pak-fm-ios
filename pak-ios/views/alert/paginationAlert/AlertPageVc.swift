@@ -67,6 +67,15 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         return VCArr[nowPage - 1]
     }
     
+    func goBackPage() {
+        print(self.pageNow)
+        self.pageNow = self.pageNow - 1
+
+        let viewController = self.VCArr[self.pageNow - 1]
+        setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
+        print(self.pageNow)
+
+    }
     
     func goNextPage(forwardTo position: Int) {
         switch position {
@@ -74,6 +83,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
             if (validateFirstController() == true){
                 let viewController = self.VCArr[position]
                 setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
+                print(self.pageNow)
                 self.pageNow = self.pageNow + 1
             }
             else {
@@ -141,8 +151,6 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     }
     
     func validatePayController() {
-       
-        
         payment()
     }
     
@@ -159,23 +167,28 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         Alamofire.request(URLs.Payment, method: .post, parameters: params ,encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
-
                 self.stopAnimating()
                 return
             }
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
+                    
                     let jsonResult = JSON(jsonResponse)
+                    let data = try! JSONSerialization.data(withJSONObject: response.result.value, options: .prettyPrinted)
+                    let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                    print(string)
+                    
                     if jsonResult["Msg"] == "OK"{
                         self.dismiss(animated: false, completion: nil)
-                    
                         self.finishBoxDelegate?.okButtonTapped()
                         self.stopAnimating()
+                    }else {
+                        AlarmMethods.ReadyCustom(message: "Se ha llegado al límite de pedidos para este horario de reparto.", title_message: "¡Oops!", uiViewController: self)
                     }
                 }
             } else {
-                AlamoMethods.defaultError(self)
+                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
             }
         }
         self.stopAnimating()

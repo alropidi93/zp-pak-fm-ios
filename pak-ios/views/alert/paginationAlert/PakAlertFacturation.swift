@@ -58,6 +58,13 @@ class PakAlertFacturacion : UIViewController,PageObservation,UITextFieldDelegate
         print("factura")
     }
     
+    
+    @IBAction func b_back(_ sender: Any) {
+        parentPageViewController.goBackPage()
+        
+    }
+    
+    
     @IBAction func b_bolata(_ sender: Any) {
         parentPageViewController.boletaOrFactura = 0
         self.hideMenuBolOFact()

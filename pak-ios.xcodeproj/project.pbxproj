@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F234B2821103D5600712D22 /* AlertEndBoxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F234B2721103D5500712D22 /* AlertEndBoxDelegate.swift */; };
+		0F234B2A21103DC700712D22 /* PakAlertEndBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F234B2921103DC700712D22 /* PakAlertEndBox.swift */; };
+		0F234B2C211044B800712D22 /* PakAlertLogueout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F234B2B211044B800712D22 /* PakAlertLogueout.swift */; };
 		0F5FC83D20F8A530005ED047 /* PakAlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FC83C20F8A530005ED047 /* PakAlertNotification.swift */; };
 		0FA28D7920F46E9500888298 /* FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA28D7820F46E9500888298 /* FavouriteController.swift */; };
 		0FA5EA6C20F841AA00FD7372 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FA5EA6B20F841AA00FD7372 /* GoogleService-Info.plist */; };
@@ -114,6 +117,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F234B2721103D5500712D22 /* AlertEndBoxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertEndBoxDelegate.swift; sourceTree = "<group>"; };
+		0F234B2921103DC700712D22 /* PakAlertEndBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertEndBox.swift; sourceTree = "<group>"; };
+		0F234B2B211044B800712D22 /* PakAlertLogueout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertLogueout.swift; sourceTree = "<group>"; };
 		0F5FC83C20F8A530005ED047 /* PakAlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertNotification.swift; sourceTree = "<group>"; };
 		0FA28D7820F46E9500888298 /* FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteController.swift; sourceTree = "<group>"; };
 		0FA5EA6B20F841AA00FD7372 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -361,6 +367,7 @@
 				70242A9920D937B600F89299 /* PageObservation.swift */,
 				12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */,
 				1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */,
+				0F234B2721103D5500712D22 /* AlertEndBoxDelegate.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -572,6 +579,8 @@
 				709D48F820EB54FD00B990DE /* PakAlertCancel.swift */,
 				12A47DD620F3EF5600CD98FB /* PakAlertSuccessPass.swift */,
 				0F5FC83C20F8A530005ED047 /* PakAlertNotification.swift */,
+				0F234B2921103DC700712D22 /* PakAlertEndBox.swift */,
+				0F234B2B211044B800712D22 /* PakAlertLogueout.swift */,
 			);
 			path = alert;
 			sourceTree = "<group>";
@@ -841,9 +850,12 @@
 				7007931320D2B26000DE70CA /* PakAlertRecoverAccount.swift in Sources */,
 				709D48F920EB54FD00B990DE /* PakAlertCancel.swift in Sources */,
 				1215FBF620F545B400E8879C /* EndBoxController.swift in Sources */,
+				0F234B2A21103DC700712D22 /* PakAlertEndBox.swift in Sources */,
 				70242A9820D914E600F89299 /* ProductPerCategory.swift in Sources */,
 				708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */,
+				0F234B2C211044B800712D22 /* PakAlertLogueout.swift in Sources */,
 				12A47DD720F3EF5600CD98FB /* PakAlertSuccessPass.swift in Sources */,
+				0F234B2821103D5600712D22 /* AlertEndBoxDelegate.swift in Sources */,
 				709D48F520EB0E2000B990DE /* CVCDetailOrder.swift in Sources */,
 				700C7C7720D88BFF000FD7E5 /* SubCategoriesController.swift in Sources */,
 				70A3BE39208F8003008C972C /* UserDC.swift in Sources */,

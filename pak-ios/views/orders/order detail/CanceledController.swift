@@ -94,7 +94,13 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
         arr = self.items[indexPath.item].dateCancel.components(separatedBy: "/")
         cell.l_m_recive.text = UtilMethods.DateIntToString(arr[1])
         cell.l_d_recive.text = arr[0]
-
+        
+        if self.items[indexPath.item].state == "A"{
+            cell.l_cOrA.text = "Anulado"
+        }else if self.items[indexPath.item].state == "C"{
+            cell.l_cOrA.text = "Cancelado"
+        }
+        
         var arrHourR = self.items[indexPath.item].dateCancel.components(separatedBy: " ")
         var hourtextR = arrHourR[1].components(separatedBy: ":")
 
@@ -110,7 +116,7 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
     func ToDeliver() {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         
-        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "Estado": "A" , "FiltroMeses" : self.filtre ]
+        let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0, "Estado": "A,C" , "FiltroMeses" : self.filtre ]
         
         Alamofire.request(URLs.ListOrders, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {

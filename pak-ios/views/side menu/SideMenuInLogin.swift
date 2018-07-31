@@ -67,9 +67,12 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     
    
     @IBAction func logueOut(_ sender: Any) {
-        ConstantsModels.static_user = nil
+       /* ConstantsModels.static_user = nil
         PreferencesMethods.deleteAccessTokenFromOptions()
         self.getGUID()
+        */
+        NotificationCenter.default.post(name: .viewLogueout, object: nil, userInfo: nil)
+
         dismiss(animated: true, completion: nil)
     }
     
@@ -84,7 +87,6 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     }
     
     @IBAction func Favorities(_ sender: Any) {
-        print("Favorities")
         self.performSegue(withIdentifier: (self.segue_favorites), sender: self)
     }
     

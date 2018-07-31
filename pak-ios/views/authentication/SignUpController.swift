@@ -71,21 +71,12 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         
         self.tf_phone.delegate = self
         
-        if user != nil {
-            self.tf_name.text = user?.names
-            self.tf_email.text = user?.userName
-            self.tf_lastname.text = user?.lastNames
-            self.tf_birthday.text = user?.birthDate
-            self.tf_email.isUserInteractionEnabled = false
-        }
-        
     }
     
     
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {
         
         let alert = UIAlertController(style: .actionSheet, title: "Fecha")
-        self.tf_birthday.text = UtilMethods.formatDate(Date())
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: nil, maximumDate: Date()) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_birthday.text = UtilMethods.formatDate(date)
@@ -344,7 +335,6 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                 }
             }
         }
-        
     }
     
     func alertDialog(uiViewController: UIViewController) {

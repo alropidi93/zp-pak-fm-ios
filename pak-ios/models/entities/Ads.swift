@@ -34,7 +34,7 @@ class Ads: NSObject {
             let asset = AVAsset(url: url)
             let assetImgGenerate : AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
             assetImgGenerate.appliesPreferredTrackTransform = true
-            let time = CMTimeMake(1, 2)
+            let time = CMTimeMake(2, 1)
             let img = try? assetImgGenerate.copyCGImage(at: time, actualTime: nil)
             if img == nil {
                 self._thumbnail = UIImage(named: "")

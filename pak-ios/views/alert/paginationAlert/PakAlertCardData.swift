@@ -49,6 +49,12 @@ class PakAlertCardData : UIViewController, PageObservation{
         parentPageViewController.numTarjeta = sender.text!
     }
     
+    @IBAction func b_back(_ sender: Any) {
+        parentPageViewController.goBackPage()
+
+    }
+    
+    
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
         let alert = UIAlertController(style: .actionSheet, title: "Fecha")
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: nil ) { date in

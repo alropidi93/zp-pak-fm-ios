@@ -62,7 +62,19 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
         notificationCenter.addObserver(self, selector: #selector(viewInitial), name: .viewInit, object: nil)
         notificationCenter.addObserver(self, selector: #selector(viewStore), name: .viewStore, object: nil)
         notificationCenter.addObserver(self, selector: #selector(pakAlertNotification), name: .viewNotification, object: nil)
-
+        notificationCenter.addObserver(self, selector: #selector(pakAlertLogueOut), name: .viewLogueout, object: nil)
+    }
+    
+    @objc func pakAlertLogueOut(_ notification: NSNotification) {
+        alertDialogLogueOut(uiViewController: self)
+    }
+    
+    func alertDialogLogueOut(uiViewController: UIViewController) {
+        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "alert_logueout") as! PakAlertLogueout
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        uiViewController.present(pakAlert, animated: true, completion: nil)
     }
     
     @objc func pakAlertNotification(_ notification: NSNotification) {

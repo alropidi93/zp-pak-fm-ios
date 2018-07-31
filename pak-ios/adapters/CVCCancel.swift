@@ -17,4 +17,5 @@ class CVCCancel : UICollectionViewCell {
     @IBOutlet weak var l_m_recive: UILabel!
     @IBOutlet weak var l_d_recive: UILabel!
     @IBOutlet weak var l_total: UILabel!
+    @IBOutlet weak var l_cOrA: UILabel!
 }
