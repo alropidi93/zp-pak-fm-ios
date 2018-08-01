@@ -33,6 +33,10 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     var itemId : Int = -1
     var items : [ItemOrderDC] = []
     var order : OrderDC? = nil
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.customizeNavigationBarOrders()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +52,8 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         self.cv_detail_order.delegate = self
         self.cv_detail_order.dataSource = self
     }
+    
+   
     
     func setLabels() {
         l_number.text = "\(String(describing: order?.number ?? 0))"
@@ -126,6 +132,48 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
             }
             self.stopAnimating()
         }
+    }
+    func customizeNavigationBarOrders( ) {
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        let navView = UIView()
+        let label = UILabel()
+        label.font = UIFont(name: "OpenSans-Light", size: 25)
+        
+        label.text = "  Mis pedidos"
+        label.sizeToFit()
+        label.center = navView.center
+        label.textAlignment = NSTextAlignment.center
+        let image = UIImageView()
+        image.image = UIImage(named: "dwb_pak_button_orders")
+        let imageAspect = image.image!.size.width/image.image!.size.height
+        image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
+        image.contentMode = UIViewContentMode.scaleAspectFit
+        navView.addSubview(label)
+        navView.addSubview(image)
+        self.navigationItem.titleView = navView
+        navView.sizeToFit()
+        
+        let smallbox :SmallBoxDC =  PreferencesMethods.getSmallBoxFromOptions()!
+        ConstantsModels.count_item = 0
+        for element in 0..<smallbox.items.count{
+            ConstantsModels.count_item += Int(smallbox.items[element].cant)
+        }
+        if ConstantsModels.count_item == 0 {
+            var btnsMenuRight : [UIBarButtonItem] = []
+            let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
+            btnsMenuRight.append(btnMenuRight)
+            self.navigationItem.rightBarButtonItems = btnsMenuRight
+        }else {
+            let notificationButton = SSBadgeButton()
+            notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
+            notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+            notificationButton.badge = "\(ConstantsModels.count_item) "
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+        }
+        
     }
 }
 

@@ -1,26 +1,25 @@
 //
-//  PakAlertCancel.swift
+//  PakAlertOutCar.swift
 //  pak-ios
 //
-//  Created by Paolo Rossi on 7/3/18.
+//  Created by Alvaro on 8/1/18.
 //  Copyright © 2018 Paolo Rossi. All rights reserved.
 //
 
 import Foundation
-
-import SwiftyJSON
 import UIKit
+import SwiftyJSON
 import Alamofire
 import NVActivityIndicatorView
 import FacebookCore
 import FacebookLogin
 import SwiftHash
 import SideMenu
+import GoogleSignIn
 
-class PakAlertCancel: UIViewController  ,NVActivityIndicatorViewable{
-
+class PakAlertOutCar: UIViewController,NVActivityIndicatorViewable  {
     
-    var alertCancel : AlertCancelDelegate? = nil
+    var alertBoxCar : AlertBoxCarDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +33,13 @@ class PakAlertCancel: UIViewController  ,NVActivityIndicatorViewable{
         super.viewDidLayoutSubviews()
         view.layoutIfNeeded()
     }
-
+    
     @IBAction func b_accept(_ sender: Any) {
-        alertCancel?.okButtonTapped()
-        self.dismiss(animated: true, completion: nil)
+alertBoxCar?.okButtonTapped()
 
     }
-    
     @IBAction func b_cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
+
     }
-    
 }

@@ -71,9 +71,11 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
         PreferencesMethods.deleteAccessTokenFromOptions()
         self.getGUID()
         */
+        dismiss(animated: true, completion: nil)
+
         NotificationCenter.default.post(name: .viewLogueout, object: nil, userInfo: nil)
 
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
     }
     
     @IBAction func initial(_ sender: Any) {

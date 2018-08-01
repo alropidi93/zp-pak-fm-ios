@@ -14,7 +14,9 @@ import NVActivityIndicatorView
 import RLBAlertsPickers
 import SwiftHash
 
-class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicatorViewable{
+class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicatorViewable, AlertBoxCarDelegate{
+   
+    
     var parentPageViewController: AlertPageVc!
 
     @IBOutlet weak var tf_direction: UITextField!
@@ -49,7 +51,22 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
 
     var date = -1
     @IBAction func b_dismiss(_ sender: Any) {
+        self.alertOutCar(uiViewController: self)
+    }
+    
+    func alertOutCar(uiViewController: UIViewController) {
+        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "alert_out_car") as! PakAlertOutCar
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        pakAlert.alertBoxCar = self
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        uiViewController.present(pakAlert, animated: true, completion: nil)
+    }
+    
+    func okButtonTapped() {
         self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()

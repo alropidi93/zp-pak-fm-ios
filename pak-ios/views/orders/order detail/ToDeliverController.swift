@@ -16,13 +16,16 @@ import Agrume
 import PlayerKit
 import RLBAlertsPickers
 
-class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource {
+class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource , AlertCancelDelegate{
+    
+    
     @IBOutlet weak var cv_to_delivery: UICollectionView!
     
     private let segue_identifier = "segue_todelivery_todetail"
     private let reuse_identifier = "cvc_todelivery"
     @IBOutlet weak var b_filtre: UIButton!
   
+    var selected : Int = -1
     
     
     var filtre : Int = 1
@@ -116,9 +119,25 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     }
     
     @objc func cancelOrderFunc(sender: UIButton!) {
-        let order : OrderDC = items[sender.tag]
-        cancelOrder(Int(order.number) , sender.tag)
+        self.selected = sender.tag
+        self.alertDialogCancelOrder(uiViewController: self)
+
     }
+    
+    func okButtonTapped() {
+        let order : OrderDC = items[self.selected]
+        cancelOrder(Int(order.number) , self.selected)
+    }
+    func alertDialogCancelOrder(uiViewController: UIViewController) {
+        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "alert_cancel") as! PakAlertCancel
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        pakAlert.alertCancel = self
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+        uiViewController.present(pakAlert, animated: true, completion: nil)
+    }
+    
     
     func cancelOrder(_ idItem : Int ,_ pos : Int) {
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
@@ -139,6 +158,8 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
                     if jsonResult["Msg"] == "OK"{
                         self.items.remove(at: pos)
                         self.cv_to_delivery.reloadData()
+                        AlarmMethods.ReadyCustom(message: "Tu pedido ha sido anulado con éxito.", title_message: "¡Listo!", uiViewController: self)
+
                     }
                 }
             } else {
@@ -170,13 +191,11 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
                 self.stopAnimating()
                 return
             }
+            
             let statusCode = response.response!.statusCode
             let data = try! JSONSerialization.data(withJSONObject: response.result.value, options: .prettyPrinted)
             let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-            print("hola")
-            
             print(string)
-            print("hola")
             
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {

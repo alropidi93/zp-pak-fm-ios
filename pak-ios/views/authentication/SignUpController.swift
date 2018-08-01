@@ -40,12 +40,12 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-      
+        	self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.backButton()
         setElements()
         
     }
@@ -358,6 +358,27 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         dismiss(animated: true, completion: nil)
 //        self.navigationController?.dismiss(animated: true,completion: nil)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func backButton (){
+        self.navigationController?.navigationBar.topItem?.title = " "
+        let backBTN = UIBarButtonItem(image: UIImage(named: "dwb_pak_button_header_back"),
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(buttonBackAction))
+        self.navigationController?.navigationBar.topItem?.leftBarButtonItem = backBTN
+        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+        
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(rgb: 0x81D34C)
+
+       
+    }
+    @objc func buttonBackAction (_ sender: Any) {
+        print("hola")
+        dismiss(animated: true, completion: nil)
+
+        self.navigationController?.popViewController(animated: true)
+
     }
 }
 

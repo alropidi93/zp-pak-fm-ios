@@ -43,7 +43,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
         
         var yourAttributes : [NSAttributedStringKey : Any] = [
             NSAttributedStringKey.font : UIFont(name: "OpenSans-Light", size: 15),
-            NSAttributedStringKey.foregroundColor : UIColor(rgb: 0xEAEAEA),//EAEAEA
+            NSAttributedStringKey.foregroundColor : UIColor(rgb: 0xEAEAEA),
             NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
         ]
         let attributeString = NSMutableAttributedString(string: "Olvidé mi contraseña",
