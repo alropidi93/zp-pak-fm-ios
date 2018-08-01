@@ -201,7 +201,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         
         let navView = UIView()
         let label = UILabel()
-        label.font = UIFont(name: "OpenSans-Light", size: 25)
+        label.font = UIFont(name: "OpenSans-Light", size: 20)
         
         label.text = "  Mis Favoritos"
         label.sizeToFit()

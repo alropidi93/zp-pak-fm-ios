@@ -125,7 +125,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
             if checkOut.ruc != "" && checkOut.businessName != "" && checkOut.fiscalAddress != "" && checkOut.ruc.count == 11{
                 return true
             }else if checkOut.ruc.count != 11{
-                AlarmMethods.ReadyCustom(message: "El número de RUC debe tener 11 digitos.", title_message: "¡Oops!", uiViewController: self)
+                AlarmMethods.ReadyCustom(message: "El número de RUC debe tener 11 dígitos.", title_message: "¡Oops!", uiViewController: self)
                 return false
             } else {
                 AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
@@ -183,6 +183,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                         self.dismiss(animated: false, completion: nil)
                         self.finishBoxDelegate?.okButtonTapped()
                         self.stopAnimating()
+                        ConstantsModels.count_item = 0
                     }else {
                         AlarmMethods.ReadyCustom(message: "Se ha llegado al límite de pedidos para este horario de reparto.", title_message: "¡Oops!", uiViewController: self)
                     }

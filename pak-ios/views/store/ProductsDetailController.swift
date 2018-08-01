@@ -126,10 +126,24 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        let snackbar = TTGSnackbar(message: "Se agrego " + self.tf_cant_add_item.text! + "del producto", duration: .middle)
-                        snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
-                        snackbar.show()
-                        ConstantsModels.count_item = ConstantsModels.count_item + Int(self.tf_cant_add_item.text!)!
+
+                        var cant : Int = Int(self.tf_cant_add_item.text!)!
+                        if cant == 1 {
+                           
+                            let snackbar = TTGSnackbar(message: "Has agregado 1 " + (self.item?.name)!, duration: .middle)
+                            snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
+                            snackbar.show()
+                            ConstantsModels.count_item = ConstantsModels.count_item + 1
+                            //self.notificationButton.badge = "\(ConstantsModels.count_item) "
+                        }else {
+                            
+                            let snackbar = TTGSnackbar(message: "Has agregado " + String(cant) + " unidades de " + (self.item?.name)!, duration: .middle)
+                            snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
+                            snackbar.show()
+                            ConstantsModels.count_item = ConstantsModels.count_item + 1
+                            //elf.notificationButton.badge = "\(ConstantsModels.count_item) "
+                        }
+                                            
                     }
                 }
             } else {

@@ -72,7 +72,7 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
             self.subTotal = self.subTotal + (element.price * Double(element.cant))
         }
         self.discount = self.subTotal * (self.discountPercent / 100 )
-        self.l_mount_subt.text = "S/" + String(self.subTotal)
+        self.l_mount_subt.text = "S/" + String(format: "%.2f", self.subTotal)
         self.l_total_mount.text = "S/" + String(self.subTotal + self.deliveryCost - self.discount)
         self.l_mount_discount.text = "S/" + String(format: "%.2f", self.discount)
     }

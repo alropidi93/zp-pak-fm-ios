@@ -270,7 +270,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                     }else{
                         let jsonResult = JSON(jsonResponse)
                         print(jsonResult["MontoMinimo"])
-                        AlarmMethods.ReadyCustom(message: "El monto mínimo para el pedido es de S/ " + String(format: "%.2f",jsonResult["MontoMinimo"].doubleValue) + " (sin incluir costo de delivery).", title_message: "¡Oops!", uiViewController: self)
+                        AlarmMethods.ReadyCustom(message: "El monto mínimo para el pedido es de S/" + String(format: "%.2f",jsonResult["MontoMinimo"].doubleValue) + " (sin incluir costo de delivery).", title_message: "¡Oops!", uiViewController: self)
                     }
                 }
             } else {

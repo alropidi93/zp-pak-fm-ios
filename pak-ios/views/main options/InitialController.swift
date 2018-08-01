@@ -56,6 +56,7 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
             cell.iv_play.isHidden = false
         } else { // Images
             UtilMethods.setImage(imageview: cell.advertisement_image!, imageurl: self.allItems[indexPath.row].archive, placeholderurl: "")
+            cell.iv_play.isHidden = true
         }
         return cell
     }

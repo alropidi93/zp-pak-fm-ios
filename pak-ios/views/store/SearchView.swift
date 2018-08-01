@@ -172,14 +172,14 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                     if jsonResult["Msg"] == "OK"{
                         if self.cant == 1 {
                             self.cant += 1
-                            let snackbar = TTGSnackbar(message: "Has agregado un" + product.name, duration: .middle)
+                            let snackbar = TTGSnackbar(message: "Has agregado 1 " + product.name, duration: .middle)
                             snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                             snackbar.show()
                             ConstantsModels.count_item = ConstantsModels.count_item + 1
                             self.notificationButton.badge = "\(ConstantsModels.count_item) "
                         }else {
                             self.cant += 1
-                            let snackbar = TTGSnackbar(message: "Has agregado " + String(self.cant) + "de" + product.name, duration: .middle)
+                            let snackbar = TTGSnackbar(message: "Has agregado " + String(self.cant) + " unidades de " + product.name, duration: .middle)
                             snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                             snackbar.show()
                             ConstantsModels.count_item = ConstantsModels.count_item + 1
@@ -257,9 +257,9 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
 
         let navView = UIView()
         let label = UILabel()
-        label.font = UIFont(name: "OpenSans-Light", size: 20)
+        label.font = UIFont(name: "OpenSans-Regular", size: 17)
         label.textColor = UIColor(rgb: 0x81D34C)
-        label.text = "Resultados de busqueda"
+        label.text = "Resultados de búsqueda"
         label.sizeToFit()
         label.center = navView.center
         label.textAlignment = NSTextAlignment.center

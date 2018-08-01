@@ -257,7 +257,7 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
         var genre : String = "-"
         if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
         var facebookid : String?
-        var googleid:String?
+        var googleid : String?
         if user != nil{
             facebookid = (user?.facebookID)!
             googleid = (user?.googleID)!
@@ -351,7 +351,8 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
     func okButtonTapped(){
         dismiss(animated: true, completion: nil)
         //        self.navigationController?.dismiss(animated: true,completion: nil)
-        _ = navigationController?.popViewController(animated: true)
+        self.performSegue(withIdentifier: "segue_login_main" , sender: self)
+
     }
     
     

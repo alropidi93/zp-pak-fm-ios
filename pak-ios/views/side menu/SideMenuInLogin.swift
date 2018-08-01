@@ -37,7 +37,9 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     }
  
     @IBAction func ba_name(_ sender: Any) {
-        if (ConstantsModels.static_user?.googleID != nil) || (ConstantsModels.static_user?.facebookID != nil){
+        print(ConstantsModels.static_user?.googleID ?? "noval")
+        print(ConstantsModels.static_user?.facebookID ?? "noval")
+        if (ConstantsModels.static_user?.googleID != "") || (ConstantsModels.static_user?.facebookID != ""){
             self.performSegue(withIdentifier: self.segue_editFbGo, sender: self)
         }else {
             self.performSegue(withIdentifier: self.segue_edit, sender: self)
