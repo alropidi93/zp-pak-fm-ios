@@ -17,6 +17,8 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     var controllers = [UIViewController]()
     var nowPage = 0
     
+    var segue_parent = "segue_embed_page_vc"
+    var parentVC : AlertViewPayment? = nil
     var pageNow : Int = 1
     //boleta 0 factura 1
     var boletaOrFactura : Int = 0
@@ -32,6 +34,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if let firstVC = VCArr.first {
             setViewControllers([firstVC], direction: .forward, animated: true , completion: nil)
         }
@@ -155,6 +158,8 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     }
     
     func payment() {
+        self.parentVC?.b_next.isEnabled = false
+
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         var params: Parameters = [:]
         if boletaOrFactura == 0 {
@@ -184,11 +189,17 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                         self.finishBoxDelegate?.okButtonTapped()
                         self.stopAnimating()
                         ConstantsModels.count_item = 0
+                        self.parentVC?.b_next.isEnabled = true
+
                     }else {
+                        self.parentVC?.b_next.isEnabled = true
+
                         AlarmMethods.ReadyCustom(message: "Se ha llegado al límite de pedidos para este horario de reparto.", title_message: "¡Oops!", uiViewController: self)
                     }
                 }
             } else {
+                self.parentVC?.b_next.isEnabled = true
+
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
             }
         }
@@ -218,8 +229,11 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                         let id  = jsonResult["id"]
                         self.checkOut.token = id.string!
                         let viewController = self.VCArr[3]
+                        
                         self.setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
                         self.pageNow = self.pageNow + 1
+                        self.parentVC?.b_next.setTitle("Pagar", for: .normal)
+                        
                         self.stopAnimating()
                     }else{
                         AlarmMethods.errorWarning(message: jsonResult["merchant_message"].string!, uiViewController: self)

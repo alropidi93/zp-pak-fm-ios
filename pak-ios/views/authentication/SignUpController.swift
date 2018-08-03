@@ -342,6 +342,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         pakAlert.definesPresentationContext = true
         pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         pakAlert.registerDelegate = self
+        pakAlert.msg = "Te has registrado con éxito. Te hemos enviado un correo electónico para poder activar tu cuenta."
         pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         uiViewController.present(pakAlert, animated: true, completion: nil)
     }

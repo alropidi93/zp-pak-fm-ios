@@ -11,9 +11,12 @@ import UIKit
 
 class PakAlertReady : UIViewController {
     var registerDelegate : AlertRegisterDelegate? = nil
+    public var msg: String = ""
+    @IBOutlet weak var message: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.message.text = msg
     }
     
     override func viewWillAppear(_ animated: Bool) {

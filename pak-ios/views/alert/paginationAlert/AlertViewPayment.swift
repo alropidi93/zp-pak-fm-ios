@@ -16,13 +16,14 @@ class AlertViewPayment : UIViewController ,NVActivityIndicatorViewable {
     @IBOutlet weak var b_next: UIButton!
     @IBOutlet weak var uv_pv_payments: UIView!
     var finishBoxDelegate : FinishBoxDelegate? = nil
-
+    public var lastTitle : String = ""
     var page : Int = -1
     var dataDelivery : DataDeliveryDC? = nil
 
     private var embeddedViewController : AlertPageVc!
     
     @IBAction func b_next(_ sender: Any) {
+        print(lastTitle)
         self.page = self.embeddedViewController.pageNow
         self.embeddedViewController.goNextPage(forwardTo: page)
         if page == 4 {
@@ -53,6 +54,7 @@ class AlertViewPayment : UIViewController ,NVActivityIndicatorViewable {
         if let vc = segue.destination as? AlertPageVc,
                 segue.identifier == "segue_embed_page_vc" {
             self.embeddedViewController = vc
+            self.embeddedViewController.parentVC = self
         }
     }
 }

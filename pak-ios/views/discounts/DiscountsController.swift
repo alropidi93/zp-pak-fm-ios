@@ -28,11 +28,12 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.customizeNavigationBarDiscount()
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.customizeNavigationBarDiscount()
         setElements()
     }
     
@@ -204,26 +205,21 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         self.navigationItem.titleView = navView
         navView.sizeToFit()
         
-        let notificationButton = SSBadgeButton()
-        notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-        notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
-        notificationButton.addTarget(self, action: #selector(didPressRightButtonToBox), for: .touchUpInside)
-        
-        
-        let smallbox :SmallBoxDC =  PreferencesMethods.getSmallBoxFromOptions()!
-        ConstantsModels.count_item = 0
-        for element in 0..<smallbox.items.count{
-            ConstantsModels.count_item += Int(smallbox.items[element].cant)
-        }
-        if ConstantsModels.count_item == 0 {
-            return
-        }else {
-            notificationButton.badge = "\(ConstantsModels.count_item) "
-        }
        
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+        if ConstantsModels.count_item == 0 {
+            var btnsMenuRight : [UIBarButtonItem] = []
+            let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
+            btnsMenuRight.append(btnMenuRight)
+            self.navigationItem.rightBarButtonItems = btnsMenuRight
+        }else {
+            let notificationButton = SSBadgeButton()
+            notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
+            notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+            notificationButton.badge = "\(ConstantsModels.count_item) "
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+        }
     }
     @objc func didPressRightButtonToBox(_ sender: Any){
         self.performSegue(withIdentifier: "segue_discoutn_box" , sender: self)

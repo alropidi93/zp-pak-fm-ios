@@ -41,7 +41,6 @@ class RoundedCornerViewRed: UIView
         ctx.setLineWidth(rectBorderWidth)
         ctx.setStrokeColor(rectBorderColor.cgColor)
         
-        
         let rectangle = CGRect(x: xf, y: yf, width: rectWidth, height: rectHeight)
         let header = CGRect(x: xf, y: yf, width: rectWidth, height: 0.3*rectHeight  )
         
@@ -49,22 +48,17 @@ class RoundedCornerViewRed: UIView
         let linePath: CGPath = UIBezierPath(roundedRect: rectangle, cornerRadius: rectCornerRadius).cgPath
         let headerPath : CGPath = UIBezierPath(roundedRect: header, byRoundingCorners: [.topLeft , .topRight], cornerRadii: CGSize(width: rectCornerRadius, height: rectCornerRadius)).cgPath
         
-        
         ctx.addPath(clipPath)
         ctx.setFillColor(rectBgColor.cgColor)
         ctx.closePath()
         ctx.fillPath()
-        
-        
         
         ctx.addPath(linePath)
         ctx.addPath(headerPath)
         ctx.strokePath()
         
         ctx.restoreGState()
-        
     }
-    
 }
 
 

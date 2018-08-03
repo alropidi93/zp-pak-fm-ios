@@ -176,7 +176,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                             snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                             snackbar.show()
                             ConstantsModels.count_item = ConstantsModels.count_item + 1
-                            self.notificationButton.badge = "\(ConstantsModels.count_item) "
+                            self.customizeNavigationBarSearch()
                         }else {
                             self.cant += 1
                             let snackbar = TTGSnackbar(message: "Has agregado " + String(self.cant) + " unidades de " + product.name, duration: .middle)
@@ -266,15 +266,20 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         navView.addSubview(label)
         self.navigationItem.titleView = navView
         navView.sizeToFit()
-        
-        
-        
-        
-        notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-        notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 45)
-        notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
-        notificationButton.badge = "\(ConstantsModels.count_item) "
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+    
+        if ConstantsModels.count_item == 0 {
+            var btnsMenuRight : [UIBarButtonItem] = []
+            let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
+            btnsMenuRight.append(btnMenuRight)
+            self.navigationItem.rightBarButtonItems = btnsMenuRight
+        }else {
+            let notificationButton = SSBadgeButton()
+            notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
+            notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+            notificationButton.badge = "\(ConstantsModels.count_item) "
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+        }
     }    
 }

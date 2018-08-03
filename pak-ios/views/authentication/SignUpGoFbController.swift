@@ -242,7 +242,7 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
         }
         
         self.register((PreferencesMethods.getSmallBoxFromOptions()!.GUID))
-        
+
     }
     
     func isValidEmail(testStr:String) -> Bool {
@@ -301,6 +301,12 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
+                        let userDC : UserDC = UserDC(jsonResult)
+                        userDC.valid = true
+                        ConstantsModels.static_user = userDC
+                        PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
+                        PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
+                        PreferencesMethods.saveIdToOptions(userDC.idUser)
                         self.alertDialog(uiViewController: self)
                         let data = try! JSONSerialization.data(withJSONObject: jsonResponse, options: .prettyPrinted)
                         let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
@@ -312,6 +318,7 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
                         self.stopAnimating()
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
+                            
                             AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
                         } else {
                             AlamoMethods.defaultError(self)
@@ -336,6 +343,7 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
         pakAlert.definesPresentationContext = true
         pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         pakAlert.registerDelegate = self
+        pakAlert.msg = "Te has registrado con éxito."
         pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         uiViewController.present(pakAlert, animated: true, completion: nil)
     }
@@ -349,9 +357,8 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
     }
     
     func okButtonTapped(){
-        dismiss(animated: true, completion: nil)
-        //        self.navigationController?.dismiss(animated: true,completion: nil)
-        self.performSegue(withIdentifier: "segue_login_main" , sender: self)
+        print("hola")
+        self.performSegue(withIdentifier: "segue_login_register_fb" , sender: self)
 
     }
     

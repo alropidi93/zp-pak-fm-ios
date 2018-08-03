@@ -50,10 +50,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let meowAction = UNNotificationAction(identifier: "calificar", title: "Calificar", options: [])
         
         let category = UNNotificationCategory(identifier: "myCategoryName", actions: [meowAction], intentIdentifiers: [], options: [])
+      
+        
+        
         UNUserNotificationCenter.current().setNotificationCategories([category])
         
-        
-        
+      
+
         return true
     }
     
@@ -176,7 +179,7 @@ extension AppDelegate : MessagingDelegate {
             content.title = "¡Hola" + (remoteMessage.appData[AnyHashable("cliente")] as! String) + "!"
             content.subtitle = "Mañana llegará tu PAK entre las" + horario + "."
             content.badge = 1
-            content.categoryIdentifier = "myCategoryName"
+            content.categoryIdentifier = "pedidoProximo"
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
             let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)

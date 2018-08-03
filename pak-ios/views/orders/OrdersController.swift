@@ -94,11 +94,7 @@ class OrdersController : TabmanViewController, PageboyViewControllerDataSource {
         self.navigationItem.titleView = navView
         navView.sizeToFit()
         
-        let smallbox :SmallBoxDC =  PreferencesMethods.getSmallBoxFromOptions()!
-        ConstantsModels.count_item = 0
-        for element in 0..<smallbox.items.count{
-            ConstantsModels.count_item += Int(smallbox.items[element].cant)
-        }
+       
         if ConstantsModels.count_item == 0 {
             var btnsMenuRight : [UIBarButtonItem] = []
             let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
