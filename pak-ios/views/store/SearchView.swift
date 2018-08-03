@@ -175,15 +175,21 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                             let snackbar = TTGSnackbar(message: "Has agregado 1 " + product.name, duration: .middle)
                             snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                             snackbar.show()
-                            ConstantsModels.count_item = ConstantsModels.count_item + 1
+                            print(ConstantsModels.count_item)
+                            ConstantsModels.count_item += 1
+                            print(ConstantsModels.count_item)
                             self.customizeNavigationBarSearch()
                         }else {
                             self.cant += 1
                             let snackbar = TTGSnackbar(message: "Has agregado " + String(self.cant) + " unidades de " + product.name, duration: .middle)
                             snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                             snackbar.show()
-                            ConstantsModels.count_item = ConstantsModels.count_item + 1
+                            print(ConstantsModels.count_item)
+                            ConstantsModels.count_item += 1
+                            print(ConstantsModels.count_item)
                             self.notificationButton.badge = "\(ConstantsModels.count_item) "
+                            self.customizeNavigationBarSearch()
+
                         }
                       
                         self.cv_search.reloadData()

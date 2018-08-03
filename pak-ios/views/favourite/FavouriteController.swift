@@ -26,12 +26,20 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
     private var items : [ProductDC] = []
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(true)
         customizeNavigationBarFavourite()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.customizeNavigationBarFavourite()
         setElements()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.view.setNeedsLayout()
+
+        self.customizeNavigationBarFavourite()
     }
     
     override func didReceiveMemoryWarning() {
@@ -223,7 +231,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
         notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
         
-       
+       print(ConstantsModels.count_item)
         if ConstantsModels.count_item == 0 {
             var btnsMenuRight : [UIBarButtonItem] = []
             let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))

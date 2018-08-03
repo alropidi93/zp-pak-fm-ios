@@ -2871,7 +2871,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WdC-rB-exB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7080.8000000000002" y="-1119.4902548725638"/>
+            <point key="canvasLocation" x="9564" y="-1321"/>
         </scene>
         <!--Orders Controller-->
         <scene sceneID="IJh-l5-ySn">
@@ -9360,15 +9360,16 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="eWD-Wl-ASh"/>
         <segue reference="0wQ-9P-YXB"/>
         <segue reference="STf-2A-NwN"/>
-        <segue reference="F1p-gb-qZa"/>
-        <segue reference="RzB-aK-gvt"/>
+        <segue reference="OS7-IV-a8p"/>
+        <segue reference="xVe-nE-p4w"/>
         <segue reference="zhY-cZ-3JD"/>
         <segue reference="huV-AG-Pcv"/>
         <segue reference="bmc-MF-fkN"/>
-        <segue reference="uIi-HV-Eb2"/>
-        <segue reference="rHo-he-4zp"/>
+        <segue reference="oBi-e6-wfk"/>
+        <segue reference="1vM-Rq-4HF"/>
         <segue reference="969-X4-Avy"/>
         <segue reference="SEp-H9-hjL"/>
     </inferredMetricsTieBreakers>

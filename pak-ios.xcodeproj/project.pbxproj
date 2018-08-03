@@ -470,8 +470,8 @@
 			isa = PBXGroup;
 			children = (
 				7028134E20C396F500DD5443 /* AlertPageVc.swift */,
-				7028135020C44F8900DD5443 /* PakAlertSendData.swift */,
 				7028135220C44FF700DD5443 /* PakAlertFacturation.swift */,
+				7028135020C44F8900DD5443 /* PakAlertSendData.swift */,
 				7028135420C4504400DD5443 /* PakAlertCardData.swift */,
 				7028135620C4509300DD5443 /* PakAlertSummary.swift */,
 				703C1C3720C83D3400488E16 /* AlertViewPayment.swift */,
@@ -1084,7 +1084,7 @@
 				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1110,7 +1110,7 @@
 				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
