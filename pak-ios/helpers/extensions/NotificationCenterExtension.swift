@@ -13,6 +13,6 @@ extension Notification.Name {
     static let viewStore = Notification.Name(rawValue: "to_store")
     static let viewNotification = Notification.Name(rawValue: "to_notification")
     static let viewLogueout = Notification.Name(rawValue: "to_viewLogueout")
-
+    static let viewNotificationOut = Notification.Name(rawValue: "to_notificationOut")
 }
 

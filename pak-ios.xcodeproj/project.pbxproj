@@ -24,6 +24,7 @@
 		12A47DD320F3CEC600CD98FB /* CVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD120F3CEC500CD98FB /* CVCPlaceholder.swift */; };
 		12A47DD520F3DD7700CD98FB /* SendDetailProductDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */; };
 		12A47DD720F3EF5600CD98FB /* PakAlertSuccessPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD620F3EF5600CD98FB /* PakAlertSuccessPass.swift */; };
+		3802D3BB211450FE0096DDCC /* AlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802D3BA211450FE0096DDCC /* AlertNotification.swift */; };
 		38299DB021119AC600C62740 /* AlertCancelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DAF21119AC600C62740 /* AlertCancelDelegate.swift */; };
 		38299DB22111B1EA00C62740 /* AlertBoxCarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */; };
 		38299DB42111B2C400C62740 /* PakAlertOutCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB32111B2C400C62740 /* PakAlertOutCar.swift */; };
@@ -137,6 +138,7 @@
 		12A47DD120F3CEC500CD98FB /* CVCPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCPlaceholder.swift; sourceTree = "<group>"; };
 		12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDetailProductDelegate.swift; sourceTree = "<group>"; };
 		12A47DD620F3EF5600CD98FB /* PakAlertSuccessPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertSuccessPass.swift; sourceTree = "<group>"; };
+		3802D3BA211450FE0096DDCC /* AlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertNotification.swift; sourceTree = "<group>"; };
 		38299DAF21119AC600C62740 /* AlertCancelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCancelDelegate.swift; sourceTree = "<group>"; };
 		38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBoxCarDelegate.swift; sourceTree = "<group>"; };
 		38299DB32111B2C400C62740 /* PakAlertOutCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertOutCar.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				0F234B2721103D5500712D22 /* AlertEndBoxDelegate.swift */,
 				38299DAF21119AC600C62740 /* AlertCancelDelegate.swift */,
 				38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */,
+				3802D3BA211450FE0096DDCC /* AlertNotification.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				70C6D13B20E988B100560D7C /* CVCToDeliver.swift in Sources */,
 				70A4254520CDC31A005B00AC /* ProductsDetailController.swift in Sources */,
 				70C5DBAE21022E6C0046C1F2 /* RoundedCornerViewRed.swift in Sources */,
+				3802D3BB211450FE0096DDCC /* AlertNotification.swift in Sources */,
 				7090A2EA20AB75DA00EF9F6D /* NotificationCenterExtension.swift in Sources */,
 				7094FE9A20B2A30F00511297 /* SmallBoxController.swift in Sources */,
 				70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */,

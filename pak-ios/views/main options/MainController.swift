@@ -63,10 +63,15 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
         notificationCenter.addObserver(self, selector: #selector(viewStore), name: .viewStore, object: nil)
         notificationCenter.addObserver(self, selector: #selector(pakAlertNotification), name: .viewNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(pakAlertLogueOut), name: .viewLogueout, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(pakAlertNotificationOut), name: .viewNotificationOut, object: nil)
+
     }
     
     @objc func pakAlertLogueOut(_ notification: NSNotification) {
         alertDialogLogueOut(uiViewController: self)
+    }
+    @objc func pakAlertNotificationOut(_ notification: NSNotification) {
+        AlarmMethods.ReadyCustom(message: "Muchas gracias por calificar nuestros servicio.", title_message: "¡Listo!", uiViewController: self)
     }
     
     func alertDialogLogueOut(uiViewController: UIViewController) {

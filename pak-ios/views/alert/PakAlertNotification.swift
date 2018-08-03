@@ -119,7 +119,8 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
                     let _ = JSON(jsonResponse)
                     ConstantsModels.numberBox = 0
                     self.dismiss(animated: false, completion: nil)
-
+                    
+                    NotificationCenter.default.post(name: .viewNotificationOut, object: nil, userInfo: nil)
                 }
             } else {
                 if let jsonResponse = response.result.value {
