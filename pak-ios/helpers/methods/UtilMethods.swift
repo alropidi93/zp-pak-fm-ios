@@ -96,7 +96,7 @@ class UtilMethods {
     static func formatDateMY(_ dateToFormat : Date) -> String {
         var formattedDate : String = ""
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM-yyyy"
+        dateFormatter.dateFormat = "MM/yyyy"
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US") as Locale?
         formattedDate = dateFormatter.string(from: dateToFormat)
         return formattedDate

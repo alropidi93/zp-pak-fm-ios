@@ -39,6 +39,7 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
         l_product_description.text = item?.descript
         let priceString : String = "S/" + String(format : "%.2f",(item?.price)!)
         l_producto_cost.text = priceString
+        self.modifeTotal(Int64(tf_cant_add_item.text!))
         tf_cant_add_item.addTarget(self, action: #selector(textFieldEditingDidChangeEnd), for: UIControlEvents.editingDidEnd)
         self.printFavorite()
     }
