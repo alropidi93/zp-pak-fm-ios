@@ -52,6 +52,7 @@
 		7043B0B520BCF28200CC31D0 /* PakAlertCodeInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7043B0B420BCF28200CC31D0 /* PakAlertCodeInvitation.swift */; };
 		7050F22A20E2F9CB001DFF10 /* CVCSmallBoxPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7050F22920E2F9CB001DFF10 /* CVCSmallBoxPayment.swift */; };
 		7050F22C20E5BBD3001DFF10 /* ConstantsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7050F22B20E5BBD3001DFF10 /* ConstantsModels.swift */; };
+		70515A14211547F700D94C08 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70515A13211547F700D94C08 /* iPad.storyboard */; };
 		7053BB7620E6FCE100C5A277 /* OrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7520E6FCE100C5A277 /* OrdersController.swift */; };
 		7053BB7920E70CD900C5A277 /* ToDeliverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7820E70CD900C5A277 /* ToDeliverController.swift */; };
 		7053BB7B20E70CE400C5A277 /* DeliverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053BB7A20E70CE400C5A277 /* DeliverController.swift */; };
@@ -160,6 +161,7 @@
 		7043B0B420BCF28200CC31D0 /* PakAlertCodeInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCodeInvitation.swift; sourceTree = "<group>"; };
 		7050F22920E2F9CB001DFF10 /* CVCSmallBoxPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCSmallBoxPayment.swift; sourceTree = "<group>"; };
 		7050F22B20E5BBD3001DFF10 /* ConstantsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsModels.swift; sourceTree = "<group>"; };
+		70515A13211547F700D94C08 /* iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		7053BB7520E6FCE100C5A277 /* OrdersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersController.swift; sourceTree = "<group>"; };
 		7053BB7820E70CD900C5A277 /* ToDeliverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDeliverController.swift; sourceTree = "<group>"; };
 		7053BB7A20E70CE400C5A277 /* DeliverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverController.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			children = (
 				701D2880207EAD06007AD7AC /* LaunchScreen.storyboard */,
 				701D287B207EAD01007AD7AC /* Main.storyboard */,
+				70515A13211547F700D94C08 /* iPad.storyboard */,
 			);
 			path = storyboards;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */,
 				0FA5EA6C20F841AA00FD7372 /* GoogleService-Info.plist in Resources */,
 				0FF64A1520FB66E100164AF5 /* OpenSans-Regular.ttf in Resources */,
+				70515A14211547F700D94C08 /* iPad.storyboard in Resources */,
 				0FF64A1320FB66DA00164AF5 /* MyriadPro-Bold.otf in Resources */,
 				701D287F207EAD06007AD7AC /* Assets.xcassets in Resources */,
 				701D287D207EAD01007AD7AC /* Main.storyboard in Resources */,
@@ -1042,7 +1046,7 @@
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GKC9LAKZV3;
+				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1069,7 +1073,7 @@
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GKC9LAKZV3;
+				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

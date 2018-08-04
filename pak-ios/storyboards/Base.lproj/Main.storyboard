@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb-pak-splash-5" translatesAutoresizingMaskIntoConstraints="NO" id="kFY-N9-pCY">
-                                <rect key="frame" x="115" y="271" width="145" height="125"/>
+                                <rect key="frame" x="115" y="315" width="145" height="37"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3820,10 +3820,10 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPW-Al-8kx">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_empty_box" translatesAutoresizingMaskIntoConstraints="NO" id="LbV-Zd-Bze">
-                                        <rect key="frame" x="150.5" y="283.5" width="74" height="80"/>
+                                        <rect key="frame" x="150.5" y="261.5" width="74" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="V3A-au-anY"/>
                                         </constraints>
@@ -3832,7 +3832,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <rect key="frame" x="176" y="0.0" width="23" height="11"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No hay ningún producto en Mi cajita" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp2-JI-dCf" userLabel="tf_message_empty">
-                                        <rect key="frame" x="66" y="365.5" width="243" height="18"/>
+                                        <rect key="frame" x="66" y="343.5" width="243" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                         <color key="textColor" red="0.29174592389999998" green="0.29174592389999998" blue="0.29174592389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3871,7 +3871,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 </constraints>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UzA-vd-2f9" userLabel="v_head">
-                                <rect key="frame" x="0.0" y="20" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="30"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="UOY-xa-Z0T">
                                         <rect key="frame" x="175" y="0.0" width="25" height="11"/>
@@ -3905,7 +3905,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 </constraints>
                             </view>
                             <collectionView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="248" verticalCompressionResistancePriority="747" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AZS-70-U27" userLabel="cv_item_list">
-                                <rect key="frame" x="0.0" y="50" width="375" height="427"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="383"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="lxb-0M-BBW">
                                     <size key="itemSize" width="375" height="90"/>
@@ -7634,17 +7634,18 @@ EMKhTGlzdG8hA
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0wQ-9P-YXB"/>
-        <segue reference="IRN-db-nS4"/>
-        <segue reference="cBN-SR-qJl"/>
+        <segue reference="tGX-Zx-Zeb"/>
+        <segue reference="4If-JT-tFy"/>
+        <segue reference="e49-xG-mKz"/>
+        <segue reference="yG2-np-1bB"/>
         <segue reference="xVe-nE-p4w"/>
-        <segue reference="2h9-cx-RAU"/>
+        <segue reference="zhY-cZ-3JD"/>
         <segue reference="OCU-k9-bKY"/>
-        <segue reference="Mj0-oe-INs"/>
-        <segue reference="YD1-6P-6T7"/>
-        <segue reference="k7V-In-QB3"/>
-        <segue reference="6iO-7K-Th3"/>
-        <segue reference="AdC-De-agH"/>
+        <segue reference="qbC-4W-Evn"/>
+        <segue reference="uIi-HV-Eb2"/>
+        <segue reference="rHo-he-4zp"/>
+        <segue reference="kk5-HE-cyu"/>
+        <segue reference="SEp-H9-hjL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
