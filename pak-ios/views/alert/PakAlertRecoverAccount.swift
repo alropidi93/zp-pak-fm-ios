@@ -59,13 +59,12 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
     }
     
     func restartPassword(_ email : String){
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         let params: Parameters = [ "Email": email ]
         Alamofire.request(URLs.RecoveryPassword, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -79,7 +78,7 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
 
 
                     } else {
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
                             AlarmMethods.ReadyCustom(message: "Tu contraseña ha sido restablecida, pero ocurrió un error al enviarte el correo con la contraseña actualizada. Por favor,contáctate con ventas@pak.pe.", title_message: "¡Listo!", uiViewController: self)
@@ -97,7 +96,7 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     

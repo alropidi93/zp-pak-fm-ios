@@ -16,45 +16,45 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     var finishBoxDelegate : FinishBoxDelegate? = nil
     var controllers = [UIViewController]()
     var nowPage = 0
-    
+
     var segue_parent = "segue_embed_page_vc"
     var parentVC : AlertViewPayment? = nil
     var pageNow : Int = 1
     //boleta 0 factura 1
     var boletaOrFactura : Int = 0
-    
+
     var checkOut = CheckOut()
     var dataDelivery : DataDeliveryDC? = nil
-    
+
     var titular :String = ""
     var numTarjeta : String = ""
     var expiredDateMM : String = ""
     var expiredDateYYYY : String = ""
     var ccv : String = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if let firstVC = VCArr.first {
             setViewControllers([firstVC], direction: .forward, animated: true , completion: nil)
         }
         self.delegate = self
     }
-    
+
     lazy var VCArr : [UIViewController] = {
         return [self.VCInstance(name: "v_send_data"),
                 self.VCInstance(name: "v_alert_facturation"),
                 self.VCInstance(name: "v_card_data"),
                 self.VCInstance(name: "v_order_summary")]
     }()
-    
+
     private func VCInstance(name : String ) -> UIViewController {
         let childViewController = UIStoryboard(name : "Main", bundle : nil).instantiateViewController(withIdentifier : name)
         let childViewParent = childViewController as! PageObservation
         childViewParent.getParentPageViewController(parentRef: self)
         return childViewController
     }
-    
+
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         nowPage = VCArr.index(of: viewController) ?? VCArr.count - 1
         if nowPage + 1 >= VCArr.count {
@@ -69,7 +69,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         }
         return VCArr[nowPage - 1]
     }
-    
+
     func goBackPage() {
         print(self.pageNow)
         self.pageNow = self.pageNow - 1
@@ -79,7 +79,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         print(self.pageNow)
 
     }
-    
+
     func goNextPage(forwardTo position: Int) {
         switch position {
         case 1:
@@ -107,14 +107,14 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
             }else{
                 AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
             }
-            
+
         case 4:
             validatePayController()
         default:
             return
         }
     }
-    
+
     func validateFirstController()  -> Bool {
         if checkOut.address != "" && checkOut.district != 0 && checkOut.recipentName != "" && checkOut.hourlySale != "" && checkOut.date != "" {
             return true
@@ -122,7 +122,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
         return false
     }
-    
+
     func validateSecondController() -> Bool {
         if boletaOrFactura == 1{
             if checkOut.ruc != "" && checkOut.businessName != "" && checkOut.fiscalAddress != "" && checkOut.ruc.count == 11{
@@ -135,12 +135,12 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                 return false
             }
         }else {
-            
+
             return true
         }
     }
-    
-  
+
+
     func validateTextTarjeta() -> Bool {
         if titular != "" && numTarjeta != "" && expiredDateMM != "" && expiredDateYYYY != "" && ccv != ""{
             return true
@@ -148,15 +148,15 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         AlarmMethods.ReadyCustom(message: "Debes completar todos los campos", title_message: "¡Oops!", uiViewController: self)
         return false
     }
-    
+
     func validateThirdController() {
         validateCulqi()
     }
-    
+
     func validatePayController() {
         payment()
     }
-    
+
     func payment() {
         self.parentVC?.b_next.isEnabled = false
 
@@ -164,11 +164,11 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         var params: Parameters = [:]
         if boletaOrFactura == 0 {
             params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" , "Direccion" : checkOut.address, "IdDistrito" : checkOut.district, "Referencia" : checkOut.reference, "TipoFacturacion" : "B", "NombreDestinatario": checkOut.recipentName, "FechaEntrega":checkOut.date, "VentanaHoraria":checkOut.hourlySale, "Token":checkOut.token]
-            
+
         } else if boletaOrFactura == 1 {
             params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" , "Direccion" : checkOut.address, "IdDistrito" : checkOut.district, "Referencia" : checkOut.reference, "TipoFacturacion" : "F", "RUC" : checkOut.ruc, "RazonSocial" : checkOut.businessName , "DireccionFiscal" : checkOut.fiscalAddress, "NombreDestinatario": checkOut.recipentName, "FechaEntrega":checkOut.date, "VentanaHoraria":checkOut.hourlySale, "Token":checkOut.token]
         }
-        
+
         Alamofire.request(URLs.Payment, method: .post, parameters: params ,encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
@@ -178,12 +178,12 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
-                    
+
                     let jsonResult = JSON(jsonResponse)
                     let data = try! JSONSerialization.data(withJSONObject: response.result.value, options: .prettyPrinted)
                     let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
                     print(string)
-                    
+
                     if jsonResult["Msg"] == "OK"{
                         self.dismiss(animated: false, completion: nil)
                         self.finishBoxDelegate?.okButtonTapped()
@@ -203,24 +203,23 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
             }
         }
-        self.stopAnimating()
+                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
     }
-    
-    
-    
+
+
+
     func validateCulqi() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         let headersHttp: HTTPHeaders = ["Content-Type" : "application/json; charset=utf-8", "Authorization": "Bearer " + Constants.CULQI_KEY ]
         let params: Parameters = [ "email" : ConstantsModels.static_user!.userName , "card_number": self.numTarjeta, "public_key":Constants.CULQI_KEY, "cvv": self.ccv, "expiration_year": self.expiredDateYYYY, "expiration_month":expiredDateMM, "fingerprint": 89]
-        
+
         Alamofire.request(URLs.CulqiValidation, method: .post, parameters: params ,encoding: JSONEncoding.default, headers: headersHttp).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
-            
+
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
@@ -229,16 +228,16 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                         let id  = jsonResult["id"]
                         self.checkOut.token = id.string!
                         let viewController = self.VCArr[3]
-                        
+
                         self.setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
                         self.pageNow = self.pageNow + 1
                         self.parentVC?.b_next.setTitle("Pagar", for: .normal)
-                        
+
                         self.stopAnimating()
                     }else{
                         AlarmMethods.errorWarning(message: jsonResult["merchant_message"].string!, uiViewController: self)
                         print("3")
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                     }
                 }
             } else {

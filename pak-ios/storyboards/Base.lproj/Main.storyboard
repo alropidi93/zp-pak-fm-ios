@@ -1978,7 +1978,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     <constraint firstAttribute="width" constant="40" id="DWv-eu-y9i"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
@@ -3997,7 +3997,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="qT4-ZN-s3a"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                 <state key="normal" title="Proceder a compra">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>

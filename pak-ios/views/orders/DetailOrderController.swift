@@ -96,7 +96,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     }
     
     func getOrder() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+       
         
         let params: Parameters = [ "Numero": itemId ]
         
@@ -104,7 +104,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -130,7 +130,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     func customizeNavigationBarOrders( ) {

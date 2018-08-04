@@ -15,7 +15,7 @@ import RLBAlertsPickers
 import SwiftHash
 import Firebase
 class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertRegisterDelegate ,UITextFieldDelegate{
-    
+
     @IBOutlet weak var tf_name: UITextField!
     @IBOutlet weak var tf_lastname: UITextField!
     @IBOutlet weak var tf_birthday: UITextField!
@@ -26,56 +26,56 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     @IBOutlet weak var tf_email: UITextField!
     @IBOutlet weak var tf_password: UITextField!
     @IBOutlet weak var tf_repassword: UITextField!
-    
-    
-    
+
+
+
     private var date : Int = -1
     private var posDistrict: Int = -1
 
     let segue_identifier = "segue_register_main"
-    
+
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
     var user : UserDC? = nil
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         	self.navigationController?.navigationBar.shadowImage = UIImage()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.backButton()
         setElements()
-        
+
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-   
+
     func setElements (){
         fullKeyboardSupport()
         getDistrict()
         self.tf_genre.inputView = UIView()
         let tap_genre = UITapGestureRecognizer(target: self, action: #selector(self.tapGenre(_:)))
         self.tf_genre.addGestureRecognizer(tap_genre)
-        
+
         self.tf_district.inputView = UIView()
         let tap_district = UITapGestureRecognizer(target: self, action: #selector(self.tapDistrict(_:)))
         self.tf_district.addGestureRecognizer(tap_district)
-        
+
         self.tf_birthday.inputView = UIView()
         let tap_birtday = UITapGestureRecognizer(target: self, action: #selector(self.tapCalendar(_:)))
         self.tf_birthday.addGestureRecognizer(tap_birtday)
-        
+
         self.tf_phone.delegate = self
-        
+
     }
-    
-    
+
+
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {
-        
+
         let alert = UIAlertController(style: .actionSheet, title: "Fecha")
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: nil, maximumDate: Date()) { date in
             self.date = UtilMethods.intFromDate(date)
@@ -84,11 +84,11 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: nil)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    
-    
+
+
+
     @objc func tapDistrict(_ sender: UITapGestureRecognizer) -> Void {
-        
+
         let alert = UIAlertController(style: .actionSheet, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
@@ -103,11 +103,11 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             }
         }
         alert.addAction(title: "OK", style: .cancel)
-        
+
         self.present(alert, animated: true, completion: nil)
     }
-    
-    
+
+
     @objc func tapGenre(_ sender: UITapGestureRecognizer) -> Void {
         let pickerData = [Constants.MALE,Constants.FEMALE]
         let alert = UIAlertController(style: .actionSheet, title: "Genero")
@@ -124,23 +124,23 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         alert.addAction(title: "OK", style: .cancel)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    
+
+
     func getDistrict(){
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        
+
+
         Alamofire.request(URLs.ListDistrict, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-                    
+
                     self.districts = []
                     for ( _ , element) in jsonResult["Distritos"] {
                         let district = DistrictDC(element)
@@ -157,13 +157,13 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
     @IBAction func signUp(_ sender: Any) {
-       
-        
-        
+
+
+
         if (self.tf_name.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
@@ -258,23 +258,23 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             return
         }
 
-      
-        
+
+
         self.register((PreferencesMethods.getSmallBoxFromOptions()!.GUID))
 
     }
     func isValidEmail(testStr:String) -> Bool {
         // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
+
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
-    
+
     func register(_ GUID: String){
         var genre : String = "-"
         if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
-        
+
         let params: Parameters = [
             "Nombres": self.tf_name.text!,
             "Apellidos": self.tf_lastname.text!,
@@ -293,14 +293,14 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         let data = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
                                 let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
                                 print(string ?? "")
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
 
-        
+
         Alamofire.request(URLs.SignUp, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if !(response.response != nil) {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 return
             }
             let statusCode = response.response!.statusCode
@@ -313,10 +313,10 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                         let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
                         self.user = nil
                         self.stopAnimating()
-                        
+
                     }else {
                         print(jsonResult["exMessage"])
-                        self.stopAnimating()
+                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
                             AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
@@ -326,7 +326,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                     }
                 }
             } else {
-                self.stopAnimating()
+                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
@@ -336,7 +336,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             }
         }
     }
-    
+
     func alertDialog(uiViewController: UIViewController) {
         let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_ready") as! PakAlertReady
         pakAlert.definesPresentationContext = true
@@ -346,7 +346,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         uiViewController.present(pakAlert, animated: true, completion: nil)
     }
-    
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 11
         let currentString: NSString = textField.text! as NSString
@@ -354,13 +354,13 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
-    
+
     func okButtonTapped(){
         dismiss(animated: true, completion: nil)
 //        self.navigationController?.dismiss(animated: true,completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
-    
+
     func backButton (){
         self.navigationController?.navigationBar.topItem?.title = " "
         let backBTN = UIBarButtonItem(image: UIImage(named: "dwb_pak_button_header_back"),
@@ -369,10 +369,10 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                                       action: #selector(buttonBackAction))
         self.navigationController?.navigationBar.topItem?.leftBarButtonItem = backBTN
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
-        
+
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor(rgb: 0x81D34C)
 
-       
+
     }
     @objc func buttonBackAction (_ sender: Any) {
         print("hola")
@@ -382,4 +382,3 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
 
     }
 }
-

@@ -19,7 +19,7 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
     private let segue_identifier = "segue_splash_login"
     private let reuse_advertisement = "cvc_advertisement"
     private let reuse_placeholder = "cvc_placeholder"
-    
+
     @IBOutlet weak var cv_advertisement: UICollectionView!
     
     private var allItems : [Ads] = []
@@ -27,16 +27,22 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
     //#MARK: Common functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        setElements()
+//        setElements()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        setElements()
+
+    }
     func setElements() {
         self.cv_advertisement.delegate = self
         self.cv_advertisement.dataSource = self
+        
+
         self.getAds()
     }
     
@@ -88,12 +94,13 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
     
     // #MARK: Get data from web services
     func getAds() {
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        
         Alamofire.request(URLs.GetAds, method: .get , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
-                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                self.stopAnimating()
+                AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vuelve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+
                 return
             }
             let statusCode = response.response!.statusCode
@@ -109,6 +116,7 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
                         self.cv_advertisement.reloadData()
                     }
                 }
+                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
@@ -117,7 +125,8 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
                     AlamoMethods.defaultError(self)
                 }
             }
-            self.stopAnimating()
+            print("HOLA")
+            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
         }
     }
 }
