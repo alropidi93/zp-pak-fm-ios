@@ -276,7 +276,6 @@
 			isa = PBXGroup;
 			children = (
 				5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */,
-				70C5DBAB21018A870046C1F2 /* LoadingOverlay.swift */,
 			);
 			path = loader;
 			sourceTree = "<group>";
@@ -928,7 +927,6 @@
 				70A3BE2E208F7BA1008C972C /* LoginController.swift in Sources */,
 				7010444F20AE38D900EFFC9B /* CVCSearchItem.swift in Sources */,
 				7028135120C44F8900DD5443 /* PakAlertSendData.swift in Sources */,
-				70C5DBAC21018A870046C1F2 /* LoadingOverlay.swift in Sources */,
 				702DCB3420D6D65000702D18 /* CVCAddCode.swift in Sources */,
 				70A3BE36208F7F97008C972C /* PreferencesMethods.swift in Sources */,
 				70242A9420D8FEF000F89299 /* ProductsPerCategoryController.swift in Sources */,
@@ -1090,7 +1088,7 @@
 				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1116,7 +1114,7 @@
 				DEVELOPMENT_TEAM = LB6PGNF3Z4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
