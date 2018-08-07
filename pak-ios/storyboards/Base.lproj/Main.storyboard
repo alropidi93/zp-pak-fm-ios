@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1308,7 +1309,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fm8-hn-CYt" userLabel="iv_category">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
                                                         </imageView>
-                                                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7e-48-Gu4" userLabel="v_category_name_background">
+                                                        <view alpha="0.59999999999999998" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7e-48-Gu4" userLabel="v_category_name_background">
                                                             <rect key="frame" x="0.0" y="124" width="375" height="40"/>
                                                             <color key="backgroundColor" red="0.53942569833116483" green="0.53942569833116483" blue="0.53942569833116483" alpha="0.2169306506849315" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
@@ -6752,9 +6753,9 @@ EMKhTGlzdG8hA
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hd9-rQ-aWU" userLabel="iv_category">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
                                                         </imageView>
-                                                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="xFA-Kd-HTh" userLabel="v_category_name_background">
+                                                        <view alpha="0.59999999999999998" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="xFA-Kd-HTh" userLabel="v_category_name_background">
                                                             <rect key="frame" x="0.0" y="124" width="375" height="40"/>
-                                                            <color key="backgroundColor" red="0.3167121966" green="0.3167121966" blue="0.3167121966" alpha="0.50416135200000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="VpF-2u-3gZ"/>
                                                             </constraints>
@@ -6876,9 +6877,9 @@ EMKhTGlzdG8hA
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="heE-FW-9tV" userLabel="iv_category">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
                                                         </imageView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63V-uG-D2p" userLabel="v_category_name_background">
+                                                        <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63V-uG-D2p" userLabel="v_category_name_background">
                                                             <rect key="frame" x="0.0" y="124" width="375" height="40"/>
-                                                            <color key="backgroundColor" red="0.3167121966" green="0.3167121966" blue="0.3167121966" alpha="0.50416135200000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="WNH-N9-Rv1"/>
                                                             </constraints>
@@ -9359,13 +9360,13 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0wQ-9P-YXB"/>
+        <segue reference="4If-JT-tFy"/>
         <segue reference="STf-2A-NwN"/>
-        <segue reference="cBN-SR-qJl"/>
+        <segue reference="Nge-8z-UM6"/>
         <segue reference="xVe-nE-p4w"/>
         <segue reference="2h9-cx-RAU"/>
-        <segue reference="huV-AG-Pcv"/>
-        <segue reference="bmc-MF-fkN"/>
+        <segue reference="OCU-k9-bKY"/>
+        <segue reference="qbC-4W-Evn"/>
         <segue reference="YD1-6P-6T7"/>
         <segue reference="k7V-In-QB3"/>
         <segue reference="969-X4-Avy"/>
