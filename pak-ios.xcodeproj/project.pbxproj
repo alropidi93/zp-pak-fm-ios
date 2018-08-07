@@ -25,6 +25,7 @@
 		12A47DD520F3DD7700CD98FB /* SendDetailProductDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */; };
 		12A47DD720F3EF5600CD98FB /* PakAlertSuccessPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD620F3EF5600CD98FB /* PakAlertSuccessPass.swift */; };
 		3802D3BB211450FE0096DDCC /* AlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802D3BA211450FE0096DDCC /* AlertNotification.swift */; };
+		3812884B211A1E6D00BACF44 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3812884A211A1E6D00BACF44 /* UIButtonExtension.swift */; };
 		38299DB021119AC600C62740 /* AlertCancelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DAF21119AC600C62740 /* AlertCancelDelegate.swift */; };
 		38299DB22111B1EA00C62740 /* AlertBoxCarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */; };
 		38299DB42111B2C400C62740 /* PakAlertOutCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB32111B2C400C62740 /* PakAlertOutCar.swift */; };
@@ -140,6 +141,7 @@
 		12A47DD420F3DD7700CD98FB /* SendDetailProductDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDetailProductDelegate.swift; sourceTree = "<group>"; };
 		12A47DD620F3EF5600CD98FB /* PakAlertSuccessPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertSuccessPass.swift; sourceTree = "<group>"; };
 		3802D3BA211450FE0096DDCC /* AlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertNotification.swift; sourceTree = "<group>"; };
+		3812884A211A1E6D00BACF44 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		38299DAF21119AC600C62740 /* AlertCancelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCancelDelegate.swift; sourceTree = "<group>"; };
 		38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBoxCarDelegate.swift; sourceTree = "<group>"; };
 		38299DB32111B2C400C62740 /* PakAlertOutCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertOutCar.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				1282FF59210132B60017CF2D /* RoundedCornerViewGreen.swift */,
 				70C5DBAD21022E6C0046C1F2 /* RoundedCornerViewRed.swift */,
 				70C5DBAF210230CD0046C1F2 /* UIColorExtension.swift */,
+				3812884A211A1E6D00BACF44 /* UIButtonExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				70B88D1120DD5AE300D97816 /* CheckOut.swift in Sources */,
 				70D525A520915B91004EB51E /* UtilMethods.swift in Sources */,
 				7097EC6520A60FA2008E1C9E /* CategoriesDC.swift in Sources */,
+				3812884B211A1E6D00BACF44 /* UIButtonExtension.swift in Sources */,
 				0FA28D7920F46E9500888298 /* FavouriteController.swift in Sources */,
 				70D5F0EF209B7A4300EE673B /* InitialController.swift in Sources */,
 				705677E320E80C36007AFD71 /* TVCSubcategory.swift in Sources */,

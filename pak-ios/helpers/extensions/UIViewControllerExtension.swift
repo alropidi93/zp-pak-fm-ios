@@ -95,6 +95,11 @@ extension UIViewController : UISearchBarDelegate {
         }
     }
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            searchBar.isUserInteractionEnabled = true
+        }
+        
         if let outMainController = self as? MainController {
             outMainController.searchWord = searchBar.text!
             outMainController.performSegue(withIdentifier: outMainController.segue_identifier, sender: self)
