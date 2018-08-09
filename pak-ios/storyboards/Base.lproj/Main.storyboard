@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -69,28 +68,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb-pak-splash-1" translatesAutoresizingMaskIntoConstraints="NO" id="jXC-wf-Qr7" userLabel="iv_logo_pak">
-                                <rect key="frame" x="115" y="271" width="145" height="125"/>
-                            </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_logoname" translatesAutoresizingMaskIntoConstraints="NO" id="9OR-AP-88X">
-                                <rect key="frame" x="207" y="340" width="82" height="102"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ge6-xL-aTg">
+                                <rect key="frame" x="119.5" y="453.5" width="180" height="160"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb-pak-splash-1" translatesAutoresizingMaskIntoConstraints="NO" id="tSu-ZC-Ow5">
+                                        <rect key="frame" x="8" y="8" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="T22-24-sus"/>
+                                            <constraint firstAttribute="width" constant="125" id="elT-k5-jAY"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_logoname" translatesAutoresizingMaskIntoConstraints="NO" id="CKk-98-6lH">
+                                        <rect key="frame" x="90.5" y="75.5" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="83a-VI-fB4"/>
+                                            <constraint firstAttribute="width" constant="80" id="yaQ-xv-wmx"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="tSu-ZC-Ow5" firstAttribute="top" secondItem="Ge6-xL-aTg" secondAttribute="top" constant="8" id="60n-LU-pNp"/>
+                                    <constraint firstAttribute="width" constant="180" id="8wm-cf-3vw"/>
+                                    <constraint firstItem="tSu-ZC-Ow5" firstAttribute="leading" secondItem="Ge6-xL-aTg" secondAttribute="leading" constant="8" id="HhJ-Oj-p2V"/>
+                                    <constraint firstItem="CKk-98-6lH" firstAttribute="centerX" secondItem="tSu-ZC-Ow5" secondAttribute="centerX" constant="60" id="VuU-XZ-2fl"/>
+                                    <constraint firstItem="CKk-98-6lH" firstAttribute="centerY" secondItem="tSu-ZC-Ow5" secondAttribute="centerY" constant="45" id="gjr-iI-pPS"/>
+                                    <constraint firstAttribute="height" constant="160" id="jpd-o3-bn7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9OR-AP-88X" firstAttribute="top" secondItem="znI-TE-o8E" secondAttribute="bottom" constant="320" id="8C1-94-duU"/>
-                            <constraint firstItem="jXC-wf-Qr7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="99" id="J7L-qX-Vjl"/>
-                            <constraint firstItem="9OR-AP-88X" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="207" id="JHg-gc-9Ey"/>
-                            <constraint firstAttribute="trailing" secondItem="9OR-AP-88X" secondAttribute="trailing" constant="86" id="cbX-K3-PX1"/>
-                            <constraint firstItem="8Rj-ET-fmW" firstAttribute="top" secondItem="jXC-wf-Qr7" secondAttribute="bottom" constant="271" id="e6V-4h-l7y"/>
-                            <constraint firstItem="jXC-wf-Qr7" firstAttribute="top" secondItem="znI-TE-o8E" secondAttribute="bottom" constant="251" id="ewZ-6h-2nU"/>
-                            <constraint firstItem="jXC-wf-Qr7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l2x-nE-gUm"/>
-                            <constraint firstItem="8Rj-ET-fmW" firstAttribute="top" secondItem="9OR-AP-88X" secondAttribute="bottom" constant="225" id="oyF-IX-gFi"/>
+                            <constraint firstItem="Ge6-xL-aTg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="22" id="5BL-Ku-vX1"/>
+                            <constraint firstItem="Ge6-xL-aTg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="200" id="bUc-Mg-XLd"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="iv_letter_logo" destination="9OR-AP-88X" id="AZe-Wo-BVZ"/>
-                        <outlet property="iv_logo" destination="jXC-wf-Qr7" id="feT-BU-ZW8"/>
+                        <outlet property="animationView" destination="Ge6-xL-aTg" id="E59-5d-jIa"/>
+                        <outlet property="horizontalConstraint" destination="5BL-Ku-vX1" id="vMU-BT-1fc"/>
+                        <outlet property="ivBox" destination="tSu-ZC-Ow5" id="o0y-Jv-Prs"/>
+                        <outlet property="ivText" destination="CKk-98-6lH" id="VmJ-HB-Paf"/>
+                        <outlet property="verticalConstraint" destination="bUc-Mg-XLd" id="ciu-t6-QPD"/>
                         <segue destination="H84-IG-3ag" kind="show" identifier="segue_splash_main" id="692-lH-5Bg"/>
                     </connections>
                 </viewController>
@@ -1412,7 +1430,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLS-AG-EBF" userLabel="l_name">
-                                                    <rect key="frame" x="18" y="2" width="68" height="24"/>
+                                                    <rect key="frame" x="18" y="2.5" width="68" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
@@ -1495,7 +1513,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arroz costeño" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrW-6b-8Z3" userLabel="l_ltem_name">
-                                                                        <rect key="frame" x="21" y="164" width="75" height="17"/>
+                                                                        <rect key="frame" x="21" y="164.5" width="75" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1697,13 +1715,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arroz costeño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zz-2B-J9v" userLabel="l_ltem_name">
-                                                    <rect key="frame" x="13" y="157" width="97" height="10"/>
+                                                    <rect key="frame" x="13" y="160.5" width="97" height="10"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="8"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 2.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vv2-nA-7hn" userLabel="l_price_unity">
-                                                    <rect key="frame" x="36" y="171.5" width="51" height="23.5"/>
+                                                    <rect key="frame" x="36" y="175" width="51" height="20"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
@@ -5939,7 +5957,7 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrega" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4A-wY-Rjy">
-                                                    <rect key="frame" x="154" y="20" width="59" height="22"/>
+                                                    <rect key="frame" x="154.5" y="20" width="59" height="22"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -5954,7 +5972,7 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4OD-AV-djH" customClass="RoundedCornerViewGreen" customModule="pak_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="151" y="45" width="65" height="64"/>
+                                                    <rect key="frame" x="151.5" y="45" width="65" height="64"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59k-ni-EBP" userLabel="l_d_recive">
                                                             <rect key="frame" x="18" y="25" width="29" height="29"/>
@@ -5986,13 +6004,13 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2g-Dg-dN4" userLabel="l_hour_recive">
-                                                    <rect key="frame" x="169" y="104" width="29" height="20"/>
+                                                    <rect key="frame" x="169.5" y="104" width="29" height="20"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/90.19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4J-dN-ChB" userLabel="l_total">
-                                                    <rect key="frame" x="284" y="68" width="68.5" height="27"/>
+                                                    <rect key="frame" x="284.5" y="68" width="68.5" height="27"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -6004,7 +6022,7 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd3-n6-Jg5">
-                                                    <rect key="frame" x="278.5" y="102.5" width="62.5" height="21"/>
+                                                    <rect key="frame" x="279" y="103" width="62" height="21"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="15"/>
                                                     <state key="normal" image="dwb_cancel_order">
                                                         <color key="titleColor" name="pak_red"/>
@@ -6023,7 +6041,7 @@ EMKhTGlzdG8hA
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2O8-sn-fi9" userLabel="l_m_reception">
-                                                            <rect key="frame" x="19" y="3" width="27" height="15"/>
+                                                            <rect key="frame" x="19.5" y="3" width="27" height="15"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
                                                             <color key="textColor" name="pak_white"/>
                                                             <nil key="highlightedColor"/>
@@ -6045,7 +6063,7 @@ EMKhTGlzdG8hA
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWI-oK-0BP" userLabel="l_m_recive">
-                                                    <rect key="frame" x="149" y="45" width="68.5" height="20"/>
+                                                    <rect key="frame" x="149.5" y="45" width="66.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="16"/>
                                                     <color key="textColor" name="pak_white"/>
                                                     <nil key="highlightedColor"/>
@@ -6218,7 +6236,7 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrega" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfw-BF-1K9">
-                                                    <rect key="frame" x="156.5" y="20" width="59" height="27.5"/>
+                                                    <rect key="frame" x="157" y="20" width="59" height="27.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -6230,10 +6248,10 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35s-gZ-zFw" customClass="RoundedCornerViewGreen" customModule="pak_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="41" y="47" width="65" height="65"/>
+                                                    <rect key="frame" x="41" y="47" width="65.5" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76j-Ms-8ot" userLabel="l_m_reception">
-                                                            <rect key="frame" x="18" y="2" width="29" height="16"/>
+                                                            <rect key="frame" x="17.5" y="2" width="29" height="16"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="16"/>
                                                             <color key="textColor" name="pak_white"/>
                                                             <nil key="highlightedColor"/>
@@ -6267,7 +6285,7 @@ EMKhTGlzdG8hA
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9D9-2Z-qEf" customClass="RoundedCornerViewGreen" customModule="pak_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="155" y="50.5" width="62" height="60.5"/>
+                                                    <rect key="frame" x="155.5" y="50.5" width="62" height="60.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="JUL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk7-fj-uIj" userLabel="l_m_recive">
                                                             <rect key="frame" x="12" y="2" width="38" height="19.5"/>
@@ -6309,13 +6327,13 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhJ-nd-9Vr" userLabel="l_hour_recive">
-                                                    <rect key="frame" x="171.5" y="109.5" width="29" height="16.5"/>
+                                                    <rect key="frame" x="172" y="109.5" width="29" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="S/90.19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCn-JW-CBZ" userLabel="l_total">
-                                                    <rect key="frame" x="285" y="69.5" width="68.5" height="27.5"/>
+                                                    <rect key="frame" x="285.5" y="69.5" width="68.5" height="27.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -6461,13 +6479,13 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DM-NL-frZ" userLabel="l_mount_total_item">
-                                                    <rect key="frame" x="313" y="43" width="42" height="20"/>
+                                                    <rect key="frame" x="313" y="43.5" width="41.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSY-nd-Ju1" userLabel="l_cant">
-                                                    <rect key="frame" x="241.5" y="40" width="41.5" height="24"/>
+                                                    <rect key="frame" x="241" y="40" width="42" height="24"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
@@ -7038,7 +7056,7 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNA-gL-8g2" customClass="RoundedCornerViewGreen" customModule="pak_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="41" y="47" width="70.5" height="65"/>
+                                                    <rect key="frame" x="41" y="47" width="70" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3r9-z1-ZTv" userLabel="l_d_toreception">
                                                             <rect key="frame" x="19" y="26" width="26" height="26"/>
@@ -7050,7 +7068,7 @@ EMKhTGlzdG8hA
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQE-Qu-mmi" userLabel="l_m_reception">
-                                                            <rect key="frame" x="17.5" y="2" width="29" height="16"/>
+                                                            <rect key="frame" x="18" y="2" width="29" height="16"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="16"/>
                                                             <color key="textColor" name="pak_white"/>
                                                             <nil key="highlightedColor"/>
@@ -7075,7 +7093,7 @@ EMKhTGlzdG8hA
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4CH-Jl-hCz" customClass="RoundedCornerViewRed" customModule="pak_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="160" y="48" width="62" height="58.5"/>
+                                                    <rect key="frame" x="159.5" y="48" width="62" height="58.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojO-FA-Yc5" userLabel="l_m_recive">
                                                             <rect key="frame" x="12" y="2" width="38" height="16"/>
@@ -7114,19 +7132,19 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="S/90.19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeT-yl-g2n" userLabel="l_total">
-                                                    <rect key="frame" x="290.5" y="73.5" width="58" height="23.5"/>
+                                                    <rect key="frame" x="290" y="73.5" width="58" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByY-PP-GV9" userLabel="l_hour_recive">
-                                                    <rect key="frame" x="176" y="111" width="31" height="14.5"/>
+                                                    <rect key="frame" x="175.5" y="111" width="31" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrega" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-xh-8qd">
-                                                    <rect key="frame" x="162" y="16" width="59" height="29.5"/>
+                                                    <rect key="frame" x="161.5" y="16" width="59" height="29.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -8783,13 +8801,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlq-3v-xrV" userLabel="l_mount_total_item">
-                                                    <rect key="frame" x="313" y="43" width="42" height="20"/>
+                                                    <rect key="frame" x="313.5" y="43.5" width="41.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmB-ES-vMf" userLabel="l_cant">
-                                                    <rect key="frame" x="240" y="40" width="43" height="24"/>
+                                                    <rect key="frame" x="240.5" y="40.5" width="43" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -9362,14 +9380,14 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
     <inferredMetricsTieBreakers>
         <segue reference="4If-JT-tFy"/>
         <segue reference="STf-2A-NwN"/>
-        <segue reference="Nge-8z-UM6"/>
+        <segue reference="cBN-SR-qJl"/>
         <segue reference="xVe-nE-p4w"/>
         <segue reference="2h9-cx-RAU"/>
         <segue reference="OCU-k9-bKY"/>
         <segue reference="qbC-4W-Evn"/>
         <segue reference="YD1-6P-6T7"/>
         <segue reference="k7V-In-QB3"/>
-        <segue reference="969-X4-Avy"/>
+        <segue reference="692-lH-5Bg"/>
         <segue reference="SEp-H9-hjL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

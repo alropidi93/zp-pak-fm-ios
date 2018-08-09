@@ -20,21 +20,37 @@ import Firebase
 class SplashController: UIViewController {
     // Segues
     private let splash_identifier = "segue_splash_main"
-    @IBOutlet var iv_letter_logo: UIImageView!
+    //@IBOutlet var iv_letter_logo: UIImageView!
     
     // Visual variables
-    @IBOutlet weak var iv_logo: UIImageView!
+    //@IBOutlet weak var iv_logo: UIImageView!
     
 
 //     Local variables
-    private var animation_parts: [UIImage] = [ UIImage(named: "dwb-pak-splash-1")!,UIImage(named: "dwb-pak-splash-2")!, UIImage(named: "dwb-pak-splash-3")!, UIImage(named: "dwb-pak-splash-4")!, UIImage(named: "dwb-pak-splash-5")!]
+    /*private var animation_parts: [UIImage] = [ UIImage(named: "dwb-pak-splash-1")!,UIImage(named: "dwb-pak-splash-2")!, UIImage(named: "dwb-pak-splash-3")!, UIImage(named: "dwb-pak-splash-4")!, UIImage(named: "dwb-pak-splash-5")!]*/
 
 //     Common functions
+    
+    
+    //new animation variables
+    @IBOutlet weak var animationView: UIView!
+    @IBOutlet weak var ivBox: UIImageView!
+    @IBOutlet weak var ivText: UIImageView!
+    
+    @IBOutlet weak var horizontalConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var verticalConstraint: NSLayoutConstraint!
+    
+    //...
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.getGUID()
-        UIView.animate(withDuration: 0.25, animations: {
+        
+        doSlideUp()
+        //Old animation
+        /*UIView.animate(withDuration: 0.25, animations: {
             self.iv_logo.frame.origin.y -= 127
         }){_ in
             UIView.animateKeyframes(withDuration: 0.25, delay: 0.25, options: [], animations: {
@@ -68,6 +84,55 @@ class SplashController: UIViewController {
                     }
                 }
             })
+        }*/
+        //...
+    }
+    
+    private func doSlideUp(){
+        print("Splash Begin")
+        UIView.animate(withDuration: 0.5){
+            self.verticalConstraint.constant = 0
+            self.view.layoutIfNeeded()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.doImageTransition()
+            }
+        }
+    }
+    
+    var imgCount = 0
+    
+    private func doImageTransition(){
+        self.imgCount += 1
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            
+            switch self.imgCount {
+            case 1:
+                self.ivBox.image = #imageLiteral(resourceName: "dwb-pak-splash-2")
+                self.doImageTransition()
+            case 2:
+                self.ivBox.image = #imageLiteral(resourceName: "dwb-pak-splash-3")
+                self.doImageTransition()
+            case 3:
+                self.ivBox.image = #imageLiteral(resourceName: "dwb-pak-splash-4")
+                self.doImageTransition()
+            case 4:
+                self.ivBox.image = #imageLiteral(resourceName: "dwb-pak-splash-5")
+                self.doImageTransition()
+            default:
+                self.doSlideLeft()
+            }
+        }
+    }
+    
+    private func doSlideLeft(){
+        UIView.animate(withDuration: 0.25){
+            self.ivText.alpha = 1
+            self.horizontalConstraint.constant = 0
+            self.view.layoutIfNeeded()
+            print("Splash Done")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.performSegue(withIdentifier: self.splash_identifier, sender: self)
+            }
         }
     }
     
