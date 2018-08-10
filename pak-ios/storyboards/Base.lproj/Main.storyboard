@@ -364,10 +364,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOb-89-C08">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iz8-Ig-xdX">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <rect key="frame" x="0.0" y="-20" width="375" height="647"/>
                                         <subviews>
                                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBo-SP-qJH" userLabel="v_alpha_background">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
@@ -386,13 +386,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb-pak-logo-name" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UcI-VC-Svf" userLabel="iv_logoname_pak">
-                                                                        <rect key="frame" x="42" y="30" width="291" height="127"/>
+                                                                        <rect key="frame" x="42" y="50" width="291" height="107"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="UcI-VC-Svf" secondAttribute="trailing" constant="42" id="ccl-VQ-Vf3"/>
                                                                     <constraint firstItem="UcI-VC-Svf" firstAttribute="leading" secondItem="uEr-go-aC6" secondAttribute="leading" constant="42" id="l6K-F4-6kx"/>
-                                                                    <constraint firstItem="UcI-VC-Svf" firstAttribute="top" secondItem="uEr-go-aC6" secondAttribute="top" constant="30" id="snO-UF-Sv2"/>
+                                                                    <constraint firstItem="UcI-VC-Svf" firstAttribute="top" secondItem="uEr-go-aC6" secondAttribute="top" constant="50" id="snO-UF-Sv2"/>
                                                                     <constraint firstAttribute="bottom" secondItem="UcI-VC-Svf" secondAttribute="bottom" constant="56" id="wsT-FY-5k4"/>
                                                                 </constraints>
                                                             </view>
@@ -536,18 +536,18 @@
                                     <constraint firstItem="Iz8-Ig-xdX" firstAttribute="leading" secondItem="YOb-89-C08" secondAttribute="leading" id="1Ty-eJ-Dgq"/>
                                     <constraint firstAttribute="bottom" secondItem="Iz8-Ig-xdX" secondAttribute="bottom" id="5e4-ps-4uo"/>
                                     <constraint firstAttribute="trailing" secondItem="Iz8-Ig-xdX" secondAttribute="trailing" id="JGa-ia-x8f"/>
-                                    <constraint firstItem="Iz8-Ig-xdX" firstAttribute="top" secondItem="YOb-89-C08" secondAttribute="top" id="bq6-TV-3E6"/>
+                                    <constraint firstItem="Iz8-Ig-xdX" firstAttribute="top" secondItem="YOb-89-C08" secondAttribute="top" constant="-20" id="bq6-TV-3E6"/>
                                     <constraint firstItem="Iz8-Ig-xdX" firstAttribute="centerX" secondItem="YOb-89-C08" secondAttribute="centerX" id="mAY-d2-Wqf"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YOb-89-C08" firstAttribute="top" secondItem="f6C-gn-TS6" secondAttribute="top" id="5a3-pp-tNK"/>
                             <constraint firstAttribute="trailing" secondItem="YOb-89-C08" secondAttribute="trailing" id="5zb-Hj-0ac"/>
                             <constraint firstItem="YOb-89-C08" firstAttribute="bottom" secondItem="AM5-t2-fGD" secondAttribute="top" id="BuZ-i5-iU1"/>
                             <constraint firstItem="YOb-89-C08" firstAttribute="leading" secondItem="f6C-gn-TS6" secondAttribute="leading" id="ZDd-4Z-O6H"/>
                             <constraint firstItem="Iz8-Ig-xdX" firstAttribute="width" secondItem="f6C-gn-TS6" secondAttribute="width" id="brb-Al-toB"/>
-                            <constraint firstItem="YOb-89-C08" firstAttribute="top" secondItem="vM1-A1-dEh" secondAttribute="bottom" id="ljV-PV-Dnu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SYS-Ur-kxZ"/>
@@ -2224,26 +2224,26 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KV1-DK-reD">
-                                <rect key="frame" x="0.0" y="10" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="-10" width="375" height="677"/>
                                 <subviews>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6u-AD-Qph" userLabel="v_alpha_background">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="677"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.25217899659999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xaA-RX-esg" userLabel="v_menu_content">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="677"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifI-uR-poB" userLabel="v_logoname_pack">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_sidebar" translatesAutoresizingMaskIntoConstraints="NO" id="QZN-46-lsw" userLabel="iv_background_menu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbb-OP-Ea7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb-pak-logo-name" translatesAutoresizingMaskIntoConstraints="NO" id="jEH-28-H7H" userLabel="iv_logoname_pak">
-                                                                <rect key="frame" x="42" y="30" width="291" height="127"/>
+                                                                <rect key="frame" x="42" y="30" width="291" height="157"/>
                                                             </imageView>
                                                         </subviews>
                                                         <constraints>
@@ -2267,7 +2267,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2l-Tw-gcU" userLabel="v_buttom_background">
-                                                <rect key="frame" x="0.0" y="187" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="217" width="375" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXp-GW-DUa" userLabel="b_login_logout">
                                                         <rect key="frame" x="0.0" y="0.0" width="349" height="50"/>
@@ -2292,31 +2292,54 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_login_detail" translatesAutoresizingMaskIntoConstraints="NO" id="Am7-U9-zU3" userLabel="iv_buttom_detail">
                                                         <rect key="frame" x="345" y="0.0" width="30" height="50"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_usericon" translatesAutoresizingMaskIntoConstraints="NO" id="Dl6-AW-HCM">
-                                                        <rect key="frame" x="61" y="0.0" width="64" height="50"/>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVN-P6-KDX">
+                                                        <rect key="frame" x="32" y="-12" width="74" height="74"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_usericon" translatesAutoresizingMaskIntoConstraints="NO" id="Dl6-AW-HCM">
+                                                                <rect key="frame" x="5" y="5" width="64" height="64"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="64" id="3up-Bm-HPz"/>
+                                                                    <constraint firstAttribute="width" constant="64" id="jQq-GW-uqv"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="32"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="NO"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="64" id="J5D-vJ-hRB"/>
+                                                            <constraint firstItem="Dl6-AW-HCM" firstAttribute="centerY" secondItem="OVN-P6-KDX" secondAttribute="centerY" id="7qf-LZ-l9V"/>
+                                                            <constraint firstAttribute="height" constant="74" id="JaD-dL-sgm"/>
+                                                            <constraint firstItem="Dl6-AW-HCM" firstAttribute="centerX" secondItem="OVN-P6-KDX" secondAttribute="centerX" id="g07-m3-j6p"/>
+                                                            <constraint firstAttribute="width" constant="74" id="wjG-we-b05"/>
                                                         </constraints>
-                                                    </imageView>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="37"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="Am7-U9-zU3" secondAttribute="bottom" id="AvL-ix-7Qo"/>
                                                     <constraint firstAttribute="trailing" secondItem="JXp-GW-DUa" secondAttribute="trailing" constant="26" id="Ciq-qI-nBb"/>
                                                     <constraint firstAttribute="trailing" secondItem="Am7-U9-zU3" secondAttribute="trailing" id="EvQ-Rm-jOb"/>
+                                                    <constraint firstItem="OVN-P6-KDX" firstAttribute="centerY" secondItem="JXp-GW-DUa" secondAttribute="centerY" id="Fh8-aa-uDI"/>
                                                     <constraint firstAttribute="height" constant="50" id="Gg0-m1-4C7"/>
                                                     <constraint firstAttribute="bottom" secondItem="JXp-GW-DUa" secondAttribute="bottom" id="HRg-le-fpw"/>
-                                                    <constraint firstItem="Dl6-AW-HCM" firstAttribute="leading" secondItem="q2l-Tw-gcU" secondAttribute="leading" constant="61" id="JTf-VC-egY"/>
                                                     <constraint firstItem="Am7-U9-zU3" firstAttribute="top" secondItem="q2l-Tw-gcU" secondAttribute="top" id="KFv-JN-aPz"/>
                                                     <constraint firstItem="JXp-GW-DUa" firstAttribute="top" secondItem="q2l-Tw-gcU" secondAttribute="top" id="S7O-GQ-dbG"/>
-                                                    <constraint firstItem="Am7-U9-zU3" firstAttribute="bottom" secondItem="Dl6-AW-HCM" secondAttribute="bottom" id="hUE-I3-6H9"/>
-                                                    <constraint firstItem="Am7-U9-zU3" firstAttribute="top" secondItem="Dl6-AW-HCM" secondAttribute="top" id="oNx-Fg-fKT"/>
+                                                    <constraint firstItem="OVN-P6-KDX" firstAttribute="leading" secondItem="q2l-Tw-gcU" secondAttribute="leading" constant="32" id="Zuu-O8-rnu"/>
                                                     <constraint firstItem="JXp-GW-DUa" firstAttribute="leading" secondItem="q2l-Tw-gcU" secondAttribute="leading" id="ris-RJ-MWM"/>
                                                     <constraint firstItem="Am7-U9-zU3" firstAttribute="leading" secondItem="JXp-GW-DUa" secondAttribute="trailing" constant="-4" id="uh3-w6-iAV"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VDS-Sh-Kk5" userLabel="sv_slidemenu">
-                                                <rect key="frame" x="15" y="257" width="345" height="290"/>
+                                                <rect key="frame" x="15" y="287" width="345" height="290"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhv-D4-Zhc" userLabel="b_home">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
@@ -2414,7 +2437,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzB-K7-pXI" userLabel="b_close_session">
-                                                <rect key="frame" x="143" y="589" width="90" height="33"/>
+                                                <rect key="frame" x="143" y="619" width="90" height="33"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="15"/>
                                                 <state key="normal" title="Cerrar sesión">
                                                     <color key="titleColor" white="0.20069028250000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2445,7 +2468,6 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="647" id="0wO-sS-tgt"/>
                                     <constraint firstItem="xaA-RX-esg" firstAttribute="top" secondItem="KV1-DK-reD" secondAttribute="top" id="KJj-Vk-rBl"/>
                                     <constraint firstItem="xaA-RX-esg" firstAttribute="leading" secondItem="KV1-DK-reD" secondAttribute="leading" id="UEX-Vv-wQn"/>
                                     <constraint firstAttribute="trailing" secondItem="xaA-RX-esg" secondAttribute="trailing" id="ciS-Mt-NcS"/>
@@ -2459,9 +2481,12 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="KV1-DK-reD" firstAttribute="leading" secondItem="02e-Yf-CcS" secondAttribute="leading" id="7gf-VB-pFj"/>
+                            <constraint firstAttribute="trailing" secondItem="KV1-DK-reD" secondAttribute="trailing" id="8Jg-U3-lve"/>
                             <constraint firstItem="KV1-DK-reD" firstAttribute="leading" secondItem="02e-Yf-CcS" secondAttribute="leading" id="PUj-9x-yOS"/>
-                            <constraint firstItem="KV1-DK-reD" firstAttribute="centerY" secondItem="02e-Yf-CcS" secondAttribute="centerY" id="oYP-zO-COD"/>
                             <constraint firstAttribute="trailing" secondItem="KV1-DK-reD" secondAttribute="trailing" id="u4q-Bg-q4C"/>
+                            <constraint firstItem="KV1-DK-reD" firstAttribute="top" secondItem="02e-Yf-CcS" secondAttribute="top" constant="-10" id="wc0-Lc-rSc"/>
+                            <constraint firstItem="kEo-eo-koj" firstAttribute="top" secondItem="KV1-DK-reD" secondAttribute="bottom" id="yGQ-jS-p0x"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cFU-Q1-95q"/>
@@ -9381,7 +9406,7 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         <segue reference="4If-JT-tFy"/>
         <segue reference="IRN-db-nS4"/>
         <segue reference="Tbg-Fj-nVg"/>
-        <segue reference="xVe-nE-p4w"/>
+        <segue reference="RzB-aK-gvt"/>
         <segue reference="2h9-cx-RAU"/>
         <segue reference="MHy-C4-6QB"/>
         <segue reference="qbC-4W-Evn"/>
