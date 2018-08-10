@@ -1201,7 +1201,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAe-Ay-Okt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAe-Ay-Okt">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8yV-fC-mV0" userLabel="cv_advertisement">
@@ -1301,7 +1301,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBh-WH-zi5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBh-WH-zi5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="18M-RU-3Ih" userLabel="cv_categories">
@@ -1715,13 +1715,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arroz costeño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zz-2B-J9v" userLabel="l_ltem_name">
-                                                    <rect key="frame" x="13" y="160.5" width="97" height="10"/>
+                                                    <rect key="frame" x="13" y="157" width="97" height="10"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="8"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 2.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vv2-nA-7hn" userLabel="l_price_unity">
-                                                    <rect key="frame" x="36" y="175" width="51" height="20"/>
+                                                    <rect key="frame" x="36" y="171.5" width="51" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
@@ -5900,7 +5900,7 @@ EMKhTGlzdG8hA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby" translatesAutoresizingMaskIntoConstraints="NO" id="xHN-jM-UZz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" translatesAutoresizingMaskIntoConstraints="NO" id="xHN-jM-UZz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANN-aQ-t5W" userLabel="v_state_order">
@@ -6179,7 +6179,7 @@ EMKhTGlzdG8hA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby" translatesAutoresizingMaskIntoConstraints="NO" id="qQi-K6-W8j">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" translatesAutoresizingMaskIntoConstraints="NO" id="qQi-K6-W8j">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chc-EE-n29" userLabel="v_state_order">
@@ -6745,7 +6745,7 @@ EMKhTGlzdG8hA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby" translatesAutoresizingMaskIntoConstraints="NO" id="p0G-IW-33R">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" translatesAutoresizingMaskIntoConstraints="NO" id="p0G-IW-33R">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="06P-hH-vzg" userLabel="cv_categories">
@@ -6869,7 +6869,7 @@ EMKhTGlzdG8hA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby" translatesAutoresizingMaskIntoConstraints="NO" id="GD6-BK-xA4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" translatesAutoresizingMaskIntoConstraints="NO" id="GD6-BK-xA4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="052-nJ-vHi" userLabel="cv_categories">
@@ -6993,7 +6993,7 @@ EMKhTGlzdG8hA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby" translatesAutoresizingMaskIntoConstraints="NO" id="LSi-Ua-bfh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" translatesAutoresizingMaskIntoConstraints="NO" id="LSi-Ua-bfh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8U-UR-B5v" userLabel="v_state_order">
@@ -9331,7 +9331,7 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         <image name="dwb_list_start" width="11" height="11"/>
         <image name="dwb_logoname" width="78" height="8"/>
         <image name="dwb_pak_add_Item" width="33" height="19"/>
-        <image name="dwb_pak_background_loby" width="163" height="290"/>
+        <image name="dwb_pak_background_loby_amd" width="320" height="180"/>
         <image name="dwb_pak_background_sidebar" width="290" height="163"/>
         <image name="dwb_pak_button_change_password" width="18" height="18"/>
         <image name="dwb_pak_button_close" width="8" height="8"/>
@@ -9379,11 +9379,11 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4If-JT-tFy"/>
-        <segue reference="STf-2A-NwN"/>
-        <segue reference="cBN-SR-qJl"/>
+        <segue reference="IRN-db-nS4"/>
+        <segue reference="Tbg-Fj-nVg"/>
         <segue reference="xVe-nE-p4w"/>
         <segue reference="2h9-cx-RAU"/>
-        <segue reference="OCU-k9-bKY"/>
+        <segue reference="MHy-C4-6QB"/>
         <segue reference="qbC-4W-Evn"/>
         <segue reference="YD1-6P-6T7"/>
         <segue reference="k7V-In-QB3"/>
