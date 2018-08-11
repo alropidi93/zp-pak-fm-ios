@@ -33,6 +33,7 @@ class AlertViewPayment : UIViewController ,NVActivityIndicatorViewable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
         self.setElements()
     }
     

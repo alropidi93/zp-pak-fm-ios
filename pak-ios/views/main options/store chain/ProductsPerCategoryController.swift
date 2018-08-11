@@ -41,7 +41,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("AMD: \(ProductsPerCategoryController.description())")
+        print("AMD: \(String(describing: type(of: self)))")
         self.navigationBarWithSearch()
         self.navigationController?.navigationBar.shadowImage = UIImage()
 

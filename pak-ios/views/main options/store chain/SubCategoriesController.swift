@@ -41,7 +41,7 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     //#MARK: Common methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("AMD: \(SubCategoriesController.description())")
+        print("AMD: \(String(describing: type(of: self)))")
         setElements()
     }
     

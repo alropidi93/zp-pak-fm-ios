@@ -70,6 +70,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
         setElements()
     }
     

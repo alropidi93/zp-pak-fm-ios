@@ -22,6 +22,7 @@ class PakAlertCardData : UIViewController, PageObservation{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
         //showDatePicker()
         setElements()
     }
@@ -58,11 +59,10 @@ class PakAlertCardData : UIViewController, PageObservation{
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
         let alert = UIAlertController(style: .actionSheet, title: "Fecha")
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: nil ) { date in
-            
             self.date = UtilMethods.intFromDate(date)
             self.tf_expired_date.text = UtilMethods.formatDateMY(date)
-            self.parentPageViewController.expiredDateMM = UtilMethods.DateToString(UtilMethods.formatDateMY(date).components(separatedBy: "/")[0])
-            self.parentPageViewController.expiredDateYYYY = UtilMethods.formatDateMY(date).components(separatedBy: "/")[1]
+            self.parentPageViewController.expiredDateMM = date.toString(dateFormat: "MM")
+            self.parentPageViewController.expiredDateYYYY = date.toString(dateFormat: "yyyy")
         }
         alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: nil)
         self.present(alert, animated: true, completion: nil)

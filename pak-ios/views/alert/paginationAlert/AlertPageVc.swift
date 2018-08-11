@@ -34,6 +34,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
 
         if let firstVC = VCArr.first {
             setViewControllers([firstVC], direction: .forward, animated: true , completion: nil)
