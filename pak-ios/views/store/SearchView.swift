@@ -52,9 +52,11 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         self.cv_search.delegate = self
         self.cv_search.dataSource = self
         let bgImage = UIImageView();
-        bgImage.image = UIImage(named: "dwb_pak_background_loby")
-        bgImage.contentMode = .scaleToFill
+        //amd - replaced new horizontal background, and aspect fix
+        bgImage.image = UIImage(named: "dwb_pak_background_loby_amd")
+        bgImage.contentMode = .scaleAspectFill
         self.cv_search.backgroundView = bgImage
+        
         getProducts()
     }
     
@@ -65,6 +67,12 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCSearchItem
+        
+        //amd - cell width equal to 1/3 of screen size
+        let cell_width = UIScreen.main.bounds.width/3
+        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell_width, cell.frame.height)
+        //...
+        
         cell.l_Item_name.text = self.items[indexPath.item].name
         cell.l_price_unity.text = "S/" + String(format: "%.2f",(self.items[indexPath.item].price))
         UtilMethods.setImage(imageview: cell.iv_item_photo, imageurl: self.items[indexPath.item].img, placeholderurl: "dwb-pak-logo")
