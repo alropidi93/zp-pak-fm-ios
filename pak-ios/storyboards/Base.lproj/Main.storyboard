@@ -1671,7 +1671,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;data&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxd-mi-T3G">
-                                <rect key="frame" x="166" y="35" width="45" height="23.5"/>
+                                <rect key="frame" x="165" y="35" width="45" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2297,7 +2297,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_login_detail" translatesAutoresizingMaskIntoConstraints="NO" id="Am7-U9-zU3" userLabel="iv_buttom_detail">
                                                         <rect key="frame" x="345" y="0.0" width="30" height="50"/>
                                                     </imageView>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVN-P6-KDX">
+                                                    <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVN-P6-KDX">
                                                         <rect key="frame" x="32" y="-12" width="74" height="74"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_usericon" translatesAutoresizingMaskIntoConstraints="NO" id="Dl6-AW-HCM">
@@ -6940,7 +6940,7 @@ EMKhTGlzdG8hA
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7Z-nn-3Ce" userLabel="l_name_category">
-                                                            <rect key="frame" x="294.5" y="124" width="61.5" height="40"/>
+                                                            <rect key="frame" x="295.5" y="124" width="60.5" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="lV5-GG-pSn"/>
                                                             </constraints>
@@ -9418,7 +9418,7 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         <segue reference="4If-JT-tFy"/>
         <segue reference="IRN-db-nS4"/>
         <segue reference="cBN-SR-qJl"/>
-        <segue reference="RzB-aK-gvt"/>
+        <segue reference="xVe-nE-p4w"/>
         <segue reference="2h9-cx-RAU"/>
         <segue reference="MHy-C4-6QB"/>
         <segue reference="qbC-4W-Evn"/>
