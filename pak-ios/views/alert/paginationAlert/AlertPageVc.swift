@@ -161,7 +161,8 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     func payment() {
         self.parentVC?.b_next.isEnabled = false
 
-        self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        PakLoader.show()
+        //self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
         var params: Parameters = [:]
         if boletaOrFactura == 0 {
             params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" , "Direccion" : checkOut.address, "IdDistrito" : checkOut.district, "Referencia" : checkOut.reference, "TipoFacturacion" : "B", "NombreDestinatario": checkOut.recipentName, "FechaEntrega":checkOut.date, "VentanaHoraria":checkOut.hourlySale, "Token":checkOut.token]
@@ -170,7 +171,9 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
             params = [ "GUID" : PreferencesMethods.getSmallBoxFromOptions()?.GUID ?? "" , "Direccion" : checkOut.address, "IdDistrito" : checkOut.district, "Referencia" : checkOut.reference, "TipoFacturacion" : "F", "RUC" : checkOut.ruc, "RazonSocial" : checkOut.businessName , "DireccionFiscal" : checkOut.fiscalAddress, "NombreDestinatario": checkOut.recipentName, "FechaEntrega":checkOut.date, "VentanaHoraria":checkOut.hourlySale, "Token":checkOut.token]
         }
 
+        
         Alamofire.request(URLs.Payment, method: .post, parameters: params ,encoding: JSONEncoding.default).responseJSON { response in
+            PakLoader.hide()
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
                 self.stopAnimating()

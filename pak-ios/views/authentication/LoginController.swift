@@ -103,7 +103,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     func loginUser() {
 //        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
         //self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
-        PakLoader.show(self.view)
+        PakLoader.show()
 
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             getGUID()

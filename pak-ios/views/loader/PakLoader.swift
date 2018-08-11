@@ -17,10 +17,21 @@ public class PakLoader {
     static var currentOverlay : UIView?
     static var image = UIImageView(image: #imageLiteral(resourceName: "dwb_ic_box")) // Imagen central
     
+    
+    static func show(){
+        guard let currentMainWindow = UIApplication.shared.keyWindow else {
+            print("No main window.")
+            return
+        }
+        show(currentMainWindow)
+    }
+    
     // El loader cargara sobre el UIView que se ponga en el constructor
     static func show(_ overlayTarget : UIView){
         hide()
         // Create and center overlay into overlayTarget
+        
+        
         let overlay = UIView(frame: overlayTarget.frame)
         overlay.center = overlayTarget.center
         overlay.alpha = 0
