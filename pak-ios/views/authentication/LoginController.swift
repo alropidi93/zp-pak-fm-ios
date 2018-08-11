@@ -102,8 +102,8 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
 
     func loginUser() {
 //        LoaderMethodsCustom.startLoaderCustom(uiViewController: self)
-
-                self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        //self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
+        PakLoader.show(self.view)
 
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             getGUID()
@@ -115,6 +115,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                                    "FCMToken" : InstanceID.instanceID().token() ?? "No token"
                                    ]
         Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            PakLoader.hide()
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 

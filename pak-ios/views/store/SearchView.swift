@@ -43,6 +43,8 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         print("AMD: \(SearchView.description())")
         self.l_search_word.text = "\"" + self.text + "\""
         //setElements()
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -299,5 +301,6 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
             notificationButton.badge = "\(ConstantsModels.count_item) "
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
         }
-    }    
+    }
+    
 }

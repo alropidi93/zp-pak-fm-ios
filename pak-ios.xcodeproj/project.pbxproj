@@ -29,6 +29,7 @@
 		38299DB021119AC600C62740 /* AlertCancelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DAF21119AC600C62740 /* AlertCancelDelegate.swift */; };
 		38299DB22111B1EA00C62740 /* AlertBoxCarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */; };
 		38299DB42111B2C400C62740 /* PakAlertOutCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB32111B2C400C62740 /* PakAlertOutCar.swift */; };
+		415B22D8211F46CD004542B0 /* PakLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B22D7211F46CD004542B0 /* PakLoader.swift */; };
 		5E54D3152100FC1D00BA3240 /* LoaderMethodsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */; };
 		5E54D3172100FC8100BA3240 /* PakLoaderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */; };
 		7007930D20D2256A00DE70CA /* PakAlertReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007930C20D2256A00DE70CA /* PakAlertReady.swift */; };
@@ -145,6 +146,7 @@
 		38299DAF21119AC600C62740 /* AlertCancelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCancelDelegate.swift; sourceTree = "<group>"; };
 		38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBoxCarDelegate.swift; sourceTree = "<group>"; };
 		38299DB32111B2C400C62740 /* PakAlertOutCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertOutCar.swift; sourceTree = "<group>"; };
+		415B22D7211F46CD004542B0 /* PakLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakLoader.swift; sourceTree = "<group>"; };
 		5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderMethodsCustom.swift; sourceTree = "<group>"; };
 		5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakLoaderAlert.swift; sourceTree = "<group>"; };
 		7007930C20D2256A00DE70CA /* PakAlertReady.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertReady.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 		5E54D3182100FD5500BA3240 /* loader */ = {
 			isa = PBXGroup;
 			children = (
+				415B22D7211F46CD004542B0 /* PakLoader.swift */,
 				5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */,
 			);
 			path = loader;
@@ -923,6 +926,7 @@
 				38299DB22111B1EA00C62740 /* AlertBoxCarDelegate.swift in Sources */,
 				7007930F20D22F8700DE70CA /* AlertRegisterDelegate.swift in Sources */,
 				708AC99A20E01AEF004BD8FD /* DataDeliveryDC.swift in Sources */,
+				415B22D8211F46CD004542B0 /* PakLoader.swift in Sources */,
 				705677E120E8027D007AFD71 /* CVCCategoryName.swift in Sources */,
 				7043B0B520BCF28200CC31D0 /* PakAlertCodeInvitation.swift in Sources */,
 				70C6D13D20E988CE00560D7C /* CVCCancel.swift in Sources */,
