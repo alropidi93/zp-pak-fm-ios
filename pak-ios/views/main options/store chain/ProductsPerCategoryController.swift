@@ -41,10 +41,15 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(ProductsPerCategoryController.description())")
         self.navigationBarWithSearch()
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
         setElements()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tv_sub_categories.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,7 +65,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         self.tv_sub_categories.separatorStyle = .none
         
         let bgImage = UIImageView();
-        bgImage.image = UIImage(named: "dwb_pak_background_loby")
+        bgImage.image = UIImage(named: "dwb_pak_background_loby_amd")
         bgImage.contentMode = .scaleAspectFill
         self.tv_sub_categories.backgroundView = bgImage
     }

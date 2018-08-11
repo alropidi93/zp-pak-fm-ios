@@ -30,6 +30,7 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(ProductsDetailController.description())")
         setElements()
     }
     

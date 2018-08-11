@@ -41,6 +41,7 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
     //#MARK: Common methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(RootCategoriesController.description())")
         setElements()
     }
     

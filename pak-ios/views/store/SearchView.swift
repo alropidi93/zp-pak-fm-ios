@@ -40,7 +40,13 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(SearchView.description())")
         self.l_search_word.text = "\"" + self.text + "\""
+        //setElements()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setElements()
     }
     
