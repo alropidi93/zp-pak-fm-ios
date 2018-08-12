@@ -36,6 +36,7 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
     //#MARK: Common methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
         setElements()
     }
     

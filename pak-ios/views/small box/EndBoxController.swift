@@ -76,7 +76,6 @@ class EndBoxController: UIViewController,AlertEndBoxDelegate {
     }
     
     private func doCenterFromLeft(){
-        print("Splash Begin")
         UIView.animate(withDuration: 0.5){
             self.imageHorizontalConstraint.constant = 0
             self.view.layoutIfNeeded()

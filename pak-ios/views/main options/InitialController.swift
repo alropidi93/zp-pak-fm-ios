@@ -27,6 +27,7 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
     //#MARK: Common functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
 //        setElements()
     }
     

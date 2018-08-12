@@ -61,7 +61,13 @@ class UtilMethods {
         let gradientLayer = CAGradientLayer()
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradientLayer.frame = view.bounds
+        //gradientLayer.frame = view.bounds
+        //amd - gradient margin fix
+        gradientLayer.frame = CGRect(x: view.bounds.origin.x,
+                                     y: view.bounds.origin.y,
+                                     width: UIScreen.main.bounds.width,
+                                     height: view.frame.height)
+        
         gradientLayer.colors = [initialColor.cgColor, endColor.cgColor]
         view.layer.addSublayer(gradientLayer)
     }
