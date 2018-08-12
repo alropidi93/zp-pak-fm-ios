@@ -40,6 +40,12 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     private var subTotal : Double = 0.0
     private var discountPercent : Double = 0.0
     private var discount : Double = 0.0
+    
+    //dynamic heights
+    @IBOutlet weak var l_mount_discount_height: NSLayoutConstraint!
+    
+    @IBOutlet weak var l_discount_height: NSLayoutConstraint!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -202,7 +208,12 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         self.discount = self.subTotal * (self.discountPercent / 100 )
         self.l_mount_subt.text = "S/" + String(format: "%.2f",self.subTotal)
         self.l_mount_total.text = "S/" + String(self.subTotal + self.deliveryCost - self.discount)
-        self.l_mount_discount.text = "S/" + String(format: "%.2f", self.discount)
+        //amd - text empty on 0.0 discount
+        if self.discount != 0.0 {
+            self.l_mount_discount.text = "S/" + String(format: "%.2f", self.discount)
+        }else{
+            self.l_mount_discount.text = ""
+        }
     }
     
     func getGUID() {
@@ -231,7 +242,15 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                         self.l_discount.text = "Descuento (gracias a " + (smallBox.discount?.detailName)! + ")"
                         self.discountPercent = (smallBox.discount?.percentage)!
                     }else {
-                        self.l_mount_discount.text = "--"
+                        //amd - text empty on 0.0 discount
+                        self.l_mount_discount.text = ""
+                        self.l_discount.text = ""
+                        //updating heights
+                        self.l_mount_discount_height.constant = 0
+                        self.l_discount_height.constant = 0
+                        self.view.layoutIfNeeded()
+                        //...
+                        //self.l_mount_discount.text = "--"
                     }
                     self.items = []
                     for ( _ , element) in jsonResult["Items"] {

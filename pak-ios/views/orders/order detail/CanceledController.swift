@@ -30,6 +30,7 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
         setElements()
     }
     

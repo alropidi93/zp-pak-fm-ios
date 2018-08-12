@@ -28,6 +28,11 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
     private var discountPercent : Double = 0.0
     private var discount : Double = 0.0
     
+    //dynamic constraints
+    @IBOutlet weak var l_mount_discount_margin_top: NSLayoutConstraint!
+    
+    @IBOutlet weak var l_discount_margin_top: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
@@ -75,7 +80,15 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
         self.discount = self.subTotal * (self.discountPercent / 100 )
         self.l_mount_subt.text = "S/" + String(format: "%.2f", self.subTotal)
         self.l_total_mount.text = "S/" + String(self.subTotal + self.deliveryCost - self.discount)
-        self.l_mount_discount.text = "S/" + String(format: "%.2f", self.discount)
+        //self.l_mount_discount.text = "S/" + String(format: "%.2f", self.discount)
+        
+        
+        //amd - text empty on 0.0 discount
+        if self.discount != 0.0 {
+            self.l_mount_discount.text = "S/" + String(format: "%.2f", self.discount)
+        }else{
+            self.l_mount_discount.text = ""
+        }
     }
     
     func getGUID() {
@@ -98,7 +111,15 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
                          self.l_discount.text = "Descuento (gracias a " + (smallBox.discount?.detailName)! + ")"
                         self.discountPercent = (smallBox.discount?.percentage)!
                     }else {
-                        self.l_mount_discount.text = "--"
+                        //amd - text empty on 0.0 discount
+                        self.l_mount_discount.text = ""
+                        self.l_discount.text = ""
+                        //updating margins
+                        self.l_mount_discount_margin_top.constant = 0
+                        self.l_discount_margin_top.constant = 0
+                        self.view.layoutIfNeeded()
+                        //...
+                        //self.l_mount_discount.text = "--"
                     }
                     self.items = []
                     for ( _ , element) in jsonResult["Items"] {

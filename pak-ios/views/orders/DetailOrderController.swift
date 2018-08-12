@@ -40,6 +40,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(DetailOrderController.description())")
         setElements()
     }
     

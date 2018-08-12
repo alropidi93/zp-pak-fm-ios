@@ -34,6 +34,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
         setElements()
     }
     

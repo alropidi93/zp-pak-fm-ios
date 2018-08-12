@@ -31,6 +31,7 @@ class OrdersController : TabmanViewController, PageboyViewControllerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
         setElements()
     }
     
