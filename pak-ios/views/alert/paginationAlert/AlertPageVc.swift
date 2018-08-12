@@ -72,16 +72,18 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     }
 
     func goBackPage() {
+        print("AMD <- ")
         print(self.pageNow)
         self.pageNow = self.pageNow - 1
 
         let viewController = self.VCArr[self.pageNow - 1]
-        setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion:nil)
+        setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.reverse, animated: true, completion:nil)
         print(self.pageNow)
 
     }
 
     func goNextPage(forwardTo position: Int) {
+        print("AMD -> \(position)")
         switch position {
         case 1:
             if (validateFirstController() == true){
