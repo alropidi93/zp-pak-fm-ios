@@ -213,10 +213,12 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
 
 
     func validateCulqi() {
+        PakLoader.show()
         let headersHttp: HTTPHeaders = ["Content-Type" : "application/json; charset=utf-8", "Authorization": "Bearer " + Constants.CULQI_KEY ]
         let params: Parameters = [ "email" : ConstantsModels.static_user!.userName , "card_number": self.numTarjeta, "public_key":Constants.CULQI_KEY, "cvv": self.ccv, "expiration_year": self.expiredDateYYYY, "expiration_month":expiredDateMM, "fingerprint": 89]
 
         Alamofire.request(URLs.CulqiValidation, method: .post, parameters: params ,encoding: JSONEncoding.default, headers: headersHttp).responseJSON { response in
+            PakLoader.hide()
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 

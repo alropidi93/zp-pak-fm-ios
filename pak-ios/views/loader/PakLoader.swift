@@ -12,12 +12,13 @@ import UIKit
 
 public class PakLoader {
     
-    // Ojo: Si existe una barra superior (top bar), el espacio estara reservado y separado del View principal
+    // Ojo: Si existe una barra superior (top bar) sin transparencia, el espacio podria estar reservado y separado del View principal
     
     static var currentOverlay : UIView?
     static var image = UIImageView(image: #imageLiteral(resourceName: "dwb_ic_box")) // Imagen central
     
     
+    // El loader cargara sobre la vista de la ventana principal
     static func show(){
         guard let currentMainWindow = UIApplication.shared.keyWindow else {
             print("No main window.")
@@ -30,8 +31,6 @@ public class PakLoader {
     static func show(_ overlayTarget : UIView){
         hide()
         // Create and center overlay into overlayTarget
-        
-        
         let overlay = UIView(frame: overlayTarget.frame)
         overlay.center = overlayTarget.center
         overlay.alpha = 0

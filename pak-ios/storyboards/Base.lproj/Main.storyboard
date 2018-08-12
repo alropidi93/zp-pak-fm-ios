@@ -36,18 +36,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb-pak-splash-5" translatesAutoresizingMaskIntoConstraints="NO" id="kFY-N9-pCY">
-                                <rect key="frame" x="115" y="315" width="145" height="37"/>
+                                <rect key="frame" x="-382.5" y="263.5" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="A9i-8v-eWG"/>
+                                    <constraint firstAttribute="width" constant="140" id="lzh-F1-n0b"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kFY-N9-pCY" firstAttribute="leading" secondItem="jbJ-kd-EG5" secondAttribute="leadingMargin" constant="99" id="6Sr-RK-3aB"/>
                             <constraint firstItem="kFY-N9-pCY" firstAttribute="centerY" secondItem="jbJ-kd-EG5" secondAttribute="centerY" id="G2R-6h-uPe"/>
-                            <constraint firstItem="kFY-N9-pCY" firstAttribute="top" secondItem="3bB-o6-I4Z" secondAttribute="bottom" constant="251" id="aVj-Fw-9f7"/>
-                            <constraint firstItem="kFY-N9-pCY" firstAttribute="centerX" secondItem="jbJ-kd-EG5" secondAttribute="centerX" id="i8m-ra-oiG"/>
+                            <constraint firstItem="kFY-N9-pCY" firstAttribute="centerX" secondItem="jbJ-kd-EG5" secondAttribute="centerX" constant="-500" id="i8m-ra-oiG"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageHorizontalConstraint" destination="i8m-ra-oiG" id="yqe-bo-0un"/>
                         <outlet property="iv_logo_end" destination="kFY-N9-pCY" id="SZE-F0-AL7"/>
                         <segue destination="H84-IG-3ag" kind="show" identifier="segue_splash_close" id="6iO-7K-Th3"/>
                     </connections>
@@ -135,7 +138,7 @@
                                         <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Aún no tienes cuenta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJo-wZ-wzX" userLabel="l_no_account">
-                                                <rect key="frame" x="115" y="8" width="145.5" height="23"/>
+                                                <rect key="frame" x="115.5" y="8" width="145.5" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="NkU-Rr-uiL"/>
                                                 </constraints>
@@ -1671,7 +1674,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;data&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxd-mi-T3G">
-                                <rect key="frame" x="165" y="79" width="45" height="23.5"/>
+                                <rect key="frame" x="165.5" y="79" width="45" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2527,7 +2530,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi código de invitación" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofb-fO-IrG" userLabel="l_code_invitation">
-                                        <rect key="frame" x="121.5" y="17" width="133.5" height="18"/>
+                                        <rect key="frame" x="121" y="17" width="133.5" height="18"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -2539,7 +2542,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhu-pE-5iQ" userLabel="b_copy">
-                                        <rect key="frame" x="275" y="35" width="22" height="25"/>
+                                        <rect key="frame" x="274.5" y="35" width="22" height="25"/>
                                         <state key="normal" backgroundImage="dwb_pak_copy"/>
                                         <connections>
                                             <action selector="ba_copy:" destination="U92-eC-NN0" eventType="touchUpInside" id="EdV-kl-bHm"/>
@@ -3948,13 +3951,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Versión 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abz-WY-irC" userLabel="tf_version">
-                                        <rect key="frame" x="143.5" y="265" width="88" height="23.5"/>
+                                        <rect key="frame" x="144" y="265" width="88" height="23.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017© Todos los derechos reservados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhB-sf-Xqg" userLabel="tf_right_reserved">
-                                        <rect key="frame" x="37" y="298.5" width="301.5" height="23.5"/>
+                                        <rect key="frame" x="37.5" y="298.5" width="301.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3977,7 +3980,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desarrollado por" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKa-BT-Ifi" userLabel="l_developed">
-                                <rect key="frame" x="60" y="546" width="410" height="23.5"/>
+                                <rect key="frame" x="60" y="545.5" width="410" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -4468,7 +4471,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <rect key="frame" x="0.0" y="0.0" width="335" height="427"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datos de envío" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErC-yb-bjh" userLabel="l_dataSend_title">
-                                        <rect key="frame" x="101" y="60" width="134" height="27.5"/>
+                                        <rect key="frame" x="100.5" y="60" width="134" height="27.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
                                         <color key="textColor" name="pak_green"/>
                                         <nil key="highlightedColor"/>
@@ -4849,7 +4852,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datos de facturación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNo-ZM-tWE" userLabel="l_dataSend_title">
-                                        <rect key="frame" x="75" y="50" width="186" height="27.5"/>
+                                        <rect key="frame" x="74.5" y="50" width="186" height="27.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
                                         <color key="textColor" name="pak_green"/>
                                         <nil key="highlightedColor"/>
@@ -5122,7 +5125,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datos de tarjeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0M-Tq-dVD" userLabel="l_data_card">
-                                <rect key="frame" x="96" y="50" width="144" height="27.5"/>
+                                <rect key="frame" x="95.5" y="50" width="144" height="27.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" name="pak_green"/>
                                 <nil key="highlightedColor"/>
@@ -6273,22 +6276,22 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrega" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfw-BF-1K9">
-                                                    <rect key="frame" x="156.5" y="20" width="59" height="27.5"/>
+                                                    <rect key="frame" x="156" y="20" width="59" height="24"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqB-Ed-bRV">
-                                                    <rect key="frame" x="305" y="20" width="28" height="22.5"/>
+                                                    <rect key="frame" x="305" y="20" width="28" height="26.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35s-gZ-zFw" customClass="RoundedCornerViewGreen" customModule="pak_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="41" y="47" width="65" height="65"/>
+                                                    <rect key="frame" x="41" y="47" width="64.5" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76j-Ms-8ot" userLabel="l_m_reception">
-                                                            <rect key="frame" x="18" y="2" width="29" height="16"/>
+                                                            <rect key="frame" x="17" y="2" width="31.5" height="19"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="16"/>
                                                             <color key="textColor" name="pak_white"/>
                                                             <nil key="highlightedColor"/>
@@ -6322,16 +6325,16 @@ EMKhTGlzdG8hA
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9D9-2Z-qEf" customClass="RoundedCornerViewGreen" customModule="pak_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="155" y="50.5" width="62" height="60.5"/>
+                                                    <rect key="frame" x="154.5" y="47" width="62" height="64"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="JUL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk7-fj-uIj" userLabel="l_m_recive">
-                                                            <rect key="frame" x="12" y="2" width="38" height="19.5"/>
+                                                            <rect key="frame" x="12" y="2" width="38" height="19"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="16"/>
                                                             <color key="textColor" name="pak_white"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCu-NF-9P4" userLabel="l_d_recive">
-                                                            <rect key="frame" x="18" y="27.5" width="26" height="23"/>
+                                                            <rect key="frame" x="18" y="27" width="26" height="27"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="23"/>
                                                             <color key="textColor" name="pak_green"/>
                                                             <nil key="highlightedColor"/>
@@ -6358,19 +6361,19 @@ EMKhTGlzdG8hA
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rs-jc-a4w" userLabel="l_hour_reception">
-                                                    <rect key="frame" x="55" y="109.5" width="29" height="16.5"/>
+                                                    <rect key="frame" x="55" y="112" width="29" height="14"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhJ-nd-9Vr" userLabel="l_hour_recive">
-                                                    <rect key="frame" x="171.5" y="109.5" width="29" height="16.5"/>
+                                                    <rect key="frame" x="171" y="106" width="29" height="20"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="S/90.19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCn-JW-CBZ" userLabel="l_total">
-                                                    <rect key="frame" x="285" y="69.5" width="68.5" height="27.5"/>
+                                                    <rect key="frame" x="284.5" y="73.5" width="70" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -9424,7 +9427,7 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         <segue reference="qbC-4W-Evn"/>
         <segue reference="YD1-6P-6T7"/>
         <segue reference="k7V-In-QB3"/>
-        <segue reference="692-lH-5Bg"/>
+        <segue reference="6iO-7K-Th3"/>
         <segue reference="AdC-De-agH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

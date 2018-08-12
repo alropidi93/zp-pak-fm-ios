@@ -46,6 +46,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
         setElements()
         navBarLabelWithImg()
     }
@@ -205,7 +206,6 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func getGUID() {
-        
         let params: Parameters = ["GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
         print(PreferencesMethods.getSmallBoxFromOptions()!.GUID)
         Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
@@ -260,7 +260,10 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
       
         let params: Parameters = ["GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
         print(PreferencesMethods.getSmallBoxFromOptions()!.GUID)
+        
+        PakLoader.show()
         Alamofire.request(URLs.DataDelivery, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            PakLoader.hide()
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
