@@ -31,7 +31,7 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
     //dynamic constraints
     @IBOutlet weak var l_mount_discount_margin_top: NSLayoutConstraint!
     
-    @IBOutlet weak var l_discount_margin_top: NSLayoutConstraint!
+    //@IBOutlet weak var l_discount_margin_top: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,7 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
         cell.l_name.text = self.items[indexPath.item].name
         cell.l_count_item.text = String(self.items[indexPath.item].cant)
         let stringValue = "S/"
-        cell.l_mount_total_item.text = stringValue + String(Double(self.items[indexPath.item].cant) * self.items[indexPath.item].price)
+        cell.l_mount_total_item.text = stringValue + String(format: "%.2f", Double(self.items[indexPath.item].cant) * self.items[indexPath.item].price)
         return cell
     }
     
@@ -116,7 +116,7 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
                         self.l_discount.text = ""
                         //updating margins
                         self.l_mount_discount_margin_top.constant = 0
-                        self.l_discount_margin_top.constant = 0
+                        //self.l_discount_margin_top.constant = 0
                         self.view.layoutIfNeeded()
                         //...
                         //self.l_mount_discount.text = "--"
