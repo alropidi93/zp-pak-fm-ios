@@ -1510,30 +1510,37 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Jr-vc-woV" userLabel="iv_item_photo">
-                                                                        <rect key="frame" x="29" y="44" width="68" height="122"/>
+                                                                        <rect key="frame" x="8" y="36" width="109" height="110"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="122" id="wH1-fj-yYp"/>
+                                                                            <constraint firstAttribute="height" constant="110" id="wH1-fj-yYp"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arroz costeño" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrW-6b-8Z3" userLabel="l_ltem_name">
-                                                                        <rect key="frame" x="21" y="164.5" width="75" height="16.5"/>
-                                                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 2.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3I-Sp-vvM" userLabel="l_price_unity">
-                                                                        <rect key="frame" x="44" y="196" width="37" height="6"/>
-                                                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arroz costeño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrW-6b-8Z3" userLabel="l_ltem_name">
+                                                                        <rect key="frame" x="20" y="146" width="85" height="33"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="33" id="x0i-KI-afH"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="11"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yb-sH-AWw" userLabel="b_add_item">
-                                                                        <rect key="frame" x="39" y="212" width="30" height="30"/>
+                                                                        <rect key="frame" x="40.5" y="195.5" width="44" height="44"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="30" id="Cni-9l-khR"/>
-                                                                            <constraint firstAttribute="width" constant="30" id="FT5-5R-Fwu"/>
+                                                                            <constraint firstAttribute="height" constant="44" id="Cni-9l-khR"/>
+                                                                            <constraint firstAttribute="width" constant="44" id="FT5-5R-Fwu"/>
                                                                         </constraints>
+                                                                        <inset key="imageEdgeInsets" minX="7" minY="7" maxX="7" maxY="7"/>
                                                                         <state key="normal" image="dwb_pak_add_Item"/>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJU-yW-ZVz" userLabel="b_favorites">
+                                                                        <rect key="frame" x="87" y="24" width="36" height="36"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="36" id="Iu6-K0-6Yp"/>
+                                                                            <constraint firstAttribute="width" constant="36" id="UTw-uw-RbG"/>
+                                                                        </constraints>
+                                                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                                        <state key="normal" image="dwb_pak_button_hearth_gray"/>
                                                                     </button>
                                                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_list_end" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P5S-CV-Fsd">
                                                                         <rect key="frame" x="102" y="21" width="23" height="23"/>
@@ -1548,39 +1555,35 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                             <constraint firstAttribute="width" constant="23" id="w1E-J6-9gd"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJU-yW-ZVz" userLabel="b_favorites">
-                                                                        <rect key="frame" x="81" y="28" width="36" height="36"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="36" id="Iu6-K0-6Yp"/>
-                                                                            <constraint firstAttribute="width" constant="36" id="UTw-uw-RbG"/>
-                                                                        </constraints>
-                                                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                                                        <state key="normal" image="dwb_pak_button_hearth_gray"/>
-                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 2.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3I-Sp-vvM" userLabel="l_price_unity">
+                                                                        <rect key="frame" x="20" y="179" width="85" height="16.5"/>
+                                                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                 </subviews>
                                                             </view>
                                                             <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                                             <constraints>
-                                                                <constraint firstItem="k3I-Sp-vvM" firstAttribute="top" secondItem="1Jr-vc-woV" secondAttribute="bottom" constant="30" id="4gy-q8-GAT"/>
                                                                 <constraint firstAttribute="trailing" secondItem="P5S-CV-Fsd" secondAttribute="trailing" id="5BP-GT-nXq"/>
-                                                                <constraint firstItem="1Jr-vc-woV" firstAttribute="leading" secondItem="MMx-5d-QmV" secondAttribute="leadingMargin" constant="13" id="6mz-QL-yQM"/>
-                                                                <constraint firstItem="RJU-yW-ZVz" firstAttribute="top" secondItem="1Jr-vc-woV" secondAttribute="top" constant="-16" id="9Os-8h-yHc"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="yrW-6b-8Z3" secondAttribute="trailing" constant="4" id="5kK-eH-Jof"/>
+                                                                <constraint firstItem="RJU-yW-ZVz" firstAttribute="top" secondItem="1Jr-vc-woV" secondAttribute="top" constant="-12" id="9Os-8h-yHc"/>
                                                                 <constraint firstAttribute="trailing" secondItem="P5S-CV-Fsd" secondAttribute="trailing" id="CND-Zr-E8t"/>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="9Yb-sH-AWw" secondAttribute="bottom" constant="6" id="Cso-1G-JLv"/>
                                                                 <constraint firstItem="AZV-Zq-Nui" firstAttribute="leading" secondItem="MMx-5d-QmV" secondAttribute="leading" id="DfL-zL-JAZ"/>
                                                                 <constraint firstItem="P5S-CV-Fsd" firstAttribute="bottom" secondItem="AZV-Zq-Nui" secondAttribute="bottom" id="IsE-OJ-sPe"/>
-                                                                <constraint firstItem="k3I-Sp-vvM" firstAttribute="leading" secondItem="MMx-5d-QmV" secondAttribute="leadingMargin" constant="28" id="TKp-IC-cSO"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="k3I-Sp-vvM" secondAttribute="trailing" constant="28" id="Wg3-wi-KDd"/>
-                                                                <constraint firstItem="1Jr-vc-woV" firstAttribute="top" secondItem="P5S-CV-Fsd" secondAttribute="bottom" id="XbD-hl-icM"/>
+                                                                <constraint firstItem="yrW-6b-8Z3" firstAttribute="top" secondItem="1Jr-vc-woV" secondAttribute="bottom" id="Rk1-te-Bmd"/>
+                                                                <constraint firstItem="k3I-Sp-vvM" firstAttribute="top" secondItem="yrW-6b-8Z3" secondAttribute="bottom" id="TF4-21-yx6"/>
+                                                                <constraint firstItem="k3I-Sp-vvM" firstAttribute="leading" secondItem="MMx-5d-QmV" secondAttribute="leadingMargin" constant="4" id="TKp-IC-cSO"/>
+                                                                <constraint firstAttribute="trailing" secondItem="1Jr-vc-woV" secondAttribute="trailing" constant="8" id="ThC-HR-kTF"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="k3I-Sp-vvM" secondAttribute="trailing" constant="4" id="Wg3-wi-KDd"/>
+                                                                <constraint firstItem="9Yb-sH-AWw" firstAttribute="top" secondItem="k3I-Sp-vvM" secondAttribute="bottom" id="XBA-xs-vdz"/>
+                                                                <constraint firstItem="1Jr-vc-woV" firstAttribute="top" secondItem="P5S-CV-Fsd" secondAttribute="bottom" constant="-8" id="XbD-hl-icM"/>
                                                                 <constraint firstItem="P5S-CV-Fsd" firstAttribute="centerY" secondItem="AZV-Zq-Nui" secondAttribute="centerY" id="ZhZ-IH-C9h"/>
-                                                                <constraint firstItem="k3I-Sp-vvM" firstAttribute="top" secondItem="yrW-6b-8Z3" secondAttribute="bottom" constant="15" id="hxO-U0-vsm"/>
+                                                                <constraint firstItem="1Jr-vc-woV" firstAttribute="leading" secondItem="MMx-5d-QmV" secondAttribute="leading" constant="8" id="bf6-ph-myA"/>
+                                                                <constraint firstItem="9Yb-sH-AWw" firstAttribute="centerX" secondItem="MMx-5d-QmV" secondAttribute="centerX" id="eXq-vQ-vbG"/>
+                                                                <constraint firstItem="yrW-6b-8Z3" firstAttribute="leading" secondItem="MMx-5d-QmV" secondAttribute="leadingMargin" constant="4" id="hrK-Xx-rqX"/>
                                                                 <constraint firstItem="P5S-CV-Fsd" firstAttribute="top" secondItem="MMx-5d-QmV" secondAttribute="top" constant="21" id="i9D-tr-b3j"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="1Jr-vc-woV" secondAttribute="trailing" constant="12" id="l0G-nu-jXY"/>
-                                                                <constraint firstItem="1Jr-vc-woV" firstAttribute="centerX" secondItem="yrW-6b-8Z3" secondAttribute="centerX" constant="5" id="nNa-X2-vlI"/>
-                                                                <constraint firstItem="9Yb-sH-AWw" firstAttribute="top" secondItem="k3I-Sp-vvM" secondAttribute="bottom" constant="10" id="o6D-1I-rvv"/>
-                                                                <constraint firstItem="RJU-yW-ZVz" firstAttribute="leading" secondItem="1Jr-vc-woV" secondAttribute="trailing" constant="-16" id="sbp-QG-tAL"/>
-                                                                <constraint firstItem="yrW-6b-8Z3" firstAttribute="leading" secondItem="MMx-5d-QmV" secondAttribute="leadingMargin" constant="5" id="x4F-8I-Ihr"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="9Yb-sH-AWw" secondAttribute="trailing" constant="40" id="xOQ-bu-HKy"/>
+                                                                <constraint firstItem="RJU-yW-ZVz" firstAttribute="leading" secondItem="1Jr-vc-woV" secondAttribute="trailing" constant="-30" id="sbp-QG-tAL"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -1717,19 +1720,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B9f-I9-ExI" userLabel="iv_item_photo">
-                                                    <rect key="frame" x="8" y="20" width="119" height="135"/>
+                                                    <rect key="frame" x="8" y="20" width="119" height="110"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="135" id="A6O-Vs-6p4"/>
+                                                        <constraint firstAttribute="height" constant="110" id="A6O-Vs-6p4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arroz costeño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zz-2B-J9v" userLabel="l_ltem_name">
-                                                    <rect key="frame" x="13" y="157" width="110" height="10"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="8"/>
-                                                    <color key="textColor" name="pak_gray"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 2.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vv2-nA-7hn" userLabel="l_price_unity">
-                                                    <rect key="frame" x="36" y="171.5" width="64" height="23.5"/>
+                                                    <rect key="frame" x="36" y="163" width="64" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
@@ -1774,30 +1771,41 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8S8-B7-9nQ" userLabel="b_add_item">
-                                                    <rect key="frame" x="51" y="196" width="33" height="20"/>
+                                                    <rect key="frame" x="45.5" y="186.5" width="44" height="44"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="7VI-r5-IgJ"/>
+                                                        <constraint firstAttribute="height" constant="44" id="7VI-r5-IgJ"/>
+                                                        <constraint firstAttribute="width" constant="44" id="k2Q-2a-ZoW"/>
                                                     </constraints>
+                                                    <inset key="imageEdgeInsets" minX="7" minY="7" maxX="7" maxY="7"/>
                                                     <state key="normal" image="dwb_pak_add_Item"/>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arroz costeño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zz-2B-J9v" userLabel="l_ltem_name">
+                                                    <rect key="frame" x="13" y="130" width="110" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="33" id="F99-7s-3EQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
+                                                    <color key="textColor" name="pak_gray"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                         <constraints>
+                                            <constraint firstItem="2zz-2B-J9v" firstAttribute="top" secondItem="B9f-I9-ExI" secondAttribute="bottom" id="3fw-wE-OBL"/>
                                             <constraint firstItem="B9f-I9-ExI" firstAttribute="leading" secondItem="OfM-TU-WW6" secondAttribute="leading" constant="8" id="5ks-Y9-LTy"/>
                                             <constraint firstAttribute="trailing" secondItem="1fV-IH-DNe" secondAttribute="trailing" id="9QW-kW-sj9"/>
                                             <constraint firstAttribute="bottom" secondItem="5dg-M0-VeM" secondAttribute="bottom" id="FHe-Be-f8K"/>
                                             <constraint firstAttribute="bottom" secondItem="1fV-IH-DNe" secondAttribute="bottom" id="MFr-cz-fSy"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="8S8-B7-9nQ" secondAttribute="bottom" constant="6" id="SFk-RA-lv4"/>
                                             <constraint firstItem="2zz-2B-J9v" firstAttribute="leading" secondItem="OfM-TU-WW6" secondAttribute="leadingMargin" constant="5" id="TvU-Qs-zdN"/>
                                             <constraint firstItem="B9f-I9-ExI" firstAttribute="top" secondItem="OfM-TU-WW6" secondAttribute="topMargin" constant="12" id="VRv-8T-VKp"/>
                                             <constraint firstItem="7aS-la-TfT" firstAttribute="trailing" secondItem="B9f-I9-ExI" secondAttribute="trailing" constant="8" id="bfY-7s-ndQ"/>
                                             <constraint firstItem="5dg-M0-VeM" firstAttribute="top" secondItem="OfM-TU-WW6" secondAttribute="top" id="fCy-x8-HDP"/>
                                             <constraint firstAttribute="trailing" secondItem="5dg-M0-VeM" secondAttribute="trailing" id="ibg-1D-Egu"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="2zz-2B-J9v" secondAttribute="trailing" constant="5" id="k6v-qN-mig"/>
-                                            <constraint firstItem="8S8-B7-9nQ" firstAttribute="top" secondItem="Vv2-nA-7hn" secondAttribute="bottom" constant="1" id="l5z-Wt-ZAu"/>
-                                            <constraint firstItem="Vv2-nA-7hn" firstAttribute="top" secondItem="2zz-2B-J9v" secondAttribute="bottom" constant="5" id="qZr-Vy-O25"/>
+                                            <constraint firstItem="8S8-B7-9nQ" firstAttribute="top" secondItem="Vv2-nA-7hn" secondAttribute="bottom" id="l5z-Wt-ZAu"/>
+                                            <constraint firstItem="Vv2-nA-7hn" firstAttribute="top" secondItem="2zz-2B-J9v" secondAttribute="bottom" id="qZr-Vy-O25"/>
                                             <constraint firstItem="1fV-IH-DNe" firstAttribute="leading" secondItem="OfM-TU-WW6" secondAttribute="leading" id="rKt-GK-rIE"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Vv2-nA-7hn" secondAttribute="trailing" constant="28" id="sM2-3f-hzk"/>
                                             <constraint firstItem="Vv2-nA-7hn" firstAttribute="leading" secondItem="OfM-TU-WW6" secondAttribute="leadingMargin" constant="28" id="vHg-N8-z0g"/>
@@ -2808,29 +2816,33 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oli-Z3-AK2" userLabel="iv_item_photo">
-                                                    <rect key="frame" x="8" y="20" width="117" height="132"/>
+                                                    <rect key="frame" x="8" y="20" width="117" height="110"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="132" id="lAT-9H-UkV"/>
+                                                        <constraint firstAttribute="height" constant="110" id="lAT-9H-UkV"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arroz costeño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYs-OI-SqP" userLabel="l_ltem_name">
-                                                    <rect key="frame" x="13" y="165.5" width="108" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arroz costeñoArroz costeñoArroz costeño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYs-OI-SqP" userLabel="l_ltem_name">
+                                                    <rect key="frame" x="8" y="130" width="118" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="G81-LW-U6s"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="11"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 2.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTZ-of-lHW" userLabel="l_price_unity">
-                                                    <rect key="frame" x="36" y="181.5" width="62" height="23.5"/>
+                                                    <rect key="frame" x="36" y="160" width="62" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lde-VP-fx0" userLabel="b_add_item">
-                                                    <rect key="frame" x="56" y="204" width="30" height="20"/>
+                                                    <rect key="frame" x="45" y="183.5" width="44" height="44"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="QHG-VH-MQn"/>
-                                                        <constraint firstAttribute="height" constant="20" id="Til-Lh-u0j"/>
+                                                        <constraint firstAttribute="width" constant="44" id="QHG-VH-MQn"/>
+                                                        <constraint firstAttribute="height" constant="44" id="Til-Lh-u0j"/>
                                                     </constraints>
+                                                    <inset key="imageEdgeInsets" minX="7" minY="7" maxX="7" maxY="7"/>
                                                     <state key="normal" image="dwb_pak_add_Item"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K42-CL-E76" userLabel="v_line">
@@ -2877,8 +2889,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <color key="backgroundColor" name="pak_white"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                         <constraints>
-                                            <constraint firstItem="pTZ-of-lHW" firstAttribute="top" secondItem="zYs-OI-SqP" secondAttribute="bottom" constant="1" id="0Yh-3c-VYp"/>
-                                            <constraint firstItem="K42-CL-E76" firstAttribute="top" secondItem="lde-VP-fx0" secondAttribute="bottom" constant="5" id="2xC-uh-XDj"/>
+                                            <constraint firstItem="pTZ-of-lHW" firstAttribute="top" secondItem="zYs-OI-SqP" secondAttribute="bottom" id="0Yh-3c-VYp"/>
                                             <constraint firstAttribute="bottom" secondItem="K42-CL-E76" secondAttribute="bottom" id="3vS-0D-GGN"/>
                                             <constraint firstItem="wj6-sR-grx" firstAttribute="leading" secondItem="Oli-Z3-AK2" secondAttribute="trailing" constant="8" id="6ei-dI-U2r"/>
                                             <constraint firstItem="Oli-Z3-AK2" firstAttribute="top" secondItem="BUh-Os-TjK" secondAttribute="topMargin" constant="12" id="8PF-dk-N8l"/>
@@ -2886,15 +2897,16 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             <constraint firstItem="yug-NV-1Ts" firstAttribute="trailing" secondItem="Oli-Z3-AK2" secondAttribute="trailing" constant="8" id="Ix9-Z0-PdL"/>
                                             <constraint firstAttribute="bottom" secondItem="wj6-sR-grx" secondAttribute="bottom" id="LEw-kh-mwr"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="pTZ-of-lHW" secondAttribute="trailing" constant="28" id="LVS-YI-CRR"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="lde-VP-fx0" secondAttribute="trailing" constant="40" id="UIc-FC-cmm"/>
+                                            <constraint firstItem="zYs-OI-SqP" firstAttribute="top" secondItem="Oli-Z3-AK2" secondAttribute="bottom" id="Qwi-Sb-NWC"/>
                                             <constraint firstItem="Oli-Z3-AK2" firstAttribute="leading" secondItem="BUh-Os-TjK" secondAttribute="leading" constant="8" id="Y7J-Iv-W7f"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="zYs-OI-SqP" secondAttribute="trailing" constant="5" id="aq7-lR-Eor"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="zYs-OI-SqP" secondAttribute="trailing" id="aq7-lR-Eor"/>
                                             <constraint firstAttribute="trailing" secondItem="wj6-sR-grx" secondAttribute="trailing" id="d69-DS-tZM"/>
                                             <constraint firstAttribute="trailing" secondItem="K42-CL-E76" secondAttribute="trailing" id="iyO-GO-oxY"/>
                                             <constraint firstItem="K42-CL-E76" firstAttribute="leading" secondItem="BUh-Os-TjK" secondAttribute="leading" id="l9g-EG-s8d"/>
-                                            <constraint firstItem="lde-VP-fx0" firstAttribute="top" secondItem="pTZ-of-lHW" secondAttribute="bottom" constant="-1" id="tyV-M6-JZf"/>
+                                            <constraint firstItem="lde-VP-fx0" firstAttribute="centerX" secondItem="BUh-Os-TjK" secondAttribute="centerX" id="tYd-d9-vXZ"/>
+                                            <constraint firstItem="lde-VP-fx0" firstAttribute="top" secondItem="pTZ-of-lHW" secondAttribute="bottom" id="tyV-M6-JZf"/>
                                             <constraint firstItem="wj6-sR-grx" firstAttribute="top" secondItem="BUh-Os-TjK" secondAttribute="top" id="uNt-mW-x0i"/>
-                                            <constraint firstItem="zYs-OI-SqP" firstAttribute="leading" secondItem="BUh-Os-TjK" secondAttribute="leadingMargin" constant="5" id="vin-ic-kji"/>
+                                            <constraint firstItem="zYs-OI-SqP" firstAttribute="leading" secondItem="BUh-Os-TjK" secondAttribute="leadingMargin" id="vin-ic-kji"/>
                                             <constraint firstItem="pTZ-of-lHW" firstAttribute="leading" secondItem="BUh-Os-TjK" secondAttribute="leadingMargin" constant="28" id="xmP-Kc-Tal"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -9509,13 +9521,13 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
     <inferredMetricsTieBreakers>
         <segue reference="4If-JT-tFy"/>
         <segue reference="IRN-db-nS4"/>
-        <segue reference="F1p-gb-qZa"/>
+        <segue reference="OS7-IV-a8p"/>
         <segue reference="xVe-nE-p4w"/>
-        <segue reference="zhY-cZ-3JD"/>
+        <segue reference="2h9-cx-RAU"/>
         <segue reference="huV-AG-Pcv"/>
         <segue reference="Mj0-oe-INs"/>
-        <segue reference="YD1-6P-6T7"/>
-        <segue reference="k7V-In-QB3"/>
+        <segue reference="oBi-e6-wfk"/>
+        <segue reference="1vM-Rq-4HF"/>
         <segue reference="6iO-7K-Th3"/>
         <segue reference="AdC-De-agH"/>
     </inferredMetricsTieBreakers>
