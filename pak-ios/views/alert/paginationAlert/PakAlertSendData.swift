@@ -150,7 +150,8 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         let alert = UIAlertController(style: .actionSheet, title: "Horas")
         let pickerViewValues: [[String]] = [hours]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
-        
+        print ("tiempo")
+       
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
@@ -171,7 +172,17 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
             self.tf_date.text = UtilMethods.formatDate(date)
             self.parentPageViewController.checkOut.date = date.toString(dateFormat: "dd/MM/YYYY")
         }
-        alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: nil)
+        
+        
+        alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: {(action:UIAlertAction!) in
+            let auxDate = Date().tomorrow
+            
+            if (self.tf_date.text?.isEmpty)! {
+                self.date = UtilMethods.intFromDate(auxDate)
+                
+                self.tf_date.text = UtilMethods.formatDate(auxDate)
+            }})
+        
         self.present(alert, animated: true, completion: nil)
     }
     

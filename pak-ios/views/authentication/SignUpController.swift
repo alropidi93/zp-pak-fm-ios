@@ -105,11 +105,11 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                 self.date = UtilMethods.intFromDate(auxDate!)
                 
                 self.tf_birthday.text = UtilMethods.formatDate(auxDate!)
-            }})
+        }})
         
         
-            
-            
+        
+        
         self.present(alert, animated: true, completion: nil)
         
         

@@ -1682,7 +1682,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;data&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxd-mi-T3G">
-                                <rect key="frame" x="166" y="35" width="45" height="23.5"/>
+                                <rect key="frame" x="165" y="35" width="45" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2718,7 +2718,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Gracias a la invitación de asdfghjklzxcvbnmmhbb,bkbhkblkbklbkbklkhblkbklbklbjkljbkjbkjb" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u12-UY-S1B" userLabel="l_motive">
                                                             <rect key="frame" x="190" y="0.0" width="69" height="70"/>
-                                                            <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="8"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -3968,13 +3968,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Versión 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abz-WY-irC" userLabel="tf_version">
-                                        <rect key="frame" x="144" y="265" width="88" height="23.5"/>
+                                        <rect key="frame" x="143.5" y="265" width="88" height="23.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017© Todos los derechos reservados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhB-sf-Xqg" userLabel="tf_right_reserved">
-                                        <rect key="frame" x="37.5" y="298.5" width="301.5" height="23.5"/>
+                                        <rect key="frame" x="37" y="298.5" width="301.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -4683,7 +4683,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOu-HF-wzy" userLabel="b_info_district">
-                                                        <rect key="frame" x="78" y="6" width="15" height="15"/>
+                                                        <rect key="frame" x="76" y="12" width="8" height="8"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="ZDr-HW-vMd"/>
                                                         </constraints>
@@ -6134,7 +6134,7 @@ EMKhTGlzdG8hA
                                                     <rect key="frame" x="151" y="40" width="65" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" text="01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59k-ni-EBP" userLabel="l_d_recive">
-                                                            <rect key="frame" x="18" y="25" width="31.5" height="30"/>
+                                                            <rect key="frame" x="18" y="26" width="31.5" height="29"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="28"/>
                                                             <color key="textColor" name="pak_green"/>
                                                             <nil key="highlightedColor"/>
@@ -6190,7 +6190,7 @@ EMKhTGlzdG8hA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd3-n6-Jg5">
-                                                    <rect key="frame" x="278.5" y="103" width="62.5" height="21"/>
+                                                    <rect key="frame" x="278.5" y="102.5" width="62.5" height="21"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="15"/>
                                                     <state key="normal" image="dwb_cancel_order">
                                                         <color key="titleColor" name="pak_red"/>
@@ -6411,7 +6411,7 @@ EMKhTGlzdG8hA
                                                     <rect key="frame" x="41" y="47" width="65" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76j-Ms-8ot" userLabel="l_m_reception">
-                                                            <rect key="frame" x="17.5" y="2" width="29" height="16"/>
+                                                            <rect key="frame" x="18" y="2" width="29" height="16"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="16"/>
                                                             <color key="textColor" name="pak_white"/>
                                                             <nil key="highlightedColor"/>
@@ -7228,7 +7228,7 @@ EMKhTGlzdG8hA
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQE-Qu-mmi" userLabel="l_m_reception">
-                                                            <rect key="frame" x="18" y="2" width="29" height="16"/>
+                                                            <rect key="frame" x="17.5" y="2" width="29" height="16"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="16"/>
                                                             <color key="textColor" name="pak_white"/>
                                                             <nil key="highlightedColor"/>
@@ -9543,7 +9543,7 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
     <inferredMetricsTieBreakers>
         <segue reference="4If-JT-tFy"/>
         <segue reference="IRN-db-nS4"/>
-        <segue reference="F1p-gb-qZa"/>
+        <segue reference="b0L-2z-q1G"/>
         <segue reference="xVe-nE-p4w"/>
         <segue reference="zhY-cZ-3JD"/>
         <segue reference="huV-AG-Pcv"/>
