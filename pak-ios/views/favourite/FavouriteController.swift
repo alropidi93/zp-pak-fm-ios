@@ -14,7 +14,7 @@ import SwiftHash
 import SideMenu
 import TTGSnackbar
 
-class FavouriteController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable {
+class FavouriteController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout {
 
     private let reuse_identifier = "cvc_favourite_item"
     var cant = 0
@@ -64,10 +64,6 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCFavouriteItem
         
-        //amd - cell width equal to 1/3 of screen size
-        let cell_width = UIScreen.main.bounds.width/3
-        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell_width, cell.frame.height)
-        //...
         
         cell.l_item_name.text = self.items[indexPath.item].name
         cell.l_price_unity.text = "S/" + String(format : "%.2f",(self.items[indexPath.item].price))
@@ -257,6 +253,12 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
 
     @objc func didPressRightButtonBox(_ sender: Any){
         self.performSegue(withIdentifier: "segue_small_order_box" , sender: self)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //Log 8: Columnas responsive
+        let cell_width = UIScreen.main.bounds.width/3
+        return CGSize(width: cell_width, height: 230)
     }
 
 }

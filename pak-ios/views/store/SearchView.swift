@@ -17,7 +17,7 @@ import SwiftHash
 import SideMenu
 import TTGSnackbar
 
-class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable {
+class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout  {
     let segue_identifier : String = "segue_product_detail"
     private let reuse_identifier = "cvc_search_item"
     
@@ -76,9 +76,11 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCSearchItem
         
         //amd - cell width equal to 1/3 of screen size
-        let cell_width = UIScreen.main.bounds.width/3
+        //este fix no servia para pantallas pequenas, se agrego un delegate
+        /*
+         let cell_width = UIScreen.main.bounds.width/3
         cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell_width, cell.frame.height)
-        //...
+        */
         
         cell.l_Item_name.text = self.items[indexPath.item].name
         cell.l_price_unity.text = "S/" + String(format: "%.2f",(self.items[indexPath.item].price))
@@ -303,6 +305,12 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
             notificationButton.badge = "\(ConstantsModels.count_item) "
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //Log 8: Columnas responsive
+        let cell_width = UIScreen.main.bounds.width/3
+        return CGSize(width: cell_width, height: 230)
     }
     
 }
