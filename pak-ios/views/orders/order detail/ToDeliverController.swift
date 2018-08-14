@@ -16,7 +16,7 @@ import Agrume
 import PlayerKit
 import RLBAlertsPickers
 
-class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource , AlertCancelDelegate{
+class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource , AlertCancelDelegate, UICollectionViewDelegateFlowLayout{
     
     
     @IBOutlet weak var cv_to_delivery: UICollectionView!
@@ -233,6 +233,10 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
                 vc.type = 1
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 120)
     }
 }
 
