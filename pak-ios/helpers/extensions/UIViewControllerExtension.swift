@@ -116,6 +116,18 @@ extension UIViewController : UISearchBarDelegate {
     }
 
     @objc func didPressRightButton(_ sender: Any){
+        
+        if let button = sender as? UIBarButtonItem {
+            button.isEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                button.isEnabled = true
+            }
+        }else if let button = sender as? SSBadgeButton {
+            button.isEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                button.isEnabled = true
+            }
+        }
         self.performSegue(withIdentifier: "segue_small_box" , sender: self)
     }
     

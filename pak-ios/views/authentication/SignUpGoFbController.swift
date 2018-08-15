@@ -85,12 +85,30 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {
         
         let alert = UIAlertController(style: .actionSheet, title: "Fecha")
-        self.tf_birthday.text = UtilMethods.formatDate(Date())
-        alert.addDatePicker(mode: .date, date: Date(), minimumDate: nil, maximumDate: Date()) { date in
+        //self.tf_birthday.text = UtilMethods.formatDate(Date())
+        var dateComponents = DateComponents()
+        dateComponents.year = 1900
+        dateComponents.month = 1
+        dateComponents.day = 1
+        
+        let minDate = Calendar.current.date(from: dateComponents)
+        
+        let maxDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
+        alert.addDatePicker(mode: .date, date: Date(), minimumDate: minDate, maximumDate: maxDate ) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_birthday.text = UtilMethods.formatDate(date)
         }
-        alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: nil)
+        
+        
+        
+        alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: {(action:UIAlertAction!) in
+            let auxDate = maxDate
+            
+            if (self.tf_birthday.text?.isEmpty)! {
+                self.date = UtilMethods.intFromDate(auxDate!)
+                
+                self.tf_birthday.text = UtilMethods.formatDate(auxDate!)
+            }})
         self.present(alert, animated: true, completion: nil)
     }
     

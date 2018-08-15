@@ -50,6 +50,11 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                                                         attributes: yourAttributes)
         b_forgot_password.setAttributedTitle(attributeString, for: .normal)
 
+        tf_email.attributedPlaceholder = NSAttributedString(string: "Usuario / Email",
+                                                               attributes: [NSAttributedStringKey.foregroundColor: UIColor(rgb: 0x6D6D6D)])
+        tf_password.attributedPlaceholder = NSAttributedString(string: "Contraseña",
+                                                            attributes: [NSAttributedStringKey.foregroundColor: UIColor(rgb: 0x6D6D6D)])
+        
         fullKeyboardSupport()
     }
 
