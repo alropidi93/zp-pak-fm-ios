@@ -100,7 +100,7 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
             if response.response == nil {
 
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vuelve a intentarlo", title_message: "¡Oops!", uiViewController: self)
-                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                 
 
                 return
             }
@@ -117,7 +117,7 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
                         self.cv_advertisement.reloadData()
                     }
                 }
-                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                 
             } else {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
@@ -127,7 +127,7 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
                 }
             }
             print("HOLA")
-            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+             
         }
     }
 }

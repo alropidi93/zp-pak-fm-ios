@@ -139,7 +139,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 return
             }
             let statusCode = response.response!.statusCode
@@ -165,7 +165,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                     AlamoMethods.defaultError(self)
                 }
             }
-                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                             
         }
     }
     
@@ -240,7 +240,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 return
             }
             let statusCode = response.response!.statusCode
@@ -264,7 +264,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
                     AlamoMethods.defaultError(self)
                 }
             }
-                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                             
         }
     }
     

@@ -115,7 +115,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                     AlamoMethods.defaultError(self)
                 }
             }
-            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+            
         }
     }
     @objc func buttonAdd(sender: UIButton!) {
@@ -134,7 +134,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                
                 return
             }
             let statusCode = response.response!.statusCode
@@ -162,7 +162,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                     AlamoMethods.defaultError(self)
                 }
             }
-                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+            
         }
     }
 
@@ -180,7 +180,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                
                 return
             }
             let statusCode = response.response!.statusCode
@@ -204,7 +204,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                     AlamoMethods.defaultError(self)
                 }
             }
-                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+            
         }
     }
 

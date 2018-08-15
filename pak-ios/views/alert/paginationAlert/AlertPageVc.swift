@@ -209,7 +209,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
             }
         }
-                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                         
     }
 
 
@@ -224,7 +224,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 return
             }
 
@@ -245,7 +245,7 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                     }else{
                         AlarmMethods.errorWarning(message: jsonResult["merchant_message"].string!, uiViewController: self)
                         print("3")
-                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                         
                     }
                 }
             } else {

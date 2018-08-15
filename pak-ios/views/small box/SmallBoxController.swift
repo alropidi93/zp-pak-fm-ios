@@ -110,7 +110,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 return
             }
             let statusCode = response.response!.statusCode
@@ -132,7 +132,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                     AlamoMethods.defaultError(self)
                 }
             }
-                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                             
         }
     }
     
@@ -147,7 +147,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 return
             }
             let statusCode = response.response!.statusCode
@@ -168,7 +168,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                     AlamoMethods.defaultError(self)
                 }
             }
-                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                             
         }
     }
     
@@ -226,7 +226,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                 self.stopAnimating()
             */
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vuelve a intentarlo", title_message: "¡Oops!", uiViewController: self)
-                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                         
 
                 return
             }
@@ -271,7 +271,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                 }
             }
             print("HOLA")
-            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+             
         }
     }
     
@@ -286,7 +286,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 return
             }
             let statusCode = response.response!.statusCode
@@ -310,7 +310,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                     AlamoMethods.defaultError(self)
                 }
             }
-                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                             
         }
     }
     

@@ -72,7 +72,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 return
             }
             let statusCode = response.response!.statusCode
@@ -85,7 +85,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
                         
 
                     } else {
-                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                         
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
                             AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
@@ -100,7 +100,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
                    AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
                 }
             }
-                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                             
         }
     }
 }

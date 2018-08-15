@@ -64,7 +64,7 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 return
             }
             let statusCode = response.response!.statusCode
@@ -78,7 +78,7 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
 
 
                     } else {
-                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                         
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
                             AlarmMethods.ReadyCustom(message: "Tu contraseña ha sido restablecida, pero ocurrió un error al enviarte el correo con la contraseña actualizada. Por favor,contáctate con ventas@pak.pe.", title_message: "¡Listo!", uiViewController: self)
@@ -96,7 +96,7 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
                     AlamoMethods.defaultError(self)
                 }
             }
-                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                             
         }
     }
     

@@ -137,7 +137,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 return
             }
             let statusCode = response.response!.statusCode
@@ -160,7 +160,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
                     AlamoMethods.defaultError(self)
                 }
             }
-                            LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                             
         }
     }
     
@@ -257,7 +257,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
             if !(response.response != nil) {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 return
             }
             let statusCode = response.response!.statusCode
@@ -276,10 +276,10 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
                         ConstantsModels.static_user?.genere = genre
                         ConstantsModels.static_user?.birthDate = self.tf_birthday.text!
                         
-                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                         
                         
                     }else {
-                                        LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                         
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
                             AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
@@ -289,7 +289,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
                     }
                 }
             } else {
-                                LoaderMethodsCustom.stopLoaderCustom( uiViewController: self)
+                                 
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
