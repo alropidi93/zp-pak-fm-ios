@@ -32,6 +32,14 @@ class OrdersController : TabmanViewController, PageboyViewControllerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
+        let ivBackground = UIImageView();
+        // amd - New single background for all tabs
+        ivBackground.image = UIImage(named: "dwb_pak_background_loby_amd")
+        ivBackground.contentMode = .scaleAspectFill
+        ivBackground.frame = self.view.frame
+        self.view.addSubview(ivBackground)
+        self.view.sendSubview(toBack: ivBackground)
+        //...
         setElements()
     }
     

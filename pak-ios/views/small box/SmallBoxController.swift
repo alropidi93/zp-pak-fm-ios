@@ -17,7 +17,7 @@ import SwiftHash
 import SideMenu
 import SwipeCellKit
 
-class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable,FinishBoxDelegate,SwipeCollectionViewCellDelegate{
+class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable,FinishBoxDelegate,SwipeCollectionViewCellDelegate, UICollectionViewDelegateFlowLayout{
     @IBOutlet weak var emptyImg: UIView!
     @IBOutlet weak var b_buying: UIButton!
     @IBOutlet weak var dwb_pak_button_detail_white_arrow_down: UIImageView!
@@ -361,6 +361,10 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         navView.addSubview(image)
         self.navigationItem.titleView = navView
         navView.sizeToFit()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 90)
     }
 }
 

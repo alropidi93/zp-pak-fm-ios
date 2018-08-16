@@ -17,7 +17,6 @@ import SideMenu
 
 class EndBoxController: UIViewController,AlertEndBoxDelegate {
     
-    
     // Segues
     @IBOutlet var iv_logo_end: UIImageView!
     private let splash_identifier = "segue_splash_close"
@@ -33,6 +32,8 @@ class EndBoxController: UIViewController,AlertEndBoxDelegate {
         
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
+        self.imageHorizontalConstraint.constant = UIScreen.main.bounds.width * -1
+        self.view.layoutIfNeeded()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
@@ -76,7 +77,7 @@ class EndBoxController: UIViewController,AlertEndBoxDelegate {
     }
     
     private func doCenterFromLeft(){
-        UIView.animate(withDuration: 0.5){
+        UIView.animate(withDuration: 0.8){
             self.imageHorizontalConstraint.constant = 0
             self.view.layoutIfNeeded()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -111,8 +112,8 @@ class EndBoxController: UIViewController,AlertEndBoxDelegate {
     }
     
     private func doCenterToRight(){
-        UIView.animate(withDuration: 0.5){
-            self.imageHorizontalConstraint.constant = 500
+        UIView.animate(withDuration: 0.8){
+            self.imageHorizontalConstraint.constant = UIScreen.main.bounds.width
             self.view.layoutIfNeeded()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.alertDialog(uiViewController: self)

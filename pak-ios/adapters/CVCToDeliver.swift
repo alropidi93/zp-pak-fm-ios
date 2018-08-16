@@ -20,4 +20,11 @@ class CVCToDeliver :UICollectionViewCell {
     @IBOutlet weak var l_anular: UILabel!
     
     
+    
+    
+    
+    
+    
+    
+    
 }

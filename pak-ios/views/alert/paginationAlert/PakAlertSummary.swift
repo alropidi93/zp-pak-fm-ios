@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
-class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDelegate , UICollectionViewDataSource , NVActivityIndicatorViewable{
+class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDelegate , UICollectionViewDataSource , NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout{
     var parentPageViewController: AlertPageVc!
     private let reuse_identifier_box = "cvc_smallBox_item_Payment"
     
@@ -36,6 +36,8 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
+        print("AMD: \(UIScreen.main.bounds.width)")
+        print("AMD: \(self.view.frame.width)")
         setElements()
     }
     
@@ -143,6 +145,11 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
     
     @IBAction func b_close(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 44)
     }
 }
 
