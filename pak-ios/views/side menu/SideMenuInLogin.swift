@@ -28,11 +28,17 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     
     @IBOutlet weak var b_name: UIButton!
     
+    @IBOutlet weak var lbl_name: UILabel!
+    
+    
     @IBOutlet weak var iv_user: UIImageView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
+        print(UIScreen.main.bounds)
+        print(self.view.frame)
 
     }
  
@@ -63,8 +69,8 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
             UtilMethods.setImage(imageview: iv_user, imageurl: "https://graph.facebook.com/v3.0/" + user.facebookID + "/picture?type=normal"  , placeholderurl: "dwb_pak_button_info")
             UtilMethods.roundImage(imageview: iv_user)
         }
-        self.b_name.setTitle(ConstantsModels.static_user?.names, for : .normal)
-        
+        //self.b_name.setTitle(ConstantsModels.static_user?.names, for : .normal)
+        self.lbl_name.text = ConstantsModels.static_user?.names
     }
     
    

@@ -31,7 +31,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("AMD: \(String(describing: type(of: self)))")
         self.customizeNavigationBarFavourite()
         setElements()
     }
