@@ -79,6 +79,8 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
         let viewController = self.VCArr[self.pageNow - 1]
         setViewControllers([viewController], direction: UIPageViewControllerNavigationDirection.reverse, animated: true, completion:nil)
         print(self.pageNow)
+        // amd - se mostrara 'Siguiente' cada vez que se retroceda
+        self.parentVC?.b_next.setTitle("Siguiente", for: .normal)
 
     }
 

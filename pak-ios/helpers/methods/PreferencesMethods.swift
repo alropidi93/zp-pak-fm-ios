@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class PreferencesMethods {
     static func getSmallBoxFromOptions() -> SmallBoxDC? {
@@ -86,6 +88,41 @@ class PreferencesMethods {
             return true
         } else {
             return false
+        }
+    }
+    
+    // este es el mismo getGUID del login, note que esto hace que la cajita sincronize con el servidor,
+    // lo cual no se estaba haciendo por ejemplo al agregar mas items a este, al menos no se actualiazaba el local
+    // este metodo se puede invocar de cualquier viewcontroller
+    
+    static func updateGUID(vc: UIViewController) {
+        print("updateGUID")
+        let params: Parameters = [:]
+        Alamofire.request(URLs.GetGUID, method: .post,parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: vc)
+                
+                
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    let obtenerCajita = SmallBoxDC(jsonResult)
+                    print("Working")
+                    PreferencesMethods.saveSmallBoxToOptions(obtenerCajita)
+                    print(PreferencesMethods.getSmallBoxFromOptions()?.items.count)
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message:  jsonResult["Msg"].string!, uiViewController: vc)
+                } else {
+                    AlamoMethods.defaultError(vc)
+                }
+            }
+            
         }
     }
     

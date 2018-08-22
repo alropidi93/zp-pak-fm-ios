@@ -17,12 +17,9 @@ import TTGSnackbar
 class FavouriteController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout {
 
     private let reuse_identifier = "cvc_favourite_item"
-    var cant = 0
-
-
+    //var cant = 0
+    
     @IBOutlet weak var cv_favorite: UICollectionView!
-
-
     private var items : [ProductDC] = []
 
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +61,6 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCFavouriteItem
         
-        
         cell.l_item_name.text = self.items[indexPath.item].name
         cell.l_price_unity.text = "S/" + String(format : "%.2f",(self.items[indexPath.item].price))
 
@@ -90,7 +86,6 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         } else {
             return
         }
-
 
         Alamofire.request(URLs.AddOrEliminiteFavoritie, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
@@ -127,13 +122,11 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         let params: Parameters = [ "IdProducto": product.idProduct,
                                    "GUID": PreferencesMethods.getSmallBoxFromOptions()!.GUID,
                                    "Cantidad": 1]
-
-
-
+        
         Alamofire.request(URLs.AddItemABox, method: .post ,parameters: params , encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
-
+                
                 
                 return
             }
@@ -142,14 +135,54 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        self.cant += 1
+                        // amd - Contador por cada item
+                        //
+                        //obtenemos la cajita actual del preferences local
+                        let cajita = PreferencesMethods.getSmallBoxFromOptions()
+                        // creamos una instancia de los items
+                        var items = cajita?.items
                         var snackbar = TTGSnackbar(message: "Has agregado 1 " + product.name , duration: .middle)
-
+                        var exists = false
+                        // recorremos los items para ver si encontramos el producto agregado
+                        for item in items!{
+                            if item.idProduct == product.idProduct {
+                                exists = true
+                                item.cant = item.cant + 1
+                                snackbar = TTGSnackbar(message: "Has agregado " + String(item.cant) + " unidades de " + item.name, duration: .middle)
+                                break
+                            }
+                        }
+                        //si el item no existe, se agrega
+                        if !exists {
+                            let newItem = ItemSmallBoxDC()
+                            //solo se agrego los datos necesarios
+                            newItem.idProduct = UInt64(product.idProduct)
+                            newItem.cant = 1 //empieza en 1
+                            newItem.name = product.name
+                            //...
+                            items?.append(newItem)
+                            
+                        }
+                        //sobre escribimos los items de la cajita encapsulada porque se ha editado
+                        cajita?.items = items!
+                        //sobre escribimos la cajita del Preferences, con la cajita encapsulada porque se ha editado
+                        PreferencesMethods.saveSmallBoxToOptions(cajita!)
+                        snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
+                        snackbar.show()
+                        //
+                        //... amd
+                        
+                        //Código antiguo
+                        /*self.cant += 1
+                        var snackbar = TTGSnackbar(message: "Has agregado 1 " + product.name , duration: .middle)
+                        
                         if self.cant > 0 {
                             snackbar = TTGSnackbar(message: "Has agregado " + String(self.cant) + " unidades de " + product.name, duration: .middle)
                         }
                         snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
-                        snackbar.show()
+                        snackbar.show()*/
+                        //...
+                        
                         ConstantsModels.count_item = ConstantsModels.count_item + 1
                         self.cv_favorite.reloadData()
                     }
@@ -164,6 +197,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
             }
             
         }
+        
     }
 
     func getFavourite() {
