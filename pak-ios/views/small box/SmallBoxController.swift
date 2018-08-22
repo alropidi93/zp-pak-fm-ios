@@ -17,7 +17,7 @@ import SwiftHash
 import SideMenu
 import SwipeCellKit
 
-class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable,FinishBoxDelegate,SwipeCollectionViewCellDelegate{
+class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable,FinishBoxDelegate,SwipeCollectionViewCellDelegate, UICollectionViewDelegateFlowLayout{
     @IBOutlet weak var emptyImg: UIView!
     @IBOutlet weak var b_buying: UIButton!
     @IBOutlet weak var dwb_pak_button_detail_white_arrow_down: UIImageView!
@@ -43,8 +43,9 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     
     //dynamic heights
     @IBOutlet weak var l_mount_discount_height: NSLayoutConstraint!
-    
     @IBOutlet weak var l_discount_height: NSLayoutConstraint!
+    
+    @IBOutlet weak var cvItemsHeight: NSLayoutConstraint!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -53,6 +54,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
+        
         setElements()
         navBarLabelWithImg()
     }
@@ -122,6 +124,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                         self.items.remove(at: pos)
                         self.setSubTotal()
                     }
+                    self.updateHeight()
                     self.cv_item_list.reloadData()
                 }
             } else {
@@ -158,6 +161,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                         itemProduct.cant = cant
                         self.setSubTotal()
                     }
+                    self.updateHeight()
                     self.cv_item_list.reloadData()
                 }
             } else {
@@ -257,6 +261,8 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                         let smallItemBox  = ItemSmallBoxDC(element)
                         self.items.append(smallItemBox)
                     }
+                    
+                    self.updateHeight()
                     self.cv_item_list.reloadData()
                     self.showOrHidenItems()
                     print("HOLA")
@@ -274,6 +280,19 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
              
         }
     }
+    
+    func updateHeight(){
+        let size = self.items.count
+        let minHeight = emptyImg.frame.height - 210
+        let totalHeight = CGFloat(size * 90)
+        
+        if minHeight < totalHeight {
+            cvItemsHeight.constant = totalHeight
+        }else{
+            cvItemsHeight.constant = minHeight
+        }
+    }
+    
     
     func getDataDelivery() {
       
@@ -361,6 +380,10 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         navView.addSubview(image)
         self.navigationItem.titleView = navView
         navView.sizeToFit()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 90)
     }
 }
 

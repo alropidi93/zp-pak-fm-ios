@@ -17,7 +17,7 @@ import Agrume
 import PlayerKit
 import RLBAlertsPickers
 
-class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICollectionViewDelegate, UICollectionViewDataSource {
+class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var cv_cancel: UICollectionView!
     @IBOutlet weak var b_filtre: UIButton!
     
@@ -42,14 +42,6 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
         self.ToDeliver()
         self.cv_cancel.delegate = self
         self.cv_cancel.dataSource = self
-        let bgImage = UIImageView();
-        /*bgImage.image = UIImage(named: "dwb_pak_background_loby")
-         bgImage.contentMode = .scaleToFill*/
-        // amd - Background aspect fix
-        bgImage.image = UIImage(named: "dwb_pak_background_loby_amd")
-        bgImage.contentMode = .scaleAspectFill
-        //...
-        self.cv_cancel.backgroundView = bgImage
     }
     @IBAction func b_search(_ sender: Any) {
         self.tapFiltree()
@@ -162,5 +154,9 @@ class CanceledController : UIViewController ,  NVActivityIndicatorViewable ,UICo
                 vc.type = 3
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 120)
     }
 }

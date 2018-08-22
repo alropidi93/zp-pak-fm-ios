@@ -16,7 +16,7 @@ import Agrume
 import PlayerKit
 import RLBAlertsPickers
 
-class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource {
+class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var cv_delivery: UICollectionView!
     
     @IBOutlet weak var b_filtre: UIButton!
@@ -39,17 +39,8 @@ class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UIC
     
     func setElements() {
         self.ToDeliver()
-        
         self.cv_delivery.delegate = self
         self.cv_delivery.dataSource = self
-        let bgImage = UIImageView();
-        /*bgImage.image = UIImage(named: "dwb_pak_background_loby")
-         bgImage.contentMode = .scaleToFill*/
-        // amd - Background aspect fix
-        bgImage.image = UIImage(named: "dwb_pak_background_loby_amd")
-        bgImage.contentMode = .scaleAspectFill
-        //...
-        self.cv_delivery.backgroundView = bgImage
     }
     
     @IBAction func b_search(_ sender: Any) {
@@ -158,6 +149,10 @@ self.b_filtre.setTitle(pickerViewValues.item(at: index.column)?.item(at: index.r
                 vc.type = 2
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 120)
     }
 }
 
