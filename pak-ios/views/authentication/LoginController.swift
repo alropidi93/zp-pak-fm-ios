@@ -346,7 +346,8 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.signup_identifier_go_fb {
-            if let vc = segue.destination as? SignUpGoFbController {
+            var DestViewController = segue.destination as! UINavigationController
+            if let vc = DestViewController.topViewController as? SignUpGoFbController {
                 vc.user = self.user
             }
         }
