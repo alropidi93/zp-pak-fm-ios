@@ -14,7 +14,7 @@ import NVActivityIndicatorView
 import RLBAlertsPickers
 import SwiftHash
 import Firebase
-class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertRegisterDelegate ,UITextFieldDelegate{
+class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertRegisterDelegate ,UITextFieldDelegate,AlertCancelSingUp{
 
     @IBOutlet weak var tf_name: UITextField!
     @IBOutlet weak var tf_lastname: UITextField!
@@ -406,10 +406,20 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
 
     }
     @objc func buttonBackAction (_ sender: Any) {
-        print("hola")
-        dismiss(animated: true, completion: nil)
-
-        self.navigationController?.popViewController(animated: true)
-
+        
+        let pakAlert = self.storyboard?.instantiateViewController(withIdentifier: "pak_alert_cancel_singup") as! PakAlertCancelSingUp
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        pakAlert.alertCancelSingup = self
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(pakAlert, animated: true, completion: nil)
     }
+    func outPressed() {
+        
+        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
 }

@@ -14,7 +14,7 @@ import NVActivityIndicatorView
 import RLBAlertsPickers
 import SwiftHash
 import Firebase
-class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,AlertRegisterDelegate ,UITextFieldDelegate{
+class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,AlertRegisterDelegate ,UITextFieldDelegate,AlertCancelSingUp{
     
     
     @IBOutlet weak var tf_name: UITextField!
@@ -46,6 +46,8 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.backButton()
+
         setElements()
         
     }
@@ -379,6 +381,33 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
         self.performSegue(withIdentifier: "segue_login_register_fb" , sender: self)
 
     }
-    
+    func backButton (){
+        self.navigationController?.navigationBar.topItem?.title = " "
+        let backBTN = UIBarButtonItem(image: UIImage(named: "dwb_pak_button_header_back"),
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(buttonBackAction))
+        self.navigationController?.navigationBar.topItem?.leftBarButtonItem = backBTN
+        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+        
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(rgb: 0x81D34C)
+        
+        
+    }
+    @objc func buttonBackAction (_ sender: Any) {
+        
+        let pakAlert = self.storyboard?.instantiateViewController(withIdentifier: "pak_alert_cancel_singup") as! PakAlertCancelSingUp
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        pakAlert.alertCancelSingup = self
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(pakAlert, animated: true, completion: nil)
+    }
+    func outPressed() {
+        
+        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
+        
+    }
     
 }

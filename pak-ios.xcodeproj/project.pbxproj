@@ -18,6 +18,8 @@
 		0FF64A1520FB66E100164AF5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF64A1220FB667700164AF5 /* OpenSans-Regular.ttf */; };
 		1215FBF620F545B400E8879C /* EndBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF520F545B400E8879C /* EndBoxController.swift */; };
 		1215FBF820F54D1B00E8879C /* FinishBoxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */; };
+		12517ACE212F2A15000169D7 /* PakAlertCancelSingUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12517ACD212F2A15000169D7 /* PakAlertCancelSingUp.swift */; };
+		12517AD0212F2A8C000169D7 /* AlertCancelSingUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12517ACF212F2A8C000169D7 /* AlertCancelSingUp.swift */; };
 		1278368920FD482400F67F84 /* PakAlertCustomReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278368820FD482400F67F84 /* PakAlertCustomReady.swift */; };
 		1282FF5A210132B60017CF2D /* RoundedCornerViewGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1282FF59210132B60017CF2D /* RoundedCornerViewGreen.swift */; };
 		12A47DD220F3CEC600CD98FB /* TVCPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A47DD020F3CEC500CD98FB /* TVCPlaceholder.swift */; };
@@ -135,6 +137,8 @@
 		0FF64A1220FB667700164AF5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		1215FBF520F545B400E8879C /* EndBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndBoxController.swift; sourceTree = "<group>"; };
 		1215FBF720F54D1B00E8879C /* FinishBoxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishBoxDelegate.swift; sourceTree = "<group>"; };
+		12517ACD212F2A15000169D7 /* PakAlertCancelSingUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCancelSingUp.swift; sourceTree = "<group>"; };
+		12517ACF212F2A8C000169D7 /* AlertCancelSingUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCancelSingUp.swift; sourceTree = "<group>"; };
 		1278368820FD482400F67F84 /* PakAlertCustomReady.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertCustomReady.swift; sourceTree = "<group>"; };
 		1282FF59210132B60017CF2D /* RoundedCornerViewGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerViewGreen.swift; sourceTree = "<group>"; };
 		12A47DD020F3CEC500CD98FB /* TVCPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCPlaceholder.swift; sourceTree = "<group>"; };
@@ -386,6 +390,7 @@
 				38299DAF21119AC600C62740 /* AlertCancelDelegate.swift */,
 				38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */,
 				3802D3BA211450FE0096DDCC /* AlertNotification.swift */,
+				12517ACF212F2A8C000169D7 /* AlertCancelSingUp.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -602,6 +607,7 @@
 				0F234B2921103DC700712D22 /* PakAlertEndBox.swift */,
 				0F234B2B211044B800712D22 /* PakAlertLogueout.swift */,
 				38299DB32111B2C400C62740 /* PakAlertOutCar.swift */,
+				12517ACD212F2A15000169D7 /* PakAlertCancelSingUp.swift */,
 			);
 			path = alert;
 			sourceTree = "<group>";
@@ -862,6 +868,7 @@
 				70D5F0F1209B7AA700EE673B /* StoreController.swift in Sources */,
 				70A3BE34208F7C1B008C972C /* SplashController.swift in Sources */,
 				70D525AA20915C6A004EB51E /* Constants.swift in Sources */,
+				12517ACE212F2A15000169D7 /* PakAlertCancelSingUp.swift in Sources */,
 				705677E520E80C45007AFD71 /* CVCProduct.swift in Sources */,
 				70A3BE32208F7C08008C972C /* SignUpController.swift in Sources */,
 				701D2899207EC731007AD7AC /* UIViewControllerExtension.swift in Sources */,
@@ -875,6 +882,7 @@
 				709D48F920EB54FD00B990DE /* PakAlertCancel.swift in Sources */,
 				1215FBF620F545B400E8879C /* EndBoxController.swift in Sources */,
 				0F234B2A21103DC700712D22 /* PakAlertEndBox.swift in Sources */,
+				12517AD0212F2A8C000169D7 /* AlertCancelSingUp.swift in Sources */,
 				70242A9820D914E600F89299 /* ProductPerCategory.swift in Sources */,
 				708AC99C20E039E2004BD8FD /* DistributionHour.swift in Sources */,
 				0F234B2C211044B800712D22 /* PakAlertLogueout.swift in Sources */,
@@ -1093,7 +1101,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47R8LF25WQ;
+				DEVELOPMENT_TEAM = 8T7Y68JUC9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1119,7 +1127,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47R8LF25WQ;
+				DEVELOPMENT_TEAM = 8T7Y68JUC9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
