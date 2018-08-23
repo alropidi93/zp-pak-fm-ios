@@ -30,6 +30,7 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
     
     @IBOutlet weak var lbl_name: UILabel!
     
+    @IBOutlet var b_logeout: UIButton!
     
     @IBOutlet weak var iv_user: UIImageView!
     
@@ -39,6 +40,17 @@ class SideMenuInLogin: UIViewController, NVActivityIndicatorViewable {
         print("AMD: \(String(describing: type(of: self)))")
         print(UIScreen.main.bounds)
         print(self.view.frame)
+        
+        
+        
+        var yourAttributes : [NSAttributedStringKey : Any] = [
+            NSAttributedStringKey.font : UIFont(name: "OpenSans-Light", size: 15),
+            NSAttributedStringKey.foregroundColor : UIColor(rgb: 0x222222),
+            NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
+        ]
+        let attributeString = NSMutableAttributedString(string: "Cerrar sesión",
+                                                        attributes: yourAttributes)
+        b_logeout.setAttributedTitle(attributeString, for: .normal)
 
     }
  

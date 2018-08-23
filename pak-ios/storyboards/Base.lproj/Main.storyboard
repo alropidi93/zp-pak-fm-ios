@@ -2520,6 +2520,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                     </view>
                     <navigationItem key="navigationItem" id="cFU-Q1-95q"/>
                     <connections>
+                        <outlet property="b_logeout" destination="pzB-K7-pXI" id="pEw-6g-Vla"/>
                         <outlet property="b_name" destination="JXp-GW-DUa" id="s4h-MZ-Hbq"/>
                         <outlet property="iv_user" destination="Dl6-AW-HCM" id="rH3-gm-n6z"/>
                         <outlet property="lbl_name" destination="kgw-WO-qp0" id="noR-b5-maC"/>
@@ -10482,9 +10483,6 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         <namedColor name="pak_gray">
             <color red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="pak_gray">
-            <color red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="pak_green">
             <color red="0.50588235294117645" green="0.82745098039215681" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -10493,12 +10491,6 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         </namedColor>
         <namedColor name="pak_red">
             <color red="1" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_red">
-            <color red="1" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_white">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pak_white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
