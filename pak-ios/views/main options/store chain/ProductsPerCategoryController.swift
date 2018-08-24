@@ -42,13 +42,13 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
-        self.navigationBarWithSearch()
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
         setElements()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.navigationBarWithSearchNew()
         tv_sub_categories.reloadData()
     }
     
@@ -137,7 +137,48 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        self.cant += 1
+                        // amd - Contador por cada item
+                        //
+                        //obtenemos la cajita actual del preferences local
+                        let cajita = PreferencesMethods.getSmallBoxFromOptions()
+                        // creamos una instancia de los items
+                        var items = cajita?.items
+                        var snackbar = TTGSnackbar(message: "Has agregado 1 " + product.name , duration: .middle)
+                        var exists = false
+                        // recorremos los items para ver si encontramos el producto agregado
+                        for item in items!{
+                            if item.idProduct == product.idProduct {
+                                exists = true
+                                item.cant = item.cant + 1
+                                snackbar = TTGSnackbar(message: "Has agregado " + String(item.cant) + " unidades de " + item.name, duration: .middle)
+                                break
+                            }
+                        }
+                        //si el item no existe, se agrega
+                        if !exists {
+                            let newItem = ItemSmallBoxDC()
+                            //solo se agrego los datos necesarios
+                            newItem.idProduct = UInt64(product.idProduct)
+                            newItem.cant = 1 //empieza en 1
+                            newItem.name = product.name
+                            //...
+                            items?.append(newItem)
+                            
+                        }
+                        //sobre escribimos los items de la cajita encapsulada porque se ha editado
+                        cajita?.items = items!
+                        //sobre escribimos la cajita del Preferences, con la cajita encapsulada porque se ha editado
+                        PreferencesMethods.saveSmallBoxToOptions(cajita!)
+                        snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
+                        snackbar.show()
+                        //
+                        //... amd
+                        
+                        // FALTA ACTUALIZAR LA BARRA SUPERIOR
+                        self.navigationBarWithSearchNew()
+                        
+                        //codigo antiguo
+                        /*self.cant += 1
                         var snackbar = TTGSnackbar(message: "Has agregado 1 " + product.name , duration: .middle)
 
                         if self.cant > 0 {
@@ -145,7 +186,9 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
                         }
                         snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                         snackbar.show()
+ */
                         ConstantsModels.count_item = ConstantsModels.count_item + 1
+                        
                     }
                 }
             } else {
@@ -168,6 +211,37 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
             if let vc = segue.destination as? SearchView {
                 vc.text = self.searchWord
             }
+        }
+    }
+    /* #MARK: Variation of the previous one that permits you back navigation */
+    func navigationBarWithSearchNew() {
+        self.navigationController?.navigationBar.topItem?.title = " "
+        
+        var searchBar: UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        searchBar.placeholder = Constants.PLACEHOLDERSB
+        
+        let textFieldInsideSearchBarLabel = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBarLabel?.font = UIFont(name: "OpenSans-Light", size: 15)
+        searchBar.delegate = self
+        self.navigationItem.titleView = searchBar
+        
+        
+        
+        if ConstantsModels.count_item == 0 {
+            var btnsMenuRight : [UIBarButtonItem] = []
+            let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
+            btnsMenuRight.append(btnMenuRight)
+            self.navigationItem.rightBarButtonItems = btnsMenuRight
+        }else {
+            let notificationButton = SSBadgeButton()
+            notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
+            notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+            notificationButton.badge = "\(ConstantsModels.count_item) "
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
         }
     }
 }

@@ -14,7 +14,7 @@ import NVActivityIndicatorView
 import RLBAlertsPickers
 import SwiftHash
 import Firebase
-class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertRegisterDelegate ,UITextFieldDelegate,AlertCancelSingUp{
+class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertRegisterDelegate ,UITextFieldDelegate, AlertCancelSingUp{
 
     @IBOutlet weak var tf_name: UITextField!
     @IBOutlet weak var tf_lastname: UITextField!

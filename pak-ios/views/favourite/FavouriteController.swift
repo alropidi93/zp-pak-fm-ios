@@ -185,6 +185,8 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
                         
                         ConstantsModels.count_item = ConstantsModels.count_item + 1
                         self.cv_favorite.reloadData()
+                        //refresh box
+                        self.customizeNavigationBarFavourite()
                     }
                 }
             } else {

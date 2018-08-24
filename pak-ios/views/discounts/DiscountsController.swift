@@ -196,7 +196,8 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         label.center = navView.center
         label.textAlignment = NSTextAlignment.center
         let image = UIImageView()
-        image.image = UIImage(named: "dwb_pak_button_discount")
+        //image.image = UIImage(named: "dwb_pak_button_discount")
+        image.image = #imageLiteral(resourceName: "dwb_pak_button_discount_title")
         let imageAspect = image.image!.size.width/image.image!.size.height
         image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
         image.contentMode = UIViewContentMode.scaleAspectFit

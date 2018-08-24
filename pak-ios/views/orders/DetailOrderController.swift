@@ -16,7 +16,7 @@ import NVActivityIndicatorView
 import Agrume
 import PlayerKit
 
-class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource  {
+class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var cv_detail_order: UICollectionView!
     @IBOutlet weak var l_number: UILabel!
     @IBOutlet weak var l_order: UILabel!
@@ -33,6 +33,11 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     var itemId : Int = -1
     var items : [ItemOrderDC] = []
     var order : OrderDC? = nil
+    
+    //constraint custom
+    @IBOutlet weak var btnBottomHeight: NSLayoutConstraint!
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.customizeNavigationBarOrders()
@@ -42,6 +47,10 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         super.viewDidLoad()
         print("AMD: \(DetailOrderController.description())")
         setElements()
+        //sample
+        btnBottomHeight.constant = 0
+        //siempre llamar esta vaina
+        self.view.layoutIfNeeded()
     }
     
     override func didReceiveMemoryWarning() {
@@ -171,6 +180,12 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
         }
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //Log 8: Columnas responsive
+        let cell_width = UIScreen.main.bounds.width
+        return CGSize(width: cell_width, height: 105)
     }
 }
 

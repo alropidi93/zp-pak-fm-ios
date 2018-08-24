@@ -198,6 +198,50 @@ class UtilMethods {
             return month
         }
     }
+    static func DateIntToStringToSpanish(_ date : String) -> String {
+        var month : String = ""
+        switch (date) {
+        case "01":
+            month = "ENE"
+            return month
+        case "02":
+            month = "FEB"
+            return month
+        case "03":
+            month = "MAR"
+            return month
+        case "04":
+            month = "ABR"
+            return month
+        case "05":
+            month = "MAY"
+            return month
+        case "06":
+            month = "JUN"
+            return month
+        case "07":
+            month = "JUL"
+            return month
+        case "08":
+            month = "AGO"
+            return month
+        case "09":
+            month = "SEP"
+            return month
+        case "10":
+            month = "OCT"
+            return month
+        case "11":
+            month = "NOV"
+            return month
+        case "12":
+            month = "DIC"
+            return month
+        default:
+            month = ""
+            return month
+        }
+    }
     
     static func dateSplit(_ dateToFormat : String) -> String {
         let date : [String] = dateToFormat.components(separatedBy: "/")

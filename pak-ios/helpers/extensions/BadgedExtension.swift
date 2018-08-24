@@ -58,6 +58,7 @@ class SSBadgeButton: UIButton {
         let height = max(18, Double(badgeSize.height) + 3.0)
         let width = max(height, Double(badgeSize.width) + 3.0)
         
+        
         var vertical: Double?, horizontal: Double?
         if let badgeInset = self.badgeEdgeInsets {
             vertical = Double(badgeInset.top) - Double(badgeInset.bottom)
@@ -76,6 +77,9 @@ class SSBadgeButton: UIButton {
         badgeLabel.layer.masksToBounds = true
         addSubview(badgeLabel)
         badgeLabel.isHidden = badge != nil ? false : true
+        
+        
+        badgeLabel.frame = CGRect(x: badgeLabel.frame.origin.x, y: badgeLabel.frame.origin.y, width: 18, height: 18)
     }
     
     required init?(coder aDecoder: NSCoder) {

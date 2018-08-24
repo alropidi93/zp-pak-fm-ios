@@ -56,9 +56,12 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     }
     
     func tapFiltre() -> Void {
-        let pickerData = ["Ultimo mes","Ultimo 3 meses","Ultimo 6 meses"]
-        let alert = UIAlertController(style: .actionSheet, title: "Genero")
+        
+        let pickerData = ["Último mes","Últimos 3 meses","Últimos 6 meses"]
+        let pickerData2 = ["Último mes  ▼","Últimos 3 meses  ▼","Últimos 6 meses  ▼"]
+        let alert = UIAlertController(style: .actionSheet, title: "")
         let pickerViewValues: [[String]] = [pickerData]
+        let pickerViewValues2: [[String]] = [pickerData2]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
      
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
@@ -71,7 +74,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
                     }else if index.row == 2 {
                         self.filtre = 6
                     }
-                    self.b_filtre.setTitle(pickerViewValues.item(at: index.column)?.item(at: index.row), for: .normal)
+                    self.b_filtre.setTitle(pickerViewValues2.item(at: index.column)?.item(at: index.row), for: .normal)
                     self.ToDeliver()
                 }
             }
@@ -88,14 +91,14 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_identifier, for: indexPath) as! CVCToDeliver
         cell.l_total.text = "S/" + String(format : "%.2f",(self.items[indexPath.item].total))
         var arr = self.items[indexPath.item].dateToRecive.components(separatedBy: "/")
-        cell.l_m_reception.text = UtilMethods.DateIntToString(arr[1])
+        cell.l_m_reception.text = UtilMethods.DateIntToStringToSpanish(arr[1])
         cell.l_d_toreception.text = arr[0]
         var arrHour = self.items[indexPath.item].dateToRecive.components(separatedBy: " ")
         var hourtext = arrHour[1].components(separatedBy: ":")
         
         cell.l_hour_reception.text = hourtext[0] + ":" + hourtext[1]
         arr = self.items[indexPath.item].dateOfDelivery.components(separatedBy: "/")
-        cell.l_m_recive.text = UtilMethods.DateIntToString(arr[1])
+        cell.l_m_recive.text = UtilMethods.DateIntToStringToSpanish(arr[1])
         cell.l_d_recive.text = arr[0]
         cell.l_hour_recive.text = (self.items[indexPath.item].distributionHour?.iniHour)! + " - " + (self.items[indexPath.item].distributionHour?.endHour)!
         
