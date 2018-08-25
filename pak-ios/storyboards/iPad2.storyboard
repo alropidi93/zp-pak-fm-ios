@@ -1338,7 +1338,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfV-6Z-sbJ" userLabel="l_name_category">
-                                                            <rect key="frame" x="294.5" y="124" width="61.5" height="40"/>
+                                                            <rect key="frame" x="295.5" y="124" width="60.5" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="vtH-mq-gjH"/>
                                                             </constraints>
@@ -1429,7 +1429,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L51-dg-HWD" userLabel="l_name">
-                                                    <rect key="frame" x="17" y="4.5" width="70" height="20"/>
+                                                    <rect key="frame" x="18" y="3" width="68" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
@@ -1521,7 +1521,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fr6-Id-2YK" userLabel="b_add_item">
-                                                                        <rect key="frame" x="45.5" y="193" width="44" height="44"/>
+                                                                        <rect key="frame" x="45.5" y="195.5" width="44" height="44"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="44" id="jCR-Cd-GlJ"/>
                                                                             <constraint firstAttribute="height" constant="44" id="p9y-Sq-71h"/>
@@ -1551,7 +1551,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 2.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dB-Wi-ECd" userLabel="l_price_unity">
-                                                                        <rect key="frame" x="4" y="179" width="126" height="14"/>
+                                                                        <rect key="frame" x="4" y="179" width="126" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1731,7 +1731,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 2.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n6w-GV-Brd" userLabel="l_price_unity">
-                                                    <rect key="frame" x="8" y="163" width="93" height="20"/>
+                                                    <rect key="frame" x="8" y="163" width="93" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
@@ -1776,7 +1776,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scT-H8-g22" userLabel="b_add_item">
-                                                    <rect key="frame" x="32" y="183" width="44" height="44"/>
+                                                    <rect key="frame" x="32" y="186.5" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="60e-EQ-1pI"/>
                                                         <constraint firstAttribute="width" constant="44" id="Z9r-kD-Ti3"/>
@@ -2700,13 +2700,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.0 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8v-NE-fjD" userLabel="l_discount_percent">
-                                                                    <rect key="frame" x="290" y="22" width="55" height="20"/>
+                                                                    <rect key="frame" x="293.5" y="22" width="51.5" height="23.5"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                                     <color key="textColor" red="0.46666666670000001" green="0.81568627449999997" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="02/06/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFL-IA-aiR" userLabel="l_date_discount">
-                                                                    <rect key="frame" x="18" y="23" width="87" height="24"/>
+                                                                    <rect key="frame" x="18" y="23" width="89.5" height="24"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -2741,7 +2741,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Gracias a la invitación de asdfghjklzxcvbnmmhbb,bkbhkblkbklbkbklkhblkbklbklbjkljbkjbkjb" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZi-KT-ony" userLabel="l_motive">
-                                                            <rect key="frame" x="187.5" y="0.0" width="68" height="70"/>
+                                                            <rect key="frame" x="190" y="0.0" width="69" height="70"/>
                                                             <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2856,13 +2856,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 2.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9M-la-kPb" userLabel="l_price_unity">
-                                                    <rect key="frame" x="8" y="160" width="118" height="20"/>
+                                                    <rect key="frame" x="8" y="160" width="118" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNN-Gy-2w7" userLabel="b_add_item">
-                                                    <rect key="frame" x="45" y="180" width="44" height="44"/>
+                                                    <rect key="frame" x="45" y="183.5" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="V6G-Zg-mUP"/>
                                                         <constraint firstAttribute="height" constant="44" id="kQP-fs-6cs"/>
@@ -4206,16 +4206,16 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVq-zB-RWE">
-                                                                                    <rect key="frame" x="59" y="28.5" width="124.5" height="34.5"/>
+                                                                                    <rect key="frame" x="59" y="26" width="124.5" height="40"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producto Supremo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SI3-ST-ODC" userLabel="l_name">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="125" height="14"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="125" height="16.5"/>
                                                                                             <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                                                             <color key="textColor" name="pak_darkGray"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="costo unidad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRi-9F-pQF" userLabel="l_price">
-                                                                                            <rect key="frame" x="0.0" y="18" width="124.5" height="16.5"/>
+                                                                                            <rect key="frame" x="0.0" y="20.5" width="124.5" height="19.5"/>
                                                                                             <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                                                             <color key="textColor" name="pak_gray"/>
                                                                                             <nil key="highlightedColor"/>
@@ -4248,7 +4248,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                             <rect key="frame" x="281.5" y="0.0" width="93.5" height="90"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smd-pY-gba" userLabel="l_mount_total_item">
-                                                                                    <rect key="frame" x="8" y="37" width="77.5" height="16.5"/>
+                                                                                    <rect key="frame" x="8" y="35.5" width="77.5" height="19.5"/>
                                                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                                                     <color key="textColor" name="pak_gray"/>
                                                                                     <nil key="highlightedColor"/>
@@ -6827,7 +6827,7 @@ EMKhTGlzdG8hA
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bP-nY-wBV">
-                                                                    <rect key="frame" x="22" y="78" width="34.5" height="22"/>
+                                                                    <rect key="frame" x="22" y="78" width="37" height="22"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                                     <color key="textColor" name="pak_red"/>
                                                                     <nil key="highlightedColor"/>
@@ -7346,19 +7346,19 @@ EMKhTGlzdG8hA
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producto Supremo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="489-jx-HsN" userLabel="l_name">
-                                                    <rect key="frame" x="97" y="23" width="94" height="13"/>
+                                                    <rect key="frame" x="97" y="23" width="94" height="15"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="11"/>
                                                     <color key="textColor" white="0.0" alpha="0.68219866070000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="costo unidad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlY-qi-GhW" userLabel="l_price">
-                                                    <rect key="frame" x="101" y="69" width="65" height="13"/>
+                                                    <rect key="frame" x="101" y="67" width="65" height="15"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="11"/>
                                                     <color key="textColor" white="0.0" alpha="0.68219866070000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijJ-DP-LBl" userLabel="l_mount_total_item">
-                                                    <rect key="frame" x="313" y="45" width="40.5" height="16.5"/>
+                                                    <rect key="frame" x="313" y="43.5" width="41.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
@@ -7784,7 +7784,7 @@ EMKhTGlzdG8hA
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPG-ZG-d1o" userLabel="l_name_category">
-                                                            <rect key="frame" x="294.5" y="124" width="61.5" height="40"/>
+                                                            <rect key="frame" x="295.5" y="124" width="60.5" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="maM-hs-Eng"/>
                                                             </constraints>
@@ -9794,25 +9794,25 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producto Supremo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPR-ZR-9hn" userLabel="l_name">
-                                                    <rect key="frame" x="97" y="23" width="94" height="13"/>
+                                                    <rect key="frame" x="97" y="23" width="94" height="15"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="11"/>
                                                     <color key="textColor" white="0.0" alpha="0.68219866070000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="costo unidad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQo-iP-LXi" userLabel="l_price">
-                                                    <rect key="frame" x="101" y="69" width="65" height="13"/>
+                                                    <rect key="frame" x="101" y="67" width="65" height="15"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="11"/>
                                                     <color key="textColor" white="0.0" alpha="0.68219866070000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ix4-O7-yHO" userLabel="l_mount_total_item">
-                                                    <rect key="frame" x="314.5" y="45" width="40.5" height="16.5"/>
+                                                    <rect key="frame" x="313.5" y="43.5" width="41.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aq-Hh-5KK" userLabel="l_cant">
-                                                    <rect key="frame" x="242.5" y="42.5" width="42" height="20"/>
+                                                    <rect key="frame" x="240.5" y="40.5" width="43" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

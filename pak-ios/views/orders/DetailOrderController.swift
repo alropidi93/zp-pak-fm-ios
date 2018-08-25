@@ -48,9 +48,9 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         print("AMD: \(DetailOrderController.description())")
         setElements()
         //sample
-        btnBottomHeight.constant = 0
+        //btnBottomHeight.constant = 0
         //siempre llamar esta vaina
-        self.view.layoutIfNeeded()
+        //self.view.layoutIfNeeded()
     }
     
     override func didReceiveMemoryWarning() {
