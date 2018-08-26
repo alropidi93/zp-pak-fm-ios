@@ -82,10 +82,16 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     
     //Perfectly fit collection (all screens)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        /*let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right
         let itemWidth = (collectionView.bounds.size.width - marginsAndInsets).rounded(.down)
-        return CGSize(width: itemWidth, height: 200)
+        return CGSize(width: itemWidth, height: 200)*/
+        
+        if UIScreen.main.bounds.width > UIScreen.main.bounds.height {
+            return CGSize(width: (UIScreen.main.bounds.width/2) - 0.5, height: 200)
+        }else{
+            return CGSize(width: UIScreen.main.bounds.width, height: 200)
+        }
     }
     
     func getCategories(_ selectedId :Int = -1) {
@@ -184,5 +190,9 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
                 vc.text = self.searchWord
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
     }
 }

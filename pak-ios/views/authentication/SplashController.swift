@@ -41,57 +41,17 @@ class SplashController: UIViewController {
     
     @IBOutlet weak var verticalConstraint: NSLayoutConstraint!
     
-    //...
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.getGUID()
-        
-        doSlideUp()
-        //Old animation
-        /*UIView.animate(withDuration: 0.25, animations: {
-            self.iv_logo.frame.origin.y -= 127
-        }){_ in
-            UIView.animateKeyframes(withDuration: 0.25, delay: 0.25, options: [], animations: {
-                self.iv_logo.frame.origin.y -= 0
-            },completion: {(finished: Bool) in
-
-                self.iv_logo.image = self.animation_parts.last
-                self.iv_logo.animationImages = self.animation_parts
-                self.iv_logo.animationRepeatCount = 1
-                self.iv_logo.animationDuration = 1.0
-                self.iv_logo.startAnimating()
-
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    OperationQueue.main.addOperation {
-                        [weak self] in
-                        while (self?.iv_logo.isAnimating)! {
-                        }
-                        UIView.animate(withDuration: 1, animations: {
-                            self?.iv_letter_logo.isHidden = false
-                            self?.iv_logo.frame.origin.x -= 0
-                            self?.iv_letter_logo.frame.origin.x -= 0
-                        }){_ in
-                            UIView.animateKeyframes(withDuration: 1, delay: 0.25, options: [], animations: {
-                                self?.iv_letter_logo.frame.origin.x -= 20
-                                self?.iv_logo.frame.origin.x -= 20
-
-                            },completion: {(finished: Bool) in
-                                self?.performSegue(withIdentifier: (self?.splash_identifier)!, sender: self)
-                            })
-                        }
-                    }
-                }
-            })
-        }*/
-        //...
     }
     
     private func doSlideUp(){
         print("Splash Begin")
         UIView.animate(withDuration: 0.5){
             self.verticalConstraint.constant = 0
+            self.horizontalConstraint.constant = 22
             self.view.layoutIfNeeded()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.doImageTransition()
@@ -138,8 +98,9 @@ class SplashController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
+        self.verticalConstraint.constant = UIScreen.main.bounds.height / 2
+        self.view.layoutIfNeeded()
+        doSlideUp()
     }
     
     override func didReceiveMemoryWarning() {

@@ -187,4 +187,9 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
             }
         }
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
 }
