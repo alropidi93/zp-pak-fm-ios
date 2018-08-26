@@ -53,7 +53,8 @@ class SSBadgeButton: UIButton {
         badgeLabel.font = badgeFont
         badgeLabel.sizeToFit()
         badgeLabel.textAlignment = .center
-        let badgeSize = badgeLabel.frame.size
+        
+        /*let badgeSize = badgeLabel.frame.size
         
         let height = max(18, Double(badgeSize.height) + 3.0)
         let width = max(height, Double(badgeSize.width) + 3.0)
@@ -73,13 +74,15 @@ class SSBadgeButton: UIButton {
             badgeLabel.frame = CGRect(x: x, y: y, width: CGFloat(width), height: CGFloat(height))
         }
         
-        badgeLabel.layer.cornerRadius = badgeLabel.frame.height/2
+        badgeLabel.layer.cornerRadius = badgeLabel.frame.height/2*/
+        
         badgeLabel.layer.masksToBounds = true
         addSubview(badgeLabel)
         badgeLabel.isHidden = badge != nil ? false : true
         
         
         badgeLabel.frame = CGRect(x: badgeLabel.frame.origin.x, y: badgeLabel.frame.origin.y, width: 18, height: 18)
+        badgeLabel.layer.cornerRadius = badgeLabel.frame.height/2
     }
     
     required init?(coder aDecoder: NSCoder) {
