@@ -6810,7 +6810,7 @@ EMKhTGlzdG8hA
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBX-s4-G3D">
-                                                                    <rect key="frame" x="22" y="78" width="34.5" height="22"/>
+                                                                    <rect key="frame" x="22" y="78" width="37" height="22"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                                     <color key="textColor" name="pak_red"/>
                                                                     <nil key="highlightedColor"/>
@@ -6989,10 +6989,10 @@ EMKhTGlzdG8hA
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9g-iD-UrP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="492" height="119"/>
+                                                    <rect key="frame" x="0.0" y="8" width="492" height="111"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhD-Hh-439">
-                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="119"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="111"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pedido" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTz-rg-yBo">
                                                                     <rect key="frame" x="0.0" y="0.0" width="164" height="22"/>
@@ -7090,7 +7090,7 @@ EMKhTGlzdG8hA
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWi-NW-okU">
-                                                            <rect key="frame" x="164" y="0.0" width="164" height="119"/>
+                                                            <rect key="frame" x="164" y="0.0" width="164" height="111"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrega" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iZ-Yd-rVg">
                                                                     <rect key="frame" x="0.0" y="0.0" width="164" height="22"/>
@@ -7188,7 +7188,7 @@ EMKhTGlzdG8hA
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OL5-pc-7lj">
-                                                            <rect key="frame" x="328" y="0.0" width="164" height="119"/>
+                                                            <rect key="frame" x="328" y="0.0" width="164" height="111"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bo9-tP-9fU">
                                                                     <rect key="frame" x="0.0" y="0.0" width="164" height="22"/>
@@ -7244,7 +7244,7 @@ EMKhTGlzdG8hA
                                             <constraint firstItem="H0S-f4-lmV" firstAttribute="top" secondItem="B9g-iD-UrP" secondAttribute="bottom" id="2fg-ZN-aTk"/>
                                             <constraint firstAttribute="bottom" secondItem="H0S-f4-lmV" secondAttribute="bottom" id="ECE-Zr-ofR"/>
                                             <constraint firstItem="B9g-iD-UrP" firstAttribute="leading" secondItem="uan-7R-yzT" secondAttribute="leading" id="Hbd-oT-fwb"/>
-                                            <constraint firstItem="B9g-iD-UrP" firstAttribute="top" secondItem="uan-7R-yzT" secondAttribute="top" id="Wvu-hu-37N"/>
+                                            <constraint firstItem="B9g-iD-UrP" firstAttribute="top" secondItem="uan-7R-yzT" secondAttribute="top" constant="8" id="Wvu-hu-37N"/>
                                             <constraint firstItem="H0S-f4-lmV" firstAttribute="leading" secondItem="uan-7R-yzT" secondAttribute="leading" id="eVW-L2-Uxz"/>
                                             <constraint firstAttribute="trailing" secondItem="H0S-f4-lmV" secondAttribute="trailing" id="eVs-vr-5b7"/>
                                         </constraints>
@@ -10571,7 +10571,7 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         <image name="dwb_pak_copy" width="22" height="25"/>
         <image name="dwb_pak_discounts" width="60" height="51"/>
         <image name="dwb_pak_empty_box" width="74" height="57"/>
-        <image name="dwb_pak_usericon" width="30" height="30"/>
+        <image name="dwb_pak_usericon" width="33" height="33"/>
         <image name="dwb_white_arrow_stroke" width="22" height="11"/>
         <image name="dwb_zp_logo" width="75" height="54"/>
         <namedColor name="pak_black">
@@ -10604,7 +10604,7 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4If-JT-tFy"/>
-        <segue reference="e49-xG-mKz"/>
+        <segue reference="STf-2A-NwN"/>
         <segue reference="7yi-GO-gff"/>
         <segue reference="RzB-aK-gvt"/>
         <segue reference="zhY-cZ-3JD"/>
