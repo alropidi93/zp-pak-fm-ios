@@ -40,3 +40,29 @@ extension UIView {
     
 }
 
+extension Int64 {
+    var unsigned: UInt64 {
+        let valuePointer = UnsafeMutablePointer<Int64>.allocate(capacity: 1)
+        defer {
+            valuePointer.deallocate()
+        }
+        
+        valuePointer.pointee = self
+        
+        return valuePointer.withMemoryRebound(to: UInt64.self, capacity: 1) { $0.pointee }
+    }
+}
+
+extension UInt64 {
+    var signed: Int64 {
+        let valuePointer = UnsafeMutablePointer<UInt64>.allocate(capacity: 1)
+        defer {
+            valuePointer.deallocate()
+        }
+        
+        valuePointer.pointee = self
+        
+        return valuePointer.withMemoryRebound(to: Int64.self, capacity: 1) { $0.pointee }
+    }
+}
+

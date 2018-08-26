@@ -29,7 +29,7 @@ class SSBadgeButton: UIButton {
         }
     }
     
-    public var badgeFont = UIFont.systemFont(ofSize: 12.0) {
+    public var badgeFont = UIFont.systemFont(ofSize: 11.0) {
         didSet {
             badgeLabel.font = badgeFont
         }
@@ -53,6 +53,8 @@ class SSBadgeButton: UIButton {
         badgeLabel.font = badgeFont
         badgeLabel.sizeToFit()
         badgeLabel.textAlignment = .center
+        badgeLabel.font = UIFont(name: "HelveticaNeue-Light", size: 12)
+        badgeLabel.adjustsFontSizeToFitWidth = true
         
         /*let badgeSize = badgeLabel.frame.size
         

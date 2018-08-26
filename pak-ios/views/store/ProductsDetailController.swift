@@ -31,6 +31,7 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
+        print()
         setElements()
     }
     
@@ -40,6 +41,7 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
         l_product_description.text = item?.descript
         let priceString : String = "S/" + String(format : "%.2f",(item?.price)!)
         l_producto_cost.text = priceString
+        
         self.modifeTotal(Int64(tf_cant_add_item.text!)!)
         tf_cant_add_item.addTarget(self, action: #selector(textFieldEditingDidChangeEnd), for: UIControlEvents.editingDidEnd)
         self.printFavorite()
@@ -127,7 +129,7 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
 
-                        var cant : Int = Int(self.tf_cant_add_item.text!)!
+                        /*var cant : Int = Int(self.tf_cant_add_item.text!)!
                         if cant == 1 {
                            
                             let snackbar = TTGSnackbar(message: "Has agregado 1 " + (self.item?.name)!, duration: .middle)
@@ -142,8 +144,48 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
                             snackbar.show()
                             ConstantsModels.count_item = ConstantsModels.count_item + 1
                             //elf.notificationButton.badge = "\(ConstantsModels.count_item) "
+                        }*/
+                        // amd - Contador por cada item
+                        //
+                        //obtenemos la cajita actual del preferences local
+                        let cajita = PreferencesMethods.getSmallBoxFromOptions()
+                        // creamos una instancia de los items
+                        var items = cajita?.items
+                        var snackbar = TTGSnackbar(message: "Has agregado 1 " + (self.item?.name)! , duration: .middle)
+                        var exists = false
+                        // recorremos los items para ver si encontramos el producto agregado
+                        for value in items!{
+                            if value.idProduct == self.item?.idProduct.unsigned {
+                                exists = true
+                                value.cant = value.cant + Int64(self.tf_cant_add_item.text!)!.unsigned
+                                snackbar = TTGSnackbar(message: "Has agregado " + String(value.cant) + " unidades de " + value.name, duration: .middle)
+                                break
+                            }
                         }
-                                            
+                        //si el item no existe, se agrega
+                        if !exists {
+                            let newItem = ItemSmallBoxDC()
+                            //solo se agrego los datos necesarios
+                            newItem.idProduct = (self.item?.idProduct.unsigned)!
+                            newItem.cant = Int64(self.tf_cant_add_item.text!)!.unsigned //empieza en lo que est en el textfield
+                            newItem.name = (self.self.item?.name)!
+                            //...
+                            items?.append(newItem)
+                            
+                        }
+                        //sobre escribimos los items de la cajita encapsulada porque se ha editado
+                        cajita?.items = items!
+                        //sobre escribimos la cajita del Preferences, con la cajita encapsulada porque se ha editado
+                        PreferencesMethods.saveSmallBoxToOptions(cajita!)
+                        snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
+                        snackbar.show()
+                        //
+                        //... amd
+                        
+                        
+                        ConstantsModels.count_item = ConstantsModels.count_item + Int(self.tf_cant_add_item.text!)!
+                        
+                        self.navigationBarWithSearchNew()
                     }
                 }
             } else {
@@ -164,5 +206,41 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     
     @IBAction func b_add_box(_ sender: Any) {
         self.addProduct()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationBarWithSearchNew()
+    }
+    
+    func navigationBarWithSearchNew() {
+        self.navigationController?.navigationBar.topItem?.title = " "
+        
+        var searchBar: UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        searchBar.placeholder = Constants.PLACEHOLDERSB
+        
+        let textFieldInsideSearchBarLabel = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBarLabel?.font = UIFont(name: "OpenSans-Light", size: 15)
+        searchBar.delegate = self
+        self.navigationItem.titleView = searchBar
+        
+        
+        
+        if ConstantsModels.count_item == 0 {
+            var btnsMenuRight : [UIBarButtonItem] = []
+            let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
+            btnsMenuRight.append(btnMenuRight)
+            self.navigationItem.rightBarButtonItems = btnsMenuRight
+        }else {
+            let notificationButton = SSBadgeButton()
+            notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
+            notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
+            notificationButton.badge = "\(ConstantsModels.count_item) "
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+        }
     }
 }
