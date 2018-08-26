@@ -4190,23 +4190,23 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41q-SF-8jH">
                                                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="90"/>
                                                                             <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eq4-G5-jxh" userLabel="iv_product">
-                                                                                    <rect key="frame" x="8" y="8" width="46.5" height="74"/>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eq4-G5-jxh" userLabel="iv_product">
+                                                                                    <rect key="frame" x="8" y="8" width="55.5" height="74"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" secondItem="eq4-G5-jxh" secondAttribute="height" multiplier="5:8" id="fOt-Dm-wLU"/>
+                                                                                        <constraint firstAttribute="width" secondItem="eq4-G5-jxh" secondAttribute="height" multiplier="6:8" id="fOt-Dm-wLU"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJm-1o-CWP">
-                                                                                    <rect key="frame" x="59" y="25.5" width="124.5" height="40"/>
+                                                                                    <rect key="frame" x="68" y="25.5" width="115.5" height="40"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producto Supremo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvu-CE-eIP" userLabel="l_name">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="125" height="16.5"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="116" height="16.5"/>
                                                                                             <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                                                             <color key="textColor" name="pak_darkGray"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="costo unidad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W75-qv-L9z" userLabel="l_price">
-                                                                                            <rect key="frame" x="0.0" y="20.5" width="124.5" height="19.5"/>
+                                                                                            <rect key="frame" x="0.0" y="20.5" width="115.5" height="19.5"/>
                                                                                             <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                                                             <color key="textColor" name="pak_gray"/>
                                                                                             <nil key="highlightedColor"/>
