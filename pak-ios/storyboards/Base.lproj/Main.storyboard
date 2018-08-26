@@ -6810,7 +6810,7 @@ EMKhTGlzdG8hA
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBX-s4-G3D">
-                                                                    <rect key="frame" x="22" y="78" width="37" height="22"/>
+                                                                    <rect key="frame" x="22" y="78" width="34.5" height="22"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                                     <color key="textColor" name="pak_red"/>
                                                                     <nil key="highlightedColor"/>
@@ -7282,7 +7282,7 @@ EMKhTGlzdG8hA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPB-1e-cE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5400" y="3174.8201438848923"/>
+            <point key="canvasLocation" x="5399.1999999999998" y="3174.0629685157423"/>
         </scene>
         <!--Detail Order Controller-->
         <scene sceneID="P9f-9a-hwC">
@@ -10604,14 +10604,14 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4If-JT-tFy"/>
-        <segue reference="STf-2A-NwN"/>
-        <segue reference="7yi-GO-gff"/>
+        <segue reference="e49-xG-mKz"/>
+        <segue reference="OS7-IV-a8p"/>
         <segue reference="RzB-aK-gvt"/>
         <segue reference="zhY-cZ-3JD"/>
         <segue reference="MHy-C4-6QB"/>
         <segue reference="qbC-4W-Evn"/>
-        <segue reference="uIi-HV-Eb2"/>
-        <segue reference="rHo-he-4zp"/>
+        <segue reference="oBi-e6-wfk"/>
+        <segue reference="1vM-Rq-4HF"/>
         <segue reference="692-lH-5Bg"/>
         <segue reference="SEp-H9-hjL"/>
     </inferredMetricsTieBreakers>

@@ -292,8 +292,8 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //Log 8: Columnas responsive
-        let cell_width = UIScreen.main.bounds.width/3
+        let cols = Int(UIScreen.main.bounds.width/125)
+        let cell_width = UIScreen.main.bounds.width/CGFloat(cols)
         return CGSize(width: cell_width, height: 230)
     }
 
