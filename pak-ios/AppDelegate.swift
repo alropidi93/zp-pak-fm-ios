@@ -40,6 +40,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
                 completionHandler: {_, _ in })
+            /* MARK BEGIN: Added by Alvaro according tutorial*/
+
+            // UNUserNotificationCenter.current().requestAuthorization(
+            //     options: [.alert,.sound,.badge]){(isGranted,err) in
+            //         if err!=nil {
+            //             //Something bad happened
+            //         }
+            //         else{
+            //             UNUserNotificationCenter.current().delegate = self
+            //             Messaging.messaging().delegate = self
+            //             DispatchQueue.main.async{ /* focus here, I think this may be the solution*/
+            //                  application.registerForRemoteNotifications()
+            //             }
+      
+                        
+            //         }
+                
+
+            //    }
+
+            /*MARK END*/
+            
         } else {
             let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
@@ -55,18 +77,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UNUserNotificationCenter.current().setNotificationCategories([category])
         
-      
+        /* MARK BEGIN: Added by Alvaro accoRding tutorial*/
 
+        //FirebaseApp.configure() /*according the tutorial, this line must be inmediatly before the return*/
+        
+        /*MARK END*/
         return true
     }
+
+    /* MARK BEGIN: Added by Alvaro accoRding tutorial*/
+    func ConnectToFCM(){
+        Messaging.messaging().shouldEstablishDirectChannel = true
+    }
+    /*MARK END*/
     
     func applicationWillResignActive(_ application: UIApplication) { }
 
-    func applicationDidEnterBackground(_ application: UIApplication) { }
+    func applicationDidEnterBackground(_ application: UIApplication) { 
+        Messaging.messaging().shouldEstablishDirectChannel = false
+    }
 
     func applicationWillEnterForeground(_ application: UIApplication) { }
 
-    func applicationDidBecomeActive(_ application: UIApplication) { }
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        /* MARK BEGIN: Added by Alvaro according tutorial*/ 
+        //ConnectToFCM()
+        /* MARK END*/
+    }
 
     func applicationWillTerminate(_ application: UIApplication) { }
     
