@@ -74,7 +74,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
     
     @IBAction func ba_copy(_ sender: Any) {
         UIPasteboard.general.string = ConstantsModels.static_user?.codeInvitation
-        let snackbar = TTGSnackbar(message: "Codigo copiado a portapales", duration: .middle)
+        let snackbar = TTGSnackbar(message: "Código copiado a portapales", duration: .middle)
         snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
         snackbar.show()
     }
