@@ -21,6 +21,9 @@ class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var cv_products: UICollectionView!
     @IBOutlet weak var l_name_brand: UILabel!
     
+    @IBOutlet weak var ivCornerEnd: UIImageView!
+    
+    
     var detailProductDelegate : SendDetailProductDelegate? = nil
 
     
@@ -60,8 +63,15 @@ class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionVi
             cell.iv_start.isHidden = false
             cell.iv_end.isHidden = true
         }else if indexPath.row == items.count - 1  {
-            cell.iv_start.isHidden = true
-            cell.iv_end.isHidden = false
+            
+            let min_width = self.items.count * 135
+            if UIScreen.main.bounds.width > CGFloat(min_width) {
+                cell.iv_start.isHidden = true
+                cell.iv_end.isHidden = true
+            }else{
+                cell.iv_start.isHidden = true
+                cell.iv_end.isHidden = false
+            }
         }else {
             cell.iv_end.isHidden = true
             cell.iv_start.isHidden = true

@@ -106,12 +106,23 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_list_product_identifier, for: indexPath as IndexPath) as! TVCSubcategory
         
+        cell.ivCornerEnd.alpha = 0
         cell.l_name_brand.text = self.categories[self.selected_category_index].list[indexPath.item].name
         cell.items = self.categories[self.selected_category_index].list[indexPath.item].product
         cell.detailProductDelegate = self
         cell.cv_products.reloadData()
+        print("AMD cell count @ \(indexPath.row): \(cell.items.count)")
+        let min_width = cell.items.count * 135
+        if UIScreen.main.bounds.width > CGFloat(min_width) {
+            if cell.items.count != 0 {
+                cell.ivCornerEnd.alpha = 1
+            }
+        }else {
+            cell.ivCornerEnd.alpha = 0
+        }
         return cell
     }
     

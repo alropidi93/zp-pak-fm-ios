@@ -83,8 +83,8 @@ class SSBadgeButton: UIButton {
         badgeLabel.isHidden = badge != nil ? false : true
         
         
-        badgeLabel.frame = CGRect(x: badgeLabel.frame.origin.x, y: badgeLabel.frame.origin.y, width: 18, height: 18)
-        badgeLabel.layer.cornerRadius = badgeLabel.frame.height/2
+        badgeLabel.frame = CGRect(x: badgeLabel.frame.origin.x, y: (badgeLabel.frame.origin.y + 1), width: 18, height: 18)
+        badgeLabel.layer.cornerRadius = 9
     }
     
     required init?(coder aDecoder: NSCoder) {
