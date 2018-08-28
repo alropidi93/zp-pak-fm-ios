@@ -26,6 +26,9 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     @IBOutlet weak var b_add_favoritie: UIButton!
     @IBOutlet weak var tf_cant_add_item: UITextField!
     
+    let segue_search_view = "segue_search_view"
+    var searchWord : String = ""
+
     var item : ProductDC? = nil
     
     override func viewDidLoad() {
@@ -185,7 +188,7 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
                         
                         ConstantsModels.count_item = ConstantsModels.count_item + Int(self.tf_cant_add_item.text!)!
                         
-                        self.navigationBarWithSearchNew()
+                        self.navigationBarWithSearch()
                     }
                 }
             } else {
@@ -210,37 +213,17 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationBarWithSearchNew()
+        self.navigationBarWithSearch()
     }
     
-    func navigationBarWithSearchNew() {
-        self.navigationController?.navigationBar.topItem?.title = " "
-        
-        var searchBar: UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
-        searchBar = UISearchBar()
-        searchBar.sizeToFit()
-        searchBar.placeholder = Constants.PLACEHOLDERSB
-        
-        let textFieldInsideSearchBarLabel = searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBarLabel?.font = UIFont(name: "OpenSans-Light", size: 15)
-        searchBar.delegate = self
-        self.navigationItem.titleView = searchBar
-        
-        
-        
-        if ConstantsModels.count_item == 0 {
-            var btnsMenuRight : [UIBarButtonItem] = []
-            let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
-            btnsMenuRight.append(btnMenuRight)
-            self.navigationItem.rightBarButtonItems = btnsMenuRight
-        }else {
-            let notificationButton = SSBadgeButton()
-            notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-            notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
-            notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
-            notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
-            notificationButton.badge = "\(ConstantsModels.count_item) "
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if segue.identifier == self.segue_search_view {
+            if let vc = segue.destination as? SearchView {
+                vc.text = self.searchWord
+            }
         }
     }
+    
+    
+    
 }

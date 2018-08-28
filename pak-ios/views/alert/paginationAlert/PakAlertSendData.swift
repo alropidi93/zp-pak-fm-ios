@@ -179,7 +179,8 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
             
             if (self.tf_date.text?.isEmpty)! {
                 self.date = UtilMethods.intFromDate(auxDate)
-                
+                self.parentPageViewController.checkOut.date = auxDate.toString(dateFormat: "dd/MM/YYYY")
+
                 self.tf_date.text = UtilMethods.formatDate(auxDate)
             }})
         

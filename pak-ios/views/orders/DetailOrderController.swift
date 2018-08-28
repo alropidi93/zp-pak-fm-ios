@@ -27,6 +27,8 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     @IBOutlet weak var l_delivery_cost: UILabel!
     @IBOutlet weak var l_total: UILabel!
     
+    
+    
     private let reuse_identifier = "cvc_order_detail"
     
     var type : Int = -1
@@ -74,10 +76,23 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         } else if type == 2{
             l_order.text = order?.dateToRecive
             l_delivery.text = order?.dateCancel
+            
+            btnBottomHeight.constant = 0
+            //siempre llamar esta vaina
+            self.view.layoutIfNeeded()
         } else if type == 3{
-            l_delivery_cancel.text = "Anulado"
+            
+            if self.order?.state == "A"{
+                l_delivery_cancel.text = "Anulado"
+            }else if self.order?.state == "C"{
+                l_delivery_cancel.text = "Cancelado"
+            }            
             l_order.text = order?.dateToRecive
             l_delivery.text = order?.dateCancel
+            
+            btnBottomHeight.constant = 0
+            //siempre llamar esta vaina
+            self.view.layoutIfNeeded()
         }
         
         l_subtotal.text = "S/" + String(format : "%.2f",(order?.subTotal)!)
@@ -118,6 +133,9 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                 return
             }
             let statusCode = response.response!.statusCode
+            let data = try! JSONSerialization.data(withJSONObject: response.result.value, options: .prettyPrinted)
+            let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+            print(string)
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)

@@ -28,17 +28,17 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
-//        setElements()
+        setElements()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        setElements()
-
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        
+//
+//    }
     func setElements() {
         self.cv_advertisement.delegate = self
         self.cv_advertisement.dataSource = self

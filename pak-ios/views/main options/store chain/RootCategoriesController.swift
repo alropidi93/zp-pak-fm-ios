@@ -22,12 +22,10 @@ class RootCategoriesController : UIViewController, UICollectionViewDelegate, UIC
     var items : [CategoriesDC] = []
     private var selectedItems : [CategoriesDC] = []
     
-    /*holiwiw ¡ =)*/
+
     
     var itemsAll : CategoriesDC  = CategoriesDC()
     
-    
-    /*holiwiw chau ¡ =)*/
     
     private let segue_category_sub_category = "segue_category_sub_category"
     private let segue_category_detail = "segue_category_detail"

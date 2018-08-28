@@ -32,7 +32,8 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable{
     private var date : Int = -1
     private var posDistrict: Int = -1
     private var idDistric : UInt64  = 0
-    
+    private var cont : Int = 0
+
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
     
@@ -54,7 +55,7 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable{
     }
     
     func setElements(){
-        print("hola")
+        self.cont = 0
         setInfoUser()
         getDistrict()
         
@@ -153,6 +154,14 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable{
                         let district = DistrictDC(element)
                         self.districts.append(district.name)
                         self.listDistrict.append(DistrictDC(element))
+                    }
+                    for element in self.districts {
+                        
+                        
+                        if element == ConstantsModels.static_user?.district?.name {
+                            self.posDistrict = self.cont
+                        }
+                        self.cont = self.cont + 1
                     }
                 }
             } else {

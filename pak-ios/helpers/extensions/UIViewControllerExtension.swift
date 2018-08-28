@@ -112,6 +112,9 @@ extension UIViewController : UISearchBarDelegate {
         }else if let outMainController = self as? ProductsPerCategoryController {
             outMainController.searchWord = searchBar.text!
             outMainController.performSegue(withIdentifier: outMainController.segue_search_view, sender: self)
+        }else if let outMainController = self as? ProductsDetailController {
+            outMainController.searchWord = searchBar.text!
+            outMainController.performSegue(withIdentifier: outMainController.segue_search_view, sender: self)
         }
     }
 

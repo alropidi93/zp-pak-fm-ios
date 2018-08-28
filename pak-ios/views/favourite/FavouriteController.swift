@@ -17,10 +17,13 @@ import TTGSnackbar
 class FavouriteController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout {
 
     private let reuse_identifier = "cvc_favourite_item"
+    let segue_identifier : String = "segue_product_favo_detail"
+
     //var cant = 0
     
     @IBOutlet weak var cv_favorite: UICollectionView!
     private var items : [ProductDC] = []
+    private var itemProduct : ProductDC? = nil
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -71,6 +74,13 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         cell.b_favorites.addTarget(self, action: #selector(buttonFavorite), for: .touchUpInside)
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.itemProduct = self.items[indexPath.item]
+        self.performSegue(withIdentifier: self.segue_identifier, sender: self)
+        
+    }
+    
     @objc func buttonFavorite(sender: UIButton!) {
         let product : ProductDC = items[sender.tag]
         addOrDeleteFavortie(product,sender.tag)
@@ -297,4 +307,13 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         return CGSize(width: cell_width, height: 230)
     }
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.segue_identifier {
+            if let pdc = segue.destination as? ProductsDetailController {
+                pdc.item = self.itemProduct
+            }
+        }
+    }
+    
 }
