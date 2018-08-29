@@ -186,6 +186,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
                         //... amd
                         
                         // FALTA ACTUALIZAR LA BARRA SUPERIOR
+                        ConstantsModels.count_item = ConstantsModels.count_item + 1
                         self.navigationBarWithSearchNew()
                         
                         //codigo antiguo
@@ -198,7 +199,6 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
                         snackbar.backgroundColor=UIColor.init(hexString: Constants.GREEN_PAK)
                         snackbar.show()
  */
-                        ConstantsModels.count_item = ConstantsModels.count_item + 1
                         
                     }
                 }
@@ -241,11 +241,13 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         
         
         if ConstantsModels.count_item == 0 {
+            print("amdcount is 0")
             var btnsMenuRight : [UIBarButtonItem] = []
             let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
             btnsMenuRight.append(btnMenuRight)
             self.navigationItem.rightBarButtonItems = btnsMenuRight
         }else {
+            print("amdcount is not 0")
             let notificationButton = SSBadgeButton()
             notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
             notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)

@@ -193,11 +193,20 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
                     print(string)
 
                     if jsonResult["Msg"] == "OK"{
+                        print("AMD payment OK")
+                        ConstantsModels.count_item = 0
+                        let cajita = PreferencesMethods.getSmallBoxFromOptions()
+                        cajita?.items.removeAll()
+                        
+                        PreferencesMethods.saveSmallBoxToOptions(cajita!)
+                        
                         self.dismiss(animated: false, completion: nil)
                         self.finishBoxDelegate?.okButtonTapped()
                         self.stopAnimating()
-                        ConstantsModels.count_item = 0
                         self.parentVC?.b_next.isEnabled = true
+                        
+                        
+                        
 
                     }else {
                         self.parentVC?.b_next.isEnabled = true

@@ -121,6 +121,17 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                         ConstantsModels.count_item = ConstantsModels.count_item - self.items.count
+                        
+                        let cajita = PreferencesMethods.getSmallBoxFromOptions()
+                        var items = cajita?.items
+                        for item in items! {
+                            if item.idProduct == itemProduct.idProduct{
+                                items?.removeAll(item)
+                            }
+                        }
+                        cajita?.items = items!
+                        PreferencesMethods.saveSmallBoxToOptions(cajita!)
+                        
                         self.items.remove(at: pos)
                         self.setSubTotal()
                     }
@@ -158,9 +169,21 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
+                        print("AMD: OK")
+                        let cajita = PreferencesMethods.getSmallBoxFromOptions()
+                        let items = cajita?.items
+                        
+                        for item in items! {
+                            if item.idProduct == itemProduct.idProduct{
+                                item.cant = cant
+                            }
+                        }
+                        PreferencesMethods.saveSmallBoxToOptions(cajita!)
                         itemProduct.cant = cant
                         self.setSubTotal()
                     }
+                    
+                    print("AMD: response")
                     self.updateHeight()
                     self.cv_item_list.reloadData()
                 }

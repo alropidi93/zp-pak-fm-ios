@@ -42,6 +42,9 @@ class SplashController: UIViewController {
     @IBOutlet weak var verticalConstraint: NSLayoutConstraint!
     
     
+    var isAnimationDone = false
+    var isGUIDLoaded = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getGUID()
@@ -90,8 +93,11 @@ class SplashController: UIViewController {
             self.horizontalConstraint.constant = 0
             self.view.layoutIfNeeded()
             print("Splash Done")
+            self.isAnimationDone = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.performSegue(withIdentifier: self.splash_identifier, sender: self)
+                if self.isAnimationDone && self.isGUIDLoaded {
+                    self.performSegue(withIdentifier: self.splash_identifier, sender: self)
+                }
             }
         }
     }
@@ -112,6 +118,7 @@ class SplashController: UIViewController {
     }
     func loginUser() {
        
+        print("Login User")
         
         let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
                                    "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? "" ,
@@ -119,26 +126,40 @@ class SplashController: UIViewController {
                                    "FCMToken" : InstanceID.instanceID().token() ?? "No token" ]
         
         Alamofire.request(URLs.loginAccessToken, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            
+            print("AMD 1")
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
                 return
             }
             
+            print("AMD 2")
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
+                        print("AMD 3")
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
                         ConstantsModels.static_user = userDC // aqui se guarda pero staticamente
                         
                         PreferencesMethods.saveSmallBoxToOptions(userDC.smallBox!)
                         PreferencesMethods.saveAccessTokenToOptions(userDC.accessToken)
+                        
                     }
+                    
+                    self.isGUIDLoaded = true
+                    if self.isAnimationDone && self.isGUIDLoaded {
+                        self.performSegue(withIdentifier: self.splash_identifier, sender: self)
+                    }
+                    
+                    print("AMD 4")
                 }
             } else {
+                
+                print("AMD 5")
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
@@ -150,6 +171,7 @@ class SplashController: UIViewController {
     }
     
     func getGUID() {
+        print("Get GUID")
         var params : Parameters
         if PreferencesMethods.getSmallBoxFromOptions() == nil {
             params = [ : ]

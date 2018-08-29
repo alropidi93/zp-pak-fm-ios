@@ -80,11 +80,13 @@ extension UIViewController : UISearchBarDelegate {
         
     
         if ConstantsModels.count_item == 0 {
+            print("Constant is 0")
             var btnsMenuRight : [UIBarButtonItem] = []
             let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
             btnsMenuRight.append(btnMenuRight)
             self.navigationItem.rightBarButtonItems = btnsMenuRight
         }else {
+            print("Constant is not 0")
             let notificationButton = SSBadgeButton()
             notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
             notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -146,7 +148,8 @@ extension UIViewController : UISearchBarDelegate {
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         SideMenuManager.default.menuPresentMode = .menuSlideIn
-        SideMenuManager.default.menuWidth = view.frame.width * CGFloat(0.8)
+        //SideMenuManager.default.menuWidth = view.frame.width * CGFloat(0.8)
+        SideMenuManager.default.menuWidth = 260
     }
     
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
