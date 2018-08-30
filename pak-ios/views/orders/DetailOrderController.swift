@@ -60,6 +60,9 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     }
     
     func setElements() {
+        
+        
+        
         self.getOrder()
         self.cv_detail_order.delegate = self
         self.cv_detail_order.dataSource = self
@@ -147,6 +150,13 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                             self.items.append(order)
                         }
                         self.setLabels()
+                        
+                        if Date() < UtilMethods.stringToDate((self.order?.dateHourMaxAnulation)!) {
+                            self.b_anular.isUserInteractionEnabled = true
+                            self.b_anular.backgroundColor = UIColor(rgb: 0x81D34C)
+                        }else {
+                            self.b_anular.isUserInteractionEnabled = false
+                        }
                         self.cv_detail_order.reloadData()
                     }
                 }
@@ -204,6 +214,14 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         //Log 8: Columnas responsive
         let cell_width = UIScreen.main.bounds.width
         return CGSize(width: cell_width, height: 105)
+    }
+    
+    
+    @IBOutlet var b_anular: UIButton!
+    
+    @IBAction func b_anular(_ sender: Any) {
+        
+       
     }
 }
 

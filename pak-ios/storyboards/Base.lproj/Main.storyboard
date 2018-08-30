@@ -7642,6 +7642,9 @@ EMKhTGlzdG8hA
                                 <state key="normal" title="Anular">
                                     <color key="titleColor" name="pak_white"/>
                                 </state>
+                                <connections>
+                                    <action selector="b_anular:" destination="vmF-8k-JTt" eventType="touchUpInside" id="vbQ-W9-Dhb"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIF-6Q-n43">
                                 <rect key="frame" x="0.0" y="1044" width="359" height="80"/>
@@ -7761,6 +7764,7 @@ EMKhTGlzdG8hA
                     </view>
                     <size key="freeformSize" width="375" height="1200"/>
                     <connections>
+                        <outlet property="b_anular" destination="jWe-fK-35e" id="PKo-sf-5b6"/>
                         <outlet property="btnBottomHeight" destination="6GX-zk-eWS" id="6bA-QY-Kq4"/>
                         <outlet property="cv_detail_order" destination="ndP-0o-VLt" id="qUx-s7-LeM"/>
                         <outlet property="l_address" destination="giX-h9-DeK" id="cfh-Am-rkN"/>
@@ -8683,7 +8687,7 @@ EMKhTGlzdG8hA
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQS-3J-66d" userLabel="b_accept">
                                                         <rect key="frame" x="0.0" y="210" width="335" height="70"/>
-                                                        <color key="backgroundColor" name="pak_green"/>
+                                                        <color key="backgroundColor" name="pak_lightGray"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="70" id="qTH-DC-IKs"/>
                                                         </constraints>
@@ -8854,6 +8858,7 @@ EMKhSGFzIHJlY2liaWRvIHR1IGNhaml0YSE
                         <outlet property="b_s_3" destination="XBc-YG-ypX" id="huY-SR-dkt"/>
                         <outlet property="b_s_4" destination="RpW-Lq-A6H" id="TBC-AP-TQl"/>
                         <outlet property="b_s_5" destination="5oF-G9-8Sg" id="FHZ-uQ-i3u"/>
+                        <outlet property="b_select" destination="xQS-3J-66d" id="51W-Ml-Wf6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgW-ey-Jzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -10682,7 +10687,7 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
             <color red="0.50588235294117645" green="0.82745098039215681" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pak_lightGray">
-            <color red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pak_lightGray">
             <color red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -10697,7 +10702,7 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
     <inferredMetricsTieBreakers>
         <segue reference="4If-JT-tFy"/>
         <segue reference="e49-xG-mKz"/>
-        <segue reference="lL0-1i-dyT"/>
+        <segue reference="Tbg-Fj-nVg"/>
         <segue reference="xVe-nE-p4w"/>
         <segue reference="2h9-cx-RAU"/>
         <segue reference="Ull-5G-G8U"/>

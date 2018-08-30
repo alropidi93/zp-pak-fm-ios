@@ -17,6 +17,9 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
     var number : Int = 0
     var val : Int = 0
     
+    @IBOutlet var b_select: UIButton!
+    
+    
     @IBAction func b_accept(_ sender: Any) {
         self.calification()
     }
@@ -29,6 +32,7 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.b_select.isUserInteractionEnabled = false
         self.b_s_1.contentVerticalAlignment = UIControlContentVerticalAlignment.fill
         self.b_s_2.contentVerticalAlignment = UIControlContentVerticalAlignment.fill
         self.b_s_3.contentVerticalAlignment = UIControlContentVerticalAlignment.fill
@@ -51,10 +55,19 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
         super.viewDidLayoutSubviews()
         view.layoutIfNeeded()
     }
+    
+    func enable(){
+        self.b_select.isUserInteractionEnabled = true
+        self.b_select.backgroundColor = UIColor(rgb: 0x81D34C)
+        
+    }
+    
+    
 //    dwb_estrella_gray
 //    dwb_estrella_yellow
 //    b_favorites.setImage(UIImage(named: "dwb-ic_favorite_on"), for: .normal)
     @IBAction func b_start_1(_ sender: Any) {
+        self.enable()
         self.b_s_1.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
         self.b_s_2.setImage(UIImage(named: "dwb_estrella_gray"), for: .normal)
         self.b_s_3.setImage(UIImage(named: "dwb_estrella_gray"), for: .normal)
@@ -64,6 +77,8 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
     }
     
     @IBAction func b_start_2(_ sender: Any) {
+        self.enable()
+
         self.b_s_1.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
         self.b_s_2.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
         self.b_s_3.setImage(UIImage(named: "dwb_estrella_gray"), for: .normal)
@@ -73,6 +88,8 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
     }
     
     @IBAction func b_start_3(_ sender: Any) {
+        self.enable()
+
         self.b_s_1.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
         self.b_s_2.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
         self.b_s_3.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
@@ -83,6 +100,8 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
     
     
     @IBAction func b_start_4(_ sender: Any) {
+        self.enable()
+
         self.b_s_1.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
         self.b_s_2.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
         self.b_s_3.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
@@ -92,6 +111,8 @@ class PakAlertNotification : UIViewController,NVActivityIndicatorViewable {
     }
     
     @IBAction func b_start_5(_ sender: Any) {
+        self.enable()
+
         self.b_s_1.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
         self.b_s_2.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
         self.b_s_3.setImage(UIImage(named: "dwb_estrella_yellow"), for: .normal)
