@@ -146,7 +146,9 @@ self.b_filtre.setTitle(pickerViewValues2.item(at: index.column)?.item(at: index.
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segue_identifier {
-            if let vc = segue.destination as? DetailOrderController {
+            
+            let DestViewController = segue.destination as! UINavigationController
+            if let vc = DestViewController.topViewController as? DetailOrderController {
                 vc.itemId = self.item
                 vc.type = 2
             }

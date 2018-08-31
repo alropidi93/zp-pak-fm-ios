@@ -16,7 +16,9 @@ import NVActivityIndicatorView
 import Agrume
 import PlayerKit
 
-class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout,AlertCancelDelegate {
+    
+    
     @IBOutlet weak var cv_detail_order: UICollectionView!
     @IBOutlet weak var l_number: UILabel!
     @IBOutlet weak var l_order: UILabel!
@@ -42,6 +44,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         self.customizeNavigationBarOrders()
     }
     
@@ -157,7 +160,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                             if Date() < UtilMethods.stringToDate((self.order?.dateHourMaxAnulation)!) {
                                 print("holiwiasdasd")
                                 self.b_anular.isUserInteractionEnabled = true
-                                self.b_anular.backgroundColor = UIColor(rgb: 0x81D34C)
+                                self.b_anular.backgroundColor = UIColor(rgb: 0xCC0000)
                             }else {
                                 self.b_anular.isUserInteractionEnabled = false
                             }
@@ -178,6 +181,18 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     }
     func customizeNavigationBarOrders( ) {
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        let backBTN = UIBarButtonItem(image: UIImage(named: "dwb_pak_button_header_back"),
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(buttonBackAction))
+        self.navigationController?.navigationBar.topItem?.leftBarButtonItem = backBTN
+        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+        
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(rgb: 0x81D34C)
+        
+        
+        
         
         let navView = UIView()
         let label = UILabel()
@@ -215,6 +230,13 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         
     }
     
+    @objc func buttonBackAction (_ sender: Any) {
+         dismiss(animated: true, completion: nil)
+       
+    }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //Log 8: Columnas responsive
         let cell_width = UIScreen.main.bounds.width
@@ -225,8 +247,52 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     @IBOutlet var b_anular: UIButton!
     
     @IBAction func b_anular(_ sender: Any) {
-        print("hola")
+        let pakAlert = self.storyboard?.instantiateViewController(withIdentifier: "alert_cancel") as! PakAlertCancel
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        pakAlert.alertCancel = self
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+        self.present(pakAlert, animated: true, completion: nil)
        
     }
+    
+    func okButtonTapped() {
+        cancelOrder(self.itemId)
+    }
+    
+
+    
+    
+    func cancelOrder(_ idItem : Int ) {
+        let params: Parameters = [ "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? 0, "Numero": idItem]
+        
+        Alamofire.request(URLs.CancelOrder, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            if response.response == nil {
+                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self) 
+                return
+            }
+            let statusCode = response.response!.statusCode
+            if statusCode == 200 {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    if jsonResult["Msg"] == "OK"{
+
+                        AlarmMethods.ReadyCustom(message: "Tu pedido ha sido anulado con éxito.", title_message: "¡Listo!", uiViewController: self)
+                        
+                    }
+                }
+            } else {
+                if let jsonResponse = response.result.value {
+                    let jsonResult = JSON(jsonResponse)
+                    AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
+                } else {
+                    AlamoMethods.defaultError(self)
+                }
+            }
+            
+        }
+    }
+    
 }
 
