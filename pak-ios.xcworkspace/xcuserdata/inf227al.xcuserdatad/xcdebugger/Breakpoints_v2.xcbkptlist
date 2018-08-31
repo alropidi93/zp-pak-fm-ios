@@ -79,8 +79,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "352"
             endingLineNumber = "352"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
+            landmarkName = "LoginController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -127,7 +127,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "198"
             endingLineNumber = "198"
-            landmarkName = "validateFacebook(_:)"
+            landmarkName = "loginWithFacebook(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -159,7 +159,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "349"
             endingLineNumber = "349"
-            landmarkName = "prepare(for:sender:)"
+            landmarkName = "alertDialog(uiViewController:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

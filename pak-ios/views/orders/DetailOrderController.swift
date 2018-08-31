@@ -135,10 +135,12 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                                  
                 return
             }
+            print ("=========================")
             let statusCode = response.response!.statusCode
             let data = try! JSONSerialization.data(withJSONObject: response.result.value, options: .prettyPrinted)
             let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
             print(string)
+            print ("=========================")
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
@@ -150,15 +152,16 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                             self.items.append(order)
                         }
                         self.setLabels()
-                        
-                        /*
-                        if Date() < UtilMethods.stringToDate((self.order?.dateHourMaxAnulation)!) {
-                            self.b_anular.isUserInteractionEnabled = true
-                            self.b_anular.backgroundColor = UIColor(rgb: 0x81D34C)
-                        }else {
-                            self.b_anular.isUserInteractionEnabled = false
-                        }*/
-                        
+                        if self.type == 1 {
+                            
+                            if Date() < UtilMethods.stringToDate((self.order?.dateHourMaxAnulation)!) {
+                                print("holiwiasdasd")
+                                self.b_anular.isUserInteractionEnabled = true
+                                self.b_anular.backgroundColor = UIColor(rgb: 0x81D34C)
+                            }else {
+                                self.b_anular.isUserInteractionEnabled = false
+                            }
+                        }
                         self.cv_detail_order.reloadData()
                     }
                 }
@@ -222,7 +225,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     @IBOutlet var b_anular: UIButton!
     
     @IBAction func b_anular(_ sender: Any) {
-        
+        print("hola")
        
     }
 }
