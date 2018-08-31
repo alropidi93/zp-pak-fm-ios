@@ -114,11 +114,21 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
             getGUID()
             return
         }
+        
+        //amd token patch
+        print("AMD: Login Token: \(Messaging.messaging().fcmToken)")
+        
         let params: Parameters = [ "Username": self.tf_email.text!,
                                    "Password": MD5(self.tf_password.text!) ,
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID,
+                                   "FCMToken" : Messaging.messaging().fcmToken ?? "No token"
+        ]
+        
+        /*let params: Parameters = [ "Username": self.tf_email.text!,
+                                   "Password": MD5(self.tf_password.text!) ,
+                                   "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID,
                                    "FCMToken" : InstanceID.instanceID().token() ?? "No token"
-                                   ]
+                                   ]*/
         Alamofire.request(URLs.login, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             PakLoader.hide()
             if response.response == nil {
