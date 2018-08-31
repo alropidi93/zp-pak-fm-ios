@@ -151,12 +151,14 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                         }
                         self.setLabels()
                         
+                        /*
                         if Date() < UtilMethods.stringToDate((self.order?.dateHourMaxAnulation)!) {
                             self.b_anular.isUserInteractionEnabled = true
                             self.b_anular.backgroundColor = UIColor(rgb: 0x81D34C)
                         }else {
                             self.b_anular.isUserInteractionEnabled = false
-                        }
+                        }*/
+                        
                         self.cv_detail_order.reloadData()
                     }
                 }
