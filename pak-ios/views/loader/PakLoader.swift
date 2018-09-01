@@ -39,7 +39,7 @@ public class PakLoader {
         overlayTarget.bringSubview(toFront: overlay)
         
         // Center image into overlayTarget
-        image.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        //image.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         image.alpha = 0
         image.contentMode = .scaleAspectFit
         image.center = overlayTarget.center

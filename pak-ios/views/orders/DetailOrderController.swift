@@ -30,7 +30,6 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     @IBOutlet weak var l_total: UILabel!
     
     
-    
     private let reuse_identifier = "cvc_order_detail"
     
     var type : Int = -1
@@ -39,8 +38,12 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     var order : OrderDC? = nil
     
     //constraint custom
-    @IBOutlet weak var btnBottomHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnBottomHeight: NSLayoutConstraint! //def. 60
+    var bottomHeight = 60
+    //dynamic tableheight
+    @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var cvHeight: NSLayoutConstraint!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,14 +66,37 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     }
     
     func setElements() {
-        
-        
-        
         self.getOrder()
         self.cv_detail_order.delegate = self
         self.cv_detail_order.dataSource = self
     }
     
+    func updateHeight(){
+        print("AMDX: ====================")
+        print("AMDX screenHeight: \(UIScreen.main.bounds.height)")
+        print("AMDX viewHeight: \(self.view.height)")
+        print("AMDX scrollViewHeight: \(scrollView.height)")
+        print("AMDX bottomHeight: \(bottomHeight)")
+        print("AMDX count: \(self.items.count)")
+        let size = self.items.count
+        
+        //120 es la la altura de la descripccion del pedido
+        //112 es la la altura del detalle del costo
+        //105 la altura de una celda
+        let minHeight =  scrollView.height - 120 - 112  - CGFloat(bottomHeight)
+        let totalHeight = CGFloat(size * 105)
+        
+        print("AMDX minHeight: \(minHeight)")
+        print("AMDX totalHeight: \(totalHeight)")
+        if minHeight < totalHeight {
+            print("Enough height")
+            cvHeight.constant = totalHeight
+        }else{
+            print("Not enough height")
+            cvHeight.constant = minHeight
+        }
+        self.view.layoutIfNeeded()
+    }
    
     
     func setLabels() {
@@ -84,6 +110,9 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
             l_delivery.text = order?.dateCancel
             
             btnBottomHeight.constant = 0
+            bottomHeight = 0
+            
+            self.updateHeight()
             //siempre llamar esta vaina
             self.view.layoutIfNeeded()
         } else if type == 3{
@@ -97,6 +126,8 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
             l_delivery.text = order?.dateCancel
             
             btnBottomHeight.constant = 0
+            bottomHeight = 0
+            self.updateHeight()
             //siempre llamar esta vaina
             self.view.layoutIfNeeded()
         }
@@ -159,12 +190,14 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                             
                             if Date() < UtilMethods.stringToDate((self.order?.dateHourMaxAnulation)!) {
                                 print("holiwiasdasd")
+                                self.b_anular.setTitle("Anular pedido", for: .normal)
                                 self.b_anular.isUserInteractionEnabled = true
-                                self.b_anular.backgroundColor = UIColor(rgb: 0xCC0000)
+                                self.b_anular.backgroundColor = #colorLiteral(red: 1, green: 0.3725490196, blue: 0.3725490196, alpha: 1)
                             }else {
                                 self.b_anular.isUserInteractionEnabled = false
                             }
                         }
+                        self.updateHeight()
                         self.cv_detail_order.reloadData()
                     }
                 }
