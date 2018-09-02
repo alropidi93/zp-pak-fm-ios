@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 class PakAlertCustomReady : UIViewController {
     
-    @IBOutlet var tv_message: UITextView!
+    //@IBOutlet var tv_message: UITextView!
+    
+    @IBOutlet weak var tv_message: UILabel!
     
     @IBOutlet var tv_title: UILabel!
     

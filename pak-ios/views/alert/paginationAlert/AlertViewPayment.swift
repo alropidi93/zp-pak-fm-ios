@@ -22,6 +22,10 @@ class AlertViewPayment : UIViewController ,NVActivityIndicatorViewable {
 
     private var embeddedViewController : AlertPageVc!
     
+    //Dynamic pager width
+    @IBOutlet weak var pagerWidth: NSLayoutConstraint!
+    
+    
     @IBAction func b_next(_ sender: Any) {
         print(lastTitle)
         self.page = self.embeddedViewController.pageNow
@@ -29,11 +33,17 @@ class AlertViewPayment : UIViewController ,NVActivityIndicatorViewable {
         if page == 4 {
             b_next.setTitle("Pagar", for: .normal)
         }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
+        
+        if UIScreen.main.bounds.height < UIScreen.main.bounds.width {
+            pagerWidth.constant = 360
+            self.view.layoutIfNeeded()
+        }
         self.setElements()
     }
     

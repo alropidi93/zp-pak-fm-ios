@@ -18,7 +18,7 @@ import SideMenu
 import GoogleSignIn
 import TTGSnackbar
 
-class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource , SendDetailProductDelegate ,NVActivityIndicatorViewable  {
+class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource , SendDetailProductDelegate ,NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout  {
     var categories : [CategoriesDC] = []
     
     var cant : Int = 0
@@ -36,7 +36,10 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     private var indexPathSelected : IndexPath?
     private var itemProduct : ProductDC? = nil
     
+    
     var searchWord : String = ""
+    
+    var category_width = [CGFloat]()
 
     
     override func viewDidLoad() {
@@ -45,6 +48,8 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
         setElements()
+        
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -68,6 +73,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         bgImage.image = UIImage(named: "dwb_pak_background_loby_amd")
         bgImage.contentMode = .scaleAspectFill
         self.tv_sub_categories.backgroundView = bgImage
+        
     }
     
     //This is the controller for the category level (the product level is in each cell
@@ -77,7 +83,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_category_identifier, for: indexPath) as! CVCCategoryName
-        if indexPath.item == 0 {
+        if indexPath.row == 0 {
             cell.l_name.textColor = UIColor(named: "pak_green")
             self.indexPathSelected = indexPath
         }
@@ -85,13 +91,16 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         return cell
     }
     
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cellselected = collectionView.cellForItem(at: self.indexPathSelected!) as! CVCCategoryName
         cellselected.l_name.textColor = UIColor(named: "pak_black")
 
         let cell = collectionView.cellForItem(at: indexPath) as! CVCCategoryName
         cell.l_name.textColor = UIColor(named: "pak_green")
-        self.selected_category_index = indexPath.item
+        self.selected_category_index = indexPath.row
         self.indexPathSelected = indexPath
         self.tv_sub_categories.reloadData()
     }
@@ -114,7 +123,6 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         cell.items = self.categories[self.selected_category_index].list[indexPath.item].product
         cell.detailProductDelegate = self
         cell.cv_products.reloadData()
-        print("AMD cell count @ \(indexPath.row): \(cell.items.count)")
         let min_width = cell.items.count * 135
         if UIScreen.main.bounds.width > CGFloat(min_width) {
             if cell.items.count != 0 {
@@ -256,5 +264,14 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
             notificationButton.badge = "\(ConstantsModels.count_item) "
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: notificationButton)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        
+        print("AMD cell count @ \(indexPath.row): \(indexPath)")
+        print(categories[indexPath.row].name.count)
+        
+        return CGSize(width: (categories[indexPath.row].name.count * 10) + 16, height: 28)
     }
 }

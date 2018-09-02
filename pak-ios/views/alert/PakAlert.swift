@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 class PakAlert : UIViewController {
-    @IBOutlet weak var tv_message: UITextView!
+    /*@IBOutlet weak var tv_message: UITextView!
     @IBOutlet weak var nslc_inner_height: NSLayoutConstraint!
-    @IBOutlet weak var nslc_outer_height: NSLayoutConstraint!
+    @IBOutlet weak var nslc_outer_height: NSLayoutConstraint!*/
+    @IBOutlet weak var tv_message: UILabel!
     
     var message : String? = nil
 
@@ -35,8 +36,8 @@ class PakAlert : UIViewController {
     
     func setElements() {
         self.tv_message.text = message
-        let numLines = (self.tv_message.contentSize.height / (self.tv_message.font?.lineHeight)!)
+        /*let numLines = (self.tv_message.contentSize.height / (self.tv_message.font?.lineHeight)!)
         self.nslc_inner_height.constant = CGFloat(130 + 30*(numLines))
-        self.nslc_outer_height.constant = CGFloat(160 + 30*(numLines))
+        self.nslc_outer_height.constant = CGFloat(160 + 30*(numLines))*/
     }
 }
