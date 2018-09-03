@@ -55,6 +55,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         super.viewDidAppear(animated)
         self.navigationBarWithSearchNew()
         tv_sub_categories.reloadData()
+        cv_name_category.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -270,7 +271,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         
         
         print("AMD cell count @ \(indexPath.row): \(indexPath)")
-        print(categories[indexPath.row].name.count)
+        print(category_width.count)
         
         return CGSize(width: (categories[indexPath.row].name.count * 10) + 16, height: 28)
     }

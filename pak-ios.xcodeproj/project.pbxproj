@@ -12,7 +12,6 @@
 		0F234B2C211044B800712D22 /* PakAlertLogueout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F234B2B211044B800712D22 /* PakAlertLogueout.swift */; };
 		0F5FC83D20F8A530005ED047 /* PakAlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FC83C20F8A530005ED047 /* PakAlertNotification.swift */; };
 		0FA28D7920F46E9500888298 /* FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA28D7820F46E9500888298 /* FavouriteController.swift */; };
-		0FA5EA6C20F841AA00FD7372 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FA5EA6B20F841AA00FD7372 /* GoogleService-Info.plist */; };
 		0FF64A1320FB66DA00164AF5 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF64A1020FB666C00164AF5 /* MyriadPro-Bold.otf */; };
 		0FF64A1420FB66DE00164AF5 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF64A1120FB667200164AF5 /* OpenSans-Light.ttf */; };
 		0FF64A1520FB66E100164AF5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF64A1220FB667700164AF5 /* OpenSans-Regular.ttf */; };
@@ -31,6 +30,7 @@
 		38299DB021119AC600C62740 /* AlertCancelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DAF21119AC600C62740 /* AlertCancelDelegate.swift */; };
 		38299DB22111B1EA00C62740 /* AlertBoxCarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */; };
 		38299DB42111B2C400C62740 /* PakAlertOutCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB32111B2C400C62740 /* PakAlertOutCar.swift */; };
+		4129CBE9213C875400B15B93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4129CBE8213C875400B15B93 /* GoogleService-Info.plist */; };
 		4153357A212FAF2D00A2CCFD /* iPad2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41533579212FAF2D00A2CCFD /* iPad2.storyboard */; };
 		415B22D8211F46CD004542B0 /* PakLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B22D7211F46CD004542B0 /* PakLoader.swift */; };
 		5E54D3152100FC1D00BA3240 /* LoaderMethodsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */; };
@@ -132,7 +132,6 @@
 		0F234B2B211044B800712D22 /* PakAlertLogueout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertLogueout.swift; sourceTree = "<group>"; };
 		0F5FC83C20F8A530005ED047 /* PakAlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertNotification.swift; sourceTree = "<group>"; };
 		0FA28D7820F46E9500888298 /* FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteController.swift; sourceTree = "<group>"; };
-		0FA5EA6B20F841AA00FD7372 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FF64A1020FB666C00164AF5 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
 		0FF64A1120FB667200164AF5 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		0FF64A1220FB667700164AF5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -151,6 +150,7 @@
 		38299DAF21119AC600C62740 /* AlertCancelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCancelDelegate.swift; sourceTree = "<group>"; };
 		38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBoxCarDelegate.swift; sourceTree = "<group>"; };
 		38299DB32111B2C400C62740 /* PakAlertOutCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertOutCar.swift; sourceTree = "<group>"; };
+		4129CBE8213C875400B15B93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41533579212FAF2D00A2CCFD /* iPad2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPad2.storyboard; sourceTree = "<group>"; };
 		415B22D7211F46CD004542B0 /* PakLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakLoader.swift; sourceTree = "<group>"; };
 		5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderMethodsCustom.swift; sourceTree = "<group>"; };
@@ -333,8 +333,8 @@
 				0FF64A0F20FB664800164AF5 /* fonts */,
 				7015913220E6E8CD006A7509 /* bridging */,
 				701D2889207EAD1F007AD7AC /* pak-ios.entitlements */,
+				4129CBE8213C875400B15B93 /* GoogleService-Info.plist */,
 				701D2883207EAD06007AD7AC /* Info.plist */,
-				0FA5EA6B20F841AA00FD7372 /* GoogleService-Info.plist */,
 				701D2877207EAD01007AD7AC /* AppDelegate.swift */,
 				701D287E207EAD06007AD7AC /* Assets.xcassets */,
 				701D288A207EB3F1007AD7AC /* adapters */,
@@ -675,10 +675,10 @@
 						LastSwiftMigration = 0930;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -709,7 +709,7 @@
 			files = (
 				0FF64A1420FB66DE00164AF5 /* OpenSans-Light.ttf in Resources */,
 				701D2882207EAD06007AD7AC /* LaunchScreen.storyboard in Resources */,
-				0FA5EA6C20F841AA00FD7372 /* GoogleService-Info.plist in Resources */,
+				4129CBE9213C875400B15B93 /* GoogleService-Info.plist in Resources */,
 				0FF64A1520FB66E100164AF5 /* OpenSans-Regular.ttf in Resources */,
 				70515A14211547F700D94C08 /* iPad.storyboard in Resources */,
 				0FF64A1320FB66DA00164AF5 /* MyriadPro-Bold.otf in Resources */,
@@ -1103,9 +1103,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47R8LF25WQ;
+				DEVELOPMENT_TEAM = 6G7XZ24HM6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1113,7 +1114,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarket.amd;
+				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pak-ios/New Group/pak-ios-Bridging-Header.h";
@@ -1129,9 +1130,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47R8LF25WQ;
+				DEVELOPMENT_TEAM = 6G7XZ24HM6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1139,7 +1141,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKFoodsMarket.amd;
+				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pak-ios/New Group/pak-ios-Bridging-Header.h";
