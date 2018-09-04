@@ -246,6 +246,7 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable{
     }
     
     func register(_ GUID: String){
+        PakLoader.show() 
         var genre : String = "-"
         if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
         if posDistrict != -1 {
@@ -265,6 +266,7 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable{
         
         
         Alamofire.request(URLs.ModifyAccount, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            PakLoader.hide()
             if !(response.response != nil) {
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
                 

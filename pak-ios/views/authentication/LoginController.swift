@@ -204,12 +204,13 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
     func validateFacebook(_ userDC : UserDC){
 
-
+        PakLoader.show()
         let params: Parameters = [ "AccessToken": FBSDKAccessToken.current().tokenString,
                                     "FCMToken": InstanceID.instanceID().token() ?? "No token",
             "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
         ]
         Alamofire.request(URLs.LoginFb, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            PakLoader.hide()    
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
@@ -284,7 +285,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
     }
 
     func validateGoogle (_ userDC : UserDC, _ tokenvalue : String){
-
+        PakLoader.show()
         self.startAnimating(CGSize(width: 150, height: 150), message: "", type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballRotateChase.rawValue)!)
 
 
@@ -293,6 +294,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
         ]
         Alamofire.request(URLs.LoginGo, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            PakLoader.hide()
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 

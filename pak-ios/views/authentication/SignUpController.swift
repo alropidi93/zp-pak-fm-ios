@@ -304,6 +304,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     }
 
     func register(_ GUID: String){
+        PakLoader.show()
         var genre : String = "-"
         if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
 
@@ -326,8 +327,9 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                                 let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
                                 print(string ?? "")
 
-
+        
         Alamofire.request(URLs.SignUp, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            PakLoader.hide()
             if !(response.response != nil) {
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 

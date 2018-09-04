@@ -66,10 +66,11 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
     }
     
     func modifyPassword() {
-        
+        PakLoader.show() 
         let params: Parameters = [ "Username": ConstantsModels.static_user?.userName as Any, "Password": MD5(self.tf_password.text!) , "NuevoPassword": MD5(self.tf_newPassword.text!), "RepetirPassword": MD5(self.tf_repassword.text!) ,
-                                   ]
+                                  ]
         Alamofire.request(URLs.PasswordModify, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            PakLoader.hide()
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
