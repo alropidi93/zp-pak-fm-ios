@@ -206,7 +206,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
 
         PakLoader.show()
         let params: Parameters = [ "AccessToken": FBSDKAccessToken.current().tokenString,
-                                    "FCMToken": InstanceID.instanceID().token() ?? "No token",
+                                    "FCMToken": Messaging.messaging().fcmToken ?? "No token",
             "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
         ]
         Alamofire.request(URLs.LoginFb, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
@@ -290,7 +290,7 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
 
 
         let params: Parameters = [ "AccessToken": tokenvalue,
-                                   "FCMToken": InstanceID.instanceID().token() ?? "no token",
+                                   "FCMToken": Messaging.messaging().fcmToken ?? "no token",
                                    "GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID
         ]
         Alamofire.request(URLs.LoginGo, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
@@ -364,5 +364,24 @@ class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInD
                 vc.user = self.user
             }
         }
+    }
+    
+    
+    //device orientation override
+    override var traitCollection: UITraitCollection {
+        if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isLandscape {
+            print("iPad & Landscape")
+            return UITraitCollection(
+                traitsFrom: [UITraitCollection(horizontalSizeClass: .regular),//este es el que sirve? (no se la verdad .-.)
+                    UITraitCollection(verticalSizeClass: .regular)]
+            )
+        }else if UIDevice.current.userInterfaceIdiom == .phone && UIDevice.current.orientation.isPortrait {
+            print("iPhone & Portrait")
+            return UITraitCollection(
+                traitsFrom: [UITraitCollection(horizontalSizeClass: .compact),//este es el que sirve (creo ._. )
+                    UITraitCollection(verticalSizeClass: .compact)]
+            )
+        }
+        return super.traitCollection
     }
 }
