@@ -164,7 +164,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         
         Alamofire.request(URLs.GerOrder, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
-                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
+                AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
                                  
                 return
@@ -302,7 +302,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         
         Alamofire.request(URLs.CancelOrder, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
-                AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self) 
+                AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self) 
                 return
             }
             let statusCode = response.response!.statusCode
