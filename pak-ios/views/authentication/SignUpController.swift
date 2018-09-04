@@ -76,7 +76,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
 
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {
 
-        let alert = UIAlertController(style: .actionSheet, title: "Fecha")
+        let alert = UIAlertController(style: .alert, title: "Fecha")
         var dateComponents = DateComponents()
         dateComponents.year = 1900
         dateComponents.month = 1
@@ -121,7 +121,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
 
     @objc func tapDistrict(_ sender: UITapGestureRecognizer) -> Void {
 
-        let alert = UIAlertController(style: .actionSheet, title: "Distritos")
+        let alert = UIAlertController(style: .alert, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
         self.tf_district.text = districts[0]
@@ -142,7 +142,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
 
     @objc func tapGenre(_ sender: UITapGestureRecognizer) -> Void {
         let pickerData = [Constants.MALE,Constants.FEMALE]
-        let alert = UIAlertController(style: .actionSheet, title: "Genero")
+        let alert = UIAlertController(style: .alert, title: "Genero")
         let pickerViewValues: [[String]] = [pickerData]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
         self.tf_genre.text = "Masculino"

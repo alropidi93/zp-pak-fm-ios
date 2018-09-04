@@ -86,7 +86,7 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
     
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {
         
-        let alert = UIAlertController(style: .actionSheet, title: "Fecha")
+        let alert = UIAlertController(style: .alert, title: "Fecha")
         //self.tf_birthday.text = UtilMethods.formatDate(Date())
         var dateComponents = DateComponents()
         dateComponents.year = 1900
@@ -118,7 +118,7 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
     
     @objc func tapDistrict(_ sender: UITapGestureRecognizer) -> Void {
         
-        let alert = UIAlertController(style: .actionSheet, title: "Distritos")
+        let alert = UIAlertController(style: .alert, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
         self.tf_district.text = districts[0]
@@ -139,7 +139,7 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
     
     @objc func tapGenre(_ sender: UITapGestureRecognizer) -> Void {
         let pickerData = [Constants.MALE,Constants.FEMALE]
-        let alert = UIAlertController(style: .actionSheet, title: "Genero")
+        let alert = UIAlertController(style: .alert, title: "Genero")
         let pickerViewValues: [[String]] = [pickerData]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
         self.tf_genre.text = "Masculino"

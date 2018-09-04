@@ -52,8 +52,12 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     
     @objc func textFieldEditingDidChangeEnd(sender: UITextField!) {
         if sender.text?.isEmpty == false {
-            let cant = Int64(sender.text!)!
+            var cant = Int64(sender.text!) ?? 1
+            if cant < 1 {
+                cant = 1
+            }
             self.modifeTotal(cant)
+            sender.text = "\(cant)"
         }
     }
     

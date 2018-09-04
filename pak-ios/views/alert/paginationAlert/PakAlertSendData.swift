@@ -147,7 +147,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
             return
         }
         
-        let alert = UIAlertController(style: .actionSheet, title: "Horas")
+        let alert = UIAlertController(style: .alert, title: "Horas")
         let pickerViewValues: [[String]] = [hours]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
         print ("tiempo")
@@ -166,7 +166,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     }
     
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
-        let alert = UIAlertController(style: .actionSheet, title: "Fecha")
+        let alert = UIAlertController(style: .alert, title: "Fecha")
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: Date().nextMonth ) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_date.text = UtilMethods.formatDate(date)
@@ -188,7 +188,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     }
     
     @objc func tapDistrict(_ sender: UITapGestureRecognizer) -> Void {
-        let alert = UIAlertController(style: .actionSheet, title: "Distritos")
+        let alert = UIAlertController(style: .alert, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
         
@@ -201,6 +201,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
             }
         }
         alert.addAction(title: "OK", style: .cancel)
+        
         self.present(alert, animated: true, completion: nil)
     }
    

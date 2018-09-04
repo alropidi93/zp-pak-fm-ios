@@ -73,6 +73,10 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
         notificationCenter.addObserver(self, selector: #selector(pakAlertNotification), name: .viewNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(pakAlertLogueOut), name: .viewLogueout, object: nil)
         notificationCenter.addObserver(self, selector: #selector(pakAlertNotificationOut), name: .viewNotificationOut, object: nil)
+        //amd agregar un observer
+        
+        notificationCenter.addObserver(self, selector: #selector(pakAlertProximo), name: .viewProximo, object: nil)
+        
 
     }
     
@@ -92,7 +96,26 @@ class MainController : TabmanViewController, PageboyViewControllerDataSource {
     }
     
     @objc func pakAlertNotification(_ notification: NSNotification) {
-       alertDialog(uiViewController: self)
+        alertDialog(uiViewController: self)
+        
+    }
+    
+    
+    @objc func pakAlertProximo(_ notification: NSNotification) {
+        let userInfo = notification.userInfo
+        
+        print(userInfo!["cliente"] as? String ?? "_cliente")
+        print(userInfo!["horaInicio"] as? String ?? "_horaInicio")
+        print(userInfo!["horaFin"] as? String ?? "_horaFin")
+        
+        let cliente = userInfo!["cliente"] as? String ?? "_cliente"
+        let horaInicio = userInfo!["horaInicio"] as? String ?? "_horaInicio"
+        let horaFin = userInfo!["horaFin"] as? String ?? "_horaFin"
+        let horario = "\(horaInicio) - \(horaFin)"
+        
+        let title = "¡Hola \(cliente)!"
+        let text = "Recuerda que mañana te estaremos enviando tu pedido entre el horario de \(horario)"
+        AlarmMethods.ReadyCustom(message: text, title_message: title, uiViewController: self)
         
     }
     func alertDialog(uiViewController: UIViewController) {

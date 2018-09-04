@@ -97,9 +97,19 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     }
     
     @objc func textFieldEditingDidChangeEnd(sender: UITextField!) {
-        if sender.text?.isEmpty == false {
+        /*if sender.text?.isEmpty == false {
             let cant = UInt64(sender.text!)!
             modifyItemSmallBox(items[sender.tag],cant)
+        }*/
+        
+        if sender.text?.isEmpty == false {
+            var cant = Int64(sender.text!) ?? 1
+            if cant < 1 {
+                cant = 1
+            }
+            
+            modifyItemSmallBox(items[sender.tag],UInt64(cant))
+            sender.text = "\(cant)"
         }
     }
     
@@ -222,6 +232,9 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
             self.v_head.isHidden = true
             self.cv_item_list.isHidden = true
             self.v_total.isHidden = true
+            
+            self.view.bringSubview(toFront: emptyImg)
+            self.emptyImg.backgroundColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1)
         }
     }
     

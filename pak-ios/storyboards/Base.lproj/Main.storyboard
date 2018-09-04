@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -2064,6 +2063,9 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
@@ -4328,6 +4330,9 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                                             <real key="value" value="1"/>
                                                                                         </userDefinedRuntimeAttribute>
+                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                                            <integer key="value" value="2"/>
+                                                                                        </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </textField>
                                                                             </subviews>
@@ -4846,7 +4851,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 <rect key="frame" x="0.0" y="50" width="335" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distrito" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYn-bt-ptJ" userLabel="l_District">
-                                                        <rect key="frame" x="35" y="3" width="39.5" height="21"/>
+                                                        <rect key="frame" x="35" y="3" width="39.5" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                         <color key="textColor" name="pak_gray"/>
                                                         <nil key="highlightedColor"/>
@@ -4873,10 +4878,11 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOu-HF-wzy" userLabel="b_info_district">
-                                                        <rect key="frame" x="76" y="12" width="8" height="8"/>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOu-HF-wzy" userLabel="b_info_district">
+                                                        <rect key="frame" x="79.5" y="5.5" width="12" height="12"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="15" id="ZDr-HW-vMd"/>
+                                                            <constraint firstAttribute="height" constant="12" id="be2-gg-4sd"/>
+                                                            <constraint firstAttribute="width" constant="12" id="tPe-vW-pAU"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="dwb_pak_button_info"/>
                                                         <connections>
@@ -4886,19 +4892,16 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="FOu-HF-wzy" firstAttribute="centerY" secondItem="kYn-bt-ptJ" secondAttribute="centerY" id="185-66-Qhf"/>
+                                                    <constraint firstItem="FOu-HF-wzy" firstAttribute="leading" secondItem="kYn-bt-ptJ" secondAttribute="trailing" constant="5" id="5TG-2O-dlA"/>
                                                     <constraint firstAttribute="trailing" secondItem="4Rx-xB-hsz" secondAttribute="trailing" id="731-0I-5Xc"/>
                                                     <constraint firstItem="4Rx-xB-hsz" firstAttribute="top" secondItem="7zb-gh-0Dy" secondAttribute="bottom" constant="4" id="96L-UH-1Mm"/>
                                                     <constraint firstAttribute="bottom" secondItem="4Rx-xB-hsz" secondAttribute="bottom" id="Cpy-eL-WBJ"/>
                                                     <constraint firstItem="4Rx-xB-hsz" firstAttribute="leading" secondItem="rI5-1C-dHc" secondAttribute="leading" id="GH1-2f-qAr"/>
                                                     <constraint firstItem="7zb-gh-0Dy" firstAttribute="leading" secondItem="rI5-1C-dHc" secondAttribute="leading" constant="35" id="LtV-jq-fsr"/>
                                                     <constraint firstAttribute="trailing" secondItem="7zb-gh-0Dy" secondAttribute="trailing" constant="35" id="M3M-8r-hAl"/>
-                                                    <constraint firstItem="FOu-HF-wzy" firstAttribute="top" secondItem="kYn-bt-ptJ" secondAttribute="top" id="RX9-bE-1nc"/>
-                                                    <constraint firstItem="FOu-HF-wzy" firstAttribute="firstBaseline" secondItem="kYn-bt-ptJ" secondAttribute="baseline" id="S7q-Xp-SUs"/>
                                                     <constraint firstAttribute="height" constant="50" id="del-Su-wrD"/>
-                                                    <constraint firstItem="FOu-HF-wzy" firstAttribute="leading" secondItem="kYn-bt-ptJ" secondAttribute="trailing" constant="5" id="hDu-f5-0bu"/>
-                                                    <constraint firstItem="FOu-HF-wzy" firstAttribute="baseline" secondItem="kYn-bt-ptJ" secondAttribute="baseline" id="hmP-FU-cYz"/>
                                                     <constraint firstItem="kYn-bt-ptJ" firstAttribute="leading" secondItem="rI5-1C-dHc" secondAttribute="leading" constant="35" id="n9b-cm-aPR"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FOu-HF-wzy" secondAttribute="trailing" constant="20" symbolic="YES" id="qq5-0e-QgP"/>
                                                     <constraint firstItem="kYn-bt-ptJ" firstAttribute="top" secondItem="rI5-1C-dHc" secondAttribute="top" constant="3" id="tQe-hE-DKZ"/>
                                                 </constraints>
                                             </view>
@@ -10254,15 +10257,6 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         <namedColor name="pak_darkGray">
             <color red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="pak_darkGray">
-            <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_darkGray">
-            <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_darkGray">
-            <color red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="pak_facebookColor">
             <color red="0.12941176470588237" green="0.38039215686274508" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -10272,41 +10266,17 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         <namedColor name="pak_gray">
             <color red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="pak_gray">
-            <color red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_gray">
-            <color red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_gray">
-            <color red="0.42745098039215684" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_gray">
-            <color red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_gray">
-            <color red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="pak_green">
             <color red="0.50588235290000005" green="0.82745098039999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="pak_green">
-            <color red="0.50588235290000005" green="0.82745098039999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_green">
-            <color red="0.50588235294117645" green="0.82745098039215681" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="pak_lightGray">
+            <color red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pak_lightGray">
             <color red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pak_red">
             <color red="1" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_red">
-            <color red="1" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pak_white">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pak_white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -10315,14 +10285,14 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
     <inferredMetricsTieBreakers>
         <segue reference="D6q-ZU-Yil"/>
         <segue reference="4If-JT-tFy"/>
-        <segue reference="F1p-gb-qZa"/>
-        <segue reference="xVe-nE-p4w"/>
+        <segue reference="lL0-1i-dyT"/>
+        <segue reference="RzB-aK-gvt"/>
         <segue reference="zhY-cZ-3JD"/>
-        <segue reference="huV-AG-Pcv"/>
+        <segue reference="Ull-5G-G8U"/>
         <segue reference="qbC-4W-Evn"/>
         <segue reference="YD1-6P-6T7"/>
         <segue reference="k7V-In-QB3"/>
-        <segue reference="692-lH-5Bg"/>
+        <segue reference="6iO-7K-Th3"/>
         <segue reference="AdC-De-agH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>

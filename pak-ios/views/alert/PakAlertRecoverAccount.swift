@@ -21,6 +21,7 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AMD: \(String(describing: type(of: self)))")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +61,12 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
     
     func restartPassword(_ email : String){
         let params: Parameters = [ "Email": email ]
+        
+        //
+        PakLoader.show()
         Alamofire.request(URLs.RecoveryPassword, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            //hide loader
+            PakLoader.hide()
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
