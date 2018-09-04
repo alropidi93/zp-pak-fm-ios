@@ -26,17 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
-        
-        
-        
-        
-        
-        
         //
-        //        FirebaseApp.configure()
-        //        Messaging.messaging().delegate = self
-        //        Messaging.messaging().shouldEstablishDirectChannel = true
-        
+//                FirebaseApp.configure()
+//                Messaging.messaging().delegate = self
+//                Messaging.messaging().shouldEstablishDirectChannel = true
+//        
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             
@@ -47,8 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              options: authOptions,
              completionHandler: {_, _ in })
              */
-            
-            
+
             /* MARK BEGIN: Added by Alvaro according tutorial*/
             
             UNUserNotificationCenter.current().requestAuthorization(
@@ -63,11 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     DispatchQueue.main.async{ /* focus here, I think this may be the solution*/
                         application.registerForRemoteNotifications()
                     }
-                    
-                    
                 }
-                
-                
             }
             
             /*MARK END*/
@@ -77,7 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerUserNotificationSettings(settings)
         }
         application.registerForRemoteNotifications()
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().clientID = "576896496368-40227beiplejfefhpr56s8q50djkqkbj.apps.googleusercontent.com"
+       // GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         
         let meowAction = UNNotificationAction(identifier: "calificar", title: "Calificar", options: [])
         

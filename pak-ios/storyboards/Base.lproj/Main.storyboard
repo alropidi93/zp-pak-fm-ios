@@ -1669,7 +1669,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <rect key="frame" x="0.0" y="36" width="736" height="378"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tvc_list_products" rowHeight="250" id="N2Z-tM-dh9" userLabel="tvc_sub_categories" customClass="TVCSubcategory" customModule="pak_ios" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tvc_list_products" rowHeight="250" id="N2Z-tM-dh9" userLabel="tvc_sub_categories" customClass="TVCSubcategory" customModule="pak_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="736" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N2Z-tM-dh9" id="KEp-5A-Czz">
