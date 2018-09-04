@@ -59,7 +59,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
         
         let pickerData = ["Último mes","Últimos 3 meses","Últimos 6 meses"]
         let pickerData2 = ["Último mes  ▼","Últimos 3 meses  ▼","Últimos 6 meses  ▼"]
-        let alert = UIAlertController(style: .actionSheet, title: "")
+        let alert = UIAlertController(style: .alert, title: "")
         let pickerViewValues: [[String]] = [pickerData]
         let pickerViewValues2: [[String]] = [pickerData2]
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
