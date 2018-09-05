@@ -1106,7 +1106,7 @@
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8T7Y68JUC9;
+				DEVELOPMENT_TEAM = 6G7XZ24HM6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1114,7 +1114,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKo;
+				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pak-ios/New Group/pak-ios-Bridging-Header.h";
@@ -1133,7 +1133,7 @@
 				CODE_SIGN_ENTITLEMENTS = "pak-ios/pak-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8T7Y68JUC9;
+				DEVELOPMENT_TEAM = 6G7XZ24HM6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "pak-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1141,7 +1141,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAKo;
+				PRODUCT_BUNDLE_IDENTIFIER = pe.com.zp.PAK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pak-ios/New Group/pak-ios-Bridging-Header.h";

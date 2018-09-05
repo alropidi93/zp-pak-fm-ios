@@ -228,6 +228,23 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
         }
     }
     
+    //device orientation override
+    override var traitCollection: UITraitCollection {
+        if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isLandscape {
+            print("iPad & Landscape")
+            return UITraitCollection(
+                traitsFrom: [UITraitCollection(horizontalSizeClass: .regular),//este es el que sirve? (no se la verdad .-.)
+                    UITraitCollection(verticalSizeClass: .regular)]
+            )
+        }else if UIDevice.current.userInterfaceIdiom == .phone && UIDevice.current.orientation.isPortrait {
+            print("iPhone & Portrait")
+            return UITraitCollection(
+                traitsFrom: [UITraitCollection(horizontalSizeClass: .compact),//este es el que sirve (creo ._. )
+                    UITraitCollection(verticalSizeClass: .compact)]
+            )
+        }
+        return super.traitCollection
+    }
     
     
 }
