@@ -628,17 +628,17 @@
                                                             <action selector="login:" destination="tFa-yd-rci" eventType="touchUpInside" id="vxY-OE-4MY"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dwb_pak_button_login_detail" translatesAutoresizingMaskIntoConstraints="NO" id="APJ-b3-To8" userLabel="iv_buttom_detail">
-                                                        <rect key="frame" x="385" y="0.0" width="29" height="50"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_login_detail" translatesAutoresizingMaskIntoConstraints="NO" id="APJ-b3-To8" userLabel="iv_buttom_detail">
+                                                        <rect key="frame" x="384" y="0.0" width="30" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="qXI-og-Usv" firstAttribute="top" secondItem="SJe-lR-XGx" secondAttribute="top" id="5MW-Aq-3oT"/>
-                                                    <constraint firstAttribute="trailing" secondItem="APJ-b3-To8" secondAttribute="trailing" constant="-4" id="j11-wF-4n3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="APJ-b3-To8" secondAttribute="trailing" id="j11-wF-4n3"/>
                                                     <constraint firstItem="qXI-og-Usv" firstAttribute="leading" secondItem="SJe-lR-XGx" secondAttribute="leading" id="jBt-Oc-MvJ"/>
-                                                    <constraint firstItem="APJ-b3-To8" firstAttribute="leading" secondItem="qXI-og-Usv" secondAttribute="trailing" id="kkC-tz-48q"/>
+                                                    <constraint firstItem="APJ-b3-To8" firstAttribute="leading" secondItem="qXI-og-Usv" secondAttribute="trailing" constant="-4" id="kkC-tz-48q"/>
                                                     <constraint firstAttribute="height" constant="50" id="mMQ-PT-eyJ"/>
                                                     <constraint firstAttribute="bottom" secondItem="qXI-og-Usv" secondAttribute="bottom" id="uRh-fx-EZE"/>
                                                     <constraint firstAttribute="trailing" secondItem="qXI-og-Usv" secondAttribute="trailing" constant="26" id="wq2-kh-MzK"/>
