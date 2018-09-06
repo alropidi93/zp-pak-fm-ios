@@ -29,6 +29,13 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
     
     private var date : Int = -1
     private var posDistrict: Int = -1
+    //amd
+    private var colGenre: Int = 0
+    private var rowGenre: Int = 0
+    private var genre = ""
+    private var pickerDate = Date.init()
+    //...
+    
     private var idDistric : UInt64  = 0
     private var cont : Int = 0
     var districts : [String] = []
@@ -38,13 +45,21 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
         super.viewDidLoad()
         
         self.setElements()
+        //amd
+        if ConstantsModels.static_user?.genere == "M" {
+            genre = "M"
+        }else{
+            genre = "F"
+        }
+        //aqui trate de setear la fecha default del picker con la de nacimiento pero me dice es nulo
+        self.pickerDate = UtilMethods.stringToDateAmd((ConstantsModels.static_user?.birthDate)!)
+        //...
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-
-     
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,13 +98,53 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
     
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {
         
-        let alert = UIAlertController(style: .alert, title: "Distritos")
+        /*let alert = UIAlertController(style: .alert, title: "Distritos")
         alert.addDatePicker(mode: .date, date: Date(), minimumDate: nil, maximumDate: Date()) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_birthday.text = UtilMethods.formatDate(date)
         }
         alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: nil)
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)*/
+        
+        
+        
+        let alert = UIAlertController(style: .alert, title: "Fecha")
+        var dateComponents = DateComponents()
+        dateComponents.year = 1900
+        dateComponents.month = 1
+        dateComponents.day = 1
+        
+        let minDate = Calendar.current.date(from: dateComponents)
+        let maxDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
+        //al constructor del pickerdate le puse mi pickerdate global para que sea su default
+        alert.addDatePicker(mode: .date, date: pickerDate, minimumDate: minDate, maximumDate: maxDate ) { date in
+            print("datepicker ")
+            self.date = UtilMethods.intFromDate(date)
+            self.tf_birthday.text = UtilMethods.formatDate(date)
+            //actualizo el default cada vez que el usuario cambia l fecha
+            self.pickerDate = date
+            
+            
+        }
+        
+        alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: {(action:UIAlertAction!) in
+            print("okAction")
+            let auxDate = maxDate
+            if (self.tf_birthday.text?.isEmpty)! {
+                print("tfIsEmpty")
+                //creo esto no se ejecuta, pero lo dejare
+                self.date = UtilMethods.intFromDate(auxDate!)
+                
+                self.tf_birthday.text = UtilMethods.formatDate(auxDate!)
+                self.pickerDate = auxDate!
+            }})
+            //amd
+        //seteo el texto al dar ok, a pesar de que es redudante por que ya se hizo en el bloque anterior
+        self.tf_birthday.text = UtilMethods.formatDate(self.pickerDate)
+        //...
+            
+            
+        self.present(alert, animated: true, completion: nil) 
     }
     
     
@@ -98,7 +153,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
         
         let alert = UIAlertController(style: .alert, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: posDistrict)
         
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
@@ -118,11 +173,36 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
         let pickerData = [Constants.MALE,Constants.FEMALE]
         let alert = UIAlertController(style: .alert, title: "Genero")
         let pickerViewValues: [[String]] = [pickerData]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        //amd
+        //creo el colGenre fue por gusto al final .-.
+        if genre == "M" {
+            colGenre = 0
+            rowGenre = 0
+        }else{
+            colGenre = 0
+            rowGenre = 1
+        }
+        //...
+        
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: colGenre, row: rowGenre)
         
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
+                    //amd
+                    //esto es un desaste D:
+                    self.colGenre = index.column
+                    self.rowGenre = index.row
+                    print("----")
+                    print(index.column)
+                    print(index.row)
+                    if index.row == 0 {
+                        self.genre = "M"
+                    }else{
+                        self.genre = "F"
+                    }
+                    //...
+                    
                     self.tf_genre.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
                 }
             }

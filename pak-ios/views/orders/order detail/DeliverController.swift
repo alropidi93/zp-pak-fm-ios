@@ -30,6 +30,11 @@ class DeliverController : UIViewController ,   NVActivityIndicatorViewable , UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
+        //setElements()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setElements()
     }
     

@@ -2,10 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "ic_discounts_title-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ic_discounts_title@2x.png",
       "scale" : "2x"
     },
     {

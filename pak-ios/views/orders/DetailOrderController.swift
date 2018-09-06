@@ -231,7 +231,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         let label = UILabel()
         label.font = UIFont(name: "OpenSans-Light", size: 25)
         
-        label.text = "  Mis pedidos"
+        label.text = "Mis pedidos"
         label.sizeToFit()
         label.center = navView.center
         label.textAlignment = NSTextAlignment.center
@@ -240,8 +240,18 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         let imageAspect = image.image!.size.width/image.image!.size.height
         image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
         image.contentMode = UIViewContentMode.scaleAspectFit
+        
+        
+        let image2 = UIImageView(image: #imageLiteral(resourceName: "dwb_pak_button_orders_title"))
+        image2.frame = CGRect(
+            x: label.frame.origin.x-label.frame.size.height*imageAspect,
+            y: label.frame.origin.y + 6,
+            width: image2.width,
+            height: image2.height
+        )
+        
         navView.addSubview(label)
-        navView.addSubview(image)
+        navView.addSubview(image2)
         self.navigationItem.titleView = navView
         navView.sizeToFit()
         
@@ -251,6 +261,8 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
             let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
             btnsMenuRight.append(btnMenuRight)
             self.navigationItem.rightBarButtonItems = btnsMenuRight
+            
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor(rgb: 0x81D34C)
         }else {
             let notificationButton = SSBadgeButton()
             notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
@@ -298,9 +310,11 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     
     
     func cancelOrder(_ idItem : Int ) {
+        PakLoader.show()
         let params: Parameters = [ "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? 0, "Numero": idItem]
         
         Alamofire.request(URLs.CancelOrder, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            PakLoader.hide()
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self) 
                 return
@@ -311,7 +325,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
 
-                        AlarmMethods.ReadyCustom(message: "Tu pedido ha sido anulado con éxito.", title_message: "¡Listo!", uiViewController: self)
+                        AlarmMethods.ReadyCustomWithPushBack(message: "Tu pedido ha sido anulado con éxito.", title_message: "¡Listo!", uiViewController: self)
                         
                     }
                 }

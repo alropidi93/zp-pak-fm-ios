@@ -278,6 +278,15 @@ class UtilMethods {
         return dateFormatter.date(from : data)!
     }
     
+    
+    static func stringToDateAmd(_ data : String ) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US") as Locale?
+        
+        return dateFormatter.date(from : data)!
+    }
+    
     static func presentationTime(_ time : Int) -> String {
         if time < 10 {
             return "0\(time)"

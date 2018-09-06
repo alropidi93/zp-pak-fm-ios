@@ -193,7 +193,7 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         let navView = UIView()
         let label = UILabel()
         label.font = UIFont(name: "OpenSans-Light", size: 25)
-        label.text = "  Mis descuentos"
+        label.text = "Mis descuentos"
        
         label.sizeToFit()
         label.center = navView.center
@@ -203,9 +203,22 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
         image.image = #imageLiteral(resourceName: "dwb_pak_button_discount_title")
         let imageAspect = image.image!.size.width/image.image!.size.height
         image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
+        //amd
+        
+        let image2 = UIImageView(image: #imageLiteral(resourceName: "dwb_pak_button_discount_title"))
+        image2.frame = CGRect(
+            x: label.frame.origin.x-label.frame.size.height*imageAspect,
+            y: label.frame.origin.y + 6,
+            width: image2.width,
+            height: image2.height
+        )
+        
+        print("AMD: \(image.frame)")
+        print("AMD: \(image2.frame)")
         image.contentMode = UIViewContentMode.scaleAspectFit
         navView.addSubview(label)
-        navView.addSubview(image)
+        //navView.addSubview(image)
+        navView.addSubview(image2)
         self.navigationItem.titleView = navView
         navView.sizeToFit()
         

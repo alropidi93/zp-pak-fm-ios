@@ -80,7 +80,7 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
                     if jsonResult["Msg"] == "OK" {
                         self.alertDialog(uiViewController: self)
 
-                        self.dismiss(animated: false, completion: nil)
+                        //self.dismiss(animated: false, completion: nil)
 
 
                     } else {
@@ -112,6 +112,8 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
             pakAlert.definesPresentationContext = true
             pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            pakAlert.vc = self
+            pakAlert.pushBack = true
             uiViewController.present(pakAlert, animated: true, completion: nil)
         }
   

@@ -29,6 +29,19 @@ class AlarmMethods {
         pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         pakAlert.message = message
         pakAlert.title_message = title_message
+        pakAlert.vc = uiViewController
+        uiViewController.present(pakAlert, animated: true, completion: nil)
+    }
+    
+    static func ReadyCustomWithPushBack(message: String ,title_message : String, uiViewController: UIViewController) {
+        let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_custom_ready") as! PakAlertCustomReady
+        pakAlert.definesPresentationContext = true
+        pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        pakAlert.message = message
+        pakAlert.title_message = title_message
+        pakAlert.vc = uiViewController
+        pakAlert.pushBack = true
         uiViewController.present(pakAlert, animated: true, completion: nil)
     }
     

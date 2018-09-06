@@ -31,7 +31,6 @@
 		38299DB22111B1EA00C62740 /* AlertBoxCarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */; };
 		38299DB42111B2C400C62740 /* PakAlertOutCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB32111B2C400C62740 /* PakAlertOutCar.swift */; };
 		4129CBE9213C875400B15B93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4129CBE8213C875400B15B93 /* GoogleService-Info.plist */; };
-		4153357A212FAF2D00A2CCFD /* iPad2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41533579212FAF2D00A2CCFD /* iPad2.storyboard */; };
 		415B22D8211F46CD004542B0 /* PakLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B22D7211F46CD004542B0 /* PakLoader.swift */; };
 		5E54D3152100FC1D00BA3240 /* LoaderMethodsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */; };
 		5E54D3172100FC8100BA3240 /* PakLoaderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */; };
@@ -151,7 +150,6 @@
 		38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBoxCarDelegate.swift; sourceTree = "<group>"; };
 		38299DB32111B2C400C62740 /* PakAlertOutCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertOutCar.swift; sourceTree = "<group>"; };
 		4129CBE8213C875400B15B93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		41533579212FAF2D00A2CCFD /* iPad2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPad2.storyboard; sourceTree = "<group>"; };
 		415B22D7211F46CD004542B0 /* PakLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakLoader.swift; sourceTree = "<group>"; };
 		5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderMethodsCustom.swift; sourceTree = "<group>"; };
 		5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakLoaderAlert.swift; sourceTree = "<group>"; };
@@ -422,7 +420,6 @@
 				701D2880207EAD06007AD7AC /* LaunchScreen.storyboard */,
 				701D287B207EAD01007AD7AC /* Main.storyboard */,
 				70515A13211547F700D94C08 /* iPad.storyboard */,
-				41533579212FAF2D00A2CCFD /* iPad2.storyboard */,
 			);
 			path = storyboards;
 			sourceTree = "<group>";
@@ -714,7 +711,6 @@
 				70515A14211547F700D94C08 /* iPad.storyboard in Resources */,
 				0FF64A1320FB66DA00164AF5 /* MyriadPro-Bold.otf in Resources */,
 				701D287F207EAD06007AD7AC /* Assets.xcassets in Resources */,
-				4153357A212FAF2D00A2CCFD /* iPad2.storyboard in Resources */,
 				701D287D207EAD01007AD7AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

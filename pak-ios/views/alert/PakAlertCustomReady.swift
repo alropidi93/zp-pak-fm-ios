@@ -18,6 +18,10 @@ class PakAlertCustomReady : UIViewController {
     
     var message : String? = nil
     var title_message : String? = nil
+    
+    var vc = UIViewController()
+    var pushBack = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
@@ -38,6 +42,9 @@ class PakAlertCustomReady : UIViewController {
     }
     @IBAction func b_accept(_ sender: Any) {
          self.dismiss(animated: false, completion: nil)
+        if pushBack {
+            vc.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

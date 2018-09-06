@@ -35,6 +35,11 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
+        //setElements()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setElements()
     }
     
@@ -141,10 +146,11 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
     
     func cancelOrder(_ idItem : Int ,_ pos : Int) {
        
-        
+        PakLoader.show()
         let params: Parameters = [ "AccessToken": PreferencesMethods.getAccessTokenFromOptions() ?? 0, "Numero": idItem]
         
         Alamofire.request(URLs.CancelOrder, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            PakLoader.hide()
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
 
@@ -159,7 +165,7 @@ class ToDeliverController : UIViewController ,  NVActivityIndicatorViewable , UI
                         self.items.remove(at: pos)
                         self.cv_to_delivery.reloadData()
                         AlarmMethods.ReadyCustom(message: "Tu pedido ha sido anulado con éxito.", title_message: "¡Listo!", uiViewController: self)
-
+                        self.setElements()
                     }
                 }
             } else {

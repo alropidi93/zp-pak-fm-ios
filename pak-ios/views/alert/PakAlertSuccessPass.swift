@@ -11,10 +11,14 @@ import UIKit
 
 class PakAlertSuccessPass : UIViewController {
     
-    
+    var vc = UIViewController()
+    var pushBack = false
  
     @IBAction func b_accept(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
+        if pushBack {
+            vc.dismiss(animated: true, completion: nil)
+        }
     }
     
     

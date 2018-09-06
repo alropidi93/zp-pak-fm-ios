@@ -53,7 +53,8 @@ class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionVi
         cell.b_favorites.tag = indexPath.row
         
         if self.items[indexPath.item].favourite == true {
-            cell.b_favorites.setImage(UIImage(named: "dwb-ic_favorite_on"), for: .normal)
+            //cell.b_favorites.setImage(UIImage(named: "dwb-ic_favorite_on"), for: .normal)
+            cell.b_favorites.setImage(UIImage(named: "dwb_pak_button_hearth_red"), for: .normal)
         }else {
             cell.b_favorites.setImage(UIImage(named: "dwb_pak_button_hearth_gray"), for: .normal)
         }

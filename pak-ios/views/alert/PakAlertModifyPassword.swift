@@ -21,6 +21,9 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
     @IBOutlet weak var tf_newPassword: UITextField!
     @IBOutlet weak var tf_repassword: UITextField!
     
+    var pushBack = false
+    var vc = UIViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
@@ -83,7 +86,7 @@ class PakAlertModifyPassword : UIViewController ,NVActivityIndicatorViewable{
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
                         
-                        AlarmMethods.ReadyCustom(message: "Tu contraseña ha sido actualizada correctamente", title_message: "¡Listo!", uiViewController: self)
+                        AlarmMethods.ReadyCustomWithPushBack(message: "Tu contraseña ha sido actualizada correctamente", title_message: "¡Listo!", uiViewController: self)
                         
 
                     } else {

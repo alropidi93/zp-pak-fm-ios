@@ -150,6 +150,7 @@ extension UIViewController : UISearchBarDelegate {
         SideMenuManager.default.menuPresentMode = .menuSlideIn
         //SideMenuManager.default.menuWidth = view.frame.width * CGFloat(0.8)
         SideMenuManager.default.menuWidth = 260
+        SideMenuManager.default.menuFadeStatusBar = false
     }
     
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {

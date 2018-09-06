@@ -260,7 +260,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         let label = UILabel()
         label.font = UIFont(name: "OpenSans-Light", size: 20)
 
-        label.text = "  Mis Favoritos"
+        label.text = "Mis Favoritos"
         label.sizeToFit()
         label.center = navView.center
         label.textAlignment = NSTextAlignment.center
@@ -269,8 +269,18 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         let imageAspect = image.image!.size.width/image.image!.size.height
         image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
         image.contentMode = UIViewContentMode.scaleAspectFit
+        
+        
+        let image2 = UIImageView(image: #imageLiteral(resourceName: "dwb_pak_button_favorites"))
+        image2.frame = CGRect(
+            x: label.frame.origin.x-label.frame.size.height*imageAspect,
+            y: label.frame.origin.y + 4,
+            width: image2.width,
+            height: image2.height
+        )
+        
         navView.addSubview(label)
-        navView.addSubview(image)
+        navView.addSubview(image2)
         self.navigationItem.titleView = navView
         navView.sizeToFit()
 

@@ -89,7 +89,7 @@ class OrdersController : TabmanViewController, PageboyViewControllerDataSource {
         let label = UILabel()
         label.font = UIFont(name: "OpenSans-Light", size: 25)
 
-        label.text = "  Mis pedidos"
+        label.text = "Mis pedidos"
         label.sizeToFit()
         label.center = navView.center
         label.textAlignment = NSTextAlignment.center
@@ -99,8 +99,17 @@ class OrdersController : TabmanViewController, PageboyViewControllerDataSource {
         let imageAspect = image.image!.size.width/image.image!.size.height
         image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
         image.contentMode = UIViewContentMode.scaleAspectFit
+        
+        let image2 = UIImageView(image: #imageLiteral(resourceName: "dwb_pak_button_orders_title"))
+        image2.frame = CGRect(
+            x: label.frame.origin.x-label.frame.size.height*imageAspect,
+            y: label.frame.origin.y + 6,
+            width: image2.width,
+            height: image2.height
+        )
+        
         navView.addSubview(label)
-        navView.addSubview(image)
+        navView.addSubview(image2)
         self.navigationItem.titleView = navView
         navView.sizeToFit()
         
