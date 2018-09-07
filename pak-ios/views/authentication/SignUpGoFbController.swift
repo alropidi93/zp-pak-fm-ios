@@ -371,7 +371,7 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 11
+        let maxLength = 9
         let currentString: NSString = textField.text! as NSString
         let newString: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString
@@ -379,7 +379,7 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
     }
     
     func okButtonTapped(){
-        print("hola")
+        
         self.performSegue(withIdentifier: "segue_login_register_fb" , sender: self)
 
     }

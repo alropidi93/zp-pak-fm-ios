@@ -381,7 +381,8 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 11
+        print("Estamos en registro")
+        let maxLength = 9
         let currentString: NSString = textField.text! as NSString
         let newString: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString

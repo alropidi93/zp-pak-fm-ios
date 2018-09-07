@@ -87,7 +87,10 @@ class PakAlertRecoverAccount: UIViewController  ,NVActivityIndicatorViewable{
                                          
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
-                            AlarmMethods.ReadyCustom(message: "Tu contraseña ha sido restablecida, pero Ocurrió un error al enviarte el correo con la contraseña actualizada. Por favor,contáctate con ventas@pak.pe.", title_message: "¡Listo!", uiViewController: self)
+                            /*AlarmMethods.ReadyCustom(message: "Tu contraseña ha sido restablecida, pero Ocurrió un error al enviarte el correo con la contraseña actualizada. Por favor,contáctate con ventas@pak.pe.", title_message: "¡Listo!", uiViewController: self)*/
+                            AlarmMethods.ReadyCustom(message: "No se encontró ningún usuario registrado con este correo electrónico.", title_message: "¡Oops!", uiViewController: self)
+                            
+                            
 
                         } else {
                             AlamoMethods.defaultError(self)
