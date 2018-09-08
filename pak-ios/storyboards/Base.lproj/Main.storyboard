@@ -7936,6 +7936,9 @@ EMKhTGlzdG8hA
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIh-oT-0Ag" userLabel="l_subtotal">
                                                         <rect key="frame" x="263" y="0.0" width="80" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="3IG-Do-OVU"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                         <color key="textColor" name="pak_gray"/>
                                                         <nil key="highlightedColor"/>
@@ -7951,12 +7954,18 @@ EMKhTGlzdG8hA
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzc-h8-Drf" userLabel="l_delivery_cost">
                                                         <rect key="frame" x="263" y="40" width="80" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="E52-vx-IbH"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                         <color key="textColor" name="pak_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dsccto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPT-F4-yKB" userLabel="l_subtotal">
                                                         <rect key="frame" x="263" y="20" width="80" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="nEu-zr-qGf"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                         <color key="textColor" name="pak_green"/>
                                                         <nil key="highlightedColor"/>
@@ -7969,18 +7978,27 @@ EMKhTGlzdG8hA
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Costo de Delivery" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaT-BX-MqM">
                                                         <rect key="frame" x="0.0" y="40" width="215" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="fcU-sd-MUu"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                         <color key="textColor" name="pak_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtotal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-ET-HYA">
                                                         <rect key="frame" x="0.0" y="20" width="215" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="Gid-ky-IiN"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                         <color key="textColor" name="pak_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtotal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-Qq-go8">
                                                         <rect key="frame" x="0.0" y="0.0" width="215" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="tpB-OJ-3Ia"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                         <color key="textColor" name="pak_gray"/>
                                                         <nil key="highlightedColor"/>
@@ -7988,14 +8006,11 @@ EMKhTGlzdG8hA
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="uIh-oT-0Ag" firstAttribute="height" secondItem="4zW-ig-Zed" secondAttribute="height" id="1qq-zo-ilf"/>
                                                     <constraint firstItem="Kzc-h8-Drf" firstAttribute="leading" secondItem="GG5-Fr-6bN" secondAttribute="trailing" constant="48" id="39c-Ph-hts"/>
                                                     <constraint firstItem="FVi-ET-HYA" firstAttribute="leading" secondItem="WIF-6Q-n43" secondAttribute="leading" id="3X3-wK-6X4"/>
-                                                    <constraint firstItem="OIi-Qq-go8" firstAttribute="height" secondItem="PaT-BX-MqM" secondAttribute="height" id="8P6-X4-cAN"/>
                                                     <constraint firstItem="FVi-ET-HYA" firstAttribute="top" secondItem="OIi-Qq-go8" secondAttribute="bottom" id="AOc-wy-nq6"/>
                                                     <constraint firstItem="uIh-oT-0Ag" firstAttribute="top" secondItem="WIF-6Q-n43" secondAttribute="top" id="Aoz-Ef-B6T"/>
                                                     <constraint firstAttribute="height" constant="80" id="Cyc-z8-ed0"/>
-                                                    <constraint firstItem="FVi-ET-HYA" firstAttribute="height" secondItem="PaT-BX-MqM" secondAttribute="height" id="Dy3-JM-Vfd"/>
                                                     <constraint firstItem="Kzc-h8-Drf" firstAttribute="top" secondItem="MPT-F4-yKB" secondAttribute="bottom" id="I0v-7s-vpC"/>
                                                     <constraint firstItem="GG5-Fr-6bN" firstAttribute="top" secondItem="PaT-BX-MqM" secondAttribute="bottom" id="MEg-bd-OFR"/>
                                                     <constraint firstItem="OIi-Qq-go8" firstAttribute="top" secondItem="WIF-6Q-n43" secondAttribute="top" id="MH0-UO-Fns"/>
@@ -8003,21 +8018,18 @@ EMKhTGlzdG8hA
                                                     <constraint firstItem="MPT-F4-yKB" firstAttribute="top" secondItem="uIh-oT-0Ag" secondAttribute="bottom" id="Q5p-UF-V0S"/>
                                                     <constraint firstAttribute="bottom" secondItem="GG5-Fr-6bN" secondAttribute="bottom" id="Rey-e2-WoO"/>
                                                     <constraint firstItem="GG5-Fr-6bN" firstAttribute="leading" secondItem="WIF-6Q-n43" secondAttribute="leading" id="Y8L-uL-19x"/>
-                                                    <constraint firstItem="MPT-F4-yKB" firstAttribute="height" secondItem="4zW-ig-Zed" secondAttribute="height" id="Z8W-3F-8wE"/>
                                                     <constraint firstItem="PaT-BX-MqM" firstAttribute="leading" secondItem="WIF-6Q-n43" secondAttribute="leading" id="ZdH-Ch-9fN"/>
                                                     <constraint firstItem="4zW-ig-Zed" firstAttribute="top" secondItem="Kzc-h8-Drf" secondAttribute="bottom" id="ZsI-hR-jXj"/>
                                                     <constraint firstItem="MPT-F4-yKB" firstAttribute="width" secondItem="4zW-ig-Zed" secondAttribute="width" id="cXc-EB-tPz"/>
                                                     <constraint firstItem="MPT-F4-yKB" firstAttribute="leading" secondItem="PaT-BX-MqM" secondAttribute="trailing" constant="48" id="dh8-sm-86s"/>
                                                     <constraint firstItem="Kzc-h8-Drf" firstAttribute="width" secondItem="4zW-ig-Zed" secondAttribute="width" id="epH-bY-gxJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="MPT-F4-yKB" secondAttribute="trailing" id="fY0-LS-3bw"/>
-                                                    <constraint firstItem="Kzc-h8-Drf" firstAttribute="height" secondItem="4zW-ig-Zed" secondAttribute="height" id="gTj-WL-n7I"/>
                                                     <constraint firstAttribute="trailing" secondItem="uIh-oT-0Ag" secondAttribute="trailing" id="ghY-Dv-rFX"/>
                                                     <constraint firstItem="uIh-oT-0Ag" firstAttribute="leading" secondItem="FVi-ET-HYA" secondAttribute="trailing" constant="48" id="gye-CU-DQF"/>
                                                     <constraint firstAttribute="bottom" secondItem="4zW-ig-Zed" secondAttribute="bottom" id="h53-PL-Oxk"/>
                                                     <constraint firstItem="PaT-BX-MqM" firstAttribute="top" secondItem="FVi-ET-HYA" secondAttribute="bottom" id="hgH-UM-zDP"/>
                                                     <constraint firstItem="OIi-Qq-go8" firstAttribute="leading" secondItem="WIF-6Q-n43" secondAttribute="leading" id="p9z-iG-lr4"/>
                                                     <constraint firstItem="uIh-oT-0Ag" firstAttribute="width" secondItem="4zW-ig-Zed" secondAttribute="width" id="rOq-zQ-YpG"/>
-                                                    <constraint firstItem="GG5-Fr-6bN" firstAttribute="height" secondItem="PaT-BX-MqM" secondAttribute="height" id="rTF-P1-88U"/>
                                                     <constraint firstAttribute="trailing" secondItem="Kzc-h8-Drf" secondAttribute="trailing" id="tiU-iX-1DG"/>
                                                     <constraint firstAttribute="trailing" secondItem="4zW-ig-Zed" secondAttribute="trailing" id="vjS-7f-Kge"/>
                                                 </constraints>
@@ -8089,6 +8101,8 @@ EMKhTGlzdG8hA
                         <outlet property="btnBottomHeight" destination="6GX-zk-eWS" id="6bA-QY-Kq4"/>
                         <outlet property="cvHeight" destination="ReY-Ti-Qgs" id="eK5-e5-Epd"/>
                         <outlet property="cv_detail_order" destination="ndP-0o-VLt" id="qUx-s7-LeM"/>
+                        <outlet property="discountTitleHeight" destination="Gid-ky-IiN" id="kOV-Ee-I7T"/>
+                        <outlet property="discountValueHeight" destination="nEu-zr-qGf" id="ZT2-0y-DAi"/>
                         <outlet property="l_address" destination="giX-h9-DeK" id="cfh-Am-rkN"/>
                         <outlet property="l_delivery" destination="Lng-be-0y8" id="uUT-cN-9EU"/>
                         <outlet property="l_delivery_cancel" destination="L6K-Yo-1tL" id="4Tb-ar-hLX"/>
@@ -8101,6 +8115,8 @@ EMKhTGlzdG8hA
                         <outlet property="l_total" destination="4zW-ig-Zed" id="bXn-9F-ZGq"/>
                         <outlet property="l_value_discount" destination="MPT-F4-yKB" id="gd1-8U-lcj"/>
                         <outlet property="scrollView" destination="J7C-hb-5hh" id="NkA-yE-GML"/>
+                        <outlet property="totalMarginTop" destination="MEg-bd-OFR" id="5k0-H9-GAB"/>
+                        <outlet property="totalValueMarginTop" destination="ZsI-hR-jXj" id="9yt-2u-cq2"/>
                         <segue destination="lW2-ZZ-xBL" kind="show" identifier="segue_small_box" id="Tbg-Fj-nVg"/>
                     </connections>
                 </viewController>

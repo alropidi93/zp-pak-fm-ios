@@ -48,6 +48,13 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     
     @IBOutlet weak var cvHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var discountValueHeight: NSLayoutConstraint!
+    @IBOutlet weak var discountTitleHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var totalMarginTop: NSLayoutConstraint!
+    @IBOutlet weak var totalValueMarginTop: NSLayoutConstraint!
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -193,6 +200,11 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                             self.l_discount.text = "Descuento (gracias a " + (self.order?.discount?.detailName)! + ")"
                             self.l_value_discount.text = "S/" + String(format : "%.2f", (self.order!.discount?.percentage)!/100 * (self.order?.subTotal)! )
                         }else {
+                            self.discountValueHeight.constant = 0
+                            self.discountTitleHeight.constant = 0
+                            self.totalMarginTop.constant = 20
+                            self.totalValueMarginTop.constant = 20
+                            self.view.layoutIfNeeded()
                             self.l_discount.text = nil
                             self.l_value_discount.text = nil
                         }
