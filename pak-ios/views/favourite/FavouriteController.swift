@@ -271,7 +271,7 @@ class FavouriteController : UIViewController, UICollectionViewDelegate, UICollec
         image.contentMode = UIViewContentMode.scaleAspectFit
         
         
-        let image2 = UIImageView(image: #imageLiteral(resourceName: "dwb_pak_button_favorites"))
+        let image2 = UIImageView(image: #imageLiteral(resourceName: "dwb_pak_button_favorites_title"))
         image2.frame = CGRect(
             x: label.frame.origin.x-label.frame.size.height*imageAspect,
             y: label.frame.origin.y + 4,

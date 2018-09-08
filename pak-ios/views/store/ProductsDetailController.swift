@@ -34,12 +34,11 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
-        print()
         setElements()
     }
     
     func setElements() {
-        UtilMethods.setImage(imageview: iv_product, imageurl: (self.item?.img)!, placeholderurl: "dwb-pak-logo")
+        UtilMethods.setImage(imageview: iv_product, imageurl: (self.item?.img)!, placeholderurl: "no_image")
         l_name_of_product.text = item?.name
         l_product_description.text = item?.descript
         let priceString : String = "S/" + String(format : "%.2f",(item?.price)!)

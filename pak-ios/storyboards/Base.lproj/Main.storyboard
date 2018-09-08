@@ -3290,7 +3290,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                         <constraint firstAttribute="height" constant="38" id="ylv-fc-IEG"/>
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                                    <state key="normal" image="dwb-ic_favorite_on"/>
+                                                    <state key="normal" image="dwb_pak_button_hearth_red_small"/>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -10579,7 +10579,6 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="dwb-ic_favorite_on" width="19" height="16"/>
         <image name="dwb-pak-logo-name" width="533" height="400"/>
         <image name="dwb-pak-splash-1" width="148" height="129"/>
         <image name="dwb-pak-splash-5" width="148" height="129"/>
@@ -10600,9 +10599,10 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         <image name="dwb_pak_button_detail_gray_arrow_down" width="25" height="11"/>
         <image name="dwb_pak_button_detail_white_arrow_down" width="25" height="11"/>
         <image name="dwb_pak_button_discount" width="21" height="21"/>
-        <image name="dwb_pak_button_favorites" width="23" height="19"/>
+        <image name="dwb_pak_button_favorites" width="21" height="21"/>
         <image name="dwb_pak_button_header_back" width="32" height="32"/>
         <image name="dwb_pak_button_hearth_gray" width="29" height="24"/>
+        <image name="dwb_pak_button_hearth_red_small" width="19" height="16"/>
         <image name="dwb_pak_button_home" width="21" height="21"/>
         <image name="dwb_pak_button_info" width="21" height="21"/>
         <image name="dwb_pak_button_login_detail" width="23" height="46"/>
@@ -10611,7 +10611,7 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         <image name="dwb_pak_copy" width="24" height="27"/>
         <image name="dwb_pak_discounts" width="66" height="56"/>
         <image name="dwb_pak_empty_box" width="82" height="63"/>
-        <image name="dwb_pak_usericon" width="33" height="33"/>
+        <image name="dwb_pak_usericon" width="65" height="65"/>
         <image name="dwb_white_arrow_stroke" width="24" height="12"/>
         <image name="dwb_zp_logo" width="83" height="60"/>
         <namedColor name="pak_black">
@@ -10651,13 +10651,13 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
     <inferredMetricsTieBreakers>
         <segue reference="D6q-ZU-Yil"/>
         <segue reference="4If-JT-tFy"/>
-        <segue reference="lL0-1i-dyT"/>
-        <segue reference="RzB-aK-gvt"/>
-        <segue reference="zhY-cZ-3JD"/>
+        <segue reference="OS7-IV-a8p"/>
+        <segue reference="xVe-nE-p4w"/>
+        <segue reference="VnY-AX-WXw"/>
         <segue reference="Ull-5G-G8U"/>
         <segue reference="qbC-4W-Evn"/>
-        <segue reference="YD1-6P-6T7"/>
-        <segue reference="k7V-In-QB3"/>
+        <segue reference="oBi-e6-wfk"/>
+        <segue reference="1vM-Rq-4HF"/>
         <segue reference="dfd-t0-Qql"/>
         <segue reference="AdC-De-agH"/>
     </inferredMetricsTieBreakers>

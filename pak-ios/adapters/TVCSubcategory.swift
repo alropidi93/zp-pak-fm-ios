@@ -54,9 +54,9 @@ class TVCSubcategory : UITableViewCell, UICollectionViewDelegate, UICollectionVi
         
         if self.items[indexPath.item].favourite == true {
             //cell.b_favorites.setImage(UIImage(named: "dwb-ic_favorite_on"), for: .normal)
-            cell.b_favorites.setImage(UIImage(named: "dwb_pak_button_hearth_red"), for: .normal)
+            cell.b_favorites.setImage(UIImage(named: "dwb_pak_button_hearth_red_small"), for: .normal)
         }else {
-            cell.b_favorites.setImage(UIImage(named: "dwb_pak_button_hearth_gray"), for: .normal)
+            cell.b_favorites.setImage(UIImage(named: "dwb_pak_button_hearth_gray_small"), for: .normal)
         }
         
         

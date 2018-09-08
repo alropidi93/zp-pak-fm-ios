@@ -403,7 +403,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         let label = UILabel()
         label.font = UIFont(name: "OpenSans-Light", size: 25)
 
-        label.text = "  Mi cajita"
+        label.text = "Mi cajita"
         label.sizeToFit()
         label.center = navView.center
         label.textAlignment = NSTextAlignment.center
@@ -412,8 +412,20 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         let imageAspect = image.image!.size.width/image.image!.size.height
         image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
         image.contentMode = UIViewContentMode.scaleAspectFit
+        
+        
+        
+        let image2 = UIImageView(image: #imageLiteral(resourceName: "dwd_pak_box_tittle_bar"))
+        
+        image2.frame = CGRect(
+            x: label.frame.origin.x-label.frame.size.height*imageAspect,
+            y: label.frame.origin.y + 4,
+            width: image2.width,
+            height: image2.height
+        )
+        
         navView.addSubview(label)
-        navView.addSubview(image)
+        navView.addSubview(image2)
         self.navigationItem.titleView = navView
         navView.sizeToFit()
     }

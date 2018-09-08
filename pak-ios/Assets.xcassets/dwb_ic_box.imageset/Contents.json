@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "dwb_ic_box@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "dwb_ic_box@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "dwb_ic_box@3x.png",
+      "filename" : "ic_box.png",
       "scale" : "3x"
     }
   ],

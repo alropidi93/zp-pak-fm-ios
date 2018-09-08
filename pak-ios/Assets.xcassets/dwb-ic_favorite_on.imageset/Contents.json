@@ -2,12 +2,10 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "dwb-ic_favorite_on@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "dwb-ic_favorite_on@2x.png",
       "scale" : "2x"
     },
     {
