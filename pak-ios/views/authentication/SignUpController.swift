@@ -15,7 +15,7 @@ import RLBAlertsPickers
 import SwiftHash
 import Firebase
 class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertRegisterDelegate ,UITextFieldDelegate, AlertCancelSingUp{
-
+    
     @IBOutlet weak var tf_name: UITextField!
     @IBOutlet weak var tf_lastname: UITextField!
     @IBOutlet weak var tf_birthday: UITextField!
@@ -26,106 +26,107 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     @IBOutlet weak var tf_email: UITextField!
     @IBOutlet weak var tf_password: UITextField!
     @IBOutlet weak var tf_repassword: UITextField!
-
-
-
+    
+    
+    
     private var date : Int = -1
     private var posDistrict: Int = -1
-
+    
     let segue_identifier = "segue_register_main"
-
+    
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
     var user : UserDC? = nil
-
+    
+    //amd
+    private var pickerDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
+    private var rowGenre: Int = 0
+    private var genre = "M"
+    //...
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        	self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.backButton()
         setElements()
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     func setElements (){
         fullKeyboardSupport()
         getDistrict()
         self.tf_genre.inputView = UIView()
         let tap_genre = UITapGestureRecognizer(target: self, action: #selector(self.tapGenre(_:)))
         self.tf_genre.addGestureRecognizer(tap_genre)
-
+        
         self.tf_district.inputView = UIView()
         let tap_district = UITapGestureRecognizer(target: self, action: #selector(self.tapDistrict(_:)))
         self.tf_district.addGestureRecognizer(tap_district)
-
+        
         self.tf_birthday.inputView = UIView()
         let tap_birtday = UITapGestureRecognizer(target: self, action: #selector(self.tapCalendar(_:)))
         self.tf_birthday.addGestureRecognizer(tap_birtday)
-
+        
         self.tf_phone.delegate = self
-
+        
     }
-
-
+    
+    
     @objc func tapCalendar(_ sender: UITapGestureRecognizer) -> Void {
-
+        
         let alert = UIAlertController(style: .alert, title: "Fecha")
         var dateComponents = DateComponents()
         dateComponents.year = 1900
         dateComponents.month = 1
         dateComponents.day = 1
-       
+        
         let minDate = Calendar.current.date(from: dateComponents)
         
         let maxDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
         
+        var auxDate = maxDate
         
         
-        
-        alert.addDatePicker(mode: .date, date: Date(), minimumDate: minDate, maximumDate: maxDate ) { date in
-            
+        alert.addDatePicker(mode: .date, date: pickerDate, minimumDate: minDate, maximumDate: maxDate ) { date in
             self.date = UtilMethods.intFromDate(date)
-            
             self.tf_birthday.text = UtilMethods.formatDate(date)
+            //amd
+            self.pickerDate = date
         }
         
-        
-        
         alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: {(action:UIAlertAction!) in
-            let auxDate = maxDate
-            
-            if (self.tf_birthday.text?.isEmpty)! {
-                self.date = UtilMethods.intFromDate(auxDate!)
-                
-                self.tf_birthday.text = UtilMethods.formatDate(auxDate!)
-        }})
-        
-        
-        
-        
+            //
+            /*if (self.tf_birthday.text?.isEmpty)! {
+             self.date = UtilMethods.intFromDate(auxDate!)
+             
+             self.tf_birthday.text = UtilMethods.formatDate(auxDate!)
+             }*/
+            //amd
+            self.date = UtilMethods.intFromDate(self.pickerDate!)
+            self.tf_birthday.text = UtilMethods.formatDate(self.pickerDate!)
+        })
         self.present(alert, animated: true, completion: nil)
-        
-        
-        
-        
     }
-
-
-
+    
     @objc func tapDistrict(_ sender: UITapGestureRecognizer) -> Void {
-
+        
         let alert = UIAlertController(style: .alert, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
-        self.tf_district.text = districts[0]
-        self.posDistrict = 0
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: posDistrict)
+        //self.posDistrict = 0
+        if posDistrict == -1 {
+            self.tf_district.text = districts[0]
+            posDistrict = 0
+        }
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
@@ -135,20 +136,35 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             }
         }
         alert.addAction(title: "OK", style: .cancel)
-
+        
         self.present(alert, animated: true, completion: nil)
     }
-
-
+    
+    
     @objc func tapGenre(_ sender: UITapGestureRecognizer) -> Void {
         let pickerData = [Constants.MALE,Constants.FEMALE]
         let alert = UIAlertController(style: .alert, title: "Genero")
         let pickerViewValues: [[String]] = [pickerData]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
-        self.tf_genre.text = "Masculino"
+        //amd
+        if genre == "M" {
+            rowGenre = 0
+            self.tf_genre.text = "Masculino"
+        }else{
+            rowGenre = 1
+        }
+        //...
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: rowGenre)
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
+                    //amd
+                    self.rowGenre = index.row
+                    if index.row == 0 {
+                        self.genre = "M"
+                    }else{
+                        self.genre = "F"
+                    }
+                    //...
                     self.tf_genre.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
                 }
             }
@@ -156,30 +172,30 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         alert.addAction(title: "OK", style: .cancel)
         self.present(alert, animated: true, completion: nil)
     }
-
-
+    
+    
     func getDistrict(){
-
-
+        
+        
         Alamofire.request(URLs.ListDistrict, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
-
-                                 
+                
+                
                 return
             }
             let statusCode = response.response!.statusCode
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
-
+                    
                     self.districts = []
                     for ( _ , element) in jsonResult["Distritos"] {
                         let district = DistrictDC(element)
                         self.districts.append(district.name)
                         self.listDistrict.append(DistrictDC(element))
                     }
-
+                    
                 }
             } else {
                 if let jsonResponse = response.result.value {
@@ -189,13 +205,13 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                     AlamoMethods.defaultError(self)
                 }
             }
-                             
+            
         }
     }
     @IBAction func signUp(_ sender: Any) {
-
-
-
+        
+        
+        
         if (self.tf_name.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
@@ -203,7 +219,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             AlarmMethods.ReadyCustom(message: "El nombre no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
-
+        
         if (self.tf_lastname.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
@@ -211,7 +227,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             AlarmMethods.ReadyCustom(message: "El apellido no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
-
+        
         if (self.tf_email.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
@@ -222,7 +238,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             AlarmMethods.ReadyCustom(message: "No es un correo valido", title_message: "¡Oops!", uiViewController: self)
             return
         }
-
+        
         if (self.tf_address.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
@@ -230,7 +246,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             AlarmMethods.ReadyCustom(message: "La dirección no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
-
+        
         if (self.tf_district.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
@@ -238,7 +254,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             AlarmMethods.ReadyCustom(message: "El distrito no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
-
+        
         if (self.tf_phone.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
@@ -249,7 +265,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             AlarmMethods.ReadyCustom(message: "El teléfono no puede tener una extensión menor a 7 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
-
+        
         if (self.tf_password.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
@@ -277,7 +293,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             AlarmMethods.ReadyCustom(message: "El sexo  no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
-
+        
         if (self.tf_birthday.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "El cumpleaños no puede estar vacío", title_message: "¡Oops!", uiViewController: self)
             return
@@ -289,25 +305,25 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             AlarmMethods.ReadyCustom(message: "Las contraseñas no coinciden.", title_message: "¡Oops!", uiViewController: self)
             return
         }
-
-
-
+        
+        
+        
         self.register((PreferencesMethods.getSmallBoxFromOptions()!.GUID))
-
+        
     }
     func isValidEmail(testStr:String) -> Bool {
         // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
+        
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
-
+    
     func register(_ GUID: String){
         PakLoader.show()
         var genre : String = "-"
         if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
-
+        
         let params: Parameters = [
             "Nombres": self.tf_name.text!,
             "Apellidos": self.tf_lastname.text!,
@@ -322,18 +338,18 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             "GUID" : GUID,
             "FCMToken": InstanceID.instanceID().token() ?? "No token",
             ]
-
+        
         let data = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-                                let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-                                print(string ?? "")
-
+        let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+        print(string ?? "")
+        
         
         Alamofire.request(URLs.SignUp, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             PakLoader.hide()
             if !(response.response != nil) {
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
-
-                                 
+                
+                
                 return
             }
             let statusCode = response.response!.statusCode
@@ -346,10 +362,10 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                         let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
                         self.user = nil
                         self.stopAnimating()
-
+                        
                     }else {
                         print(jsonResult["exMessage"])
-                                         
+                        
                         if let jsonResponse = response.result.value {
                             let jsonResult = JSON(jsonResponse)
                             AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
@@ -359,7 +375,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                     }
                 }
             } else {
-                                 
+                
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     AlarmMethods.errorWarning(message: jsonResult["Msg"].string!, uiViewController: self)
@@ -369,7 +385,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             }
         }
     }
-
+    
     func alertDialog(uiViewController: UIViewController) {
         let pakAlert = uiViewController.storyboard?.instantiateViewController(withIdentifier: "vc_pak_ready") as! PakAlertReady
         pakAlert.definesPresentationContext = true
@@ -379,7 +395,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         uiViewController.present(pakAlert, animated: true, completion: nil)
     }
-
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         print("Estamos en registro")
         let maxLength = 9
@@ -388,13 +404,13 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
-
+    
     func okButtonTapped(){
         dismiss(animated: true, completion: nil)
-//        self.navigationController?.dismiss(animated: true,completion: nil)
+        //        self.navigationController?.dismiss(animated: true,completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
-
+    
     func backButton (){
         self.navigationController?.navigationBar.topItem?.title = " "
         let backBTN = UIBarButtonItem(image: UIImage(named: "dwb_pak_button_header_back"),
@@ -403,10 +419,10 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                                       action: #selector(buttonBackAction))
         self.navigationController?.navigationBar.topItem?.leftBarButtonItem = backBTN
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
-
+        
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor(rgb: 0x81D34C)
-
-
+        
+        
     }
     @objc func buttonBackAction (_ sender: Any) {
         
@@ -426,3 +442,4 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     
     
 }
+
