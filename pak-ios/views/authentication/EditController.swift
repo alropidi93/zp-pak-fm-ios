@@ -191,7 +191,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable,UITextFieldD
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
                     //amd
-                    //esto es un desaste D:
+                    //esto es un desastre D:
                     self.colGenre = index.column
                     self.rowGenre = index.row
                     print("----")

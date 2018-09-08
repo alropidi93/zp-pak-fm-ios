@@ -38,6 +38,12 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
     var listDistrict : [DistrictDC] = []
     var user : UserDC? = nil
     
+    //amd
+    private var pickerDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
+    private var rowGenre: Int = 0
+    private var genre = "M"
+    //...
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -96,21 +102,30 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
         let minDate = Calendar.current.date(from: dateComponents)
         
         let maxDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
-        alert.addDatePicker(mode: .date, date: Date(), minimumDate: minDate, maximumDate: maxDate ) { date in
+        
+        
+        alert.addDatePicker(mode: .date, date: pickerDate, minimumDate: minDate, maximumDate: maxDate ) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_birthday.text = UtilMethods.formatDate(date)
+            //amd
+            self.pickerDate = date
         }
         
         
         
         alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: {(action:UIAlertAction!) in
-            let auxDate = maxDate
+            /*let auxDate = maxDate
             
             if (self.tf_birthday.text?.isEmpty)! {
                 self.date = UtilMethods.intFromDate(auxDate!)
                 
                 self.tf_birthday.text = UtilMethods.formatDate(auxDate!)
-            }})
+            }})*/
+            //amd
+            self.date = UtilMethods.intFromDate(self.pickerDate!)
+            
+            self.tf_birthday.text = UtilMethods.formatDate(self.pickerDate!)
+        })
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -120,9 +135,12 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
         
         let alert = UIAlertController(style: .alert, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
-        self.tf_district.text = districts[0]
-        self.posDistrict = 0
+        //self.posDistrict = 0
+        if posDistrict == -1 {
+            self.tf_district.text = districts[0]
+            posDistrict = 0
+        }
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: posDistrict)
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
@@ -141,11 +159,26 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
         let pickerData = [Constants.MALE,Constants.FEMALE]
         let alert = UIAlertController(style: .alert, title: "Genero")
         let pickerViewValues: [[String]] = [pickerData]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
-        self.tf_genre.text = "Masculino"
+        //amd
+        if genre == "M" {
+            rowGenre = 0
+            self.tf_genre.text = "Masculino"
+        }else{
+            rowGenre = 1
+        }
+        //...
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: rowGenre)
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
+                    //amd
+                    self.rowGenre = index.row
+                    if index.row == 0 {
+                        self.genre = "M"
+                    }else{
+                        self.genre = "F"
+                    }
+                    //...
                     self.tf_genre.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
                 }
             }

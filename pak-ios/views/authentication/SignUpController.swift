@@ -121,12 +121,12 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         
         let alert = UIAlertController(style: .alert, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: posDistrict)
         //self.posDistrict = 0
         if posDistrict == -1 {
             self.tf_district.text = districts[0]
             posDistrict = 0
         }
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: posDistrict)
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {

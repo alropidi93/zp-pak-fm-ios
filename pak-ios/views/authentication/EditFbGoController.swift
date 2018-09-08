@@ -33,6 +33,12 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
     private var posDistrict: Int = -1
     private var idDistric : UInt64  = 0
     private var cont : Int = 0
+    //amd
+    private var colGenre: Int = 0
+    private var rowGenre: Int = 0
+    private var genre = ""
+    private var pickerDate = Date.init()
+    //...
 
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
@@ -41,6 +47,15 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
         super.viewDidLoad()
 
         self.setElements()
+        //amd
+        if ConstantsModels.static_user?.genere == "M" {
+            genre = "M"
+        }else{
+            genre = "F"
+        }
+        //aqui trate de setear la fecha default del picker con la de nacimiento pero me dice es nulo
+        self.pickerDate = UtilMethods.stringToDateAmd((ConstantsModels.static_user?.birthDate)!)
+        //...
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -105,9 +120,10 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
         let minDate = Calendar.current.date(from: dateComponents)
         let maxDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
         
-        alert.addDatePicker(mode: .date, date: Date(), minimumDate: minDate, maximumDate: maxDate ) { date in
+        alert.addDatePicker(mode: .date, date: pickerDate, minimumDate: minDate, maximumDate: maxDate ) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_birthday.text = UtilMethods.formatDate(date)
+            self.pickerDate = date
         }
         
         alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: {(action:UIAlertAction!) in
@@ -116,7 +132,12 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
                 self.date = UtilMethods.intFromDate(auxDate!)
                 
                 self.tf_birthday.text = UtilMethods.formatDate(auxDate!)
+                self.pickerDate = auxDate!
             }})
+        //amd
+        //seteo el texto al dar ok, a pesar de que es redudante por que ya se hizo en el bloque anterior
+        self.tf_birthday.text = UtilMethods.formatDate(self.pickerDate)
+        //...
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -126,7 +147,7 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
         
         let alert = UIAlertController(style: .alert, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: posDistrict)
         
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
@@ -146,11 +167,35 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
         let pickerData = [Constants.MALE,Constants.FEMALE]
         let alert = UIAlertController(style: .alert, title: "Genero")
         let pickerViewValues: [[String]] = [pickerData]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        //amd
+        //creo el colGenre fue por gusto al final, y lo vuelvo a poner en FB solo por temor .-.
+        if genre == "M" {
+            colGenre = 0
+            rowGenre = 0
+        }else{
+            colGenre = 0
+            rowGenre = 1
+        }
+        //...
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: colGenre, row: rowGenre)
         
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
+                    //amd
+                    //esto es un desastre D:
+                    self.colGenre = index.column
+                    self.rowGenre = index.row
+                    print("----")
+                    print(index.column)
+                    print(index.row)
+                    if index.row == 0 {
+                        self.genre = "M"
+                    }else{
+                        self.genre = "F"
+                    }
+                    //...
+                    
                     self.tf_genre.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
                 }
             }
