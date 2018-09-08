@@ -15,7 +15,7 @@ import NVActivityIndicatorView
 import RLBAlertsPickers
 import SwiftHash
 
-class EditController : UIViewController,NVActivityIndicatorViewable{
+class EditController : UIViewController,NVActivityIndicatorViewable,UITextFieldDelegate{
     
     
     @IBOutlet weak var tf_name: UITextField!
@@ -82,6 +82,7 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
         self.tf_birthday.inputView = UIView()
         let tap_birtday = UITapGestureRecognizer(target: self, action: #selector(self.tapCalendar(_:)))
         self.tf_birthday.addGestureRecognizer(tap_birtday)
+        self.tf_phone.delegate = self
     }
     func setInfoUser(){
         tf_name.text = ConstantsModels.static_user?.names
@@ -406,5 +407,14 @@ class EditController : UIViewController,NVActivityIndicatorViewable{
         pakAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         pakAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         uiViewController.present(pakAlert, animated: true, completion: nil)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 9
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        print ("estamos en editar")
+        return newString.length <= maxLength
     }
 }

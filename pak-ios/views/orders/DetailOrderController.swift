@@ -27,8 +27,11 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     @IBOutlet weak var l_delivery_cancel: UILabel!
     @IBOutlet weak var l_subtotal: UILabel!
     @IBOutlet weak var l_delivery_cost: UILabel!
+    @IBOutlet weak var l_text_delivery: UILabel!
     @IBOutlet weak var l_total: UILabel!
     
+    @IBOutlet weak var l_discount: UILabel!
+    @IBOutlet weak var l_value_discount: UILabel!
     
     private let reuse_identifier = "cvc_order_detail"
     
@@ -186,6 +189,14 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                             self.items.append(order)
                         }
                         self.setLabels()
+                        if self.order?.discount != nil {
+                            self.l_discount.text = "Descuento (gracias a " + (self.order?.discount?.detailName)! + ")"
+                            self.l_value_discount.text = "S/" + String(format : "%.2f", (self.order!.discount?.percentage)!/100 * (self.order?.subTotal)! )
+                        }else {
+                            self.l_discount.text = nil
+                            self.l_value_discount.text = nil
+                        }
+                        
                         if self.type == 1 {
                             
                             if Date() < UtilMethods.stringToDate((self.order?.dateHourMaxAnulation)!) {
