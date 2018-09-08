@@ -25,6 +25,9 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     @IBOutlet weak var tf_data_reciver: UITextField!
     @IBOutlet weak var tf_date: UITextField!
     @IBOutlet weak var tf_hours: UITextField!
+    var pickerDate = Date()
+    var posHours = -1
+    
     
     @IBAction func b_info(_ sender: Any) {
         var districtsString : String  = ""
@@ -149,7 +152,12 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
         
         let alert = UIAlertController(style: .alert, title: "Horas")
         let pickerViewValues: [[String]] = [hours]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        if posHours == -1 {
+            posHours = 0
+            self.tf_hours.text = pickerViewValues.item(at: 0)?.item(at: 0)
+            self.parentPageViewController.checkOut.hourlySale = self.varHours[0]
+        }
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: posHours)
         print ("tiempo")
        
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
@@ -157,7 +165,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
                 UIView.animate(withDuration: 1) {
                     self.tf_hours.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
                     self.parentPageViewController.checkOut.hourlySale = self.varHours[index.row]
-                    
+                    self.posHours = index.row
                 }
             }
         }
@@ -167,22 +175,30 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
         let alert = UIAlertController(style: .alert, title: "Fecha")
-        alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: Date().nextMonth ) { date in
+        alert.addDatePicker(mode: .date, date: pickerDate, minimumDate: Date().tomorrow , maximumDate: Date().nextMonth ) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_date.text = UtilMethods.formatDate(date)
             self.parentPageViewController.checkOut.date = date.toString(dateFormat: "dd/MM/YYYY")
+            self.pickerDate = date
         }
         
         
         alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: {(action:UIAlertAction!) in
-            let auxDate = Date().tomorrow
+            /*let auxDate = Date().tomorrow
             
             if (self.tf_date.text?.isEmpty)! {
                 self.date = UtilMethods.intFromDate(auxDate)
                 self.parentPageViewController.checkOut.date = auxDate.toString(dateFormat: "dd/MM/YYYY")
 
                 self.tf_date.text = UtilMethods.formatDate(auxDate)
-            }})
+            }})*/
+            //amd
+            
+            self.date = UtilMethods.intFromDate(self.pickerDate)
+            self.parentPageViewController.checkOut.date = self.pickerDate.toString(dateFormat: "dd/MM/YYYY")
+            
+            self.tf_date.text = UtilMethods.formatDate(self.pickerDate)
+        })
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -190,13 +206,19 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     @objc func tapDistrict(_ sender: UITapGestureRecognizer) -> Void {
         let alert = UIAlertController(style: .alert, title: "Distritos")
         let pickerViewValues: [[String]] = [districts]
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        if posDistrict == -1 {
+            posDistrict = 0
+            self.tf_district.text = pickerViewValues.item(at: 0)?.item(at: 0)
+            self.parentPageViewController.checkOut.district = Int64(self.listDistrict[0].idDistrict)
+        }
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: posDistrict)
         
         alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) {vc , picker, index, values in
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 1) {
                     self.tf_district.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
                     self.parentPageViewController.checkOut.district = Int64(self.listDistrict[index.row].idDistrict)
+                    self.posDistrict = index.row
                 }
             }
         }

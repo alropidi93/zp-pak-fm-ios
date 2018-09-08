@@ -20,6 +20,8 @@ class PakAlertCardData : UIViewController, PageObservation{
 
     var date = -1
     
+    var pickerDate = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
@@ -58,13 +60,22 @@ class PakAlertCardData : UIViewController, PageObservation{
     
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
         let alert = UIAlertController(style: .alert, title: "Fecha")
-        alert.addDatePicker(mode: .date, date: Date(), minimumDate: Date().tomorrow , maximumDate: nil ) { date in
+        alert.addDatePicker(mode: .date, date: pickerDate, minimumDate: Date().tomorrow , maximumDate: nil ) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_expired_date.text = UtilMethods.formatDateMY(date)
             self.parentPageViewController.expiredDateMM = date.toString(dateFormat: "MM")
             self.parentPageViewController.expiredDateYYYY = date.toString(dateFormat: "yyyy")
+            self.pickerDate = date
         }
-        alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: nil)
+        alert.addAction(image: nil, title: "OK", style: .cancel, isEnabled: true, handler: {(action:UIAlertAction!) in
+            print("okAction")
+            //amd
+            self.date = UtilMethods.intFromDate(self.pickerDate)
+            self.tf_expired_date.text = UtilMethods.formatDateMY(self.pickerDate)
+            self.parentPageViewController.expiredDateMM = self.pickerDate.toString(dateFormat: "MM")
+            self.parentPageViewController.expiredDateYYYY = self.pickerDate.toString(dateFormat: "yyyy")
+            //...
+        })
         self.present(alert, animated: true, completion: nil)
     }
     
