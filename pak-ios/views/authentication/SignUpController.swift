@@ -261,8 +261,8 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         } else if self.tf_phone.text?.count > 40 {
             AlarmMethods.ReadyCustom(message: "El teléfono no puede tener una extensión mayor a 40 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
-        } else if self.tf_phone.text?.count < 7 {
-            AlarmMethods.ReadyCustom(message: "El teléfono no puede tener una extensión menor a 7 caracteres", title_message: "¡Oops!", uiViewController: self)
+        } else if self.tf_phone.text?.count < 9 {
+            AlarmMethods.ReadyCustom(message: "El teléfono no puede tener una extensión menor a 9 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
         
@@ -402,7 +402,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         let currentString: NSString = textField.text! as NSString
         let newString: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString
-        return newString.length <= maxLength
+        return newString.length <= maxLength && newString.length >= maxLength;
     }
     
     func okButtonTapped(){
