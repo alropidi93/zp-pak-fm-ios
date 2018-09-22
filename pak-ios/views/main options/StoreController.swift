@@ -33,6 +33,8 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
     private var isIndexOf : Int = -1
     private var selected_title : String = ""
     
+    var isNextAllowed = true
+    
     //#MARK: Common methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +68,10 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let id_item = items[indexPath.item].idCategory
         self.selected_title = items[indexPath.item].name
-        getCategories(Int(id_item))
+        if self.isNextAllowed{
+            self.isNextAllowed = false
+            getCategories(Int(id_item))
+        }
     }
     
     //Perfectly fit collection (all screens)
@@ -142,7 +147,6 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
                                 self.selectedItems.append(category)
                             }
                             self.createAll()
-
                             self.performSegue(withIdentifier: self.segue_category_detail, sender: self)
                         }
                     }
@@ -189,6 +193,11 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        isNextAllowed = true
     }
 }
 

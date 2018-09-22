@@ -18,7 +18,7 @@ import SideMenu
 import GoogleSignIn
 import TTGSnackbar
 
-class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource , SendDetailProductDelegate ,NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout  {
+class ProductsPerCategoryController : UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, SendDetailProductDelegate ,NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout  {
     var categories : [CategoriesDC] = []
     
     var cant : Int = 0
@@ -53,6 +53,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        //este metodo es el que ocasiona el Log 
         self.navigationBarWithSearchNew()
         tv_sub_categories.reloadData()
         cv_name_category.reloadData()
@@ -92,9 +93,6 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         return cell
     }
     
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cellselected = collectionView.cellForItem(at: self.indexPathSelected!) as! CVCCategoryName
         cellselected.l_name.textColor = UIColor(named: "pak_black")
@@ -116,7 +114,6 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_list_product_identifier, for: indexPath as IndexPath) as! TVCSubcategory
         
         cell.ivCornerEnd.alpha = 0
@@ -258,7 +255,7 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         }else {
             print("amdcount is not 0")
             let notificationButton = SSBadgeButton()
-            notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 40)
             notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
             notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
             notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
@@ -268,11 +265,12 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        
-        print("AMD cell count @ \(indexPath.row): \(indexPath)")
-        print(category_width.count)
-        
-        return CGSize(width: (categories[indexPath.row].name.count * 10) + 16, height: 28)
+        //amd - creo un label temporal solo para saber cuando seria el ancho de cada celda
+        let tempLabel = UILabel()
+        tempLabel.font = UIFont(name: "OpenSans-Light", size: 17)
+        tempLabel.text = categories[indexPath.row].name
+        tempLabel.sizeToFit()
+        //asigno el ancho +16 que seria 8 de padding en cada lado
+        return CGSize(width: tempLabel.width + 16, height: 32)
     }
 }
