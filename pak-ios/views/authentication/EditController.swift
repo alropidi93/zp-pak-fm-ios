@@ -299,7 +299,11 @@ class EditController : UIViewController,NVActivityIndicatorViewable,UITextFieldD
             return
         }
         
-        if (self.tf_phone.text?.isEmpty)! {
+        if tf_phone.text?.count < 9 {
+            AlarmMethods.errorWarning(message: "El teléfono debe contener 9 dígitos", uiViewController: self)
+            return
+        }
+        /*if (self.tf_phone.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El teléfono no puede estar vacío", uiViewController: self)
             return
         } else if self.tf_phone.text?.count > 40 {
@@ -308,7 +312,8 @@ class EditController : UIViewController,NVActivityIndicatorViewable,UITextFieldD
         } else if self.tf_phone.text?.count < 7 {
             AlarmMethods.errorWarning(message: "El teléfono no puede tener una extensión menor a 7 caracteres", uiViewController: self)
             return
-        }
+        }*/
+        
         if (self.tf_genre.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El sexo no puede estar vacía", uiViewController: self)
             return

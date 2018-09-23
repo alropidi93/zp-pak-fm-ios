@@ -267,7 +267,7 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
             return
         }
         
-        if (self.tf_phone.text?.isEmpty)! {
+        if tf_phone.text?.count < 9 {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_phone.text?.count > 40 {

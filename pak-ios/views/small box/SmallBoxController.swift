@@ -247,7 +247,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
         }
         self.discount = self.subTotal * (self.discountPercent / 100 )
         self.l_mount_subt.text = "S/" + String(format: "%.2f",self.subTotal)
-        self.l_mount_total.text = "S/" + String(self.subTotal + self.deliveryCost - self.discount)
+        self.l_mount_total.text = "S/" + String(format: "%.2f", self.subTotal + self.deliveryCost - self.discount)
         //amd - text empty on 0.0 discount
         if self.discount != 0.0 {
             self.l_mount_discount.text = "S/" + String(format: "%.2f", self.discount)
