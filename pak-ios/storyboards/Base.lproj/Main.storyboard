@@ -1640,7 +1640,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLS-AG-EBF" userLabel="l_name">
-                                                    <rect key="frame" x="17.666666666666671" y="4.3333333333333339" width="68" height="23.333333333333329"/>
+                                                    <rect key="frame" x="17.666666666666671" y="0.0" width="68" height="32"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
@@ -1655,12 +1655,14 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="nLS-AG-EBF" firstAttribute="centerY" secondItem="QFp-p8-rlC" secondAttribute="centerY" id="7eV-Kg-9jE"/>
                                             <constraint firstItem="nLS-AG-EBF" firstAttribute="centerX" secondItem="QFp-p8-rlC" secondAttribute="centerX" id="C4u-Hr-cNn"/>
                                             <constraint firstAttribute="trailing" secondItem="7iD-gb-SOd" secondAttribute="trailing" id="dU5-lo-bGc"/>
+                                            <constraint firstAttribute="bottom" secondItem="nLS-AG-EBF" secondAttribute="bottom" id="jGv-ab-eer"/>
                                             <constraint firstAttribute="bottom" secondItem="7iD-gb-SOd" secondAttribute="bottom" id="lDw-Qw-Avc"/>
+                                            <constraint firstItem="nLS-AG-EBF" firstAttribute="top" secondItem="QFp-p8-rlC" secondAttribute="top" id="lYb-Qb-ltI"/>
                                             <constraint firstItem="7iD-gb-SOd" firstAttribute="top" secondItem="QFp-p8-rlC" secondAttribute="top" id="sbX-NC-b92"/>
                                         </constraints>
+                                        <size key="customSize" width="103" height="32"/>
                                         <connections>
                                             <outlet property="l_name" destination="nLS-AG-EBF" id="4cd-Uq-xao"/>
                                         </connections>
@@ -1671,7 +1673,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <rect key="frame" x="0.0" y="56" width="414" height="680"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tvc_list_products" rowHeight="250" id="N2Z-tM-dh9" userLabel="tvc_sub_categories" customClass="TVCSubcategory" customModule="pak_ios" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tvc_list_products" rowHeight="250" id="N2Z-tM-dh9" userLabel="tvc_sub_categories" customClass="TVCSubcategory" customModule="pak_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N2Z-tM-dh9" id="KEp-5A-Czz">
@@ -1845,12 +1847,12 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Q9Z-NG-WDU" firstAttribute="top" secondItem="jgW-UP-kcC" secondAttribute="bottom" constant="4" id="1OX-Wn-OrO"/>
-                            <constraint firstItem="KLz-4b-yxF" firstAttribute="top" secondItem="Q9Z-NG-WDU" secondAttribute="bottom" id="4pt-JP-HBH"/>
                             <constraint firstItem="Q9Z-NG-WDU" firstAttribute="leading" secondItem="g0c-FX-W7d" secondAttribute="leading" id="9sb-oQ-diJ"/>
                             <constraint firstItem="jgW-UP-kcC" firstAttribute="leading" secondItem="g0c-FX-W7d" secondAttribute="leading" id="Bz6-Ji-2p3"/>
-                            <constraint firstItem="jgW-UP-kcC" firstAttribute="top" secondItem="z2J-Ac-tEZ" secondAttribute="bottom" id="PKM-nu-4oB"/>
                             <constraint firstAttribute="trailing" secondItem="jgW-UP-kcC" secondAttribute="trailing" id="gtu-eA-2hf"/>
+                            <constraint firstItem="jgW-UP-kcC" firstAttribute="top" secondItem="z2J-Ac-tEZ" secondAttribute="bottom" id="hGe-Ny-Acm"/>
                             <constraint firstAttribute="trailing" secondItem="Q9Z-NG-WDU" secondAttribute="trailing" id="n4L-Mt-sqs"/>
+                            <constraint firstAttribute="bottom" secondItem="Q9Z-NG-WDU" secondAttribute="bottom" id="vpG-Ts-Trl"/>
                         </constraints>
                     </view>
                     <connections>
@@ -10672,10 +10674,10 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
     <inferredMetricsTieBreakers>
         <segue reference="D6q-ZU-Yil"/>
         <segue reference="4If-JT-tFy"/>
-        <segue reference="lL0-1i-dyT"/>
+        <segue reference="F1p-gb-qZa"/>
         <segue reference="RzB-aK-gvt"/>
         <segue reference="zhY-cZ-3JD"/>
-        <segue reference="Ull-5G-G8U"/>
+        <segue reference="huV-AG-Pcv"/>
         <segue reference="qbC-4W-Evn"/>
         <segue reference="oBi-e6-wfk"/>
         <segue reference="1vM-Rq-4HF"/>
