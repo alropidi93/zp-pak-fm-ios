@@ -40,7 +40,7 @@ class ProductsPerCategoryController : UIViewController, UITableViewDelegate, UIT
     var searchWord : String = ""
     
     var category_width = [CGFloat]()
-
+    var shouldLoad = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +48,18 @@ class ProductsPerCategoryController : UIViewController, UITableViewDelegate, UIT
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
         setElements()
+        self.navigationBarWithSearchNew()
+        shouldLoad = true
+        
         
         
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //este metodo es el que ocasiona el Log 
-        self.navigationBarWithSearchNew()
+        //este metodo es el que ocasiona el Log de offset
+        if shouldLoad {
+            self.navigationBarWithSearchNew()
+        }
         tv_sub_categories.reloadData()
         cv_name_category.reloadData()
     }
@@ -85,23 +90,37 @@ class ProductsPerCategoryController : UIViewController, UITableViewDelegate, UIT
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_category_identifier, for: indexPath) as! CVCCategoryName
-        if indexPath.row == 0 {
+        
+        cell.l_name.textColor = UIColor(named: "pak_black")
+        /*if indexPath.row == 0 {
+            print("row is 0")
             cell.l_name.textColor = UIColor(named: "pak_green")
             self.indexPathSelected = indexPath
+        }else{
+            print("row is not 0")
+        }*/
+        if selected_category_index == indexPath.row {
+            cell.l_name.textColor = UIColor(named: "pak_green")
+            print("equals")
         }
         cell.l_name.text = self.categories[indexPath.item].name
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cellselected = collectionView.cellForItem(at: self.indexPathSelected!) as! CVCCategoryName
-        cellselected.l_name.textColor = UIColor(named: "pak_black")
-
+        //let cellselected = collectionView.cellForItem(at: self.indexPathSelected!) as! CVCCategoryName
+        
+        //let cellselected = collectionView.cellForItem(at: indexPath) as! CVCCategoryName
+        //cellselected.l_name.textColor = UIColor(named: "pak_black")
+        //self.tv_sub_categories.reloadData()
+        //cv_name_category.reloadData()
         let cell = collectionView.cellForItem(at: indexPath) as! CVCCategoryName
-        cell.l_name.textColor = UIColor(named: "pak_green")
+        //cell.l_name.textColor = UIColor(named: "pak_green")
         self.selected_category_index = indexPath.row
         self.indexPathSelected = indexPath
         self.tv_sub_categories.reloadData()
+        self.cv_name_category.reloadData()
+        
     }
     
     /* Complex view methods*/
