@@ -43,6 +43,8 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

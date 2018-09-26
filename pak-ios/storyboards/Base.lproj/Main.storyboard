@@ -1640,7 +1640,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLS-AG-EBF" userLabel="l_name">
-                                                    <rect key="frame" x="17.666666666666671" y="0.0" width="68" height="32"/>
+                                                    <rect key="frame" x="18" y="0.0" width="68" height="32"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" name="pak_gray"/>
                                                     <nil key="highlightedColor"/>
@@ -2404,13 +2404,6 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <exclude reference="VOr-F0-lnH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="sa4-bZ-81S"/>
-                                <exclude reference="oGE-XB-C2h"/>
-                                <exclude reference="FkX-sZ-beX"/>
-                                <exclude reference="Qeh-xh-3W5"/>
-                                <exclude reference="iam-L8-lYG"/>
-                                <exclude reference="jbY-cM-fHV"/>
-                                <exclude reference="mbM-dC-aST"/>
                                 <exclude reference="B3a-6D-Wdm"/>
                                 <exclude reference="LzD-ZP-o69"/>
                                 <exclude reference="Psh-8m-h52"/>
@@ -2420,11 +2413,18 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <exclude reference="vTj-yo-Pkp"/>
                                 <exclude reference="x0H-oD-fxP"/>
                                 <exclude reference="pHm-TN-Oc0"/>
+                                <exclude reference="sa4-bZ-81S"/>
                                 <exclude reference="sl5-zs-B9C"/>
+                                <exclude reference="oGE-XB-C2h"/>
                                 <exclude reference="FZu-iS-qWX"/>
                                 <exclude reference="pu9-be-COX"/>
                                 <exclude reference="tRN-yp-2Hk"/>
                                 <exclude reference="TmB-k5-969"/>
+                                <exclude reference="FkX-sZ-beX"/>
+                                <exclude reference="Qeh-xh-3W5"/>
+                                <exclude reference="iam-L8-lYG"/>
+                                <exclude reference="jbY-cM-fHV"/>
+                                <exclude reference="mbM-dC-aST"/>
                                 <exclude reference="5G8-ia-3Mr"/>
                                 <exclude reference="9D7-ey-X2K"/>
                                 <exclude reference="Evr-zG-JP7"/>
@@ -2437,9 +2437,9 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
-                                <include reference="sa4-bZ-81S"/>
                                 <include reference="LzD-ZP-o69"/>
                                 <exclude reference="dWZ-ij-vp4"/>
+                                <include reference="sa4-bZ-81S"/>
                                 <include reference="TRN-Hn-cfm"/>
                                 <exclude reference="mGk-Z1-BCv"/>
                             </mask>
@@ -2450,12 +2450,6 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <include reference="VOr-F0-lnH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="oGE-XB-C2h"/>
-                                <include reference="FkX-sZ-beX"/>
-                                <include reference="Qeh-xh-3W5"/>
-                                <exclude reference="iam-L8-lYG"/>
-                                <exclude reference="jbY-cM-fHV"/>
-                                <exclude reference="mbM-dC-aST"/>
                                 <exclude reference="263-2K-fF9"/>
                                 <include reference="B3a-6D-Wdm"/>
                                 <exclude reference="Psh-8m-h52"/>
@@ -2470,12 +2464,18 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <exclude reference="LoS-IO-dcF"/>
                                 <include reference="pHm-TN-Oc0"/>
                                 <include reference="sl5-zs-B9C"/>
+                                <exclude reference="oGE-XB-C2h"/>
                                 <exclude reference="FZu-iS-qWX"/>
                                 <exclude reference="RdP-vZ-LGO"/>
                                 <include reference="pu9-be-COX"/>
                                 <include reference="tRN-yp-2Hk"/>
                                 <exclude reference="PYH-wo-9OZ"/>
                                 <exclude reference="TmB-k5-969"/>
+                                <include reference="FkX-sZ-beX"/>
+                                <include reference="Qeh-xh-3W5"/>
+                                <exclude reference="iam-L8-lYG"/>
+                                <exclude reference="jbY-cM-fHV"/>
+                                <exclude reference="mbM-dC-aST"/>
                                 <include reference="5G8-ia-3Mr"/>
                                 <include reference="9D7-ey-X2K"/>
                                 <include reference="Evr-zG-JP7"/>
@@ -4623,7 +4623,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJm-1o-CWP">
-                                                                                    <rect key="frame" x="68" y="25.333333333333329" width="115.66666666666669" height="40"/>
+                                                                                    <rect key="frame" x="68" y="25.666666666666671" width="115.66666666666669" height="40"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producto Supremo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvu-CE-eIP" userLabel="l_name">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="116" height="16.666666666666668"/>
@@ -4665,7 +4665,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                             <rect key="frame" x="281.66666666666669" y="0.0" width="93.333333333333314" height="90"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="558-LG-duq" userLabel="l_mount_total_item">
-                                                                                    <rect key="frame" x="8" y="35.333333333333336" width="77.333333333333329" height="19.333333333333336"/>
+                                                                                    <rect key="frame" x="8" y="35.666666666666664" width="77.333333333333329" height="19.333333333333336"/>
                                                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                                                     <color key="textColor" name="pak_gray"/>
                                                                                     <nil key="highlightedColor"/>
@@ -6245,6 +6245,8 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                     </view>
                     <size key="freeformSize" width="335" height="427"/>
                     <connections>
+                        <outlet property="expDatePickerView" destination="ezM-rU-nfT" id="07O-HI-bX1"/>
+                        <outlet property="expDateView" destination="eNP-po-Q7F" id="9gI-OK-ukY"/>
                         <outlet property="tf_card_number" destination="hyf-PP-hsN" id="C1z-ex-JZC"/>
                         <outlet property="tf_ccv" destination="rwx-sa-qO6" id="KOB-nd-SeE"/>
                         <outlet property="tf_expired_date" destination="sfP-bg-qRC" id="A1M-oj-Nld"/>
@@ -6252,6 +6254,56 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QnG-Yl-c3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" id="eNP-po-Q7F">
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="256"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezM-rU-nfT" customClass="MonthYearPickerView" customModule="pak_ios" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="192"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="192" id="tdP-la-RZU"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaZ-Gq-uWG">
+                            <rect key="frame" x="0.0" y="212" width="280" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="hDC-f8-wzb"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="OK">
+                                <color key="titleColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                            </state>
+                            <connections>
+                                <action selector="btnCloseExpDateView:" destination="IZa-Yr-bFb" eventType="touchUpInside" id="j7U-Ry-O0W"/>
+                            </connections>
+                        </button>
+                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2S-LC-XED">
+                            <rect key="frame" x="0.0" y="211" width="280" height="1"/>
+                            <color key="backgroundColor" name="pak_lightGray"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="THM-YB-k3n"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="ezM-rU-nfT" firstAttribute="leading" secondItem="eNP-po-Q7F" secondAttribute="leading" id="KTa-gY-7of"/>
+                        <constraint firstItem="VaZ-Gq-uWG" firstAttribute="top" secondItem="W2S-LC-XED" secondAttribute="bottom" id="NJz-cG-HJd"/>
+                        <constraint firstAttribute="trailing" secondItem="ezM-rU-nfT" secondAttribute="trailing" id="OXb-p8-pcX"/>
+                        <constraint firstAttribute="trailing" secondItem="W2S-LC-XED" secondAttribute="trailing" id="Qk8-Uf-ESE"/>
+                        <constraint firstItem="W2S-LC-XED" firstAttribute="leading" secondItem="eNP-po-Q7F" secondAttribute="leading" id="Rhf-2K-URy"/>
+                        <constraint firstAttribute="trailing" secondItem="VaZ-Gq-uWG" secondAttribute="trailing" id="S5h-st-1b9"/>
+                        <constraint firstItem="VaZ-Gq-uWG" firstAttribute="leading" secondItem="eNP-po-Q7F" secondAttribute="leading" id="YfZ-l1-unc"/>
+                        <constraint firstAttribute="bottom" secondItem="VaZ-Gq-uWG" secondAttribute="bottom" id="c6c-RF-9bh"/>
+                        <constraint firstItem="ezM-rU-nfT" firstAttribute="top" secondItem="eNP-po-Q7F" secondAttribute="top" id="dSB-Mn-mUR"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </objects>
             <point key="canvasLocation" x="-1903.2" y="1898.5007496251876"/>
         </scene>
@@ -10660,6 +10712,9 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         </namedColor>
         <namedColor name="pak_green">
             <color red="0.50588235294117645" green="0.82745098039215681" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="pak_lightGray">
+            <color red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pak_lightGray">
             <color red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -22,9 +22,36 @@ class PakAlertCardData : UIViewController, PageObservation{
     
     var pickerDate = Date()
     
+    //expDatePicker
+    @IBOutlet var expDateView: UIView!
+    @IBOutlet weak var expDatePickerView: MonthYearPickerView!
+    var vfxView = UIView()
+    
+    var strMonth = ""
+    var strYear = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
+        //set stuff
+        vfxView.frame = UIScreen.main.bounds
+        vfxView.center = view.center
+        vfxView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25)
+        vfxView.alpha = 0.5
+        
+        let intMonth = Calendar.current.component(.month, from: Date())
+        if intMonth < 10 {
+            strMonth = "0\(intMonth)"
+        }else{
+            strMonth = "\(intMonth)"
+        }
+        strYear = "\(Calendar.current.component(.year, from: Date()))"
+        print("default date...")
+        print(strMonth)
+        print(strYear)
+        //...
+        
         //showDatePicker()
         setElements()
     }
@@ -59,7 +86,8 @@ class PakAlertCardData : UIViewController, PageObservation{
     
     
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
-        let alert = UIAlertController(style: .alert, title: "Fecha")
+        print("tapDate")
+        /*let alert = UIAlertController(style: .alert, title: "Fecha")
         alert.addDatePicker(mode: .date, date: pickerDate, minimumDate: Date().tomorrow , maximumDate: nil ) { date in
             self.date = UtilMethods.intFromDate(date)
             self.tf_expired_date.text = UtilMethods.formatDateMY(date)
@@ -76,7 +104,33 @@ class PakAlertCardData : UIViewController, PageObservation{
             self.parentPageViewController.expiredDateYYYY = self.pickerDate.toString(dateFormat: "yyyy")
             //...
         })
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)*/
+        
+        
+        view.addSubview(vfxView)
+        view.bringSubview(toFront: vfxView)
+        //let expiryDatePicker = MonthYearPickerView()
+        expDateView.center = view.center
+        view.addSubview(expDateView)
+        view.bringSubview(toFront: expDateView)
+        
+        
+        self.tf_expired_date.text = "\(strMonth)/\(strYear)"
+        self.parentPageViewController.expiredDateMM = self.strMonth
+        self.parentPageViewController.expiredDateYYYY = self.strYear
+        
+        expDatePickerView.onDateSelected = { (month: Int, year: Int) in
+            let string = String(format: "%02d/%d", month, year)
+            print(string) // should show something like 05/2015
+            self.strMonth = String(format: "%02d", month)
+            self.strYear = String(format: "%d", year)
+            print(self.strMonth)
+            print(self.strYear)
+            self.tf_expired_date.text = "\(self.strMonth)/\(self.strYear)"
+            self.parentPageViewController.expiredDateMM = self.strMonth
+            self.parentPageViewController.expiredDateYYYY = self.strYear
+        }
+        
     }
     
     @objc func textfieldDidChangeccv(sender: UITextField!) {
@@ -120,6 +174,12 @@ class PakAlertCardData : UIViewController, PageObservation{
     @objc func cancelDatePicker(){
         self.view.endEditing(true)
     }*/
+    
+    @IBAction func btnCloseExpDateView(_ sender: Any) {
+        vfxView.removeFromSuperview()
+        expDateView.removeFromSuperview()
+    }
+    
 }
     
 
