@@ -42,6 +42,9 @@ class ProductsPerCategoryController : UIViewController, UITableViewDelegate, UIT
     var category_width = [CGFloat]()
     var shouldLoad = false
     
+    var offSet1 = CGPoint()
+    var offSet2 = CGPoint()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("AMD: \(String(describing: type(of: self)))")
@@ -50,18 +53,58 @@ class ProductsPerCategoryController : UIViewController, UITableViewDelegate, UIT
         setElements()
         self.navigationBarWithSearchNew()
         shouldLoad = true
+        self.tv_sub_categories.estimatedRowHeight = 0;
+        self.tv_sub_categories.estimatedSectionHeaderHeight = 0;
+        self.tv_sub_categories.estimatedSectionFooterHeight = 0;
+        
         
         
         
     }
+    
+    var fixCounter = 0
+    
+    var prevOffset = CGPoint()
+    var nextOffset = CGPoint()
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //este metodo es el que ocasiona el Log de offset
         if shouldLoad {
             self.navigationBarWithSearchNew()
         }
-        tv_sub_categories.reloadData()
         cv_name_category.reloadData()
+        
+        /*print("FixCounter: \(fixCounter)")
+        if fixCounter > 0 {
+            tv_sub_categories.reloadData()
+            DispatchQueue.main.async(execute: {
+                //self.offSet1 = self.tv_sub_categories.contentOffset
+                self.tv_sub_categories.contentOffset = self.offSet1
+                print("offset 2: \(self.offSet1)")
+            })
+        }else{
+            self.offSet1 = self.tv_sub_categories.contentOffset
+            //self.offSet2 = self.tv_sub_categories.contentOffset
+            print("offset 1: \(self.offSet1)")
+            //self.tv_sub_categories.contentOffset = self.offSet1
+        }
+        fixCounter += 1*/
+        
+        
+        prevOffset = tv_sub_categories.contentOffset
+        tv_sub_categories.reloadData()
+        DispatchQueue.main.async(execute: {
+            self.tv_sub_categories.contentOffset = self.prevOffset
+        })
+        
+        
+        /*DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.tv_sub_categories.contentOffset = self.offSet
+        })*/
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,7 +144,6 @@ class ProductsPerCategoryController : UIViewController, UITableViewDelegate, UIT
         }*/
         if selected_category_index == indexPath.row {
             cell.l_name.textColor = UIColor(named: "pak_green")
-            print("equals")
         }
         cell.l_name.text = self.categories[indexPath.item].name
         return cell
@@ -266,13 +308,11 @@ class ProductsPerCategoryController : UIViewController, UITableViewDelegate, UIT
         
         
         if ConstantsModels.count_item == 0 {
-            print("amdcount is 0")
             var btnsMenuRight : [UIBarButtonItem] = []
             let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
             btnsMenuRight.append(btnMenuRight)
             self.navigationItem.rightBarButtonItems = btnsMenuRight
         }else {
-            print("amdcount is not 0")
             let notificationButton = SSBadgeButton()
             notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 40)
             notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
