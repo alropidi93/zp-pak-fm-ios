@@ -277,8 +277,8 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
         if (self.tf_address.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "La dirección no puede estar vacío", uiViewController: self)
             return
-        } else if self.tf_address.text?.count > 50 {
-            AlarmMethods.errorWarning(message: "La dirección no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
+        } else if self.tf_address.text?.count > 250 {
+            AlarmMethods.errorWarning(message: "La dirección no puede tener una extensión mayor a 250 caracteres", uiViewController: self)
             return
         }
         

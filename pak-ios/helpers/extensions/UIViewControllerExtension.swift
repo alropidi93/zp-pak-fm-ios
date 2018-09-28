@@ -97,6 +97,7 @@ extension UIViewController : UISearchBarDelegate {
         }
     }
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         searchBar.isUserInteractionEnabled = false
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             searchBar.isUserInteractionEnabled = true

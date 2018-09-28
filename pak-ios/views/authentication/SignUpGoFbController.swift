@@ -254,8 +254,8 @@ class SignUpGoFbController : UIViewController, NVActivityIndicatorViewable ,Aler
         if (self.tf_address.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
-        } else if self.tf_address.text?.count > 50 {
-            AlarmMethods.ReadyCustom(message: "La dirección no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
+        } else if self.tf_address.text?.count > 250 {
+            AlarmMethods.ReadyCustom(message: "La dirección no puede tener una extensión mayor a 250 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
         }
         
