@@ -18,6 +18,7 @@ class Ads: NSObject {
     
     // Utility extras
     private var _thumbnail : UIImage? = nil
+    private var _asset : AVAssetImageGenerator?
     
     override init() {
     }
@@ -30,17 +31,20 @@ class Ads: NSObject {
         self._archive = jsonAds["Archivo"].string ?? self._archive
         
         if self.type == "V" { // Videos
+            
             let url = URL(string:"\(self.archive)")!
             let asset = AVAsset(url: url)
             let assetImgGenerate : AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
             assetImgGenerate.appliesPreferredTrackTransform = true
+            self._asset = assetImgGenerate
+            /*
             let time = CMTimeMake(2, 1)
             let img = try? assetImgGenerate.copyCGImage(at: time, actualTime: nil)
             if img == nil {
                 self._thumbnail = UIImage(named: "")
             } else {
                 self._thumbnail  = UIImage(cgImage: img!)
-            }
+            }*/
         }
     }
     
@@ -62,5 +66,9 @@ class Ads: NSObject {
     
     var thumbnail : UIImage? {
         get { return _thumbnail }
+    }
+    
+    var asset : AVAssetImageGenerator? {
+        get { return _asset }
     }
 }

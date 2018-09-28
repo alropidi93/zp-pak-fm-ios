@@ -59,8 +59,23 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_advertisement, for: indexPath) as! CVCAdvertisement
         if self.allItems[indexPath.row].type == "V" { // Videos
-            cell.advertisement_image?.image = self.allItems[indexPath.row].thumbnail
-            cell.iv_play.isHidden = false
+            DispatchQueue.global(qos: .background).async {
+                let time = CMTimeMake(2, 1)
+                let img = try? self.allItems[indexPath.row].asset?.copyCGImage(at: time, actualTime: nil)
+                if img == nil {
+                    DispatchQueue.main.async {
+                        cell.advertisement_image?.image = UIImage(named: "")
+                        
+                        cell.iv_play.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        cell.advertisement_image?.image = UIImage(cgImage: img!!)
+                        cell.iv_play.isHidden = false
+                    }
+                }
+                //cell.advertisement_image?.image = self.allItems[indexPath.row].thumbnail
+            }
         } else { // Images
             UtilMethods.setImage(imageview: cell.advertisement_image!, imageurl: self.allItems[indexPath.row].archive, placeholderurl: "")
             cell.iv_play.isHidden = true
@@ -109,12 +124,16 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        self.allItems = []
-                        for ( _ , element) in jsonResult["Anuncios"] {
-                            let ads  = Ads(element)
-                            self.allItems.append(ads)
-                        }
-                        self.cv_advertisement.reloadData()
+                        DispatchQueue.main.async(execute: {
+                            self.allItems = []
+                            for ( _ , element) in jsonResult["Anuncios"] {
+                                let ads  = Ads(element)
+                                self.allItems.append(ads)
+                            }
+                            self.cv_advertisement.reloadData()
+                            
+                            print("Done")
+                        })
                     }
                 }
                  
