@@ -37,6 +37,8 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     var selected_title : String = ""
     private var selected_sub_title : String = ""
     var searchWord : String = ""
+    
+    var isNextAllowed = true
 
     //#MARK: Common methods
     override func viewDidLoad() {
@@ -77,7 +79,11 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let id_item = items[indexPath.item].idCategory
         self.selected_sub_title = items[indexPath.item].name
-        getCategories(Int(id_item))
+        
+        if self.isNextAllowed{
+            self.isNextAllowed = false
+            getCategories(Int(id_item))
+        }
     }
     
     //Perfectly fit collection (all screens)
@@ -146,7 +152,6 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
                                 self.selectedItems.append(category)
                             }
                             self.createAll()
-
                             self.performSegue(withIdentifier: self.segue_category_detail, sender: self)
                         }
                     }
@@ -194,5 +199,10 @@ class SubCategoriesController : UIViewController, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        isNextAllowed = true
     }
 }

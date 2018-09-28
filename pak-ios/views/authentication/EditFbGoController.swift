@@ -43,6 +43,8 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
     var districts : [String] = []
     var listDistrict : [DistrictDC] = []
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -288,7 +290,12 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
             return
         }
         
-        if (self.tf_phone.text?.isEmpty)! {
+        
+        if tf_phone.text?.count < 9 {
+            AlarmMethods.errorWarning(message: "El teléfono debe contener 9 dígitos", uiViewController: self)
+            return
+        }
+        /*if (self.tf_phone.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El teléfono no puede estar vacío", uiViewController: self)
             return
         } else if self.tf_phone.text?.count > 40 {
@@ -297,7 +304,8 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
         } else if self.tf_phone.text?.count < 9 {
             AlarmMethods.errorWarning(message: "El teléfono no puede tener una extensión menor a 9 caracteres", uiViewController: self)
             return
-        }
+        }*/
+        
         if (self.tf_genre.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El sexo no puede estar vacía", uiViewController: self)
             return

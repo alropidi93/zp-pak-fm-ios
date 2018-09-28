@@ -18,7 +18,7 @@ import SideMenu
 import GoogleSignIn
 import TTGSnackbar
 
-class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource , SendDetailProductDelegate ,NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout  {
+class ProductsPerCategoryController : UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, SendDetailProductDelegate ,NVActivityIndicatorViewable, UICollectionViewDelegateFlowLayout  {
     var categories : [CategoriesDC] = []
     
     var cant : Int = 0
@@ -40,7 +40,10 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     var searchWord : String = ""
     
     var category_width = [CGFloat]()
-
+    var shouldLoad = false
+    
+    var offSet1 = CGPoint()
+    var offSet2 = CGPoint()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,14 +51,60 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
         setElements()
+        self.navigationBarWithSearchNew()
+        shouldLoad = true
+        self.tv_sub_categories.estimatedRowHeight = 0;
+        self.tv_sub_categories.estimatedSectionHeaderHeight = 0;
+        self.tv_sub_categories.estimatedSectionFooterHeight = 0;
+        
+        
         
         
     }
+    
+    var fixCounter = 0
+    
+    var prevOffset = CGPoint()
+    var nextOffset = CGPoint()
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationBarWithSearchNew()
-        tv_sub_categories.reloadData()
+        //este metodo es el que ocasiona el Log de offset
+        if shouldLoad {
+            self.navigationBarWithSearchNew()
+        }
         cv_name_category.reloadData()
+        
+        /*print("FixCounter: \(fixCounter)")
+        if fixCounter > 0 {
+            tv_sub_categories.reloadData()
+            DispatchQueue.main.async(execute: {
+                //self.offSet1 = self.tv_sub_categories.contentOffset
+                self.tv_sub_categories.contentOffset = self.offSet1
+                print("offset 2: \(self.offSet1)")
+            })
+        }else{
+            self.offSet1 = self.tv_sub_categories.contentOffset
+            //self.offSet2 = self.tv_sub_categories.contentOffset
+            print("offset 1: \(self.offSet1)")
+            //self.tv_sub_categories.contentOffset = self.offSet1
+        }
+        fixCounter += 1*/
+        
+        
+        prevOffset = tv_sub_categories.contentOffset
+        tv_sub_categories.reloadData()
+        DispatchQueue.main.async(execute: {
+            self.tv_sub_categories.contentOffset = self.prevOffset
+        })
+        
+        
+        /*DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.tv_sub_categories.contentOffset = self.offSet
+        })*/
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,26 +133,36 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuse_category_identifier, for: indexPath) as! CVCCategoryName
-        if indexPath.row == 0 {
+        
+        cell.l_name.textColor = UIColor(named: "pak_black")
+        /*if indexPath.row == 0 {
+            print("row is 0")
             cell.l_name.textColor = UIColor(named: "pak_green")
             self.indexPathSelected = indexPath
+        }else{
+            print("row is not 0")
+        }*/
+        if selected_category_index == indexPath.row {
+            cell.l_name.textColor = UIColor(named: "pak_green")
         }
         cell.l_name.text = self.categories[indexPath.item].name
         return cell
     }
     
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cellselected = collectionView.cellForItem(at: self.indexPathSelected!) as! CVCCategoryName
-        cellselected.l_name.textColor = UIColor(named: "pak_black")
-
+        //let cellselected = collectionView.cellForItem(at: self.indexPathSelected!) as! CVCCategoryName
+        
+        //let cellselected = collectionView.cellForItem(at: indexPath) as! CVCCategoryName
+        //cellselected.l_name.textColor = UIColor(named: "pak_black")
+        //self.tv_sub_categories.reloadData()
+        //cv_name_category.reloadData()
         let cell = collectionView.cellForItem(at: indexPath) as! CVCCategoryName
-        cell.l_name.textColor = UIColor(named: "pak_green")
+        //cell.l_name.textColor = UIColor(named: "pak_green")
         self.selected_category_index = indexPath.row
         self.indexPathSelected = indexPath
         self.tv_sub_categories.reloadData()
+        self.cv_name_category.reloadData()
+        
     }
     
     /* Complex view methods*/
@@ -116,7 +175,6 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: self.reuse_list_product_identifier, for: indexPath as IndexPath) as! TVCSubcategory
         
         cell.ivCornerEnd.alpha = 0
@@ -250,15 +308,13 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
         
         
         if ConstantsModels.count_item == 0 {
-            print("amdcount is 0")
             var btnsMenuRight : [UIBarButtonItem] = []
             let btnMenuRight = UIBarButtonItem(image: UIImage(named: "dwd_pak_box_tittle_bar"), style: .plain, target: self, action: #selector(didPressRightButton))
             btnsMenuRight.append(btnMenuRight)
             self.navigationItem.rightBarButtonItems = btnsMenuRight
         }else {
-            print("amdcount is not 0")
             let notificationButton = SSBadgeButton()
-            notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 40)
             notificationButton.setImage(UIImage(named: "dwd_pak_box_tittle_bar")?.withRenderingMode(.alwaysTemplate), for: .normal)
             notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 40)
             notificationButton.addTarget(self, action: #selector(didPressRightButton), for: .touchUpInside)
@@ -268,11 +324,12 @@ class ProductsPerCategoryController : UIViewController, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        
-        print("AMD cell count @ \(indexPath.row): \(indexPath)")
-        print(category_width.count)
-        
-        return CGSize(width: (categories[indexPath.row].name.count * 10) + 16, height: 28)
+        //amd - creo un label temporal solo para saber cuando seria el ancho de cada celda
+        let tempLabel = UILabel()
+        tempLabel.font = UIFont(name: "OpenSans-Light", size: 17)
+        tempLabel.text = categories[indexPath.row].name
+        tempLabel.sizeToFit()
+        //asigno el ancho +16 que seria 8 de padding en cada lado
+        return CGSize(width: tempLabel.width + 16, height: 32)
     }
 }

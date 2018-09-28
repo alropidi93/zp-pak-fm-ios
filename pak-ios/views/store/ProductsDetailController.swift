@@ -173,6 +173,11 @@ class ProductsDetailController : UIViewController , NVActivityIndicatorViewable{
                         if !exists {
                             let newItem = ItemSmallBoxDC()
                             //solo se agrego los datos necesarios
+                            
+                            if Int(self.tf_cant_add_item.text!)! > 1 {
+                                snackbar = TTGSnackbar(message: "Has agregado " + self.tf_cant_add_item.text! + " unidades de " + (self.item?.name)!, duration: .middle)
+                            }
+                            
                             newItem.idProduct = (self.item?.idProduct.unsigned)!
                             newItem.cant = Int64(self.tf_cant_add_item.text!)!.unsigned //empieza en lo que est en el textfield
                             newItem.name = (self.self.item?.name)!

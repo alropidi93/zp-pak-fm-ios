@@ -117,7 +117,7 @@ class SplashController: UIViewController {
         
     }
     func loginUser() {
-        PakLoader.show()
+        //PakLoader.show()
         print("Login User")
         
         let params: Parameters = [ "IdUsuario": PreferencesMethods.getIdFromOptions() ?? 0,
@@ -126,7 +126,7 @@ class SplashController: UIViewController {
                                    "FCMToken" : InstanceID.instanceID().token() ?? "No token" ]
         
         Alamofire.request(URLs.loginAccessToken, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
-            PakLoader.hide()
+            //PakLoader.hide()
             print("AMD 1")
             if response.response == nil {
                 AlarmMethods.ReadyCustom(message: "Ocurrió un error al realizar la operación. Verifica tu conectividad y vielve a intentarlo", title_message: "¡Oops!", uiViewController: self)
@@ -140,7 +140,6 @@ class SplashController: UIViewController {
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Msg"] == "OK"{
-                        print("AMD 3")
                         let userDC : UserDC = UserDC(jsonResult)
                         userDC.valid = true
                         ConstantsModels.static_user = userDC // aqui se guarda pero staticamente
@@ -154,8 +153,6 @@ class SplashController: UIViewController {
                     if self.isAnimationDone && self.isGUIDLoaded {
                         self.performSegue(withIdentifier: self.splash_identifier, sender: self)
                     }
-                    
-                    print("AMD 4")
                 }
             } else {
                 

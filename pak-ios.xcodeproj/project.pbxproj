@@ -31,6 +31,7 @@
 		38299DB22111B1EA00C62740 /* AlertBoxCarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */; };
 		38299DB42111B2C400C62740 /* PakAlertOutCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38299DB32111B2C400C62740 /* PakAlertOutCar.swift */; };
 		4129CBE9213C875400B15B93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4129CBE8213C875400B15B93 /* GoogleService-Info.plist */; };
+		414EAE3F215B1F4F001FD777 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414EAE3E215B1F4E001FD777 /* MonthYearPickerView.swift */; };
 		415B22D8211F46CD004542B0 /* PakLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B22D7211F46CD004542B0 /* PakLoader.swift */; };
 		5E54D3152100FC1D00BA3240 /* LoaderMethodsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */; };
 		5E54D3172100FC8100BA3240 /* PakLoaderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */; };
@@ -149,6 +150,7 @@
 		38299DB12111B1EA00C62740 /* AlertBoxCarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBoxCarDelegate.swift; sourceTree = "<group>"; };
 		38299DB32111B2C400C62740 /* PakAlertOutCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakAlertOutCar.swift; sourceTree = "<group>"; };
 		4129CBE8213C875400B15B93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		414EAE3E215B1F4E001FD777 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
 		415B22D7211F46CD004542B0 /* PakLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakLoader.swift; sourceTree = "<group>"; };
 		5E54D3142100FC1D00BA3240 /* LoaderMethodsCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderMethodsCustom.swift; sourceTree = "<group>"; };
 		5E54D3162100FC8100BA3240 /* PakLoaderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakLoaderAlert.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 		701D2893207EC583007AD7AC /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				414EAE3E215B1F4E001FD777 /* MonthYearPickerView.swift */,
 				701D2896207EC5D6007AD7AC /* UIViewExtension.swift */,
 				701D2898207EC731007AD7AC /* UIViewControllerExtension.swift */,
 				7090A2E920AB75DA00EF9F6D /* NotificationCenterExtension.swift */,
@@ -891,6 +894,7 @@
 				709A334420AE0FC1003AB207 /* ProductDC.swift in Sources */,
 				BE5E26C8210D52520008FF3F /* SignUpGoFbController.swift in Sources */,
 				7053BB7F20E729C900C5A277 /* BadgedExtension.swift in Sources */,
+				414EAE3F215B1F4F001FD777 /* MonthYearPickerView.swift in Sources */,
 				70F54C9B2090176B003175AA /* DiscountDC.swift in Sources */,
 				707B8F6520B4F3E600FC7848 /* CVCSmallBoxItem.swift in Sources */,
 				70BF263A20D087EC002FD0F9 /* EditController.swift in Sources */,

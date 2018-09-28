@@ -25,7 +25,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     @IBOutlet weak var tf_data_reciver: UITextField!
     @IBOutlet weak var tf_date: UITextField!
     @IBOutlet weak var tf_hours: UITextField!
-    var pickerDate = Date()
+    var pickerDate = Date().tomorrow
     var posHours = -1
     
     
@@ -174,6 +174,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
     }
     
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
+        print("AMD 1")
         let alert = UIAlertController(style: .alert, title: "Fecha")
         alert.addDatePicker(mode: .date, date: pickerDate, minimumDate: Date().tomorrow , maximumDate: Date().nextMonth ) { date in
             self.date = UtilMethods.intFromDate(date)
@@ -198,6 +199,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
             self.parentPageViewController.checkOut.date = self.pickerDate.toString(dateFormat: "dd/MM/YYYY")
             
             self.tf_date.text = UtilMethods.formatDate(self.pickerDate)
+            print("AMD 2: \(self.pickerDate)")
         })
         
         self.present(alert, animated: true, completion: nil)
@@ -261,10 +263,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
                                 self.parentPageViewController.checkOut.district = Int64(district.idDistrict)
 
                             }
-                            
-                            
                         }
-                        
                     }else{
                         let jsonResult = JSON(jsonResponse)
                         print(jsonResult["MontoMinimo"])
