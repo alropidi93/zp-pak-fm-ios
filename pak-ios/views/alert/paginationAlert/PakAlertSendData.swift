@@ -40,7 +40,7 @@ class PakAlertSendData : UIViewController, PageObservation , NVActivityIndicator
                 districtsString = districtsString + item + "."
             }
         }
-        AlarmMethods.ReadyCustom(message: "El reparto esta disponible en los distritos: " + districtsString, title_message: "¡Listo!", uiViewController: self)
+        AlarmMethods.ReadyCustom(message: "El reparto esta disponible en los distritos: " + districtsString, title_message: "", uiViewController: self)
     }
     var checkOut : CheckOut? = nil
     private var posDistrict: Int = -1
