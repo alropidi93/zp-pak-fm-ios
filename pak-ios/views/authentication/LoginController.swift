@@ -18,6 +18,7 @@ import SwiftHash
 import SideMenu
 import GoogleSignIn
 import Firebase
+import FirebaseMessaging
 class LoginController : UIViewController, NVActivityIndicatorViewable,GIDSignInDelegate, GIDSignInUIDelegate{
 
 

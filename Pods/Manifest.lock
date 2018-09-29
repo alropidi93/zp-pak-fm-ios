@@ -29,9 +29,6 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - Cosmos (16.0.0)
-  - Crashlytics (3.10.3):
-    - Fabric (~> 1.7.8)
-  - Fabric (1.7.8)
   - FacebookCore (0.3.1):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.33)
@@ -123,7 +120,7 @@ PODS:
   - SwiftHash (2.0.1)
   - SwiftyGif (4.1.0)
   - SwiftyJSON (4.1.0)
-  - SwipeCellKit (2.4.3)
+  - SwipeCellKit (2.5.0)
   - Tabman (1.9.1):
     - AutoInsetter (~> 1.2.0)
     - Pageboy (~> 2.5.0)
@@ -136,8 +133,6 @@ DEPENDENCIES:
   - Alamofire
   - BmoViewPager
   - Cosmos
-  - Crashlytics
-  - Fabric
   - FacebookCore
   - FacebookLogin
   - Firebase/Core
@@ -160,7 +155,7 @@ DEPENDENCIES:
   - TTGSnackbar
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
     - Agrume
     - AKMediaViewer
@@ -170,8 +165,6 @@ SPEC REPOS:
     - BmoViewPager
     - Bolts
     - Cosmos
-    - Crashlytics
-    - Fabric
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
@@ -229,8 +222,6 @@ SPEC CHECKSUMS:
   BmoViewPager: cf2e3c251f64872b5c8163365a620f2ef2fccb74
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Cosmos: 7bcee0fa858a9355a214f2a181be5dffcee42c81
-  Crashlytics: 2aea305161a2122492698c75af27f2b98aa49a25
-  Fabric: fba4684a95df789565b0b27fc5b6e68f1755af32
   FacebookCore: 33078ef1d7d76b73f7e8c990dca7d3ea6db8d22f
   FacebookLogin: 6f15bf4fefd7a8865abbfa8fcd7f3dfd87aa275f
   FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
@@ -260,10 +251,10 @@ SPEC CHECKSUMS:
   SwiftHash: c805de5a434eacfa0dac7210745a50c55d7fe33d
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
-  SwipeCellKit: cee9906e6d3a36e22ad1a852fba7f8fa0839d113
+  SwipeCellKit: d8f2617538ce3021cb0a11d1b93856a06a2f2e20
   Tabman: e867a8e3fc72a30cc694aca51a2b331070f5e3ba
   TTGSnackbar: a66e929fd17d662152ec0964990a86e966310edb
 
-PODFILE CHECKSUM: 32ed404723a03ea47fbf3897b3da4fcaa3cebf6c
+PODFILE CHECKSUM: 32a2038efc98b74aa11741203a4a5122091ffca4
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
