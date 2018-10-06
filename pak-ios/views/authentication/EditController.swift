@@ -415,11 +415,16 @@ class EditController : UIViewController,NVActivityIndicatorViewable,UITextFieldD
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 9
+        /*let maxLength = 9
         let currentString: NSString = textField.text! as NSString
         let newString: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString
         print ("estamos en editar")
-        return newString.length <= maxLength && newString.length >= maxLength;
+        return newString.length <= maxLength && newString.length >= maxLength;*/
+        
+        //amd
+        let cs = NSCharacterSet(charactersIn: "0123456789").inverted
+        let filtered = string.components(separatedBy: cs).joined(separator: "")
+        return (string == filtered)
     }
 }

@@ -81,7 +81,7 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
         }
         self.discount = self.subTotal * (self.discountPercent / 100 )
         self.l_mount_subt.text = "S/" + String(format: "%.2f", self.subTotal)
-        self.l_total_mount.text = "S/" + String(self.subTotal + self.deliveryCost - self.discount)
+        self.l_total_mount.text = "S/" + String(format: "%.2f", self.subTotal + self.deliveryCost - self.discount)
         //self.l_mount_discount.text = "S/" + String(format: "%.2f", self.discount)
         
         
@@ -107,7 +107,7 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     let smallBox  = SmallBoxDC(jsonResult)
-                    self.l_mount_delivery.text = "S/" + String (smallBox.costDelivery)
+                    self.l_mount_delivery.text = "S/" + String(format : "%.2f", smallBox.costDelivery)
                     self.deliveryCost = smallBox.costDelivery
                     if smallBox.discount != nil {
                          self.l_discount.text = "Descuento (gracias a " + (smallBox.discount?.detailName)! + ")"
@@ -149,7 +149,7 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 44)
+        return CGSize(width: self.view.frame.width, height: 56)
     }
 }
 
