@@ -259,7 +259,7 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="z6N-WA-nFC">
-                                                <rect key="frame" x="194.66666666666663" y="517" width="25" height="10"/>
+                                                <rect key="frame" x="194.66666666666666" y="517" width="25" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="FQR-ES-T2M"/>
                                                 </constraints>
@@ -2288,7 +2288,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCh-0u-7K9" userLabel="b_buying">
-                                <rect key="frame" x="555.66666666666663" y="698" width="169" height="70"/>
+                                <rect key="frame" x="522" y="698" width="236" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="G5q-tB-FN1"/>
@@ -2322,7 +2322,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_white_arrow_stroke" translatesAutoresizingMaskIntoConstraints="NO" id="kWr-Si-Cdx">
-                                <rect key="frame" x="627.66666666666663" y="697" width="25" height="12"/>
+                                <rect key="frame" x="627.66666666666663" y="697" width="25" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="22R-hA-vcb"/>
                                 </constraints>
@@ -4394,31 +4394,31 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="LYh-D2-dpA">
-                                <rect key="frame" x="194.66666666666666" y="503" width="25" height="11"/>
+                                <rect key="frame" x="169.66666666666666" y="479" width="75" height="35"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5G-GC-xbN" userLabel="v_logo_version">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="503"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="479"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb-pak-logo-name" translatesAutoresizingMaskIntoConstraints="NO" id="G6N-7y-kKa" userLabel="iv_logo_pak">
-                                        <rect key="frame" x="82" y="131.66666666666666" width="250" height="159.99999999999997"/>
+                                        <rect key="frame" x="82" y="119.66666666666669" width="250" height="160"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="160" id="u32-XY-RMN"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Versión 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abz-WY-irC" userLabel="tf_version">
-                                        <rect key="frame" x="164.33333333333334" y="311.66666666666669" width="85.333333333333343" height="23.333333333333314"/>
+                                        <rect key="frame" x="164.33333333333334" y="299.66666666666669" width="85.333333333333343" height="23.333333333333314"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                         <color key="textColor" name="pak_darkGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017© Todos los derechos reservados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhB-sf-Xqg" userLabel="tf_right_reserved">
-                                        <rect key="frame" x="0.0" y="335" width="414" height="23.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="323" width="414" height="23.333333333333314"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                         <color key="textColor" name="pak_darkGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AS2-uq-ucN">
-                                        <rect key="frame" x="0.0" y="295.66666666666669" width="414" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="283.66666666666669" width="414" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="Wfu-Ie-hhI"/>
@@ -4449,7 +4449,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPv-5R-2Dq">
-                                <rect key="frame" x="207" y="503" width="0.0" height="233"/>
+                                <rect key="frame" x="207" y="479" width="0.0" height="257"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" id="hmN-cE-jTu"/>
@@ -4500,13 +4500,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_empty_box" translatesAutoresizingMaskIntoConstraints="NO" id="LbV-Zd-Bze">
-                                        <rect key="frame" x="166" y="274" width="82" height="80"/>
+                                        <rect key="frame" x="84" y="274" width="246" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="V3A-au-anY"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="U8W-6M-bZT">
-                                        <rect key="frame" x="194.66666666666666" y="0.0" width="25" height="11"/>
+                                        <rect key="frame" x="169.66666666666666" y="0.0" width="75" height="35"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No hay ningún producto en Mi cajita" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp2-JI-dCf" userLabel="tf_message_empty">
                                         <rect key="frame" x="85.666666666666686" y="356" width="243" height="18"/>
@@ -4529,7 +4529,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <rect key="frame" x="0.0" y="20" width="414" height="30"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="UOY-xa-Z0T">
-                                        <rect key="frame" x="194.66666666666666" y="0.0" width="25" height="11"/>
+                                        <rect key="frame" x="194.66666666666666" y="0.0" width="25" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="XPb-Ah-kVo"/>
                                         </constraints>
@@ -4962,7 +4962,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 </connections>
                                             </button>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="OIp-aW-wOe">
-                                                <rect key="frame" x="194.66666666666666" y="310" width="25" height="11"/>
+                                                <rect key="frame" x="169.66666666666666" y="310" width="75" height="35"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -8202,7 +8202,7 @@ EMKhTGlzdG8hA
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" translatesAutoresizingMaskIntoConstraints="NO" id="p0G-IW-33R">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" translatesAutoresizingMaskIntoConstraints="NO" id="p0G-IW-33R">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="06P-hH-vzg" userLabel="cv_categories">
@@ -8326,7 +8326,7 @@ EMKhTGlzdG8hA
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" translatesAutoresizingMaskIntoConstraints="NO" id="GD6-BK-xA4">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_background_loby_amd" translatesAutoresizingMaskIntoConstraints="NO" id="GD6-BK-xA4">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="052-nJ-vHi" userLabel="cv_categories">
@@ -10744,15 +10744,16 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="IRs-eD-v5w"/>
         <segue reference="D6q-ZU-Yil"/>
-        <segue reference="4If-JT-tFy"/>
-        <segue reference="F1p-gb-qZa"/>
+        <segue reference="0wQ-9P-YXB"/>
+        <segue reference="Nge-8z-UM6"/>
         <segue reference="RzB-aK-gvt"/>
         <segue reference="zhY-cZ-3JD"/>
-        <segue reference="huV-AG-Pcv"/>
-        <segue reference="qbC-4W-Evn"/>
-        <segue reference="oBi-e6-wfk"/>
-        <segue reference="1vM-Rq-4HF"/>
+        <segue reference="OCU-k9-bKY"/>
+        <segue reference="Mj0-oe-INs"/>
+        <segue reference="uIi-HV-Eb2"/>
+        <segue reference="rHo-he-4zp"/>
         <segue reference="969-X4-Avy"/>
         <segue reference="SEp-H9-hjL"/>
     </inferredMetricsTieBreakers>
