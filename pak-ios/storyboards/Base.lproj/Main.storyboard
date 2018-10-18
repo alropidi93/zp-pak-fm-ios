@@ -3008,7 +3008,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <rect key="frame" x="155" y="231.33333333333337" width="105" height="169"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No háy ningún cupón de descuento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgE-VN-mNa" userLabel="l_announc_discount">
-                                        <rect key="frame" x="70.666666666666657" y="407.66666666666669" width="272.66666666666674" height="23.333333333333314"/>
+                                        <rect key="frame" x="71" y="407.66666666666669" width="272.33333333333331" height="23.333333333333314"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -4497,10 +4497,10 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPW-Al-8kx">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_empty_box" translatesAutoresizingMaskIntoConstraints="NO" id="LbV-Zd-Bze">
-                                        <rect key="frame" x="84" y="274" width="246" height="80"/>
+                                        <rect key="frame" x="84" y="252" width="246" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="V3A-au-anY"/>
                                         </constraints>
@@ -4509,7 +4509,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <rect key="frame" x="169.66666666666666" y="0.0" width="75" height="35"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No hay ningún producto en Mi cajita" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp2-JI-dCf" userLabel="tf_message_empty">
-                                        <rect key="frame" x="85.666666666666686" y="356" width="243" height="18"/>
+                                        <rect key="frame" x="85.666666666666686" y="334" width="243" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                         <color key="textColor" red="0.29174592389999998" green="0.29174592389999998" blue="0.29174592389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -4526,7 +4526,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UzA-vd-2f9" userLabel="v_head">
-                                <rect key="frame" x="0.0" y="20" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="30"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="UOY-xa-Z0T">
                                         <rect key="frame" x="194.66666666666666" y="0.0" width="25" height="35"/>
@@ -4576,7 +4576,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zN4-Yw-nDi">
-                                <rect key="frame" x="0.0" y="50" width="414" height="686"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="642"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1m-Yr-g4f">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="380"/>
@@ -4630,16 +4630,16 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJm-1o-CWP">
-                                                                                    <rect key="frame" x="67.666666666666671" y="25" width="116.00000000000001" height="40"/>
+                                                                                    <rect key="frame" x="67.666666666666671" y="17.000000000000004" width="116.00000000000001" height="56.333333333333343"/>
                                                                                     <subviews>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producto Supremo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvu-CE-eIP" userLabel="l_name">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="116" height="16.666666666666668"/>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producto SupremoProducto SupremoProducto SupremoProducto Supremo" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvu-CE-eIP" userLabel="l_name">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="116" height="33"/>
                                                                                             <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                                                             <color key="textColor" name="pak_darkGray"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="costo unidad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W75-qv-L9z" userLabel="l_price">
-                                                                                            <rect key="frame" x="0.0" y="20.666666666666664" width="116" height="19.333333333333336"/>
+                                                                                            <rect key="frame" x="0.0" y="37" width="116" height="19.333333333333329"/>
                                                                                             <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                                                             <color key="textColor" name="pak_gray"/>
                                                                                             <nil key="highlightedColor"/>
@@ -7837,7 +7837,7 @@ EMKhTGlzdG8hA
                                                                         <constraint firstAttribute="height" constant="70" id="qux-8d-pu0"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producto Supremo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arM-R7-Xqh" userLabel="l_name">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producto Supremo" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arM-R7-Xqh" userLabel="l_name">
                                                                     <rect key="frame" x="77" y="35.666666666666664" width="106.66666666666669" height="15"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="11"/>
                                                                     <color key="textColor" white="0.0" alpha="0.68219866070000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -10744,18 +10744,17 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IRs-eD-v5w"/>
         <segue reference="D6q-ZU-Yil"/>
         <segue reference="0wQ-9P-YXB"/>
-        <segue reference="Nge-8z-UM6"/>
+        <segue reference="Tbg-Fj-nVg"/>
         <segue reference="RzB-aK-gvt"/>
-        <segue reference="zhY-cZ-3JD"/>
+        <segue reference="VnY-AX-WXw"/>
         <segue reference="OCU-k9-bKY"/>
         <segue reference="Mj0-oe-INs"/>
-        <segue reference="uIi-HV-Eb2"/>
-        <segue reference="rHo-he-4zp"/>
+        <segue reference="oBi-e6-wfk"/>
+        <segue reference="1vM-Rq-4HF"/>
         <segue reference="969-X4-Avy"/>
-        <segue reference="SEp-H9-hjL"/>
+        <segue reference="AdC-De-agH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>

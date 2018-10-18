@@ -181,9 +181,9 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
             }
             print ("=========================")
             let statusCode = response.response!.statusCode
-            let data = try! JSONSerialization.data(withJSONObject: response.result.value, options: .prettyPrinted)
+            /*let data = try! JSONSerialization.data(withJSONObject: response.result.value, options: .prettyPrinted)
             let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-            print(string)
+            print(string)*/
             print ("=========================")
             if statusCode == 200 {
                 if let jsonResponse = response.result.value {
