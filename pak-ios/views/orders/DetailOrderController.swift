@@ -209,9 +209,15 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                             self.l_value_discount.text = nil
                         }
                         
+                        print("AMD Log Cancel: Just chilling...")
                         if self.type == 1 {
+                            print("AMD Log Cancel Order Created: \(self.order?.dateRecive)")
+                            print("AMD Log Cancel Date Limit: \(self.order?.dateHourMaxAnulation)")
+                            let testing = UtilMethods.stringToDateAmd2((self.order?.dateHourMaxAnulation)!)
                             
-                            if Date() < UtilMethods.stringToDate((self.order?.dateHourMaxAnulation)!) {
+                            print("AMD Log Cancel: \(testing)")
+                            print("AMD Log Cancel: \(Date())")
+                            if Date() < UtilMethods.stringToDateAmd2((self.order?.dateHourMaxAnulation)!) {
                                 print("holiwiasdasd")
                                 self.b_anular.setTitle("Anular pedido", for: .normal)
                                 self.b_anular.isUserInteractionEnabled = true
