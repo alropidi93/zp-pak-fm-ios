@@ -110,10 +110,7 @@ class SearchView : UIViewController, UICollectionViewDelegate, UICollectionViewD
     @objc func connected(_ sender:AnyObject) {
         self.item = items[sender.view.tag]
         print("you tap image number : \(sender.view.tag)")
-        //todo - fix counter per product
-        print("AMD: \(items.count)")
-        print("AMD: \(items[0].idProduct)")
-        //...
+        
         self.performSegue(withIdentifier: self.segue_identifier, sender: self)
         //Your code for navigate to another viewcontroller
     }

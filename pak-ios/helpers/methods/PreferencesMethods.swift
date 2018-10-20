@@ -91,6 +91,14 @@ class PreferencesMethods {
         }
     }
     
+    static func setMaxTime(_ num: Int){
+        UserDefaults.standard.set(num, forKey: "maxTime")
+    }
+    
+    static func getMaxTime() -> Int {
+        return UserDefaults.standard.integer(forKey: "maxTime")
+    }
+    
     // este es el mismo getGUID del login, note que esto hace que la cajita sincronize con el servidor,
     // lo cual no se estaba haciendo por ejemplo al agregar mas items a este, al menos no se actualiazaba el local
     // este metodo se puede invocar de cualquier viewcontroller

@@ -10289,10 +10289,10 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pG-5H-Zhw" userLabel="v_login">
-                                        <rect key="frame" x="62" y="265" width="290" height="206.33333333333337"/>
+                                        <rect key="frame" x="62" y="281.66666666666669" width="290" height="173"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="lPI-ah-bAK">
-                                                <rect key="frame" x="132.66666666666666" y="135.33333333333331" width="25" height="11"/>
+                                                <rect key="frame" x="132.66666666666666" y="78" width="25" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="Lsc-Qe-R73"/>
                                                 </constraints>
@@ -10307,7 +10307,7 @@ EMKhTGlzdG8hA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tR6-Rf-LNH" userLabel="b_accept">
-                                                <rect key="frame" x="0.0" y="136.33333333333331" width="290" height="70"/>
+                                                <rect key="frame" x="0.0" y="103" width="290" height="70"/>
                                                 <color key="backgroundColor" name="pak_green"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="j0o-Pt-cbY"/>
@@ -10322,12 +10322,10 @@ EMKhTGlzdG8hA
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="6da-vf-pRy">
-                                                <rect key="frame" x="132.66666666666666" y="136.33333333333331" width="25" height="11"/>
+                                                <rect key="frame" x="107.66666666666666" y="103" width="75" height="35"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adt-s5-v0f">
-                                                <rect key="frame" x="16" y="62" width="258" height="57.333333333333343"/>
-                                                <string key="text">¡Tu compra ha sido procesada!
-Recuerda que solo tienes 10 minutos para anular tu compra.</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adt-s5-v0f">
+                                                <rect key="frame" x="16" y="62" width="258" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                 <color key="textColor" name="pak_gray"/>
                                                 <nil key="highlightedColor"/>
@@ -10378,6 +10376,9 @@ Recuerda que solo tienes 10 minutos para anular tu compra.</string>
                             <constraint firstItem="ipB-of-WaT" firstAttribute="top" secondItem="Jf5-78-LCv" secondAttribute="top" id="ghb-eJ-4LX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblMessage" destination="adt-s5-v0f" id="znE-Ef-Dg0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eca-OF-2bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

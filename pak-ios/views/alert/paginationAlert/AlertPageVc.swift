@@ -72,7 +72,6 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     }
 
     func goBackPage() {
-        print("AMD <- ")
         print(self.pageNow)
         self.pageNow = self.pageNow - 1
 
@@ -85,7 +84,6 @@ class AlertPageVc : UIPageViewController,  UIPageViewControllerDelegate, NVActiv
     }
 
     func goNextPage(forwardTo position: Int) {
-        print("AMD -> \(position)")
         switch position {
         case 1:
             if (validateFirstController() == true){

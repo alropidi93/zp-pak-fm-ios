@@ -18,6 +18,7 @@ class DataDeliveryDC  : NSObject {
     private var _minAmount : Double = 0.0
     private var _timeMaxAnulation : Int64 = 0
     
+    
     // Utility extras
     override init() {
     }

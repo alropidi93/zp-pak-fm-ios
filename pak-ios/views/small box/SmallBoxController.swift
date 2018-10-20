@@ -331,7 +331,7 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
     
     
     func getDataDelivery() {
-      
+        print("AMD: getDataDelivery")
         let params: Parameters = ["GUID" : PreferencesMethods.getSmallBoxFromOptions()!.GUID ]
         print(PreferencesMethods.getSmallBoxFromOptions()!.GUID)
         
@@ -349,6 +349,10 @@ class SmallBoxController : UIViewController, UICollectionViewDelegate, UICollect
                 if let jsonResponse = response.result.value {
                     let jsonResult = JSON(jsonResponse)
                     if jsonResult["Data"] == true {
+                        //amd - Este es un fix para el tiempo maximo de anulacion, desconozco la manera en que trabajan su metodo de gaurdar, ya que existe un 'TiempoMaximoAnulacion' en el objeto pero guardan la data de 'Orden' y no quiero que exista conflicto en algun otro lado.
+                        PreferencesMethods.setMaxTime(jsonResult["TiempoMaximoAnulacion"].intValue)
+                        // amd ...
+                        
                         self.dataDelivery  = DataDeliveryDC(jsonResult)
                         self.customAlertPayment()
                     }else{

@@ -35,9 +35,6 @@ class PakAlertSummary : UIViewController, PageObservation , UICollectionViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("AMD: \(String(describing: type(of: self)))")
-        print("AMD: \(UIScreen.main.bounds.width)")
-        print("AMD: \(self.view.frame.width)")
         setElements()
     }
     

@@ -82,12 +82,6 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
     }
     
     func updateHeight(){
-        print("AMDX: ====================")
-        print("AMDX screenHeight: \(UIScreen.main.bounds.height)")
-        print("AMDX viewHeight: \(self.view.height)")
-        print("AMDX scrollViewHeight: \(scrollView.height)")
-        print("AMDX bottomHeight: \(bottomHeight)")
-        print("AMDX count: \(self.items.count)")
         let size = self.items.count
         
         //120 es la la altura de la descripccion del pedido
@@ -96,13 +90,9 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
         let minHeight =  scrollView.height - 120 - 112  - CGFloat(bottomHeight)
         let totalHeight = CGFloat(size * 105)
         
-        print("AMDX minHeight: \(minHeight)")
-        print("AMDX totalHeight: \(totalHeight)")
         if minHeight < totalHeight {
-            print("Enough height")
             cvHeight.constant = totalHeight
         }else{
-            print("Not enough height")
             cvHeight.constant = minHeight
         }
         self.view.layoutIfNeeded()
@@ -211,12 +201,6 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                         
                         print("AMD Log Cancel: Just chilling...")
                         if self.type == 1 {
-                            print("AMD Log Cancel Order Created: \(self.order?.dateRecive)")
-                            print("AMD Log Cancel Date Limit: \(self.order?.dateHourMaxAnulation)")
-                            let testing = UtilMethods.stringToDateAmd2((self.order?.dateHourMaxAnulation)!)
-                            
-                            print("AMD Log Cancel: \(testing)")
-                            print("AMD Log Cancel: \(Date())")
                             if Date() < UtilMethods.stringToDateAmd2((self.order?.dateHourMaxAnulation)!) {
                                 print("holiwiasdasd")
                                 self.b_anular.setTitle("Anular pedido", for: .normal)

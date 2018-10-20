@@ -131,9 +131,6 @@ class StoreController : UIViewController, UICollectionViewDelegate,  UICollectio
                             for ( _ , element) in jsonResult["Categorias"] {
                                 let category  = CategoriesDC(element)
                                 self.items.append(category)
-                                
-                                
-                                print(category.idCategory)
                             }
                             self.cv_categories.reloadData()
                         }

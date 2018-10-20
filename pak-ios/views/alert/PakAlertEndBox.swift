@@ -14,8 +14,11 @@ class PakAlertEndBox: UIViewController  {
     var alertEndBoxDelegate : AlertEndBoxDelegate? = nil
 
     
+    @IBOutlet weak var lblMessage: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblMessage.text = "¡Tu compra ha sido procesada!\nRecuerda que solo tienes \(PreferencesMethods.getMaxTime()) minutos para anular tu compra."
     }
     
     override func viewWillAppear(_ animated: Bool) {

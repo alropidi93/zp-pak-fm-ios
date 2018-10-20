@@ -213,8 +213,6 @@ class DiscountsController : UIViewController, NVActivityIndicatorViewable , Aler
             height: image2.height
         )
         
-        print("AMD: \(image.frame)")
-        print("AMD: \(image2.frame)")
         image.contentMode = UIViewContentMode.scaleAspectFit
         navView.addSubview(label)
         //navView.addSubview(image)

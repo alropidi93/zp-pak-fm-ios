@@ -86,7 +86,6 @@ class PakAlertCardData : UIViewController, PageObservation{
     
     
     @objc func tapDate(_ sender: UITapGestureRecognizer) -> Void {
-        print("tapDate")
         /*let alert = UIAlertController(style: .alert, title: "Fecha")
         alert.addDatePicker(mode: .date, date: pickerDate, minimumDate: Date().tomorrow , maximumDate: nil ) { date in
             self.date = UtilMethods.intFromDate(date)
