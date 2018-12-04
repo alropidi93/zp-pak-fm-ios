@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -446,10 +446,10 @@
                                                 <exclude reference="Mxr-Op-T7t"/>
                                                 <exclude reference="u5l-G3-8Ri"/>
                                                 <exclude reference="JGh-pc-BhW"/>
+                                                <exclude reference="C3x-99-gcg"/>
                                                 <exclude reference="3tc-0I-2uW"/>
                                                 <exclude reference="Ib2-Q0-Aqf"/>
                                                 <exclude reference="VDA-vG-qEG"/>
-                                                <exclude reference="C3x-99-gcg"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=regular">
@@ -481,6 +481,8 @@
                                                 <include reference="u5l-G3-8Ri"/>
                                                 <include reference="JGh-pc-BhW"/>
                                                 <exclude reference="Nfy-uL-GW9"/>
+                                                <include reference="C3x-99-gcg"/>
+                                                <exclude reference="i6L-Yo-Dwm"/>
                                                 <include reference="3tc-0I-2uW"/>
                                                 <exclude reference="Ib2-Q0-Aqf"/>
                                                 <exclude reference="K9x-2p-rpq"/>
@@ -489,8 +491,6 @@
                                                 <exclude reference="WFi-9c-2KG"/>
                                                 <exclude reference="dNH-5b-khE"/>
                                                 <exclude reference="dTe-wz-GXe"/>
-                                                <include reference="C3x-99-gcg"/>
-                                                <exclude reference="i6L-Yo-Dwm"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -1709,13 +1709,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                         </constraints>
                                                                     </view>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Jr-vc-woV" userLabel="iv_item_photo">
-                                                                        <rect key="frame" x="8" y="33" width="119" height="110"/>
+                                                                        <rect key="frame" x="8" y="57" width="119" height="110"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="110" id="wH1-fj-yYp"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arroz costeño" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrW-6b-8Z3" userLabel="l_ltem_name">
-                                                                        <rect key="frame" x="4" y="143" width="126" height="33"/>
+                                                                        <rect key="frame" x="4" y="167" width="126" height="33"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="33" id="x0i-KI-afH"/>
                                                                         </constraints>
@@ -1724,7 +1724,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yb-sH-AWw" userLabel="b_add_item">
-                                                                        <rect key="frame" x="45.666666666666657" y="192.66666666666666" width="44" height="44"/>
+                                                                        <rect key="frame" x="45.666666666666657" y="216.66666666666666" width="44" height="43.999999999999972"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="44" id="Cni-9l-khR"/>
                                                                             <constraint firstAttribute="width" constant="44" id="FT5-5R-Fwu"/>
@@ -1732,7 +1732,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                         <state key="normal" image="dwb_pak_add_Item"/>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJU-yW-ZVz" userLabel="b_favorites">
-                                                                        <rect key="frame" x="97" y="21" width="36" height="30.333333333333329"/>
+                                                                        <rect key="frame" x="97" y="45" width="36" height="30.333333333333329"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="RJU-yW-ZVz" secondAttribute="height" multiplier="88:74" id="4Lt-3X-9Dk"/>
                                                                             <constraint firstAttribute="width" constant="36" id="UTw-uw-RbG"/>
@@ -1741,13 +1741,13 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                                         <state key="normal" image="dwb_pak_button_hearth_gray"/>
                                                                     </button>
                                                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_list_end" translatesAutoresizingMaskIntoConstraints="NO" id="P5S-CV-Fsd">
-                                                                        <rect key="frame" x="123" y="22" width="12" height="11"/>
+                                                                        <rect key="frame" x="97" y="22" width="38" height="35"/>
                                                                     </imageView>
                                                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_list_start" translatesAutoresizingMaskIntoConstraints="NO" id="AZV-Zq-Nui">
-                                                                        <rect key="frame" x="0.0" y="22" width="12" height="11"/>
+                                                                        <rect key="frame" x="0.0" y="22" width="38" height="35"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 2.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3I-Sp-vvM" userLabel="l_price_unity">
-                                                                        <rect key="frame" x="4" y="176" width="126" height="16.666666666666657"/>
+                                                                        <rect key="frame" x="4" y="200" width="126" height="16.666666666666657"/>
                                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1819,7 +1819,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_list_end" translatesAutoresizingMaskIntoConstraints="NO" id="HTc-ES-w6G">
-                                                    <rect key="frame" x="402" y="23" width="12" height="11"/>
+                                                    <rect key="frame" x="376" y="23" width="38" height="35"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -2544,7 +2544,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="Ett-yR-4iL">
-                                                <rect key="frame" x="132.66666666666666" y="97.333333333333371" width="25" height="11"/>
+                                                <rect key="frame" x="107.66666666666666" y="97.333333333333371" width="75" height="35"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Oops!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9le-XR-1Td">
                                                 <rect key="frame" x="0.0" y="16" width="290" height="30"/>
@@ -5064,7 +5064,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="CF3-WD-bqw">
-                                                <rect key="frame" x="132.66666666666666" y="426.99999999999994" width="25" height="11"/>
+                                                <rect key="frame" x="107.66666666666666" y="426.99999999999994" width="75" height="35"/>
                                             </imageView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEa-EQ-OJn">
                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="427"/>
@@ -5161,7 +5161,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="hNg-2a-4hX">
-                                        <rect key="frame" x="155" y="427" width="25" height="11"/>
+                                        <rect key="frame" x="155" y="427" width="25" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="gbZ-tB-6If"/>
                                         </constraints>
@@ -5578,7 +5578,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <rect key="frame" x="0.0" y="0.0" width="335" height="427"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="El comprobante llegará con tu caja de productos al entregarte el pedido." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6xx-kb-Y1Y" userLabel="tf_announcment_bol">
-                                        <rect key="frame" x="34" y="237.33333333333337" width="267" height="120"/>
+                                        <rect key="frame" x="34" y="260.33333333333331" width="267" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="ZFK-n1-mhw"/>
@@ -5775,14 +5775,14 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_gray_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="A4g-Le-jdX" userLabel="dwb_pak_button_detail_gray_arrow_down_facture">
-                                        <rect key="frame" x="240.66666666666666" y="131.33333333333334" width="24.999999999999972" height="11"/>
+                                        <rect key="frame" x="240.66666666666666" y="131.33333333333334" width="24.999999999999972" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="r8Q-jW-k1z"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_gray_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="oaw-rg-Qq2" userLabel="dwb_pak_button_detail_gray_arrow_down_boleta">
-                                        <rect key="frame" x="77.333333333333329" y="131.33333333333334" width="25" height="11"/>
+                                        <rect key="frame" x="77.333333333333329" y="131.33333333333334" width="25" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="wbY-g8-Ldv"/>
@@ -6330,7 +6330,7 @@ c3ZfaW5wdXRfcmVnaXN0ZXIQA
                                 <rect key="frame" x="16" y="76" width="343" height="30"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="3hk-hZ-GZU">
-                                        <rect key="frame" x="159" y="0.0" width="25" height="11"/>
+                                        <rect key="frame" x="159" y="0.0" width="25" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="W8b-HX-j44"/>
                                         </constraints>
@@ -6739,7 +6739,7 @@ EMKhTGlzdG8hA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="aBp-D8-7om">
-                                                <rect key="frame" x="132.66666666666666" y="135.33333333333337" width="25" height="11"/>
+                                                <rect key="frame" x="107.66666666666666" y="135.33333333333337" width="75" height="35"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -8866,7 +8866,7 @@ EMKhTGlzdG8hA
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="0dD-Ey-R2w">
-                                                        <rect key="frame" x="132.66666666666666" y="70.333333333333314" width="25" height="11"/>
+                                                        <rect key="frame" x="132.66666666666666" y="70.333333333333314" width="25" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="ouT-rw-sIf"/>
                                                         </constraints>
@@ -8955,10 +8955,10 @@ EMKhTGlzdG8hA
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Enr-Z1-ikp" userLabel="v_login">
-                                        <rect key="frame" x="62" y="265" width="290" height="206.33333333333337"/>
+                                        <rect key="frame" x="62" y="253" width="290" height="230.33333333333337"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="hXU-yU-h1M">
-                                                <rect key="frame" x="132.66666666666666" y="135.33333333333331" width="25" height="11"/>
+                                                <rect key="frame" x="132.66666666666666" y="135.33333333333331" width="25" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="v1E-ji-D2U"/>
                                                 </constraints>
@@ -8973,7 +8973,7 @@ EMKhTGlzdG8hA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opA-sz-8e7" userLabel="b_accept">
-                                                <rect key="frame" x="0.0" y="136.33333333333331" width="290" height="70"/>
+                                                <rect key="frame" x="0.0" y="160.33333333333331" width="290" height="70"/>
                                                 <color key="backgroundColor" name="pak_green"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="c1P-zi-0vc"/>
@@ -8987,7 +8987,7 @@ EMKhTGlzdG8hA
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-Mq-r1K">
-                                                <rect key="frame" x="132.66666666666666" y="136.33333333333331" width="25" height="11"/>
+                                                <rect key="frame" x="107.66666666666666" y="160.33333333333331" width="75" height="35"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hemos restablecido tu contraseña con éxito y la hemos enviado a tu correo electrónico" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKu-zC-2pz">
                                                 <rect key="frame" x="16" y="62" width="258" height="57.333333333333343"/>
@@ -9084,7 +9084,7 @@ EMKhTGlzdG8hA
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="zVg-wn-GrF">
-                                                <rect key="frame" x="132.66666666666666" y="210" width="25" height="11"/>
+                                                <rect key="frame" x="107.66666666666666" y="210" width="75" height="35"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbX-OM-Rqu">
                                                 <rect key="frame" x="0.0" y="30" width="290" height="30"/>
@@ -9250,10 +9250,10 @@ EMKhSGFzIHJlY2liaWRvIHR1IGNhaml0YSE
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtq-Ir-Vm0" userLabel="v_login">
-                                        <rect key="frame" x="62" y="265" width="290" height="206.33333333333337"/>
+                                        <rect key="frame" x="62" y="253" width="290" height="230.33333333333337"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="yez-su-zz8">
-                                                <rect key="frame" x="132.66666666666666" y="135.33333333333331" width="25" height="11"/>
+                                                <rect key="frame" x="132.66666666666666" y="135.33333333333331" width="25" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="xY0-n4-ZYi"/>
                                                 </constraints>
@@ -9268,7 +9268,7 @@ EMKhTGlzdG8hA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTq-xI-Vrd" userLabel="b_accept">
-                                                <rect key="frame" x="0.0" y="136.33333333333331" width="290" height="70"/>
+                                                <rect key="frame" x="0.0" y="160.33333333333331" width="290" height="70"/>
                                                 <color key="backgroundColor" name="pak_green"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="Tmk-fJ-tmz"/>
@@ -9283,7 +9283,7 @@ EMKhTGlzdG8hA
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="UCN-yy-qAf">
-                                                <rect key="frame" x="132.66666666666666" y="136.33333333333331" width="25" height="11"/>
+                                                <rect key="frame" x="107.66666666666666" y="160.33333333333331" width="75" height="35"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hemos restablecido tu contraseña con éxito y la hemos enviado a tu correo electrónico" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7r6-ev-rvl">
                                                 <rect key="frame" x="16" y="62" width="258" height="57.333333333333343"/>
@@ -10443,7 +10443,7 @@ EMKhTGlzdG8hA
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="cCt-En-Gnk">
-                                                        <rect key="frame" x="132.66666666666666" y="51.333333333333371" width="25" height="11"/>
+                                                        <rect key="frame" x="107.66666666666666" y="51.333333333333371" width="75" height="35"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Deseas salir de la ventana de compra?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3U-5l-6cf">
                                                         <rect key="frame" x="16" y="15.999999999999998" width="258" height="19.333333333333329"/>
@@ -10570,7 +10570,7 @@ EMKhTGlzdG8hA
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dwb_pak_button_detail_white_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="JJI-5C-TAs">
-                                                        <rect key="frame" x="132.66666666666666" y="70.333333333333314" width="25" height="11"/>
+                                                        <rect key="frame" x="107.66666666666666" y="70.333333333333314" width="75" height="35"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Deseas salir del panel de registro? Se perderán los datos ingresados." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pph-6t-DRA">
                                                         <rect key="frame" x="16" y="16.000000000000004" width="258" height="38.333333333333343"/>

@@ -44,7 +44,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
 	<key>FacebookAppID</key>
 	<string>156190121779800</string>
 	<key>FacebookDisplayName</key>
@@ -73,6 +73,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSContactsUsageDescription</key>
+	<string>Esta aplicación no requiere acceso a contactos para funcionar correctamente.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Esta aplicación no requiere acceso a la galería de fotos para funcionar correctamente.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MyriadPro-Bold.otf</string>
@@ -89,6 +93,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

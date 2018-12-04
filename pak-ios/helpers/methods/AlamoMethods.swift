@@ -20,7 +20,7 @@ class AlamoMethods {
     }
     
     static func defaultError(_ uiViewController: UIViewController) {
-        self.templateError(title: "¡Oops!", message: "Ocurrió un error al realizar la operación. Si el problema persiste, contáctese con ventas@pak.pe", uiViewController: uiViewController)
+        self.templateError(title: "¡Oops!", message: "Ocurrió un error al realizar la operación. Si el problema persiste, contáctese con atencionalcliente@pak.pe", uiViewController: uiViewController)
     }
     
     static func customError(message: String, uiViewController: UIViewController) {

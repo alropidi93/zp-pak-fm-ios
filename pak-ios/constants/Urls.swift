@@ -9,8 +9,8 @@
 import Foundation
 struct URLs {
     private struct Domains {
-        static let Dev = "http://pakservice.zp.com.pe/"
-        static let Release = "http://pakservice.zp.com.pe/"
+        //static let Dev = "http://pakservice.zp.com.pe/"
+        static let Release = "https://pak.pe/service/"
     }
     
     private  struct Routes {

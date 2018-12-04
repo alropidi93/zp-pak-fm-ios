@@ -208,6 +208,7 @@ class DetailOrderController : UIViewController ,  NVActivityIndicatorViewable , 
                                 self.b_anular.backgroundColor = #colorLiteral(red: 1, green: 0.3725490196, blue: 0.3725490196, alpha: 1)
                             }else {
                                 self.b_anular.isUserInteractionEnabled = false
+                                self.b_anular.setTitle("", for: .normal)
                             }
                         }
                         self.updateHeight()
