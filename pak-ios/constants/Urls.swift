@@ -20,9 +20,14 @@ struct URLs {
     private  static let Domain = Domains.Release
     private  static let Route = Routes.Api
     private  static let BaseURL = Domain + Route
-    static let MultimediaAnuncioURL = "http://pakadmin.zp.com.pe/Images/Anuncios/"
-    static let MultimediaCategoriasURL = "http://pakadmin.zp.com.pe/Images/Categorias/"
-    static let MultimediaProductosURL = "http://pakadmin.zp.com.pe/Images/Products/"
+    
+    //static let MultimediaAnuncioURL = "http://pakadmin.zp.com.pe/Images/Anuncios/"
+    //static let MultimediaCategoriasURL = "http://pakadmin.zp.com.pe/Images/Categorias/"
+    //static let MultimediaProductosURL = "http://pakadmin.zp.com.pe/Images/Products/"
+    
+    static let MultimediaAnuncioURL = "https://pak.pe/admin/Images/Anuncios/"
+    static let MultimediaCategoriasURL = "https://pak.pe/admin/Images/Categorias/"
+    static let MultimediaProductosURL = "https://pak.pe/admin/Images/Products/"
 
     static var refreshToken: String { //POST
         return BaseURL + "client/refreshtoken"

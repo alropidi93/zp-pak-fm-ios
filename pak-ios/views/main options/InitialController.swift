@@ -84,6 +84,10 @@ class InitialController : UIViewController , UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if self.allItems.count == 0 {
+            return
+        }
         let cell = collectionView.cellForItem(at: indexPath) as! CVCAdvertisement
         if self.allItems.item(at: indexPath.row)?.type == "V" { // Videos
             let videoURL = URL(string: (allItems.item(at: indexPath.row)?.archive)!)
