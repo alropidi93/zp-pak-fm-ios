@@ -36,7 +36,7 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
     //amd
     private var colGenre: Int = 0
     private var rowGenre: Int = 0
-    private var genre = ""
+    private var genre = "X"
     private var pickerDate = Date.init()
     //...
 
@@ -52,8 +52,10 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
         //amd
         if ConstantsModels.static_user?.genere == "M" {
             genre = "M"
-        }else{
+        }else if ConstantsModels.static_user?.genere == "F" {
             genre = "F"
+        }else if ConstantsModels.static_user?.genere == "X" {
+            genre = "X"
         }
         //aqui trate de setear la fecha default del picker con la de nacimiento pero me dice es nulo
         self.pickerDate = UtilMethods.stringToDateAmd((ConstantsModels.static_user?.birthDate)!)
@@ -94,8 +96,14 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
         tf_name.text = ConstantsModels.static_user?.names
         tf_lastname.text = ConstantsModels.static_user?.lastNames
         tf_birthday.text = ConstantsModels.static_user?.birthDate
-        tf_genre.text = ConstantsModels.static_user?.genere
-        if self.tf_genre.text! == "M"  { self.tf_genre.text = "Masculino" } else { self.tf_genre.text = "Femenino" }
+        //tf_genre.text = ConstantsModels.static_user?.genere
+        if ConstantsModels.static_user?.genere == "M"  {
+            self.tf_genre.text = "Masculino"
+        }else if ConstantsModels.static_user?.genere == "F"  {
+            self.tf_genre.text = "Femenino"
+        }else if ConstantsModels.static_user?.genere == "X"  {
+            self.tf_genre.text = Constants.X
+        }
         tf_phone.text = ConstantsModels.static_user?.telephone
         tf_address.text = ConstantsModels.static_user?.address
         tf_district.text = ConstantsModels.static_user?.district?.name
@@ -166,17 +174,20 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
     
     
     @objc func tapGenre(_ sender: UITapGestureRecognizer) -> Void {
-        let pickerData = [Constants.MALE,Constants.FEMALE]
+        let pickerData = [Constants.X, Constants.MALE, Constants.FEMALE]
         let alert = UIAlertController(style: .alert, title: "Genero")
         let pickerViewValues: [[String]] = [pickerData]
         //amd
         //creo el colGenre fue por gusto al final, y lo vuelvo a poner en FB solo por temor .-.
         if genre == "M" {
             colGenre = 0
-            rowGenre = 0
-        }else{
-            colGenre = 0
             rowGenre = 1
+        }else if genre == "F"{
+            colGenre = 0
+            rowGenre = 2
+        }else if genre == "X"{
+            colGenre = 0
+            rowGenre = 0
         }
         //...
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: colGenre, row: rowGenre)
@@ -191,10 +202,12 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
                     print("----")
                     print(index.column)
                     print(index.row)
-                    if index.row == 0 {
+                    if index.row == 1 {
                         self.genre = "M"
-                    }else{
+                    }else if index.row == 2{
                         self.genre = "F"
+                    }else if index.row == 0{
+                        self.genre = "X"
                     }
                     //...
                     
@@ -306,13 +319,13 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
             return
         }*/
         
-        if (self.tf_genre.text?.isEmpty)! {
+        /*if (self.tf_genre.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El sexo no puede estar vacía", uiViewController: self)
             return
         } else if self.tf_genre.text?.count > 50 {
             AlarmMethods.errorWarning(message: "El sexo  no puede tener una extensión mayor a 50 caracteres", uiViewController: self)
             return
-        }
+        }*/
         if (self.tf_birthday.text?.isEmpty)! {
             AlarmMethods.errorWarning(message: "El cumpleaños no puede estar vacío", uiViewController: self)
             return
@@ -325,8 +338,8 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
     
     func register(_ GUID: String){
         PakLoader.show() 
-        var genre : String = "-"
-        if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
+        //var genre : String = "-"
+        //if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
         if posDistrict != -1 {
             self.idDistric =  self.listDistrict[self.posDistrict].idDistrict
         }
@@ -363,9 +376,9 @@ class EditFbGoController : UIViewController,NVActivityIndicatorViewable,UITextFi
                         ConstantsModels.static_user?.address = self.tf_address.text!
                         ConstantsModels.static_user?.district = self.listDistrict[self.posDistrict]
                         ConstantsModels.static_user?.telephone = self.tf_phone.text!
-                        var genre : String = "-"
-                        if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
-                        ConstantsModels.static_user?.genere = genre
+                        //var genre : String = "-"
+                        //if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
+                        ConstantsModels.static_user?.genere = self.genre
                         ConstantsModels.static_user?.birthDate = self.tf_birthday.text!
                         
                         self.stopAnimating()

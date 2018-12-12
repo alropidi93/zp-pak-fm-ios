@@ -41,7 +41,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     //amd
     private var pickerDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
     private var rowGenre: Int = 0
-    private var genre = "M"
+    private var genre = "X"
     //...
     
     
@@ -142,15 +142,17 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     
     
     @objc func tapGenre(_ sender: UITapGestureRecognizer) -> Void {
-        let pickerData = [Constants.MALE,Constants.FEMALE]
+        let pickerData = [Constants.X, Constants.MALE, Constants.FEMALE]
         let alert = UIAlertController(style: .alert, title: "Genero")
         let pickerViewValues: [[String]] = [pickerData]
         //amd
         if genre == "M" {
-            rowGenre = 0
-            self.tf_genre.text = "Masculino"
-        }else{
             rowGenre = 1
+        }else if genre == "F"{
+            rowGenre = 2
+        }else if genre == "X"{
+            rowGenre = 0
+            self.tf_genre.text = Constants.X
         }
         //...
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: rowGenre)
@@ -159,10 +161,12 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
                 UIView.animate(withDuration: 1) {
                     //amd
                     self.rowGenre = index.row
-                    if index.row == 0 {
+                    if index.row == 1 {
                         self.genre = "M"
-                    }else{
+                    }else if index.row == 2 {
                         self.genre = "F"
+                    }else if index.row == 0{
+                        self.genre = "X"
                     }
                     //...
                     self.tf_genre.text = pickerViewValues.item(at: index.column)?.item(at: index.row)
@@ -286,13 +290,13 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             AlarmMethods.ReadyCustom(message: "La contraseña debe tener 6 caracteres como minimo.", title_message: "¡Oops!", uiViewController: self)
             return
         }
-        if (self.tf_genre.text?.isEmpty)! {
+        /*if (self.tf_genre.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_genre.text?.count > 50 {
             AlarmMethods.ReadyCustom(message: "El sexo  no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
-        }
+        }*/
         
         if (self.tf_birthday.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "El cumpleaños no puede estar vacío", title_message: "¡Oops!", uiViewController: self)
@@ -305,9 +309,6 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             AlarmMethods.ReadyCustom(message: "Las contraseñas no coinciden.", title_message: "¡Oops!", uiViewController: self)
             return
         }
-        
-        
-        
         self.register((PreferencesMethods.getSmallBoxFromOptions()!.GUID))
         
     }
@@ -321,8 +322,8 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
     
     func register(_ GUID: String){
         PakLoader.show()
-        var genre : String = "-"
-        if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
+        //var genre : String = "-"
+        //if self.tf_genre.text! == "Masculino"  { genre = "M" } else { genre = "F" }
         
         let params: Parameters = [
             "Nombres": self.tf_name.text!,

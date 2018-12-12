@@ -40,6 +40,7 @@ class Constants {
 
     
     //#MARK : Genre
+    static let X : String = "No indica"
     static let MALE : String = "Masculino"
     static let FEMALE : String = "Femenino"
     
