@@ -217,7 +217,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         
         
         if (self.tf_name.text?.isEmpty)! {
-            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El nombre no puede estar vacío", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_name.text?.count > 50 {
             AlarmMethods.ReadyCustom(message: "El nombre no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
@@ -225,7 +225,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
         
         if (self.tf_lastname.text?.isEmpty)! {
-            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El apellido no puede estar vacío", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_lastname.text?.count > 50 {
             AlarmMethods.ReadyCustom(message: "El apellido no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
@@ -233,7 +233,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
         
         if (self.tf_email.text?.isEmpty)! {
-            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El email no puede estar vacío", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_email.text?.count > 50 {
             AlarmMethods.ReadyCustom(message: "El email no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
@@ -244,7 +244,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
         
         if (self.tf_address.text?.isEmpty)! {
-            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "La dirección no puede estar vacío", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_address.text?.count > 250 {
             AlarmMethods.ReadyCustom(message: "La dirección no puede tener una extensión mayor a 250 caracteres", title_message: "¡Oops!", uiViewController: self)
@@ -252,7 +252,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
         
         if (self.tf_district.text?.isEmpty)! {
-            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "El distrito no puede estar vacío", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_district.text?.count > 50 {
             AlarmMethods.ReadyCustom(message: "El distrito no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
@@ -260,6 +260,10 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         }
         
         if tf_phone.text?.count < 9 {
+            AlarmMethods.errorWarning(message: "El teléfono debe contener 9 dígitos", uiViewController: self)
+            return
+        }
+        /*if tf_phone.text?.count < 9 {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_phone.text?.count > 40 {
@@ -268,7 +272,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
         } else if self.tf_phone.text?.count < 9 {
             AlarmMethods.ReadyCustom(message: "El teléfono no puede tener una extensión menor a 9 caracteres", title_message: "¡Oops!", uiViewController: self)
             return
-        }
+        }*/
         
         if (self.tf_password.text?.isEmpty)! {
             AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
@@ -281,7 +285,7 @@ class SignUpController : UIViewController, NVActivityIndicatorViewable ,AlertReg
             return
         }
         if (self.tf_repassword.text?.isEmpty)! {
-            AlarmMethods.ReadyCustom(message: "Debes completar todos los campos.", title_message: "¡Oops!", uiViewController: self)
+            AlarmMethods.ReadyCustom(message: "Debes ingresar una contraseña.", title_message: "¡Oops!", uiViewController: self)
             return
         } else if self.tf_repassword.text?.count > 50 {
             AlarmMethods.ReadyCustom(message: "La contraseña no puede tener una extensión mayor a 50 caracteres", title_message: "¡Oops!", uiViewController: self)
